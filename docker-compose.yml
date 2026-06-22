@@ -1,0 +1,39 @@
+services:
+  rabbitmq:
+    image: rabbitmq:4-management
+    restart: always
+    container_name: feedsystem-rabbitmq
+    hostname: feedsystem-rabbitmq
+    ports:
+      - "5672:5672"      # Go 项目连接 RabbitMQ 用这个端口
+      - "15672:15672"    # 浏览器管理后台用这个端口
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-admin}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS:-password123}
+      RABBITMQ_DEFAULT_VHOST: /
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: [ "CMD-SHELL", "rabbitmq-diagnostics -q ping" ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    restart: always
+    container_name: feedsystem-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  rabbitmq_data:
+  redis_data:
