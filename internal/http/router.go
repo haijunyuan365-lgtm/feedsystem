@@ -4,6 +4,7 @@ import (
 	"feedsystem/internal/account"
 	"feedsystem/internal/feed"
 	jwtmiddleware "feedsystem/internal/middleware/jwt"
+	"feedsystem/internal/middleware/rabbitmq"
 	"feedsystem/internal/middleware/ratelimit"
 	rediscache "feedsystem/internal/middleware/redis"
 	"feedsystem/internal/social"
@@ -16,7 +17,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func SetupRouter(db *gorm.DB, cache *rediscache.Client) *gin.Engine {
+func SetupRouter(db *gorm.DB, cache *rediscache.Client, rmq *rabbitmq.RabbitMQ) *gin.Engine {
 	r := gin.Default()
 
 	if err := r.SetTrustedProxies(nil); err != nil {
@@ -85,7 +86,13 @@ func SetupRouter(db *gorm.DB, cache *rediscache.Client) *gin.Engine {
 
 	//like
 	likeRepository := video.NewLikeRepository(db)
-	likeService := video.NewLikeService(likeRepository, videoRepository, cache)
+	likeMQ, err := rabbitmq.NewLikeMQ(rmq)
+	if err != nil {
+		log.Printf("LikeMQ init failed (mq disabled): %v", err)
+		//当 `rmq == nil` 时，`NewLikeMQ` 返回错误，路由仍继续创建。这就是 API 的降级路径
+		likeMQ = nil
+	}
+	likeService := video.NewLikeService(likeRepository, videoRepository, cache, likeMQ)
 	likeHandler := video.NewLikeHandler(likeService)
 
 	likeGroup := r.Group("/like")

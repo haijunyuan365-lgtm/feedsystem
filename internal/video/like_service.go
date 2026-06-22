@@ -3,6 +3,7 @@ package video
 import (
 	"context"
 	"errors"
+	"feedsystem/internal/middleware/rabbitmq"
 	rediscache "feedsystem/internal/middleware/redis"
 	"log"
 	"time"
@@ -15,11 +16,23 @@ type LikeService struct {
 	repo      *LikeRepository
 	VideoRepo *VideoRepository
 	cache     *rediscache.Client
+	likeMQ    *rabbitmq.LikeMQ
 }
 
-func NewLikeService(repo *LikeRepository, videoRepo *VideoRepository, cache *rediscache.Client) *LikeService {
-	return &LikeService{repo: repo, VideoRepo: videoRepo, cache: cache}
+func NewLikeService(
+	repo *LikeRepository,
+	videoRepo *VideoRepository,
+	cache *rediscache.Client,
+	likeMQ *rabbitmq.LikeMQ,
+) *LikeService {
+	return &LikeService{
+		repo:      repo,
+		VideoRepo: videoRepo,
+		cache:     cache,
+		likeMQ:    likeMQ,
+	}
 }
+
 func isDupKey(err error) bool {
 	var me *mysql.MySQLError
 	return errors.As(err, &me) && me.Number == 1062
@@ -83,6 +96,16 @@ func (s *LikeService) Like(ctx context.Context, like *Like) error {
 	//因为只有 MySQL 真的点赞成功后，Redis 才能写
 	s.setLikeCache(ctx, like.VideoID, like.AccountID)
 	UpdatePopularityCache(ctx, s.cache, like.VideoID, 3)
+	if s.likeMQ != nil {
+		if err := s.likeMQ.Like(ctx, like.AccountID, like.VideoID); err != nil {
+			log.Printf(
+				"publish like event failed: user_id=%d video_id=%d err=%v",
+				like.AccountID,
+				like.VideoID,
+				err,
+			)
+		}
+	}
 	return nil
 }
 

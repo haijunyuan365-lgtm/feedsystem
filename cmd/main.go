@@ -5,6 +5,7 @@ import (
 	"feedsystem/internal/config"
 	"feedsystem/internal/db"
 	apphttp "feedsystem/internal/http"
+	"feedsystem/internal/middleware/rabbitmq"
 	rediscache "feedsystem/internal/middleware/redis"
 	"log"
 	"os"
@@ -66,7 +67,16 @@ func main() {
 		}
 	}
 
-	r := apphttp.SetupRouter(sqlDB, cache)
+	rmq, err := rabbitmq.NewRabbitMQ(&cfg.RabbitMQ)
+	if err != nil {
+		log.Printf("RabbitMQ unavailable (mq disabled): %v", err)
+		rmq = nil
+	} else {
+		defer rmq.Close()
+		log.Printf("RabbitMQ connected")
+	}
+
+	r := apphttp.SetupRouter(sqlDB, cache, rmq)
 	log.Printf("Server is running on port %d", cfg.Server.Port)
 	if err := r.Run(":" + strconv.Itoa(cfg.Server.Port)); err != nil {
 		log.Fatalf("Failed to run server: %v", err)
