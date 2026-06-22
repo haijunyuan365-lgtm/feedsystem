@@ -1,0 +1,45 @@
+# Go build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.coverprofile
+coverage.out
+cover.out
+coverage.html
+__debug_bin*
+/bin/
+/build/
+/dist/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Local config overrides
+configs/*.local.yaml
+configs/*.local.yml
+
+# IDE and editor files
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+
+# Project runtime data
+.run/uploads/
+.codex_tmp/
+/tmp/
+/temp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local archives
+/*.zip
