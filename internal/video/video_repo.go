@@ -59,3 +59,9 @@ func (vr *VideoRepository) IsExist(ctx context.Context, id uint) (bool, error) {
 	}
 	return true, nil
 }
+
+func (vr *VideoRepository) ChangePopularity(ctx context.Context, id uint, change int64) error {
+	return vr.db.WithContext(ctx).Model(&Video{}).
+		Where("id = ?", id).
+		UpdateColumn("popularity", gorm.Expr("GREATEST(popularity + ?, 0)", change)).Error
+}

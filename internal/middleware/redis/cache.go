@@ -33,3 +33,14 @@ func (c *Client) MGet(ctx context.Context, keys ...string) ([]interface{}, error
 	}
 	return c.rdb.MGet(ctx, keys...).Result()
 }
+func (c *Client) DelByPattern(ctx context.Context, pattern string) error {
+	if c == nil || c.rdb == nil {
+		return nil
+	}
+	//扫描redis里所有匹配pattern的数据，然后将他们删除
+	iter := c.rdb.Scan(ctx, 0, pattern, 0).Iterator()
+	for iter.Next(ctx) {
+		_ = c.rdb.Del(ctx, iter.Val())
+	}
+	return iter.Err()
+}

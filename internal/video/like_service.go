@@ -157,6 +157,16 @@ func (s *LikeService) Unlike(ctx context.Context, like *Like) error {
 	//只缓存点赞成功状态， 取消点赞后，这个状态已经不成立了，所以直接删除 key
 	s.deleteLikeCache(ctx, like.VideoID, like.AccountID)
 	UpdatePopularityCache(ctx, s.cache, like.VideoID, -3)
+	if s.likeMQ != nil {
+		if err := s.likeMQ.Unlike(ctx, like.AccountID, like.VideoID); err != nil {
+			log.Printf(
+				"publish unlike event failed: user_id=%d video_id=%d err=%v",
+				like.AccountID,
+				like.VideoID,
+				err,
+			)
+		}
+	}
 	return nil
 }
 

@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"feedsystem/internal/apierror"
+	"feedsystem/internal/middleware/rabbitmq"
 	rediscache "feedsystem/internal/middleware/redis"
 	"strings"
 
@@ -14,10 +15,11 @@ type CommentService struct {
 	repo            *CommentRepository
 	VideoRepository *VideoRepository
 	cache           *rediscache.Client
+	commentMQ       *rabbitmq.CommentMQ
 }
 
-func NewCommentService(repo *CommentRepository, videoRepo *VideoRepository, cache *rediscache.Client) *CommentService {
-	return &CommentService{repo: repo, VideoRepository: videoRepo, cache: cache}
+func NewCommentService(repo *CommentRepository, videoRepo *VideoRepository, cache *rediscache.Client, commentMQ *rabbitmq.CommentMQ) *CommentService {
+	return &CommentService{repo: repo, VideoRepository: videoRepo, cache: cache, commentMQ: commentMQ}
 }
 
 func (s *CommentService) Publish(ctx context.Context, comment *Comment) error {
@@ -42,18 +44,31 @@ func (s *CommentService) Publish(ctx context.Context, comment *Comment) error {
 		return errors.New("video not found")
 	}
 
+	if s.commentMQ != nil {
+		if err := s.commentMQ.Publish(ctx, comment.Username, comment.VideoID, comment.AuthorID, comment.Content); err == nil {
+			UpdatePopularityCache(ctx, s.cache, comment.VideoID, 1)
+			return nil
+		}
+	}
+
 	err = s.repo.db.WithContext(ctx).Transaction(func(tx *gorm.DB) error {
+		if err := tx.Select("id").First(&Video{}, comment.VideoID).Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return errors.New("video not found")
+			}
+			return err
+		}
 		if err := tx.Create(comment).Error; err != nil {
 			return err
 		}
 		return tx.Model(&Video{}).Where("id = ?", comment.VideoID).
-			UpdateColumn("popularity", gorm.Expr("popularity + 2")).Error
+			UpdateColumn("popularity", gorm.Expr("popularity + 1")).Error
 	})
 	if err != nil {
 		return err
 	}
 
-	UpdatePopularityCache(ctx, s.cache, comment.VideoID, 2)
+	UpdatePopularityCache(ctx, s.cache, comment.VideoID, 1)
 	return nil
 }
 
@@ -69,19 +84,13 @@ func (s *CommentService) Delete(ctx context.Context, commentID uint, accountID u
 		return apierror.ErrUnauthorized
 	}
 
-	err = s.repo.db.WithContext(ctx).Transaction(func(tx *gorm.DB) error {
-		if err := tx.Delete(comment).Error; err != nil {
-			return err
+	if s.commentMQ != nil {
+		if err := s.commentMQ.Delete(ctx, commentID); err == nil {
+			return nil
 		}
-		return tx.Model(&Video{}).Where("id = ?", comment.VideoID).
-			UpdateColumn("popularity", gorm.Expr("GREATEST(popularity - 2, 0)")).Error
-	})
-	if err != nil {
-		return err
 	}
 
-	UpdatePopularityCache(ctx, s.cache, comment.VideoID, -2)
-	return nil
+	return s.repo.DeleteComment(ctx, comment)
 }
 
 func (s *CommentService) GetAll(ctx context.Context, videoID uint) ([]Comment, error) {

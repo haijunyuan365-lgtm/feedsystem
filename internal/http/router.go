@@ -107,7 +107,12 @@ func SetupRouter(db *gorm.DB, cache *rediscache.Client, rmq *rabbitmq.RabbitMQ) 
 
 	//comment
 	commentRepository := video.NewCommentRepository(db)
-	commentService := video.NewCommentService(commentRepository, videoRepository, cache)
+	commentMQ, err := rabbitmq.NewCommentMQ(rmq)
+	if err != nil {
+		log.Printf("CommentMQ init failed (mq disabled): %v", err)
+		commentMQ = nil
+	}
+	commentService := video.NewCommentService(commentRepository, videoRepository, cache, commentMQ)
 	commentHandler := video.NewCommentHandler(commentService, accountService)
 
 	commentGroup := r.Group("/comment")
@@ -123,8 +128,14 @@ func SetupRouter(db *gorm.DB, cache *rediscache.Client, rmq *rabbitmq.RabbitMQ) 
 	}
 
 	//social
+	//social
 	socialRepository := social.NewSocialRepository(db)
-	socialService := social.NewSocialService(socialRepository, accountRepository)
+	socialMQ, err := rabbitmq.NewSocialMQ(rmq)
+	if err != nil {
+		log.Printf("SocialMQ init failed (mq disabled): %v", err)
+		socialMQ = nil
+	}
+	socialService := social.NewSocialService(socialRepository, accountRepository, socialMQ, cache)
 	socialHandler := social.NewSocialHandler(socialService)
 
 	socialGroup := r.Group("/social")

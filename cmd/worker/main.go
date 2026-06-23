@@ -3,20 +3,33 @@ package main
 import (
 	"context"
 	"feedsystem/internal/config"
+	"feedsystem/internal/db"
 	"feedsystem/internal/middleware/rabbitmq"
+	"feedsystem/internal/social"
+	"feedsystem/internal/video"
 	"feedsystem/internal/worker"
 	"log"
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	"github.com/joho/godotenv"
+	amqp "github.com/rabbitmq/amqp091-go"
 )
 
 const (
+	socialExchange   = "social.events"
+	socialQueue      = "social.events"
+	socialBindingKey = "social.*"
+
 	likeExchange   = "like.events"
 	likeQueue      = "like.events"
 	likeBindingKey = "like.*"
+
+	commentExchange   = "comment.events"
+	commentQueue      = "comment.events"
+	commentBindingKey = "comment.*"
 )
 
 func main() {
@@ -33,6 +46,12 @@ func main() {
 		log.Fatalf("Failed to load config: %v", err)
 	}
 
+	sqlDB, err := db.NewDB(cfg.Database)
+	if err != nil {
+		log.Fatalf("Failed to connect MySQL: %v", err)
+	}
+	defer db.CloseDB(sqlDB)
+
 	rmq, err := rabbitmq.NewRabbitMQ(&cfg.RabbitMQ)
 	if err != nil {
 		log.Fatalf("Failed to connect RabbitMQ: %v", err)
@@ -43,8 +62,14 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to open topology channel: %v", err)
 	}
+	if err := rabbitmq.DeclareTopic(topologyCh, socialExchange, socialQueue, socialBindingKey); err != nil {
+		log.Fatalf("Failed to declare social topology: %v", err)
+	}
 	if err := rabbitmq.DeclareTopic(topologyCh, likeExchange, likeQueue, likeBindingKey); err != nil {
 		log.Fatalf("Failed to declare like topology: %v", err)
+	}
+	if err := rabbitmq.DeclareTopic(topologyCh, commentExchange, commentQueue, commentBindingKey); err != nil {
+		log.Fatalf("Failed to declare comment topology: %v", err)
 	}
 	_ = topologyCh.Close()
 
@@ -57,11 +82,56 @@ func main() {
 		log.Printf("LikeWorker QoS setup failed: %v", err)
 	}
 
+	socialRepo := social.NewSocialRepository(sqlDB)
+	videoRepo := video.NewVideoRepository(sqlDB)
+	commentRepo := video.NewCommentRepository(sqlDB)
+
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 
-	log.Printf("LikeWorker started, consuming queue=%s", likeQueue)
-	if err := worker.NewLikeWorker(workerCh, likeQueue).Run(ctx); err != nil && ctx.Err() == nil {
-		log.Fatalf("LikeWorker stopped: %v", err)
+	go runWorkerWithRetry(ctx, "SocialWorker", rmq.Conn, func(ch *amqp.Channel) error {
+		return worker.NewSocialWorker(ch, socialRepo, socialQueue).Run(ctx)
+	})
+	go runWorkerWithRetry(ctx, "LikeWorker", rmq.Conn, func(ch *amqp.Channel) error {
+		return worker.NewLikeWorker(ch, likeQueue).Run(ctx)
+	})
+	go runWorkerWithRetry(ctx, "CommentWorker", rmq.Conn, func(ch *amqp.Channel) error {
+		return worker.NewCommentWorker(ch, commentRepo, videoRepo, commentQueue).Run(ctx)
+	})
+
+	<-ctx.Done()
+	log.Printf("Worker shutting down...")
+	time.Sleep(2 * time.Second)
+	log.Printf("Worker stopped")
+
+}
+func runWorkerWithRetry(ctx context.Context, name string, conn *amqp.Connection, fn func(*amqp.Channel) error) {
+	for {
+		select {
+		case <-ctx.Done():
+			return
+		default:
+		}
+
+		ch, err := conn.Channel()
+		if err != nil {
+			log.Printf("%s: 创建 Channel 失败: %v, 5秒后重试", name, err)
+			time.Sleep(5 * time.Second)
+			continue
+		}
+		if err := ch.Qos(50, 0, false); err != nil {
+			log.Printf("%s: QoS 设置失败: %v", name, err)
+		}
+
+		log.Printf("%s started, consuming", name)
+		if err := fn(ch); err != nil {
+			if ctx.Err() != nil {
+				_ = ch.Close()
+				return
+			}
+			log.Printf("%s: %v, 5秒后重连...", name, err)
+		}
+		_ = ch.Close()
+		time.Sleep(5 * time.Second)
 	}
 }
