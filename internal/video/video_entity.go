@@ -26,6 +26,14 @@ type PublishVideoRequest struct {
 	CoverURL    string `json:"cover_url"`
 }
 
+type OutboxMsg struct {
+	ID         uint      `gorm:"primaryKey"`
+	VideoID    uint      `gorm:"index"`
+	EventType  string    `gorm:"type:varchar(50)"`
+	CreateTime time.Time `gorm:"autoCreateTime"`
+	Status     string    `gorm:"type:varchar(50);index"`
+}
+
 type GetDetailRequest struct {
 	ID uint `json:"id"`
 }

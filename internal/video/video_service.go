@@ -47,36 +47,33 @@ func (vs *VideoService) Publish(ctx context.Context, video *Video) error {
 	//因为这里的发布视频不再是单表操作了，而是多表操作
 	//这里在 service 层直接打开事务。这样做的原因是：事务本质上属于业务流程
 	err := vs.repo.db.WithContext(ctx).Transaction(func(tx *gorm.DB) error {
-		//必须先 tx.Create(video)  因为 video_tags 需要 video.ID，但是 video.ID 是数据库插入后才生成的自增主键
 		if err := tx.Create(video).Error; err != nil {
+			return err
+		}
+
+		msg := OutboxMsg{
+			VideoID:    video.ID,
+			EventType:  "video_published",
+			Status:     "pending",
+			CreateTime: video.CreateTime,
+		}
+		if err := tx.Create(&msg).Error; err != nil {
 			return err
 		}
 
 		tags := ExtractTags(video.Title + " " + video.Description)
 		for _, tagName := range tags {
 			var tag Tag
-			/*先按 name = tagName 查询 tags 表
-			如果查到了，就把查到的记录放进 tag 变量
-			如果没查到，就创建一条 Tag{Name: tagName}*/
 			if err := tx.Where("name = ?", tagName).FirstOrCreate(&tag, Tag{Name: tagName}).Error; err != nil {
 				return err
 			}
-
 			if err := tx.Create(&VideoTag{VideoID: video.ID, TagID: tag.ID}).Error; err != nil {
 				return err
 			}
 		}
-
 		return nil
 	})
-	if err != nil {
-		return err
-	}
-
-	// Day 19：发布成功后，同步把视频 ID 写入全局最新流 ZSet。
-	// ZSet 只存 video_id，score 存发布时间毫秒时间戳。
-	AddToGlobalTimeline(ctx, vs.cache, video.ID, video.CreateTime)
-	return nil
+	return err
 }
 
 func (vs *VideoService) GetDetail(ctx context.Context, id uint) (*Video, error) {

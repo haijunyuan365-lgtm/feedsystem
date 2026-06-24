@@ -28,7 +28,7 @@ func (f *FeedService) ListLatest(ctx context.Context, limit int, latestBefore ti
 		return f.listLatestFromDB(ctx, limit, latestBefore, viewerAccountID)
 	}
 
-	zsetKey := f.cache.Key(video.GlobalTimelineKey)
+	zsetKey := f.cache.Key("feed:global_timeline")
 	zsetTail, err := f.cache.ZRangeWithScores(ctx, zsetKey, 0, 0)
 	if err != nil {
 		log.Printf("get global timeline zset tail failed: err=%v", err)
@@ -174,27 +174,65 @@ func (f *FeedService) ListByTag(ctx context.Context, tagName string, limit int, 
 	return ListByTagResponse{VideoList: feedVideos}, nil
 }
 
-func (f *FeedService) ListByPopularity(ctx context.Context, limit int, cursor *PopularityCursor, viewerAccountID uint) (ListByPopularityResponse, error) {
-	if cursor == nil && f.cache != nil {
-		if resp, ok, err := f.listPopularityFromRedis(ctx, limit, viewerAccountID); err != nil {
+func (f *FeedService) ListByPopularity(ctx context.Context, limit int, reqAsOf int64, offset int, viewerAccountID uint, latestPopularity int64, latestBefore time.Time, latestIDBefore uint) (ListByPopularityResponse, error) {
+	if f.cache != nil {
+		if resp, ok, err := f.listPopularityFromRedis(ctx, limit, reqAsOf, offset, viewerAccountID); err != nil {
 			return ListByPopularityResponse{}, err
 		} else if ok {
 			return resp, nil
 		}
 	}
 
+	var cursor *PopularityCursor
+	if !latestBefore.IsZero() && latestIDBefore > 0 {
+		cursor = &PopularityCursor{
+			Popularity: latestPopularity,
+			CreateTime: latestBefore,
+			ID:         latestIDBefore,
+		}
+	}
 	return f.listPopularityFromDB(ctx, limit, cursor, viewerAccountID)
 }
 
-func (f *FeedService) listPopularityFromRedis(ctx context.Context, limit int, viewerAccountID uint) (ListByPopularityResponse, bool, error) {
+func (f *FeedService) listPopularityFromRedis(ctx context.Context, limit int, reqAsOf int64, offset int, viewerAccountID uint) (ListByPopularityResponse, bool, error) {
+	asOf := time.Now().UTC().Truncate(time.Minute)
+	if reqAsOf > 0 {
+		asOf = time.Unix(reqAsOf, 0).UTC().Truncate(time.Minute)
+	}
+
+	const win = 60
+	keys := make([]string, 0, win)
+	for i := 0; i < win; i++ {
+		keys = append(keys, f.cache.Key("hot:video:1m:%s", asOf.Add(-time.Duration(i)*time.Minute).Format("200601021504")))
+	}
+
+	dest := f.cache.Key("hot:video:merge:1m:%s", asOf.Format("200601021504"))
 	cacheCtx, cancel := context.WithTimeout(ctx, 80*time.Millisecond)
-	videoIDStrs, err := f.cache.ZRevRange(cacheCtx, f.cache.Key(video.PopularZSetKey), 0, int64(limit-1))
-	cancel()
+	defer cancel()
+
+	exists, _ := f.cache.Exists(cacheCtx, dest)
+	if !exists {
+		_ = f.cache.ZUnionStore(cacheCtx, dest, keys, "SUM")
+		_ = f.cache.Expire(cacheCtx, dest, 2*time.Minute)
+	}
+
+	start := int64(offset)
+	stop := start + int64(limit) - 1
+	videoIDStrs, err := f.cache.ZRevRange(cacheCtx, dest, start, stop)
 	if err != nil {
 		log.Printf("get popularity zset failed: err=%v", err)
 		return ListByPopularityResponse{}, false, nil
 	}
 	if len(videoIDStrs) == 0 {
+		//翻页翻到底了
+		if offset > 0 {
+			return ListByPopularityResponse{
+				VideoList:  []FeedVideoItem{},
+				AsOf:       asOf.Unix(),
+				NextOffset: offset,
+				HasMore:    false,
+			}, true, nil
+		}
 		return ListByPopularityResponse{}, false, nil
 	}
 
@@ -211,18 +249,20 @@ func (f *FeedService) listPopularityFromRedis(ctx context.Context, limit int, vi
 	}
 
 	resp := ListByPopularityResponse{
-		VideoList: feedVideos,
-		HasMore:   len(videos) == limit,
+		VideoList:  feedVideos,
+		AsOf:       asOf.Unix(),
+		NextOffset: offset + len(feedVideos),
+		HasMore:    len(feedVideos) == limit,
 	}
 	if len(videos) > 0 {
 		last := videos[len(videos)-1]
-		nextPopularityBefore := last.Popularity
-		nextLatestTime := last.CreateTime.UnixMilli()
-		nextIDBefore := last.ID
+		nextPopularity := last.Popularity
+		nextBefore := last.CreateTime
+		nextID := last.ID
 
-		resp.NextPopularityBefore = &nextPopularityBefore
-		resp.NextLatestTime = &nextLatestTime
-		resp.NextIDBefore = &nextIDBefore
+		resp.NextLatestPopularity = &nextPopularity
+		resp.NextLatestBefore = &nextBefore
+		resp.NextLatestIDBefore = &nextID
 	}
 
 	return resp, true, nil
@@ -240,19 +280,21 @@ func (f *FeedService) listPopularityFromDB(ctx context.Context, limit int, curso
 	}
 
 	resp := ListByPopularityResponse{
-		VideoList: feedVideos,
-		HasMore:   len(videos) == limit,
+		VideoList:  feedVideos,
+		AsOf:       0,
+		NextOffset: 0,
+		HasMore:    len(videos) == limit,
 	}
 
 	if len(videos) > 0 {
 		last := videos[len(videos)-1]
-		nextPopularityBefore := last.Popularity
-		nextLatestTime := last.CreateTime.UnixMilli()
-		nextIDBefore := last.ID
+		nextPopularity := last.Popularity
+		nextBefore := last.CreateTime
+		nextID := last.ID
 
-		resp.NextPopularityBefore = &nextPopularityBefore
-		resp.NextLatestTime = &nextLatestTime
-		resp.NextIDBefore = &nextIDBefore
+		resp.NextLatestPopularity = &nextPopularity
+		resp.NextLatestBefore = &nextBefore
+		resp.NextLatestIDBefore = &nextID
 	}
 
 	return resp, nil
@@ -389,7 +431,7 @@ func (f *FeedService) rebuildGlobalTimeline(ctx context.Context) error {
 	cacheCtx, cancel := context.WithTimeout(ctx, 2*time.Second)
 	defer cancel()
 
-	return f.cache.ZAdd(cacheCtx, f.cache.Key(video.GlobalTimelineKey), members...)
+	return f.cache.ZAdd(cacheCtx, f.cache.Key("feed:global_timeline"), members...)
 }
 
 func parseVideoIDs(idStrs []string) []uint {

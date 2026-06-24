@@ -190,37 +190,25 @@ func (f *FeedHandler) ListByPopularity(c *gin.Context) {
 		req.Limit = 10
 	}
 
-	var cursor *PopularityCursor
-	//判断是否传了至少一个游标，如果一个都没传，说明是第一页，游标都为nil
-	if req.PopularityBefore != nil || req.LatestTime != nil || req.IDBefore != nil {
-		//如果至少传了一个，那么必须三个都一起传
-		if req.PopularityBefore == nil || req.LatestTime == nil || req.IDBefore == nil {
-			c.JSON(400, gin.H{"error": "popularity_before, latest_time and id_before must be provided together"})
-			return
-		}
+	var latestPopularity int64
+	var latestBefore time.Time
+	var latestIDBefore uint
 
-		popularityBefore := *req.PopularityBefore
-		latestTime := *req.LatestTime
-		idBefore := *req.IDBefore
+	if req.LatestPopularity < 0 {
+		c.JSON(400, gin.H{"error": "latest_popularity must be >= 0"})
+		return
+	}
 
-		if popularityBefore < 0 {
-			c.JSON(400, gin.H{"error": "invalid cursor: popularity_before must be >= 0"})
+	// Redis 热榜翻页使用 as_of + offset；DB fallback 才使用 latest_popularity + latest_before + latest_id_before。
+	anyDBCursor := !req.LatestBefore.IsZero() || req.LatestIDBefore != nil
+	if anyDBCursor {
+		if req.LatestBefore.IsZero() || req.LatestIDBefore == nil || *req.LatestIDBefore == 0 {
+			c.JSON(400, gin.H{"error": "latest_before and latest_id_before must be provided together"})
 			return
 		}
-		if latestTime <= 0 {
-			c.JSON(400, gin.H{"error": "invalid cursor: latest_time must be > 0"})
-			return
-		}
-		if idBefore == 0 {
-			c.JSON(400, gin.H{"error": "invalid cursor: id_before must be > 0"})
-			return
-		}
-
-		cursor = &PopularityCursor{
-			Popularity: popularityBefore,
-			CreateTime: time.UnixMilli(latestTime),
-			ID:         idBefore,
-		}
+		latestPopularity = req.LatestPopularity
+		latestBefore = req.LatestBefore
+		latestIDBefore = *req.LatestIDBefore
 	}
 
 	viewerAccountID, err := jwt.GetAccountID(c)
@@ -228,7 +216,16 @@ func (f *FeedHandler) ListByPopularity(c *gin.Context) {
 		viewerAccountID = 0
 	}
 
-	resp, err := f.service.ListByPopularity(c.Request.Context(), req.Limit, cursor, viewerAccountID)
+	resp, err := f.service.ListByPopularity(
+		c.Request.Context(),
+		req.Limit,
+		req.AsOf,
+		req.Offset,
+		viewerAccountID,
+		latestPopularity,
+		latestBefore,
+		latestIDBefore,
+	)
 	if err != nil {
 		c.JSON(500, gin.H{"error": err.Error()})
 		return

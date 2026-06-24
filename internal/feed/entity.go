@@ -68,23 +68,32 @@ type ListByTagResponse struct {
 	VideoList []FeedVideoItem `json:"video_list"`
 }
 
-type ListByPopularityRequest struct {
-	Limit            int    `json:"limit"`
-	PopularityBefore *int64 `json:"popularity_before,omitempty"`
-	LatestTime       *int64 `json:"latest_time,omitempty"`
-	IDBefore         *uint  `json:"id_before,omitempty"`
-}
-
 type PopularityCursor struct {
 	Popularity int64
 	CreateTime time.Time
 	ID         uint
 }
 
+// Redis 正常：用 as_of + offset 翻页
+// Redis 挂了/没数据：用 DB 三字段游标翻页
+type ListByPopularityRequest struct {
+	Limit  int   `json:"limit"`
+	AsOf   int64 `json:"as_of"`
+	Offset int   `json:"offset"`
+
+	LatestIDBefore   *uint     `json:"latest_id_before,omitempty"`
+	LatestPopularity int64     `json:"latest_popularity"`
+	LatestBefore     time.Time `json:"latest_before"`
+}
+
+// 前面四个主要给 Redis 热榜用；后面三个主要给 DB fallback 用、
 type ListByPopularityResponse struct {
-	VideoList            []FeedVideoItem `json:"video_list"`
-	NextPopularityBefore *int64          `json:"next_popularity_before,omitempty"`
-	NextLatestTime       *int64          `json:"next_latest_time,omitempty"`
-	NextIDBefore         *uint           `json:"next_id_before,omitempty"`
-	HasMore              bool            `json:"has_more"`
+	VideoList  []FeedVideoItem `json:"video_list"`
+	AsOf       int64           `json:"as_of"`
+	NextOffset int             `json:"next_offset"`
+	HasMore    bool            `json:"has_more"`
+
+	NextLatestPopularity *int64     `json:"next_latest_popularity,omitempty"`
+	NextLatestBefore     *time.Time `json:"next_latest_before,omitempty"`
+	NextLatestIDBefore   *uint      `json:"next_latest_id_before,omitempty"`
 }
