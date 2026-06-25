@@ -9,6 +9,7 @@ import (
 	rediscache "feedsystem/internal/middleware/redis"
 	"feedsystem/internal/social"
 	"feedsystem/internal/video"
+	"feedsystem/internal/worker"
 	"log"
 	"net/http"
 	"time"
@@ -60,6 +61,12 @@ func SetupRouter(db *gorm.DB, cache *rediscache.Client, rmq *rabbitmq.RabbitMQ) 
 		protectedAccountGroup.POST("/updateProfile", accountHandler.UpdateProfile)
 	}
 
+	popularityMQ, err := rabbitmq.NewPopularityMQ(rmq)
+	if err != nil {
+		log.Printf("PopularityMQ init failed (mq disabled): %v", err)
+		popularityMQ = nil
+	}
+
 	//video
 	videoRepository := video.NewVideoRepository(db)
 	videoService := video.NewVideoService(videoRepository, cache)
@@ -92,7 +99,7 @@ func SetupRouter(db *gorm.DB, cache *rediscache.Client, rmq *rabbitmq.RabbitMQ) 
 		//当 `rmq == nil` 时，`NewLikeMQ` 返回错误，路由仍继续创建。这就是 API 的降级路径
 		likeMQ = nil
 	}
-	likeService := video.NewLikeService(likeRepository, videoRepository, cache, likeMQ)
+	likeService := video.NewLikeService(likeRepository, videoRepository, cache, likeMQ, popularityMQ)
 	likeHandler := video.NewLikeHandler(likeService)
 
 	likeGroup := r.Group("/like")
@@ -112,7 +119,7 @@ func SetupRouter(db *gorm.DB, cache *rediscache.Client, rmq *rabbitmq.RabbitMQ) 
 		log.Printf("CommentMQ init failed (mq disabled): %v", err)
 		commentMQ = nil
 	}
-	commentService := video.NewCommentService(commentRepository, videoRepository, cache, commentMQ)
+	commentService := video.NewCommentService(commentRepository, videoRepository, cache, commentMQ, popularityMQ)
 	commentHandler := video.NewCommentHandler(commentService, accountService)
 
 	commentGroup := r.Group("/comment")
@@ -127,7 +134,6 @@ func SetupRouter(db *gorm.DB, cache *rediscache.Client, rmq *rabbitmq.RabbitMQ) 
 		protectedCommentGroup.POST("/delete", commentLimiter, commentHandler.DeleteComment)
 	}
 
-	//social
 	//social
 	socialRepository := social.NewSocialRepository(db)
 	socialMQ, err := rabbitmq.NewSocialMQ(rmq)
@@ -148,6 +154,16 @@ func SetupRouter(db *gorm.DB, cache *rediscache.Client, rmq *rabbitmq.RabbitMQ) 
 		protectedSocialGroup.POST("/getAllVloggers", socialHandler.GetAllVloggers)
 		protectedSocialGroup.POST("/getCounts", socialHandler.GetCounts)
 	}
+
+	timelineMQ, err := rabbitmq.NewTimelineMQ(rmq)
+	if err != nil {
+		log.Printf("TimelineMQ init failed (mq disabled): %v", err)
+		timelineMQ = nil
+	}z
+
+	//worker
+	worker.StartOutboxPoller(db, timelineMQ)
+	worker.StartConsumer(timelineMQ, "video.timeline.update.queue", cache, rmq)
 
 	// feed
 	feedRepository := feed.NewFeedRepository(db)

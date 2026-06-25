@@ -30,6 +30,10 @@ const (
 	commentExchange   = "comment.events"
 	commentQueue      = "comment.events"
 	commentBindingKey = "comment.*"
+
+	popularityExchange   = "video.popularity.events"
+	popularityQueue      = "video.popularity.events"
+	popularityBindingKey = "video.popularity.*"
 )
 
 func main() {
@@ -83,6 +87,7 @@ func main() {
 	}
 
 	socialRepo := social.NewSocialRepository(sqlDB)
+	likeRepo := video.NewLikeRepository(sqlDB)
 	videoRepo := video.NewVideoRepository(sqlDB)
 	commentRepo := video.NewCommentRepository(sqlDB)
 
@@ -93,10 +98,13 @@ func main() {
 		return worker.NewSocialWorker(ch, socialRepo, socialQueue).Run(ctx)
 	})
 	go runWorkerWithRetry(ctx, "LikeWorker", rmq.Conn, func(ch *amqp.Channel) error {
-		return worker.NewLikeWorker(ch, likeQueue).Run(ctx)
+		return worker.NewLikeWorker(ch, likeRepo, videoRepo, likeQueue).Run(ctx)
 	})
 	go runWorkerWithRetry(ctx, "CommentWorker", rmq.Conn, func(ch *amqp.Channel) error {
 		return worker.NewCommentWorker(ch, commentRepo, videoRepo, commentQueue).Run(ctx)
+	})
+	go runWorkerWithRetry(ctx, "PopularityWorker", rmq.Conn, func(ch *amqp.Channel) error {
+		return worker.NewPopularityWorker(ch, cache, popularityQueue).Run(ctx)
 	})
 
 	<-ctx.Done()

@@ -53,6 +53,7 @@ func AutoMigrate(db *gorm.DB) error {
 		&video2.Comment{},
 		&video2.Tag{},
 		&video2.VideoTag{},
+		&video2.OutboxMsg{},
 		&social.Social{},
 		&message.Message{},
 	)

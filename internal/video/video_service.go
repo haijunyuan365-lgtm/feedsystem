@@ -50,7 +50,7 @@ func (vs *VideoService) Publish(ctx context.Context, video *Video) error {
 		if err := tx.Create(video).Error; err != nil {
 			return err
 		}
-
+		//最新流数据存入数据库，rabbitMQ异步从数据库取数据，再上传到redis中
 		msg := OutboxMsg{
 			VideoID:    video.ID,
 			EventType:  "video_published",
