@@ -65,3 +65,9 @@ func (vr *VideoRepository) ChangePopularity(ctx context.Context, id uint, change
 		Where("id = ?", id).
 		UpdateColumn("popularity", gorm.Expr("GREATEST(popularity + ?, 0)", change)).Error
 }
+
+func (vr *VideoRepository) ChangeLikesCount(ctx context.Context, id uint, change int64) error {
+	return vr.db.WithContext(ctx).Model(&Video{}).
+		Where("id = ?", id).
+		UpdateColumn("likes_count", gorm.Expr("GREATEST(likes_count + ?, 0)", change)).Error
+}

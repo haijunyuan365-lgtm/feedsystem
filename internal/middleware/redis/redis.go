@@ -2,6 +2,7 @@ package redis
 
 import (
 	"context"
+	"crypto/rand"
 	"encoding/hex"
 	"errors"
 	"feedsystem/internal/config"
