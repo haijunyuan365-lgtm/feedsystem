@@ -5,6 +5,7 @@ import (
 	"feedsystem/internal/config"
 	"feedsystem/internal/db"
 	"feedsystem/internal/middleware/rabbitmq"
+	rediscache "feedsystem/internal/middleware/redis"
 	"feedsystem/internal/social"
 	"feedsystem/internal/video"
 	"feedsystem/internal/worker"
@@ -50,12 +51,22 @@ func main() {
 		log.Fatalf("Failed to load config: %v", err)
 	}
 
+	//连接mysql
 	sqlDB, err := db.NewDB(cfg.Database)
 	if err != nil {
 		log.Fatalf("Failed to connect MySQL: %v", err)
 	}
 	defer db.CloseDB(sqlDB)
 
+	// 连接 Redis (可选，用于缓存)
+	cache, err := rediscache.NewFromEnv(&cfg.Redis)
+	if err != nil {
+		log.Printf("Redis config error (cache disabled): %v", err)
+		cache = nil
+	}
+	defer cache.Close()
+
+	//连接rabbitMQ
 	rmq, err := rabbitmq.NewRabbitMQ(&cfg.RabbitMQ)
 	if err != nil {
 		log.Fatalf("Failed to connect RabbitMQ: %v", err)
@@ -74,6 +85,9 @@ func main() {
 	}
 	if err := rabbitmq.DeclareTopic(topologyCh, commentExchange, commentQueue, commentBindingKey); err != nil {
 		log.Fatalf("Failed to declare comment topology: %v", err)
+	}
+	if err := rabbitmq.DeclareTopic(topologyCh, popularityExchange, popularityQueue, popularityBindingKey); err != nil {
+		log.Fatalf("Failed to declare popularity topology: %v", err)
 	}
 	_ = topologyCh.Close()
 

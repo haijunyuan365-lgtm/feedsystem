@@ -159,7 +159,7 @@ func SetupRouter(db *gorm.DB, cache *rediscache.Client, rmq *rabbitmq.RabbitMQ) 
 	if err != nil {
 		log.Printf("TimelineMQ init failed (mq disabled): %v", err)
 		timelineMQ = nil
-	}z
+	}
 
 	//worker
 	worker.StartOutboxPoller(db, timelineMQ)
