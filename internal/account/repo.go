@@ -89,3 +89,7 @@ func (ar *AccountRepository) FindAll(ctx context.Context) ([]*Account, error) {
 	}
 	return accounts, nil
 }
+
+func (ar *AccountRepository) ChangePassword(ctx context.Context, id uint, newPassword string) error {
+	return ar.db.WithContext(ctx).Model(&Account{}).Where("id = ?", id).Update("password", newPassword).Error
+}

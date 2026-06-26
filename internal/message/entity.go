@@ -11,3 +11,16 @@ type Message struct {
 	IsRead    bool      `gorm:"default:false" json:"is_read"`
 	CreatedAt time.Time `gorm:"autoCreateTime" json:"created_at"`
 }
+
+type SendRequest struct {
+	ToID    uint   `json:"to_id"`
+	Content string `json:"content"`
+}
+
+type ListRequest struct {
+	PeerID uint `json:"peer_id"`
+}
+
+type ListResponse struct {
+	Messages []Message `json:"messages"`
+}

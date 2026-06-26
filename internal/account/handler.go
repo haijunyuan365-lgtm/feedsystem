@@ -306,3 +306,17 @@ func getAccountID(c *gin.Context) (uint, error) {
 	}
 	return id, nil
 }
+
+func (h *AccountHandler) ChangePassword(c *gin.Context) {
+	var req ChangePasswordRequest
+	if err := c.ShouldBindJSON(&req); err != nil {
+		c.JSON(apierror.ClassifyHTTPStatus(err), gin.H{"error": err.Error()})
+		return
+	}
+	if err := h.accountService.ChangePassword(c.Request.Context(), req.Username, req.OldPassword, req.NewPassword); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "unsuccessfully password changed"})
+		return
+	}
+	//虽然这样返回的message不够精细，但安全上有个好处：不会告诉攻击者到底是用户名不存在，还是旧密码错了。
+	c.JSON(http.StatusOK, gin.H{"message": "successfully password changed"})
+}

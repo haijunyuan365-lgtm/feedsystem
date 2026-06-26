@@ -104,11 +104,17 @@ func (f *FeedService) GetVideoByIDs(ctx context.Context, videoIDs []uint) ([]*vi
 		return buildOrderedResult(videoIDs, videoMap), nil
 	}
 
+	//WaitGroup 可以理解成一个 计数器
+	//主流程不要马上往下走，要等我启动的这些 goroutine 全部执行完
 	var wg sync.WaitGroup
+	//Mutex 是互斥锁。它的作用是：同一时间只允许一个 goroutine 进入某段危险代码。
 	var mu sync.Mutex
 	for _, id := range missedL2 {
+		//代码每循环一个 id，就启动一个 goroutine
+		//新增一个需要等待的任务,waitGroup + 1
 		wg.Add(1)
 		go func(videoID uint) {
+			//当前 goroutine 执行结束时，告诉 WaitGroup：我这个任务完成了  waitGroup + 1
 			defer wg.Done()
 
 			sfKey := f.cache.Key("sf:entity:%d", videoID)
@@ -135,6 +141,8 @@ func (f *FeedService) GetVideoByIDs(ctx context.Context, videoIDs []uint) ([]*vi
 
 			if err == nil && v != nil {
 				safeCopy := *(v.(*video.Video))
+				//videoMap 是一个普通的 Go map
+				//这里开了多个goroutine，而 Go 的普通 map 不能被多个 goroutine 同时写
 				mu.Lock()
 				videoMap[videoID] = &safeCopy
 				mu.Unlock()
@@ -145,6 +153,8 @@ func (f *FeedService) GetVideoByIDs(ctx context.Context, videoIDs []uint) ([]*vi
 			}
 		}(id)
 	}
+	//卡在这里，直到所有 wg.Add(1) 对应的任务都调用了 wg.Done() 即waitGroup=0
+	//如果没有 wg.Wait() 结果就是：goroutine 还没来得及把视频放进 videoMap，函数就继续执行甚至返回了。这样数据就不完整
 	wg.Wait()
 
 	return buildOrderedResult(videoIDs, videoMap), nil

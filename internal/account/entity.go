@@ -42,6 +42,24 @@ type LoginRequest struct {
 	Password string `json:"password"`
 }
 
+type ChangePasswordRequest struct {
+	Username    string `json:"username"`
+	OldPassword string `json:"old_password"`
+	NewPassword string `json:"new_password"`
+}
+
+type GetProfileRequest struct {
+	AccountID uint `json:"account_id"`
+}
+
+type GetProfileResponse struct {
+	Account       FindByIDResponse `json:"account"`
+	VideoCount    int64            `json:"video_count"`
+	TotalLikes    int64            `json:"total_likes"`
+	FollowerCount int64            `json:"follower_count"`
+	VloggerCount  int64            `json:"vlogger_count"`
+}
+
 type LoginResponse struct {
 	Token        string `json:"token"`
 	RefreshToken string `json:"refresh_token"`

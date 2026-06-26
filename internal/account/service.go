@@ -281,3 +281,24 @@ func (as *AccountService) RefreshAccessToken(ctx context.Context, refreshToken s
 
 	return "", 0, "", errors.New("invalid refresh token")
 }
+
+func (as *AccountService) ChangePassword(ctx context.Context, username, oldPassword, newPassword string) error {
+	account, err := as.FindByUsername(ctx, username)
+	if err != nil {
+		return err
+	}
+	if err := bcrypt.CompareHashAndPassword([]byte(account.Password), []byte(oldPassword)); err != nil {
+		return err
+	}
+	passwordHash, err := bcrypt.GenerateFromPassword([]byte(newPassword), bcrypt.DefaultCost)
+	if err != nil {
+		return err
+	}
+	if err := as.accountRepository.ChangePassword(ctx, account.ID, string(passwordHash)); err != nil {
+		return err
+	}
+	if err := as.Logout(ctx, account.ID); err != nil {
+		return err
+	}
+	return nil
+}

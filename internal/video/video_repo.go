@@ -71,3 +71,21 @@ func (vr *VideoRepository) ChangeLikesCount(ctx context.Context, id uint, change
 		Where("id = ?", id).
 		UpdateColumn("likes_count", gorm.Expr("GREATEST(likes_count + ?, 0)", change)).Error
 }
+
+func (vr *VideoRepository) CountByAuthor(ctx context.Context, authorID uint) (int64, error) {
+	var count int64
+	if err := vr.db.WithContext(ctx).Model(&Video{}).Where("author_id = ?", authorID).Count(&count).Error; err != nil {
+		return 0, err
+	}
+	return count, nil
+}
+
+func (vr *VideoRepository) TotalLikesByAuthor(ctx context.Context, authorID uint) (int64, error) {
+	var total int64
+	//COALESCE(SUM(likes_count), 0)  先把 likes_count 求和，如果结果是 NULL，就用 0 代替
+	//结果保存到 total 变量
+	if err := vr.db.WithContext(ctx).Model(&Video{}).Where("author_id = ?", authorID).Select("COALESCE(SUM(likes_count), 0)").Scan(&total).Error; err != nil {
+		return 0, err
+	}
+	return total, nil
+}

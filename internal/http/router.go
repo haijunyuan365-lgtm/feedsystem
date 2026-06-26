@@ -3,6 +3,7 @@ package http
 import (
 	"feedsystem/internal/account"
 	"feedsystem/internal/feed"
+	"feedsystem/internal/message"
 	jwtmiddleware "feedsystem/internal/middleware/jwt"
 	"feedsystem/internal/middleware/rabbitmq"
 	"feedsystem/internal/middleware/ratelimit"
@@ -59,12 +60,7 @@ func SetupRouter(db *gorm.DB, cache *rediscache.Client, rmq *rabbitmq.RabbitMQ) 
 		protectedAccountGroup.POST("/rename", accountHandler.Rename)
 		protectedAccountGroup.POST("/uploadAvatar", accountHandler.UploadAvatar)
 		protectedAccountGroup.POST("/updateProfile", accountHandler.UpdateProfile)
-	}
-
-	popularityMQ, err := rabbitmq.NewPopularityMQ(rmq)
-	if err != nil {
-		log.Printf("PopularityMQ init failed (mq disabled): %v", err)
-		popularityMQ = nil
+		protectedAccountGroup.POST("/changePassword", accountHandler.ChangePassword)
 	}
 
 	//video
@@ -99,6 +95,12 @@ func SetupRouter(db *gorm.DB, cache *rediscache.Client, rmq *rabbitmq.RabbitMQ) 
 		//当 `rmq == nil` 时，`NewLikeMQ` 返回错误，路由仍继续创建。这就是 API 的降级路径
 		likeMQ = nil
 	}
+	popularityMQ, err := rabbitmq.NewPopularityMQ(rmq)
+	if err != nil {
+		log.Printf("PopularityMQ init failed (mq disabled): %v", err)
+		popularityMQ = nil
+	}
+
 	likeService := video.NewLikeService(likeRepository, videoRepository, cache, likeMQ, popularityMQ)
 	likeHandler := video.NewLikeHandler(likeService)
 
@@ -160,6 +162,47 @@ func SetupRouter(db *gorm.DB, cache *rediscache.Client, rmq *rabbitmq.RabbitMQ) 
 		log.Printf("TimelineMQ init failed (mq disabled): %v", err)
 		timelineMQ = nil
 	}
+	//由于protectedAccountGroup的getProfile需要用到videoRepo和socialRepo，所以放在了这后面
+	protectedAccountGroup.POST("/getProfile", func(c *gin.Context) {
+		fromID, err := jwtmiddleware.GetAccountID(c)
+		var req account.GetProfileRequest
+		if err := c.ShouldBindJSON(&req); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
+		}
+		if req.AccountID == 0 {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "account_id is required"})
+			return
+		}
+
+		if req.AccountID != fromID {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "unauthorized account"})
+			return
+		}
+
+		acc, err := accountService.FindByID(c.Request.Context(), req.AccountID)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		videoCount, _ := videoRepository.CountByAuthor(c.Request.Context(), req.AccountID)
+		totalLikes, _ := videoRepository.TotalLikesByAuthor(c.Request.Context(), req.AccountID)
+		followerCount, _ := socialRepository.CountFollowers(c.Request.Context(), req.AccountID)
+		vloggerCount, _ := socialRepository.CountVloggers(c.Request.Context(), req.AccountID)
+
+		c.JSON(http.StatusOK, account.GetProfileResponse{
+			Account: account.FindByIDResponse{
+				ID:        acc.ID,
+				Username:  acc.Username,
+				AvatarURL: acc.AvatarURL,
+				Bio:       acc.Bio,
+			},
+			VideoCount:    videoCount,
+			TotalLikes:    totalLikes,
+			FollowerCount: followerCount,
+			VloggerCount:  vloggerCount,
+		})
+	})
 
 	//worker
 	worker.StartOutboxPoller(db, timelineMQ)
@@ -185,6 +228,19 @@ func SetupRouter(db *gorm.DB, cache *rediscache.Client, rmq *rabbitmq.RabbitMQ) 
 	protectedFeedGroup.Use(jwtmiddleware.JWTAuth(accountRepository, cache))
 	{
 		protectedFeedGroup.POST("/listByFollowing", feedHandler.ListByFollowing)
+	}
+
+	//message
+	messageRepo := message.NewRepository(db)
+	messageService := message.NewService(messageRepo)
+	messageHandler := message.NewHandler(messageService)
+
+	messageGroup := r.Group("/message")
+	protectedMessageGroup := messageGroup.Group("")
+	protectedMessageGroup.Use(jwtmiddleware.JWTAuth(accountRepository, cache))
+	{
+		protectedMessageGroup.POST("/send", messageHandler.Send)
+		protectedMessageGroup.POST("/list", messageHandler.List)
 	}
 	return r
 }
