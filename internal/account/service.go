@@ -282,8 +282,8 @@ func (as *AccountService) RefreshAccessToken(ctx context.Context, refreshToken s
 	return "", 0, "", errors.New("invalid refresh token")
 }
 
-func (as *AccountService) ChangePassword(ctx context.Context, username, oldPassword, newPassword string) error {
-	account, err := as.FindByUsername(ctx, username)
+func (as *AccountService) ChangePassword(ctx context.Context, accountID uint, oldPassword, newPassword string) error {
+	account, err := as.FindByID(ctx, accountID)
 	if err != nil {
 		return err
 	}

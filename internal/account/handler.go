@@ -5,6 +5,7 @@ import (
 	"encoding/hex"
 	"errors"
 	"feedsystem/internal/apierror"
+	"feedsystem/internal/middleware/jwt"
 	"fmt"
 	"net/http"
 	"os"
@@ -308,12 +309,19 @@ func getAccountID(c *gin.Context) (uint, error) {
 }
 
 func (h *AccountHandler) ChangePassword(c *gin.Context) {
+	accountID, err := jwt.GetAccountID(c)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
 	var req ChangePasswordRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
 		c.JSON(apierror.ClassifyHTTPStatus(err), gin.H{"error": err.Error()})
 		return
 	}
-	if err := h.accountService.ChangePassword(c.Request.Context(), req.Username, req.OldPassword, req.NewPassword); err != nil {
+
+	if err := h.accountService.ChangePassword(c.Request.Context(), accountID, req.OldPassword, req.NewPassword); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "unsuccessfully password changed"})
 		return
 	}

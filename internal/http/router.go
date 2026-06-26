@@ -162,9 +162,8 @@ func SetupRouter(db *gorm.DB, cache *rediscache.Client, rmq *rabbitmq.RabbitMQ) 
 		log.Printf("TimelineMQ init failed (mq disabled): %v", err)
 		timelineMQ = nil
 	}
-	//由于protectedAccountGroup的getProfile需要用到videoRepo和socialRepo，所以放在了这后面
-	protectedAccountGroup.POST("/getProfile", func(c *gin.Context) {
-		fromID, err := jwtmiddleware.GetAccountID(c)
+	//由于accountGroup的getProfile需要用到videoRepo和socialRepo，所以放在了这后面
+	accountGroup.POST("/getProfile", func(c *gin.Context) {
 		var req account.GetProfileRequest
 		if err := c.ShouldBindJSON(&req); err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -172,11 +171,6 @@ func SetupRouter(db *gorm.DB, cache *rediscache.Client, rmq *rabbitmq.RabbitMQ) 
 		}
 		if req.AccountID == 0 {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "account_id is required"})
-			return
-		}
-
-		if req.AccountID != fromID {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "unauthorized account"})
 			return
 		}
 
