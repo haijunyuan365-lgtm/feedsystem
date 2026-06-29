@@ -2,26 +2,26 @@ server:
   port: 8080
 
 database:
-  host: mysql
-  port: 3306
+  host: localhost
+  port: 3307
   username: root
   password: root
   dbname: feedsystem
 
 redis:
-  host: redis
+  host: localhost
   port: 6379
   password: ""
   db: 0
-  
+
 rabbitmq:
-  host: rabbitmq
+  host: localhost
   port: 5672
   username: admin
   password: password123
 
 observability:
   pprof:
-    enabled: false
+    enabled: true
     api_addr: localhost:6060
     worker_addr: localhost:6061

@@ -6,6 +6,8 @@ import (
 	"feedsystem/internal/apierror"
 	"feedsystem/internal/middleware/rabbitmq"
 	rediscache "feedsystem/internal/middleware/redis"
+	"log"
+	"regexp"
 	"strings"
 
 	"gorm.io/gorm"
@@ -58,6 +60,7 @@ func (s *CommentService) Publish(ctx context.Context, comment *Comment) error {
 		}
 	}
 	if mysqlEnqueued && redisEnqueued {
+		s.notifyMentions(ctx, comment)
 		return nil
 	}
 
@@ -82,6 +85,7 @@ func (s *CommentService) Publish(ctx context.Context, comment *Comment) error {
 	if !redisEnqueued {
 		UpdatePopularityCache(ctx, s.cache, comment.VideoID, 1)
 	}
+	s.notifyMentions(ctx, comment)
 	return nil
 }
 
@@ -116,4 +120,53 @@ func (s *CommentService) GetAll(ctx context.Context, videoID uint) ([]Comment, e
 		return nil, errors.New("video not found")
 	}
 	return s.repo.GetAllComments(ctx, videoID)
+}
+
+var mentionRegex = regexp.MustCompile(`@(\w+)`)
+
+func (s *CommentService) notifyMentions(ctx context.Context, comment *Comment) {
+	//-1 表示不限制匹配数量
+	matches := mentionRegex.FindAllStringSubmatch(comment.Content, -1)
+	if len(matches) == 0 {
+		return
+	}
+
+	//用于去重
+	seen := make(map[string]bool)
+	for _, m := range matches {
+		username := m[1]
+		if seen[username] || username == comment.Username {
+			continue
+		}
+		seen[username] = true
+
+		var accID uint
+		if err := s.repo.db.WithContext(ctx).
+			Table("accounts").
+			Where("username = ?", username).
+			Select("id").
+			Scan(&accID).Error; err != nil || accID == 0 {
+			continue
+		}
+		//GORM 的 Table("notifications").Create(&notif) 只关心字段名能不能映射到表字段，不要求一定是完整模型
+		//所以一样可以将该数据存入notifications表
+		notif := struct {
+			RecipientID uint
+			SenderID    uint
+			Type        string
+			TargetID    uint
+			Content     string
+		}{
+			RecipientID: accID,
+			SenderID:    comment.AuthorID,
+			Type:        "mention",
+			TargetID:    comment.VideoID,
+			Content:     comment.Username + " 在评论中提到了你",
+		}
+		//like/comment/follow = MQ worker 写表 + SSE 实时推送
+		//mention = CommentService 直接写表，不实时推送
+		if err := s.repo.db.WithContext(ctx).Table("notifications").Create(&notif).Error; err != nil {
+			log.Printf("create mention notification failed: %v", err)
+		}
+	}
 }

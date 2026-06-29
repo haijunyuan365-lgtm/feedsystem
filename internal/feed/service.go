@@ -107,7 +107,7 @@ func (f *FeedService) GetVideoByIDs(ctx context.Context, videoIDs []uint) ([]*vi
 	//WaitGroup 可以理解成一个 计数器
 	//主流程不要马上往下走，要等我启动的这些 goroutine 全部执行完
 	var wg sync.WaitGroup
-	//Mutex 是互斥锁。它的作用是：同一时间只允许一个 goroutine 进入某段危险代码。
+	//Mutex 是 互斥锁。它的作用是：同一时间只允许一个 goroutine 进入某段危险代码。
 	var mu sync.Mutex
 	for _, id := range missedL2 {
 		//代码每循环一个 id，就启动一个 goroutine

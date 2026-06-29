@@ -6,6 +6,7 @@ import (
 	"feedsystem/internal/message"
 	"feedsystem/internal/social"
 	video2 "feedsystem/internal/video"
+	"feedsystem/internal/worker"
 	"fmt"
 
 	"gorm.io/driver/mysql"
@@ -56,6 +57,7 @@ func AutoMigrate(db *gorm.DB) error {
 		&video2.OutboxMsg{},
 		&social.Social{},
 		&message.Message{},
+		&worker.Notification{},
 	)
 }
 

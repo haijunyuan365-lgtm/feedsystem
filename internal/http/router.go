@@ -1,6 +1,7 @@
 package http
 
 import (
+	"context"
 	"feedsystem/internal/account"
 	"feedsystem/internal/feed"
 	"feedsystem/internal/message"
@@ -236,5 +237,63 @@ func SetupRouter(db *gorm.DB, cache *rediscache.Client, rmq *rabbitmq.RabbitMQ) 
 		protectedMessageGroup.POST("/send", messageHandler.Send)
 		protectedMessageGroup.POST("/list", messageHandler.List)
 	}
+
+	/* SSE notification：API 进程内启动，不放到 cmd/worker。
+	原因是：SSEHub 只存在 API 进程内存里。NotificationWorker 想实时 Push，就必须拿到这个 API 进程里的 sseHub*/
+	if rmq != nil {
+		if notifCh, err := rmq.NewChannel(); err == nil {
+			//1. 声明 notification.like 队列，绑定 like.events 的 like.like
+			if err := rabbitmq.DeclareTopic(notifCh, "like.events", "notification.like", "like.like"); err != nil {
+				log.Printf("notification like topic init failed: %v", err)
+			}
+			//2. 声明 notification.comment 队列，绑定 comment.events 的 comment.publish
+			if err := rabbitmq.DeclareTopic(notifCh, "comment.events", "notification.comment", "comment.publish"); err != nil {
+				log.Printf("notification comment topic init failed: %v", err)
+			}
+			//3. 声明 notification.social 队列，绑定 social.events 的 social.follow
+			if err := rabbitmq.DeclareTopic(notifCh, "social.events", "notification.social", "social.follow"); err != nil {
+				log.Printf("notification social topic init failed: %v", err)
+			}
+			_ = notifCh.Close()
+		} else {
+			log.Printf("notification topic init channel failed: %v", err)
+		}
+	}
+	//申明路由
+	sseHub := worker.NewSSEHub(db)
+	notifGroup := r.Group("/notification")
+	notifGroup.Use(sseHub.SSERequireAuth())
+	sseHub.RegisterRoutes(r, notifGroup)
+	//4. 启动 3 个 NotificationWorker，各消费一个独立队列
+	go func() {
+		if rmq != nil {
+			hub := sseHub
+			ctx := context.Background()
+
+			for _, q := range []string{"notification.like", "notification.comment", "notification.social"} {
+				go func(queue string) {
+					for {
+						ch, err := rmq.NewChannel()
+						if err != nil {
+							log.Printf("notification-%s: 创建 Channel 失败: %v, 5秒后重试", queue, err)
+							time.Sleep(5 * time.Second)
+							continue
+						}
+
+						w := worker.NewNotificationWorker(ch, db, queue, hub)
+						if err := w.Run(ctx); err != nil {
+							log.Printf("notification-%s: %v, 5秒后重连...", queue, err)
+						}
+
+						_ = ch.Close()
+						time.Sleep(5 * time.Second)
+					}
+				}(q)
+			}
+		} else {
+			log.Printf("Notification SSE disabled (MQ not available)")
+		}
+	}()
+
 	return r
 }

@@ -6,6 +6,7 @@ import (
 	"feedsystem/internal/db"
 	"feedsystem/internal/middleware/rabbitmq"
 	rediscache "feedsystem/internal/middleware/redis"
+	"feedsystem/internal/observability"
 	"feedsystem/internal/social"
 	"feedsystem/internal/video"
 	"feedsystem/internal/worker"
@@ -17,6 +18,7 @@ import (
 
 	"github.com/joho/godotenv"
 	amqp "github.com/rabbitmq/amqp091-go"
+	"gorm.io/gorm"
 )
 
 const (
@@ -51,26 +53,43 @@ func main() {
 		log.Fatalf("Failed to load config: %v", err)
 	}
 
-	//连接mysql
-	sqlDB, err := db.NewDB(cfg.Database)
+	pprofServer, err := observability.NewPprofServer(
+		"Worker",
+		cfg.ObservabilityConfig.Pprof.Enabled,
+		cfg.ObservabilityConfig.Pprof.WorkerAddr,
+	)
 	if err != nil {
-		log.Fatalf("Failed to connect MySQL: %v", err)
+		log.Printf("Failed to start worker pprof server: %v", err)
 	}
+	if pprofServer != nil {
+		defer pprofServer.Close()
+	}
+
+	//连接mysql
+	var sqlDB *gorm.DB
+	connectWithRetry("MySQL", 10, func() error {
+		var err error
+		sqlDB, err = db.NewDB(cfg.Database)
+		return err
+	})
 	defer db.CloseDB(sqlDB)
 
 	// 连接 Redis (可选，用于缓存)
-	cache, err := rediscache.NewFromEnv(&cfg.Redis)
-	if err != nil {
-		log.Printf("Redis config error (cache disabled): %v", err)
-		cache = nil
-	}
+	var cache *rediscache.Client
+	connectWithRetry("Redis", 10, func() error {
+		var err error
+		cache, err = rediscache.NewFromEnv(&cfg.Redis)
+		return err
+	})
 	defer cache.Close()
 
 	//连接rabbitMQ
-	rmq, err := rabbitmq.NewRabbitMQ(&cfg.RabbitMQ)
-	if err != nil {
-		log.Fatalf("Failed to connect RabbitMQ: %v", err)
-	}
+	var rmq *rabbitmq.RabbitMQ
+	connectWithRetry("RabbitMQ", 10, func() error {
+		var err error
+		rmq, err = rabbitmq.NewRabbitMQ(&cfg.RabbitMQ)
+		return err
+	})
 	defer rmq.Close()
 
 	topologyCh, err := rmq.NewChannel()
@@ -117,9 +136,11 @@ func main() {
 	go runWorkerWithRetry(ctx, "CommentWorker", rmq.Conn, func(ch *amqp.Channel) error {
 		return worker.NewCommentWorker(ch, commentRepo, videoRepo, commentQueue).Run(ctx)
 	})
-	go runWorkerWithRetry(ctx, "PopularityWorker", rmq.Conn, func(ch *amqp.Channel) error {
-		return worker.NewPopularityWorker(ch, cache, popularityQueue).Run(ctx)
-	})
+	if cache != nil {
+		go runWorkerWithRetry(ctx, "PopularityWorker", rmq.Conn, func(ch *amqp.Channel) error {
+			return worker.NewPopularityWorker(ch, cache, popularityQueue).Run(ctx)
+		})
+	}
 
 	<-ctx.Done()
 	log.Printf("Worker shutting down...")
@@ -156,4 +177,22 @@ func runWorkerWithRetry(ctx context.Context, name string, conn *amqp.Connection,
 		_ = ch.Close()
 		time.Sleep(5 * time.Second)
 	}
+}
+
+func connectWithRetry(name string, maxRetries int, fn func() error) {
+	for i := 0; i < maxRetries; i++ {
+		if err := fn(); err == nil {
+			return
+		}
+
+		wait := time.Duration(1<<i) * time.Second
+		if wait > 30*time.Second {
+			wait = 30 * time.Second
+		}
+
+		log.Printf("%s 不可用，%v 后重试 (%d/%d)...", name, wait, i+1, maxRetries)
+		time.Sleep(wait)
+	}
+
+	log.Fatalf("%s: 超过最大重试次数", name)
 }

@@ -5,7 +5,6 @@ import (
 	"encoding/hex"
 	"errors"
 	"feedsystem/internal/apierror"
-	"feedsystem/internal/middleware/jwt"
 	"fmt"
 	"net/http"
 	"os"
@@ -296,20 +295,8 @@ func buildAbsoluteURL(c *gin.Context, p string) string {
 	return fmt.Sprintf("%s://%s%s", scheme, c.Request.Host, p)
 }
 
-func getAccountID(c *gin.Context) (uint, error) {
-	value, exists := c.Get("accountID")
-	if !exists {
-		return 0, errors.New("accountID not found")
-	}
-	id, ok := value.(uint)
-	if !ok {
-		return 0, errors.New("accountID has invalid type")
-	}
-	return id, nil
-}
-
 func (h *AccountHandler) ChangePassword(c *gin.Context) {
-	accountID, err := jwt.GetAccountID(c)
+	accountID, err := getAccountID(c)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -327,4 +314,16 @@ func (h *AccountHandler) ChangePassword(c *gin.Context) {
 	}
 	//虽然这样返回的message不够精细，但安全上有个好处：不会告诉攻击者到底是用户名不存在，还是旧密码错了。
 	c.JSON(http.StatusOK, gin.H{"message": "successfully password changed"})
+}
+
+func getAccountID(c *gin.Context) (uint, error) {
+	value, exists := c.Get("accountID")
+	if !exists {
+		return 0, errors.New("accountID not found")
+	}
+	id, ok := value.(uint)
+	if !ok {
+		return 0, errors.New("accountID has invalid type")
+	}
+	return id, nil
 }

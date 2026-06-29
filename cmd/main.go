@@ -7,6 +7,7 @@ import (
 	apphttp "feedsystem/internal/http"
 	"feedsystem/internal/middleware/rabbitmq"
 	rediscache "feedsystem/internal/middleware/redis"
+	"feedsystem/internal/observability"
 	"log"
 	"os"
 	"strconv"
@@ -38,6 +39,18 @@ func main() {
 		log.Printf("Config loaded from file: %s", configPath)
 	}
 
+	pprofServer, err := observability.NewPprofServer(
+		"API",
+		cfg.ObservabilityConfig.Pprof.Enabled,
+		cfg.ObservabilityConfig.Pprof.ApiAddr,
+	)
+	if err != nil {
+		log.Printf("Failed to start API pprof server: %v", err)
+	}
+	if pprofServer != nil {
+		defer pprofServer.Close()
+	}
+
 	// 连接数据库
 	//log.Printf("Database config: %v", cfg.Database)
 	sqlDB, err := db.NewDB(cfg.Database)
@@ -66,7 +79,7 @@ func main() {
 			log.Printf("Redis connected (cache enabled)")
 		}
 	}
-
+	//连接rabbitMQ
 	rmq, err := rabbitmq.NewRabbitMQ(&cfg.RabbitMQ)
 	if err != nil {
 		log.Printf("RabbitMQ unavailable (mq disabled): %v", err)

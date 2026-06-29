@@ -1,24 +1,21 @@
 services:
-  rabbitmq:
-    image: rabbitmq:4-management
+  mysql:
+    image: mysql:8.4
     restart: always
-    container_name: feedsystem-rabbitmq
-    hostname: feedsystem-rabbitmq
+    container_name: feedsystem-mysql
     ports:
-      - "5672:5672"      # Go 项目连接 RabbitMQ 用这个端口
-      - "15672:15672"    # 浏览器管理后台用这个端口
+      - "3307:3306"
     environment:
-      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-admin}
-      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS:-password123}
-      RABBITMQ_DEFAULT_VHOST: /
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-feedsystem}
     volumes:
-      - rabbitmq_data:/var/lib/rabbitmq
+      - mysql_data:/var/lib/mysql
     healthcheck:
-      test: [ "CMD-SHELL", "rabbitmq-diagnostics -q ping" ]
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p$${MYSQL_ROOT_PASSWORD} --silent"]
       interval: 5s
       timeout: 5s
-      retries: 20
-
+      retries: 30
+  
   redis:
     image: redis:7-alpine
     restart: always
@@ -29,11 +26,78 @@ services:
       - redis_data:/data
     command: redis-server --appendonly yes
     healthcheck:
-      test: [ "CMD", "redis-cli", "ping" ]
+      test: ["CMD", "redis-cli", "ping"]
       interval: 5s
       timeout: 5s
       retries: 20
 
+  rabbitmq:
+    image: rabbitmq:4-management
+    restart: always
+    container_name: feedsystem-rabbitmq
+    hostname: feedsystem-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-admin}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS:-password123}
+      RABBITMQ_DEFAULT_VHOST: /
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD-SHELL", "rabbitmq-diagnostics -q ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: feedsystem-backend:local
+    restart: always
+    container_name: feedsystem-backend
+    command: [ "/app/api" ]
+    ports:
+      - "8080:8080"
+    environment:
+      CONFIG_PATH: configs/config.docker.yaml
+      JWT_SECRET: ${JWT_SECRET:-feedsystem_dev_secret_change_me}
+    volumes:
+      - ./.run/uploads:/app/.run/uploads
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: feedsystem-backend:local
+    restart: always
+    container_name: feedsystem-worker
+    command: [ "/app/worker" ]
+    environment:
+      CONFIG_PATH: configs/config.docker.yaml
+      JWT_SECRET: ${JWT_SECRET:-feedsystem_dev_secret_change_me}
+    volumes:
+      - ./.run/uploads:/app/.run/uploads
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      backend:
+        condition: service_started
+
 volumes:
-  rabbitmq_data:
+  mysql_data:
   redis_data:
+  rabbitmq_data:
