@@ -1,0 +1,1923 @@
+{
+  "nodes": [
+    {
+      "id": "file:internal/middleware/ratelimit/ratelimit.go",
+      "type": "file",
+      "name": "ratelimit.go",
+      "filePath": "internal/middleware/ratelimit/ratelimit.go",
+      "summary": "基于 Redis 的限流中间件，为 Gin 路由提供按 key 计数和过期窗口控制。",
+      "tags": [
+        "middleware",
+        "rate-limit",
+        "安全"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/middleware/ratelimit/ratelimit.go:Limit",
+      "type": "function",
+      "name": "Limit",
+      "filePath": "internal/middleware/ratelimit/ratelimit.go",
+      "lineRange": [
+        17,
+        53
+      ],
+      "summary": "Limit 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/ratelimit/ratelimit.go:KeyByIP",
+      "type": "function",
+      "name": "KeyByIP",
+      "filePath": "internal/middleware/ratelimit/ratelimit.go",
+      "lineRange": [
+        64,
+        70
+      ],
+      "summary": "KeyByIP 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/ratelimit/ratelimit.go:KeyByAccount",
+      "type": "function",
+      "name": "KeyByAccount",
+      "filePath": "internal/middleware/ratelimit/ratelimit.go",
+      "lineRange": [
+        72,
+        78
+      ],
+      "summary": "KeyByAccount 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/middleware/redis/cache.go",
+      "type": "file",
+      "name": "cache.go",
+      "filePath": "internal/middleware/redis/cache.go",
+      "summary": "Redis 中间件封装客户端、缓存键、分布式锁和有序集合操作，支撑缓存、限流和榜单能力。",
+      "tags": [
+        "redis",
+        "cache",
+        "middleware"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/middleware/redis/cache.go:GetBytes",
+      "type": "function",
+      "name": "GetBytes",
+      "filePath": "internal/middleware/redis/cache.go",
+      "lineRange": [
+        9,
+        14
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/cache.go:SetBytes",
+      "type": "function",
+      "name": "SetBytes",
+      "filePath": "internal/middleware/redis/cache.go",
+      "lineRange": [
+        16,
+        21
+      ],
+      "summary": "SetBytes 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/cache.go:Del",
+      "type": "function",
+      "name": "Del",
+      "filePath": "internal/middleware/redis/cache.go",
+      "lineRange": [
+        23,
+        28
+      ],
+      "summary": "Del 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/cache.go:MGet",
+      "type": "function",
+      "name": "MGet",
+      "filePath": "internal/middleware/redis/cache.go",
+      "lineRange": [
+        30,
+        35
+      ],
+      "summary": "MGet 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/cache.go:DelByPattern",
+      "type": "function",
+      "name": "DelByPattern",
+      "filePath": "internal/middleware/redis/cache.go",
+      "lineRange": [
+        36,
+        46
+      ],
+      "summary": "DelByPattern 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/middleware/redis/redis.go",
+      "type": "file",
+      "name": "redis.go",
+      "filePath": "internal/middleware/redis/redis.go",
+      "summary": "Redis 中间件封装客户端、缓存键、分布式锁和有序集合操作，支撑缓存、限流和榜单能力。",
+      "tags": [
+        "redis",
+        "cache",
+        "middleware"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/middleware/redis/redis.go:Client",
+      "type": "class",
+      "name": "Client",
+      "filePath": "internal/middleware/redis/redis.go",
+      "lineRange": [
+        16,
+        19
+      ],
+      "summary": "Client 封装外部中间件客户端能力。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/middleware/redis/redis.go:NewClient",
+      "type": "function",
+      "name": "NewClient",
+      "filePath": "internal/middleware/redis/redis.go",
+      "lineRange": [
+        23,
+        25
+      ],
+      "summary": "构造 Client 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/redis.go:NewFromEnv",
+      "type": "function",
+      "name": "NewFromEnv",
+      "filePath": "internal/middleware/redis/redis.go",
+      "lineRange": [
+        27,
+        34
+      ],
+      "summary": "构造 FromEnv 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/redis.go:Ping",
+      "type": "function",
+      "name": "Ping",
+      "filePath": "internal/middleware/redis/redis.go",
+      "lineRange": [
+        36,
+        41
+      ],
+      "summary": "Ping 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/redis.go:IsMiss",
+      "type": "function",
+      "name": "IsMiss",
+      "filePath": "internal/middleware/redis/redis.go",
+      "lineRange": [
+        43,
+        45
+      ],
+      "summary": "IsMiss 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/redis.go:Close",
+      "type": "function",
+      "name": "Close",
+      "filePath": "internal/middleware/redis/redis.go",
+      "lineRange": [
+        47,
+        52
+      ],
+      "summary": "Close 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/redis.go:Key",
+      "type": "function",
+      "name": "Key",
+      "filePath": "internal/middleware/redis/redis.go",
+      "lineRange": [
+        54,
+        60
+      ],
+      "summary": "Key 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/redis.go:IncrementWithExpire",
+      "type": "function",
+      "name": "IncrementWithExpire",
+      "filePath": "internal/middleware/redis/redis.go",
+      "lineRange": [
+        72,
+        82
+      ],
+      "summary": "IncrementWithExpire 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/redis.go:Lock",
+      "type": "function",
+      "name": "Lock",
+      "filePath": "internal/middleware/redis/redis.go",
+      "lineRange": [
+        92,
+        102
+      ],
+      "summary": "Lock 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/redis.go:Unlock",
+      "type": "function",
+      "name": "Unlock",
+      "filePath": "internal/middleware/redis/redis.go",
+      "lineRange": [
+        112,
+        118
+      ],
+      "summary": "Unlock 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/middleware/redis/redis_test.go",
+      "type": "file",
+      "name": "redis_test.go",
+      "filePath": "internal/middleware/redis/redis_test.go",
+      "summary": "Redis 中间件封装客户端、缓存键、分布式锁和有序集合操作，支撑缓存、限流和榜单能力。",
+      "tags": [
+        "redis",
+        "cache",
+        "middleware"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/redis_test.go:TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+      "type": "function",
+      "name": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+      "filePath": "internal/middleware/redis/redis_test.go",
+      "lineRange": [
+        12,
+        56
+      ],
+      "summary": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/middleware/redis/zset.go",
+      "type": "file",
+      "name": "zset.go",
+      "filePath": "internal/middleware/redis/zset.go",
+      "summary": "Redis 中间件封装客户端、缓存键、分布式锁和有序集合操作，支撑缓存、限流和榜单能力。",
+      "tags": [
+        "redis",
+        "cache",
+        "middleware"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/middleware/redis/zset.go:ZincrBy",
+      "type": "function",
+      "name": "ZincrBy",
+      "filePath": "internal/middleware/redis/zset.go",
+      "lineRange": [
+        11,
+        16
+      ],
+      "summary": "ZincrBy 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/zset.go:ZAdd",
+      "type": "function",
+      "name": "ZAdd",
+      "filePath": "internal/middleware/redis/zset.go",
+      "lineRange": [
+        18,
+        23
+      ],
+      "summary": "ZAdd 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/zset.go:ZRemRangeByRank",
+      "type": "function",
+      "name": "ZRemRangeByRank",
+      "filePath": "internal/middleware/redis/zset.go",
+      "lineRange": [
+        26,
+        31
+      ],
+      "summary": "ZRemRangeByRank 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/zset.go:ZRangeWithScores",
+      "type": "function",
+      "name": "ZRangeWithScores",
+      "filePath": "internal/middleware/redis/zset.go",
+      "lineRange": [
+        33,
+        38
+      ],
+      "summary": "ZRangeWithScores 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/zset.go:ZRevRange",
+      "type": "function",
+      "name": "ZRevRange",
+      "filePath": "internal/middleware/redis/zset.go",
+      "lineRange": [
+        41,
+        46
+      ],
+      "summary": "ZRevRange 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/zset.go:ZRevRangeByScore",
+      "type": "function",
+      "name": "ZRevRangeByScore",
+      "filePath": "internal/middleware/redis/zset.go",
+      "lineRange": [
+        49,
+        59
+      ],
+      "summary": "ZRevRangeByScore 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/zset.go:Expire",
+      "type": "function",
+      "name": "Expire",
+      "filePath": "internal/middleware/redis/zset.go",
+      "lineRange": [
+        61,
+        66
+      ],
+      "summary": "Expire 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/zset.go:ZUnionStore",
+      "type": "function",
+      "name": "ZUnionStore",
+      "filePath": "internal/middleware/redis/zset.go",
+      "lineRange": [
+        68,
+        76
+      ],
+      "summary": "ZUnionStore 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/redis/zset.go:Exists",
+      "type": "function",
+      "name": "Exists",
+      "filePath": "internal/middleware/redis/zset.go",
+      "lineRange": [
+        78,
+        84
+      ],
+      "summary": "Exists 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/video/chunk_handler.go",
+      "type": "file",
+      "name": "chunk_handler.go",
+      "filePath": "internal/video/chunk_handler.go",
+      "summary": "视频模块文件，参与 feedsystem 的 Go 服务实现。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:internal/video/chunk_handler.go:ChunkUploadHandler",
+      "type": "class",
+      "name": "ChunkUploadHandler",
+      "filePath": "internal/video/chunk_handler.go",
+      "lineRange": [
+        24,
+        26
+      ],
+      "summary": "ChunkUploadHandler 聚合 HTTP handler 方法并持有 service 依赖。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/video/chunk_handler.go:NewChunkUploadHandler",
+      "type": "function",
+      "name": "NewChunkUploadHandler",
+      "filePath": "internal/video/chunk_handler.go",
+      "lineRange": [
+        28,
+        30
+      ],
+      "summary": "构造 ChunkUploadHandler 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/chunk_handler.go:getSession",
+      "type": "function",
+      "name": "getSession",
+      "filePath": "internal/video/chunk_handler.go",
+      "lineRange": [
+        40,
+        53
+      ],
+      "summary": "为业务流程提供 getSession 辅助逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/chunk_handler.go:saveSession",
+      "type": "function",
+      "name": "saveSession",
+      "filePath": "internal/video/chunk_handler.go",
+      "lineRange": [
+        55,
+        64
+      ],
+      "summary": "saveSession 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/chunk_handler.go:InitChunkUpload",
+      "type": "function",
+      "name": "InitChunkUpload",
+      "filePath": "internal/video/chunk_handler.go",
+      "lineRange": [
+        66,
+        134
+      ],
+      "summary": "InitChunkUpload 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/video/chunk_handler.go:UploadChunk",
+      "type": "function",
+      "name": "UploadChunk",
+      "filePath": "internal/video/chunk_handler.go",
+      "lineRange": [
+        136,
+        233
+      ],
+      "summary": "处理创建或上传类业务流程，并持久化相关状态。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/video/chunk_handler.go:ChunkStatus",
+      "type": "function",
+      "name": "ChunkStatus",
+      "filePath": "internal/video/chunk_handler.go",
+      "lineRange": [
+        235,
+        268
+      ],
+      "summary": "ChunkStatus 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/chunk_handler.go:CompleteChunkUpload",
+      "type": "function",
+      "name": "CompleteChunkUpload",
+      "filePath": "internal/video/chunk_handler.go",
+      "lineRange": [
+        270,
+        375
+      ],
+      "summary": "CompleteChunkUpload 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:internal/video/chunk_handler_test.go",
+      "type": "file",
+      "name": "chunk_handler_test.go",
+      "filePath": "internal/video/chunk_handler_test.go",
+      "summary": "视频模块文件，参与 feedsystem 的 Go 服务实现。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:internal/video/chunk_handler_test.go:setupTestEnv",
+      "type": "function",
+      "name": "setupTestEnv",
+      "filePath": "internal/video/chunk_handler_test.go",
+      "lineRange": [
+        28,
+        59
+      ],
+      "summary": "为业务流程提供 setupTestEnv 辅助逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/chunk_handler_test.go:newJSONContext",
+      "type": "function",
+      "name": "newJSONContext",
+      "filePath": "internal/video/chunk_handler_test.go",
+      "lineRange": [
+        61,
+        76
+      ],
+      "summary": "newJSONContext 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/chunk_handler_test.go:newMultipartContext",
+      "type": "function",
+      "name": "newMultipartContext",
+      "filePath": "internal/video/chunk_handler_test.go",
+      "lineRange": [
+        78,
+        106
+      ],
+      "summary": "newMultipartContext 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/chunk_handler_test.go:makeTestChunks",
+      "type": "function",
+      "name": "makeTestChunks",
+      "filePath": "internal/video/chunk_handler_test.go",
+      "lineRange": [
+        122,
+        137
+      ],
+      "summary": "makeTestChunks 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/chunk_handler_test.go:initUpload",
+      "type": "function",
+      "name": "initUpload",
+      "filePath": "internal/video/chunk_handler_test.go",
+      "lineRange": [
+        139,
+        154
+      ],
+      "summary": "initUpload 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/chunk_handler_test.go:uploadChunk",
+      "type": "function",
+      "name": "uploadChunk",
+      "filePath": "internal/video/chunk_handler_test.go",
+      "lineRange": [
+        156,
+        167
+      ],
+      "summary": "uploadChunk 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/chunk_handler_test.go:readMergedFile",
+      "type": "function",
+      "name": "readMergedFile",
+      "filePath": "internal/video/chunk_handler_test.go",
+      "lineRange": [
+        178,
+        188
+      ],
+      "summary": "readMergedFile 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/chunk_handler_test.go:TestFullChunkUploadFlow",
+      "type": "function",
+      "name": "TestFullChunkUploadFlow",
+      "filePath": "internal/video/chunk_handler_test.go",
+      "lineRange": [
+        192,
+        231
+      ],
+      "summary": "TestFullChunkUploadFlow 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/chunk_handler_test.go:TestBreakpointResume",
+      "type": "function",
+      "name": "TestBreakpointResume",
+      "filePath": "internal/video/chunk_handler_test.go",
+      "lineRange": [
+        233,
+        286
+      ],
+      "summary": "TestBreakpointResume 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/video/chunk_handler_test.go:TestIdempotentChunkUpload",
+      "type": "function",
+      "name": "TestIdempotentChunkUpload",
+      "filePath": "internal/video/chunk_handler_test.go",
+      "lineRange": [
+        288,
+        309
+      ],
+      "summary": "TestIdempotentChunkUpload 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/chunk_handler_test.go:TestHashMismatch",
+      "type": "function",
+      "name": "TestHashMismatch",
+      "filePath": "internal/video/chunk_handler_test.go",
+      "lineRange": [
+        311,
+        345
+      ],
+      "summary": "TestHashMismatch 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/chunk_handler_test.go:TestIncompleteMerge",
+      "type": "function",
+      "name": "TestIncompleteMerge",
+      "filePath": "internal/video/chunk_handler_test.go",
+      "lineRange": [
+        347,
+        390
+      ],
+      "summary": "TestIncompleteMerge 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/chunk_handler_test.go:TestChunkStatus",
+      "type": "function",
+      "name": "TestChunkStatus",
+      "filePath": "internal/video/chunk_handler_test.go",
+      "lineRange": [
+        392,
+        427
+      ],
+      "summary": "TestChunkStatus 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/video/popularity_cache.go",
+      "type": "file",
+      "name": "popularity_cache.go",
+      "filePath": "internal/video/popularity_cache.go",
+      "summary": "视频模块文件，参与 feedsystem 的 Go 服务实现。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/popularity_cache.go:UpdatePopularityCache",
+      "type": "function",
+      "name": "UpdatePopularityCache",
+      "filePath": "internal/video/popularity_cache.go",
+      "lineRange": [
+        11,
+        29
+      ],
+      "summary": "处理更新类业务流程，并校验请求上下文。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/video/video_service.go",
+      "type": "file",
+      "name": "video_service.go",
+      "filePath": "internal/video/video_service.go",
+      "summary": "视频模块文件，参与 feedsystem 的 Go 服务实现。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/video/video_service.go:VideoService",
+      "type": "class",
+      "name": "VideoService",
+      "filePath": "internal/video/video_service.go",
+      "lineRange": [
+        15,
+        20
+      ],
+      "summary": "VideoService 承载 视频业务编排能力。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/video/video_service.go:NewVideoService",
+      "type": "function",
+      "name": "NewVideoService",
+      "filePath": "internal/video/video_service.go",
+      "lineRange": [
+        22,
+        27
+      ],
+      "summary": "构造 VideoService 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_service.go:Publish",
+      "type": "function",
+      "name": "Publish",
+      "filePath": "internal/video/video_service.go",
+      "lineRange": [
+        29,
+        77
+      ],
+      "summary": "发布异步消息或任务，供后台 worker 消费。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_service.go:GetDetail",
+      "type": "function",
+      "name": "GetDetail",
+      "filePath": "internal/video/video_service.go",
+      "lineRange": [
+        79,
+        100
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_service.go:ListByAuthorID",
+      "type": "function",
+      "name": "ListByAuthorID",
+      "filePath": "internal/video/video_service.go",
+      "lineRange": [
+        102,
+        104
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_service.go:getVideoDetailFromCache",
+      "type": "function",
+      "name": "getVideoDetailFromCache",
+      "filePath": "internal/video/video_service.go",
+      "lineRange": [
+        106,
+        128
+      ],
+      "summary": "为业务流程提供 getVideoDetailFromCache 辅助逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_service.go:setVideoDetailCache",
+      "type": "function",
+      "name": "setVideoDetailCache",
+      "filePath": "internal/video/video_service.go",
+      "lineRange": [
+        130,
+        148
+      ],
+      "summary": "为业务流程提供 setVideoDetailCache 辅助逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/worker/popularityworker.go",
+      "type": "file",
+      "name": "popularityworker.go",
+      "filePath": "internal/worker/popularityworker.go",
+      "summary": "异步 worker处理器，消费 RabbitMQ 或 Redis 中的异步任务并更新数据库、缓存或 SSE 推送。",
+      "tags": [
+        "worker",
+        "异步处理",
+        "消息消费"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/worker/popularityworker.go:PopularityWorker",
+      "type": "class",
+      "name": "PopularityWorker",
+      "filePath": "internal/worker/popularityworker.go",
+      "lineRange": [
+        16,
+        20
+      ],
+      "summary": "PopularityWorker 是 异步 worker中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/popularityworker.go:NewPopularityWorker",
+      "type": "function",
+      "name": "NewPopularityWorker",
+      "filePath": "internal/worker/popularityworker.go",
+      "lineRange": [
+        22,
+        24
+      ],
+      "summary": "构造 PopularityWorker 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/popularityworker.go:Run",
+      "type": "function",
+      "name": "Run",
+      "filePath": "internal/worker/popularityworker.go",
+      "lineRange": [
+        26,
+        50
+      ],
+      "summary": "启动长运行处理流程或后台循环。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/popularityworker.go:handleDelivery",
+      "type": "function",
+      "name": "handleDelivery",
+      "filePath": "internal/worker/popularityworker.go",
+      "lineRange": [
+        52,
+        75
+      ],
+      "summary": "handleDelivery 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/popularityworker.go:process",
+      "type": "function",
+      "name": "process",
+      "filePath": "internal/worker/popularityworker.go",
+      "lineRange": [
+        77,
+        87
+      ],
+      "summary": "process 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:internal/middleware/ratelimit/ratelimit.go",
+      "target": "function:internal/middleware/ratelimit/ratelimit.go:Limit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/ratelimit/ratelimit.go",
+      "target": "function:internal/middleware/ratelimit/ratelimit.go:KeyByIP",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/ratelimit/ratelimit.go",
+      "target": "function:internal/middleware/ratelimit/ratelimit.go:KeyByAccount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/ratelimit/ratelimit.go",
+      "target": "file:internal/middleware/jwt/jwt.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/middleware/ratelimit/ratelimit.go",
+      "target": "file:internal/middleware/redis/cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/middleware/ratelimit/ratelimit.go",
+      "target": "file:internal/middleware/redis/redis_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/middleware/ratelimit/ratelimit.go",
+      "target": "file:internal/middleware/redis/redis.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/middleware/ratelimit/ratelimit.go",
+      "target": "file:internal/middleware/redis/zset.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/middleware/redis/cache.go",
+      "target": "function:internal/middleware/redis/cache.go:GetBytes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/cache.go",
+      "target": "function:internal/middleware/redis/cache.go:SetBytes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/cache.go",
+      "target": "function:internal/middleware/redis/cache.go:Del",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/cache.go",
+      "target": "function:internal/middleware/redis/cache.go:MGet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/cache.go",
+      "target": "function:internal/middleware/redis/cache.go:DelByPattern",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/redis.go",
+      "target": "class:internal/middleware/redis/redis.go:Client",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/redis.go",
+      "target": "function:internal/middleware/redis/redis.go:NewClient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/redis.go",
+      "target": "function:internal/middleware/redis/redis.go:NewFromEnv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/redis.go",
+      "target": "function:internal/middleware/redis/redis.go:Ping",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/redis.go",
+      "target": "function:internal/middleware/redis/redis.go:IsMiss",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/redis.go",
+      "target": "function:internal/middleware/redis/redis.go:Close",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/redis.go",
+      "target": "function:internal/middleware/redis/redis.go:Key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/redis.go",
+      "target": "function:internal/middleware/redis/redis.go:IncrementWithExpire",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/redis.go",
+      "target": "function:internal/middleware/redis/redis.go:Lock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/redis.go",
+      "target": "function:internal/middleware/redis/redis.go:Unlock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/redis.go",
+      "target": "file:internal/config/loadConfig.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/middleware/redis/redis_test.go",
+      "target": "function:internal/middleware/redis/redis_test.go:TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/zset.go",
+      "target": "function:internal/middleware/redis/zset.go:ZincrBy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/zset.go",
+      "target": "function:internal/middleware/redis/zset.go:ZAdd",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/zset.go",
+      "target": "function:internal/middleware/redis/zset.go:ZRemRangeByRank",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/zset.go",
+      "target": "function:internal/middleware/redis/zset.go:ZRangeWithScores",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/zset.go",
+      "target": "function:internal/middleware/redis/zset.go:ZRevRange",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/zset.go",
+      "target": "function:internal/middleware/redis/zset.go:ZRevRangeByScore",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/zset.go",
+      "target": "function:internal/middleware/redis/zset.go:Expire",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/zset.go",
+      "target": "function:internal/middleware/redis/zset.go:ZUnionStore",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/redis/zset.go",
+      "target": "function:internal/middleware/redis/zset.go:Exists",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler.go",
+      "target": "class:internal/video/chunk_handler.go:ChunkUploadHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler.go",
+      "target": "function:internal/video/chunk_handler.go:NewChunkUploadHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler.go",
+      "target": "function:internal/video/chunk_handler.go:getSession",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler.go",
+      "target": "function:internal/video/chunk_handler.go:saveSession",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler.go",
+      "target": "function:internal/video/chunk_handler.go:InitChunkUpload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler.go",
+      "target": "function:internal/video/chunk_handler.go:UploadChunk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler.go",
+      "target": "function:internal/video/chunk_handler.go:ChunkStatus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler.go",
+      "target": "function:internal/video/chunk_handler.go:CompleteChunkUpload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler.go",
+      "target": "file:internal/middleware/jwt/jwt.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/chunk_handler.go",
+      "target": "file:internal/middleware/redis/cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/chunk_handler.go",
+      "target": "file:internal/middleware/redis/redis_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/chunk_handler.go",
+      "target": "file:internal/middleware/redis/redis.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/chunk_handler.go",
+      "target": "file:internal/middleware/redis/zset.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/chunk_handler_test.go",
+      "target": "function:internal/video/chunk_handler_test.go:setupTestEnv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler_test.go",
+      "target": "function:internal/video/chunk_handler_test.go:newJSONContext",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler_test.go",
+      "target": "function:internal/video/chunk_handler_test.go:newMultipartContext",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler_test.go",
+      "target": "function:internal/video/chunk_handler_test.go:makeTestChunks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler_test.go",
+      "target": "function:internal/video/chunk_handler_test.go:initUpload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler_test.go",
+      "target": "function:internal/video/chunk_handler_test.go:uploadChunk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler_test.go",
+      "target": "function:internal/video/chunk_handler_test.go:readMergedFile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler_test.go",
+      "target": "function:internal/video/chunk_handler_test.go:TestFullChunkUploadFlow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler_test.go",
+      "target": "function:internal/video/chunk_handler_test.go:TestBreakpointResume",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler_test.go",
+      "target": "function:internal/video/chunk_handler_test.go:TestIdempotentChunkUpload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler_test.go",
+      "target": "function:internal/video/chunk_handler_test.go:TestHashMismatch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler_test.go",
+      "target": "function:internal/video/chunk_handler_test.go:TestIncompleteMerge",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler_test.go",
+      "target": "function:internal/video/chunk_handler_test.go:TestChunkStatus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_handler_test.go",
+      "target": "file:internal/middleware/redis/cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/chunk_handler_test.go",
+      "target": "file:internal/middleware/redis/redis_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/chunk_handler_test.go",
+      "target": "file:internal/middleware/redis/redis.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/chunk_handler_test.go",
+      "target": "file:internal/middleware/redis/zset.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/popularity_cache.go",
+      "target": "function:internal/video/popularity_cache.go:UpdatePopularityCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/popularity_cache.go",
+      "target": "file:internal/middleware/redis/cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/popularity_cache.go",
+      "target": "file:internal/middleware/redis/redis_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/popularity_cache.go",
+      "target": "file:internal/middleware/redis/redis.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/popularity_cache.go",
+      "target": "file:internal/middleware/redis/zset.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/video_service.go",
+      "target": "class:internal/video/video_service.go:VideoService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_service.go",
+      "target": "function:internal/video/video_service.go:NewVideoService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_service.go",
+      "target": "function:internal/video/video_service.go:Publish",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_service.go",
+      "target": "function:internal/video/video_service.go:GetDetail",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_service.go",
+      "target": "function:internal/video/video_service.go:ListByAuthorID",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_service.go",
+      "target": "function:internal/video/video_service.go:getVideoDetailFromCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_service.go",
+      "target": "function:internal/video/video_service.go:setVideoDetailCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_service.go",
+      "target": "file:internal/middleware/redis/cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/video_service.go",
+      "target": "file:internal/middleware/redis/redis_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/video_service.go",
+      "target": "file:internal/middleware/redis/redis.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/video_service.go",
+      "target": "file:internal/middleware/redis/zset.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "class:internal/worker/popularityworker.go:PopularityWorker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "function:internal/worker/popularityworker.go:NewPopularityWorker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "function:internal/worker/popularityworker.go:Run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "function:internal/worker/popularityworker.go:handleDelivery",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "function:internal/worker/popularityworker.go:process",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/middleware/rabbitmq/dlx.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/middleware/rabbitmq/popularityMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/middleware/rabbitmq/timelineMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/middleware/redis/cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/middleware/redis/redis_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/middleware/redis/redis.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/middleware/redis/zset.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/video/chunk_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/video/chunk_handler_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/video/chunk_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/video/comment_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/video/comment_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/video/comment_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/video/comment_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/video/like_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/video/like_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/video/like_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/video/like_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/video/popularity_cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/video/tag_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/video/video_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/video/video_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/video/video_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/popularityworker.go",
+      "target": "file:internal/video/video_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

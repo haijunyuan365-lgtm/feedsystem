@@ -1,0 +1,232 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": ".dockerignore",
+      "language": "unknown",
+      "fileCategory": "infra",
+      "totalLines": 18,
+      "nonEmptyLines": 14,
+      "metrics": {}
+    },
+    {
+      "path": "docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 103,
+      "nonEmptyLines": 98,
+      "sections": [
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 100
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": "Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 59,
+      "nonEmptyLines": 39,
+      "services": [
+        {
+          "name": "deps",
+          "image": "golang:${GO_VERSION}",
+          "ports": [],
+          "startLine": 7,
+          "endLine": 21
+        },
+        {
+          "name": "source",
+          "image": "deps",
+          "ports": [],
+          "startLine": 22,
+          "endLine": 28
+        },
+        {
+          "name": "api-build",
+          "image": "source",
+          "ports": [],
+          "startLine": 29,
+          "endLine": 34
+        },
+        {
+          "name": "worker-build",
+          "image": "source",
+          "ports": [],
+          "startLine": 35,
+          "endLine": 40
+        },
+        {
+          "name": "runtime",
+          "image": "alpine:3.21",
+          "ports": [
+            8080
+          ],
+          "startLine": 41,
+          "endLine": 59
+        }
+      ],
+      "steps": [
+        {
+          "name": "ARG GO_VERSION=1.26.3",
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "ARG GOPROXY=https://goproxy.cn,direct",
+          "startLine": 4,
+          "endLine": 4
+        },
+        {
+          "name": "ARG GOSUMDB=sum.golang.google.cn",
+          "startLine": 5,
+          "endLine": 5
+        },
+        {
+          "name": "FROM golang:${GO_VERSION} AS deps",
+          "startLine": 7,
+          "endLine": 7
+        },
+        {
+          "name": "ARG GOPROXY",
+          "startLine": 8,
+          "endLine": 8
+        },
+        {
+          "name": "ARG GOSUMDB",
+          "startLine": 9,
+          "endLine": 9
+        },
+        {
+          "name": "ENV GOPROXY=${GOPROXY} \\",
+          "startLine": 11,
+          "endLine": 11
+        },
+        {
+          "name": "WORKDIR /src",
+          "startLine": 14,
+          "endLine": 14
+        },
+        {
+          "name": "COPY go.mod go.sum ./",
+          "startLine": 16,
+          "endLine": 16
+        },
+        {
+          "name": "RUN --mount=type=cache,target=/go/pkg/mod \\",
+          "startLine": 18,
+          "endLine": 18
+        },
+        {
+          "name": "FROM deps AS source",
+          "startLine": 22,
+          "endLine": 22
+        },
+        {
+          "name": "COPY . ./",
+          "startLine": 24,
+          "endLine": 24
+        },
+        {
+          "name": "ENV CGO_ENABLED=0 \\",
+          "startLine": 26,
+          "endLine": 26
+        },
+        {
+          "name": "FROM source AS api-build",
+          "startLine": 29,
+          "endLine": 29
+        },
+        {
+          "name": "RUN --mount=type=cache,target=/go/pkg/mod \\",
+          "startLine": 31,
+          "endLine": 31
+        },
+        {
+          "name": "FROM source AS worker-build",
+          "startLine": 35,
+          "endLine": 35
+        },
+        {
+          "name": "RUN --mount=type=cache,target=/go/pkg/mod \\",
+          "startLine": 37,
+          "endLine": 37
+        },
+        {
+          "name": "FROM alpine:3.21 AS runtime",
+          "startLine": 41,
+          "endLine": 41
+        },
+        {
+          "name": "RUN sed -i 's|https://dl-cdn.alpinelinux.org/alpine|https://mirr",
+          "startLine": 43,
+          "endLine": 43
+        },
+        {
+          "name": "WORKDIR /app",
+          "startLine": 46,
+          "endLine": 46
+        },
+        {
+          "name": "COPY --from=api-build /out/api /app/api",
+          "startLine": 48,
+          "endLine": 48
+        },
+        {
+          "name": "COPY --from=worker-build /out/worker /app/worker",
+          "startLine": 49,
+          "endLine": 49
+        },
+        {
+          "name": "COPY --from=source /src/configs ./configs",
+          "startLine": 50,
+          "endLine": 50
+        },
+        {
+          "name": "RUN mkdir -p ./.run/uploads \\",
+          "startLine": 52,
+          "endLine": 52
+        },
+        {
+          "name": "USER app",
+          "startLine": 55,
+          "endLine": 55
+        },
+        {
+          "name": "EXPOSE 8080",
+          "startLine": 57,
+          "endLine": 57
+        },
+        {
+          "name": "CMD [\"/app/api\"]",
+          "startLine": 59,
+          "endLine": 59
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 5,
+        "stepCount": 27
+      }
+    }
+  ]
+}

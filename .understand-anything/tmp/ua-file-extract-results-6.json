@@ -1,0 +1,130 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "configs/config.compose-local.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "sections": [
+        {
+          "heading": "server",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "database",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "redis",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "rabbitmq",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "observability",
+          "level": 1,
+          "line": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "configs/config.docker.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "sections": [
+        {
+          "heading": "server",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "database",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "redis",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "rabbitmq",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "observability",
+          "level": 1,
+          "line": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "configs/config.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "sections": [
+        {
+          "heading": "server",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "database",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "redis",
+          "level": 1,
+          "line": 11
+        },
+        {
+          "heading": "rabbitmq",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": "observability",
+          "level": 1,
+          "line": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    }
+  ]
+}

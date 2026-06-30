@@ -1,0 +1,25 @@
+{
+    "projectRoot":  "D:\\Projects\\GolandProjects\\feedsystem",
+    "batchFiles":  [
+                       {
+                           "path":  "go.mod",
+                           "language":  "mod",
+                           "sizeLines":  56,
+                           "fileCategory":  "config"
+                       },
+                       {
+                           "path":  "go.sum",
+                           "language":  "sum",
+                           "sizeLines":  137,
+                           "fileCategory":  "config"
+                       }
+                   ],
+    "batchImportData":  {
+                            "go.mod":  [
+
+                                       ],
+                            "go.sum":  [
+
+                                       ]
+                        }
+}

@@ -1,0 +1,34 @@
+{
+    "projectRoot":  "D:\\Projects\\GolandProjects\\feedsystem",
+    "batchFiles":  [
+                       {
+                           "path":  "configs/config.compose-local.yaml",
+                           "language":  "yaml",
+                           "sizeLines":  26,
+                           "fileCategory":  "config"
+                       },
+                       {
+                           "path":  "configs/config.docker.yaml",
+                           "language":  "yaml",
+                           "sizeLines":  26,
+                           "fileCategory":  "config"
+                       },
+                       {
+                           "path":  "configs/config.yaml",
+                           "language":  "yaml",
+                           "sizeLines":  26,
+                           "fileCategory":  "config"
+                       }
+                   ],
+    "batchImportData":  {
+                            "configs/config.compose-local.yaml":  [
+
+                                                                  ],
+                            "configs/config.docker.yaml":  [
+
+                                                           ],
+                            "configs/config.yaml":  [
+
+                                                    ]
+                        }
+}

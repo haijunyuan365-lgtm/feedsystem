@@ -1,0 +1,3428 @@
+{
+  "nodes": [
+    {
+      "id": "file:internal/feed/repo.go",
+      "type": "file",
+      "name": "repo.go",
+      "filePath": "internal/feed/repo.go",
+      "summary": "Feed repository 层，使用 GORM 封装数据库查询、写入和聚合统计。",
+      "tags": [
+        "repository",
+        "gorm",
+        "数据访问"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/feed/repo.go:FeedRepository",
+      "type": "class",
+      "name": "FeedRepository",
+      "filePath": "internal/feed/repo.go",
+      "lineRange": [
+        12,
+        14
+      ],
+      "summary": "FeedRepository 封装 Feed数据访问能力。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/feed/repo.go:NewFeedRepository",
+      "type": "function",
+      "name": "NewFeedRepository",
+      "filePath": "internal/feed/repo.go",
+      "lineRange": [
+        16,
+        18
+      ],
+      "summary": "构造 FeedRepository 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/repo.go:ListLatest",
+      "type": "function",
+      "name": "ListLatest",
+      "filePath": "internal/feed/repo.go",
+      "lineRange": [
+        20,
+        35
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/repo.go:ListByFollowing",
+      "type": "function",
+      "name": "ListByFollowing",
+      "filePath": "internal/feed/repo.go",
+      "lineRange": [
+        37,
+        61
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/repo.go:ListLikesCountWithCursor",
+      "type": "function",
+      "name": "ListLikesCountWithCursor",
+      "filePath": "internal/feed/repo.go",
+      "lineRange": [
+        63,
+        83
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/repo.go:ListByTag",
+      "type": "function",
+      "name": "ListByTag",
+      "filePath": "internal/feed/repo.go",
+      "lineRange": [
+        85,
+        97
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/repo.go:ListByPopularity",
+      "type": "function",
+      "name": "ListByPopularity",
+      "filePath": "internal/feed/repo.go",
+      "lineRange": [
+        99,
+        120
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/repo.go:GetByIDs",
+      "type": "function",
+      "name": "GetByIDs",
+      "filePath": "internal/feed/repo.go",
+      "lineRange": [
+        123,
+        134
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/feed/service.go",
+      "type": "file",
+      "name": "service.go",
+      "filePath": "internal/feed/service.go",
+      "summary": "Feed service 层，承载核心业务规则并编排仓储、缓存、消息队列或其他领域模块。",
+      "tags": [
+        "service",
+        "业务逻辑",
+        "领域编排"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:internal/feed/service.go:FeedService",
+      "type": "class",
+      "name": "FeedService",
+      "filePath": "internal/feed/service.go",
+      "lineRange": [
+        20,
+        27
+      ],
+      "summary": "FeedService 承载 Feed业务编排能力。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:internal/feed/service.go:NewFeedService",
+      "type": "function",
+      "name": "NewFeedService",
+      "filePath": "internal/feed/service.go",
+      "lineRange": [
+        29,
+        37
+      ],
+      "summary": "构造 FeedService 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/service.go:GetVideoByIDs",
+      "type": "function",
+      "name": "GetVideoByIDs",
+      "filePath": "internal/feed/service.go",
+      "lineRange": [
+        39,
+        161
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/feed/service.go:ListLatest",
+      "type": "function",
+      "name": "ListLatest",
+      "filePath": "internal/feed/service.go",
+      "lineRange": [
+        163,
+        287
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/feed/service.go:listLatestFromDB",
+      "type": "function",
+      "name": "listLatestFromDB",
+      "filePath": "internal/feed/service.go",
+      "lineRange": [
+        289,
+        310
+      ],
+      "summary": "为业务流程提供 listLatestFromDB 辅助逻辑。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/service.go:ListByFollowing",
+      "type": "function",
+      "name": "ListByFollowing",
+      "filePath": "internal/feed/service.go",
+      "lineRange": [
+        312,
+        333
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/service.go:ListLikesCount",
+      "type": "function",
+      "name": "ListLikesCount",
+      "filePath": "internal/feed/service.go",
+      "lineRange": [
+        335,
+        358
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/service.go:ListByTag",
+      "type": "function",
+      "name": "ListByTag",
+      "filePath": "internal/feed/service.go",
+      "lineRange": [
+        360,
+        372
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/service.go:ListByPopularity",
+      "type": "function",
+      "name": "ListByPopularity",
+      "filePath": "internal/feed/service.go",
+      "lineRange": [
+        374,
+        392
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/service.go:listPopularityFromRedis",
+      "type": "function",
+      "name": "listPopularityFromRedis",
+      "filePath": "internal/feed/service.go",
+      "lineRange": [
+        394,
+        463
+      ],
+      "summary": "为业务流程提供 listPopularityFromRedis 辅助逻辑。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/feed/service.go:listPopularityFromDB",
+      "type": "function",
+      "name": "listPopularityFromDB",
+      "filePath": "internal/feed/service.go",
+      "lineRange": [
+        465,
+        493
+      ],
+      "summary": "为业务流程提供 listPopularityFromDB 辅助逻辑。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/service.go:buildFeedVideos",
+      "type": "function",
+      "name": "buildFeedVideos",
+      "filePath": "internal/feed/service.go",
+      "lineRange": [
+        495,
+        526
+      ],
+      "summary": "为业务流程提供 buildFeedVideos 辅助逻辑。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/service.go:getLikedMap",
+      "type": "function",
+      "name": "getLikedMap",
+      "filePath": "internal/feed/service.go",
+      "lineRange": [
+        528,
+        581
+      ],
+      "summary": "为业务流程提供 getLikedMap 辅助逻辑。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/feed/service.go:setLikeCache",
+      "type": "function",
+      "name": "setLikeCache",
+      "filePath": "internal/feed/service.go",
+      "lineRange": [
+        583,
+        595
+      ],
+      "summary": "为业务流程提供 setLikeCache 辅助逻辑。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/service.go:rebuildGlobalTimeline",
+      "type": "function",
+      "name": "rebuildGlobalTimeline",
+      "filePath": "internal/feed/service.go",
+      "lineRange": [
+        601,
+        626
+      ],
+      "summary": "为业务流程提供 rebuildGlobalTimeline 辅助逻辑。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/service.go:parseVideoIDs",
+      "type": "function",
+      "name": "parseVideoIDs",
+      "filePath": "internal/feed/service.go",
+      "lineRange": [
+        628,
+        638
+      ],
+      "summary": "为业务流程提供 parseVideoIDs 辅助逻辑。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/video/chunk_entity.go",
+      "type": "file",
+      "name": "chunk_entity.go",
+      "filePath": "internal/video/chunk_entity.go",
+      "summary": "视频模块文件，参与 feedsystem 的 Go 服务实现。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/video/chunk_entity.go:ChunkUploadSession",
+      "type": "class",
+      "name": "ChunkUploadSession",
+      "filePath": "internal/video/chunk_entity.go",
+      "lineRange": [
+        5,
+        14
+      ],
+      "summary": "ChunkUploadSession 是 视频中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/video/chunk_entity.go:InitChunkUploadRequest",
+      "type": "class",
+      "name": "InitChunkUploadRequest",
+      "filePath": "internal/video/chunk_entity.go",
+      "lineRange": [
+        35,
+        41
+      ],
+      "summary": "InitChunkUploadRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/video/chunk_entity.go:UploadChunkRequest",
+      "type": "class",
+      "name": "UploadChunkRequest",
+      "filePath": "internal/video/chunk_entity.go",
+      "lineRange": [
+        44,
+        48
+      ],
+      "summary": "UploadChunkRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/video/chunk_entity.go:ChunkStatusRequest",
+      "type": "class",
+      "name": "ChunkStatusRequest",
+      "filePath": "internal/video/chunk_entity.go",
+      "lineRange": [
+        50,
+        52
+      ],
+      "summary": "ChunkStatusRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/video/chunk_entity.go:CompleteChunkUploadRequest",
+      "type": "class",
+      "name": "CompleteChunkUploadRequest",
+      "filePath": "internal/video/chunk_entity.go",
+      "lineRange": [
+        54,
+        56
+      ],
+      "summary": "CompleteChunkUploadRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/chunk_entity.go:UploadedChunks",
+      "type": "function",
+      "name": "UploadedChunks",
+      "filePath": "internal/video/chunk_entity.go",
+      "lineRange": [
+        16,
+        24
+      ],
+      "summary": "处理创建或上传类业务流程，并持久化相关状态。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/chunk_entity.go:IsComplete",
+      "type": "function",
+      "name": "IsComplete",
+      "filePath": "internal/video/chunk_entity.go",
+      "lineRange": [
+        26,
+        33
+      ],
+      "summary": "IsComplete 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/video/comment_entity.go",
+      "type": "file",
+      "name": "comment_entity.go",
+      "filePath": "internal/video/comment_entity.go",
+      "summary": "视频模块文件，参与 feedsystem 的 Go 服务实现。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/video/comment_entity.go:Comment",
+      "type": "class",
+      "name": "Comment",
+      "filePath": "internal/video/comment_entity.go",
+      "lineRange": [
+        5,
+        13
+      ],
+      "summary": "Comment 是 视频中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/video/comment_entity.go:PublishCommentRequest",
+      "type": "class",
+      "name": "PublishCommentRequest",
+      "filePath": "internal/video/comment_entity.go",
+      "lineRange": [
+        15,
+        18
+      ],
+      "summary": "PublishCommentRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/video/comment_entity.go:DeleteCommentRequest",
+      "type": "class",
+      "name": "DeleteCommentRequest",
+      "filePath": "internal/video/comment_entity.go",
+      "lineRange": [
+        20,
+        22
+      ],
+      "summary": "DeleteCommentRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/video/comment_entity.go:GetAllCommentsRequest",
+      "type": "class",
+      "name": "GetAllCommentsRequest",
+      "filePath": "internal/video/comment_entity.go",
+      "lineRange": [
+        24,
+        26
+      ],
+      "summary": "GetAllCommentsRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/video/comment_repo.go",
+      "type": "file",
+      "name": "comment_repo.go",
+      "filePath": "internal/video/comment_repo.go",
+      "summary": "视频模块文件，参与 feedsystem 的 Go 服务实现。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/video/comment_repo.go:CommentRepository",
+      "type": "class",
+      "name": "CommentRepository",
+      "filePath": "internal/video/comment_repo.go",
+      "lineRange": [
+        10,
+        12
+      ],
+      "summary": "CommentRepository 封装 视频数据访问能力。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/video/comment_repo.go:NewCommentRepository",
+      "type": "function",
+      "name": "NewCommentRepository",
+      "filePath": "internal/video/comment_repo.go",
+      "lineRange": [
+        14,
+        16
+      ],
+      "summary": "构造 CommentRepository 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/comment_repo.go:CreateComment",
+      "type": "function",
+      "name": "CreateComment",
+      "filePath": "internal/video/comment_repo.go",
+      "lineRange": [
+        18,
+        20
+      ],
+      "summary": "处理创建或上传类业务流程，并持久化相关状态。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/comment_repo.go:DeleteComment",
+      "type": "function",
+      "name": "DeleteComment",
+      "filePath": "internal/video/comment_repo.go",
+      "lineRange": [
+        22,
+        24
+      ],
+      "summary": "处理删除、取消或撤销类业务动作。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/comment_repo.go:GetAllComments",
+      "type": "function",
+      "name": "GetAllComments",
+      "filePath": "internal/video/comment_repo.go",
+      "lineRange": [
+        26,
+        34
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/comment_repo.go:IsExist",
+      "type": "function",
+      "name": "IsExist",
+      "filePath": "internal/video/comment_repo.go",
+      "lineRange": [
+        36,
+        46
+      ],
+      "summary": "IsExist 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/comment_repo.go:GetByID",
+      "type": "function",
+      "name": "GetByID",
+      "filePath": "internal/video/comment_repo.go",
+      "lineRange": [
+        48,
+        57
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/video/like_entity.go",
+      "type": "file",
+      "name": "like_entity.go",
+      "filePath": "internal/video/like_entity.go",
+      "summary": "视频模块文件，参与 feedsystem 的 Go 服务实现。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/video/like_entity.go:Like",
+      "type": "class",
+      "name": "Like",
+      "filePath": "internal/video/like_entity.go",
+      "lineRange": [
+        6,
+        14
+      ],
+      "summary": "Like 是 视频中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/video/like_entity.go:LikeRequest",
+      "type": "class",
+      "name": "LikeRequest",
+      "filePath": "internal/video/like_entity.go",
+      "lineRange": [
+        15,
+        17
+      ],
+      "summary": "LikeRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/video/like_handler.go",
+      "type": "file",
+      "name": "like_handler.go",
+      "filePath": "internal/video/like_handler.go",
+      "summary": "视频模块文件，参与 feedsystem 的 Go 服务实现。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/video/like_handler.go:LikeHandler",
+      "type": "class",
+      "name": "LikeHandler",
+      "filePath": "internal/video/like_handler.go",
+      "lineRange": [
+        10,
+        12
+      ],
+      "summary": "LikeHandler 聚合 HTTP handler 方法并持有 service 依赖。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/video/like_handler.go:NewLikeHandler",
+      "type": "function",
+      "name": "NewLikeHandler",
+      "filePath": "internal/video/like_handler.go",
+      "lineRange": [
+        14,
+        16
+      ],
+      "summary": "构造 LikeHandler 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/like_handler.go:Like",
+      "type": "function",
+      "name": "Like",
+      "filePath": "internal/video/like_handler.go",
+      "lineRange": [
+        18,
+        44
+      ],
+      "summary": "处理用户互动动作，并同步必要的计数、缓存或异步事件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/like_handler.go:Unlike",
+      "type": "function",
+      "name": "Unlike",
+      "filePath": "internal/video/like_handler.go",
+      "lineRange": [
+        46,
+        72
+      ],
+      "summary": "处理删除、取消或撤销类业务动作。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/like_handler.go:IsLiked",
+      "type": "function",
+      "name": "IsLiked",
+      "filePath": "internal/video/like_handler.go",
+      "lineRange": [
+        74,
+        97
+      ],
+      "summary": "IsLiked 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/like_handler.go:ListMyLikedVideos",
+      "type": "function",
+      "name": "ListMyLikedVideos",
+      "filePath": "internal/video/like_handler.go",
+      "lineRange": [
+        99,
+        115
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/video/like_repo.go",
+      "type": "file",
+      "name": "like_repo.go",
+      "filePath": "internal/video/like_repo.go",
+      "summary": "视频模块文件，参与 feedsystem 的 Go 服务实现。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/video/like_repo.go:LikeRepository",
+      "type": "class",
+      "name": "LikeRepository",
+      "filePath": "internal/video/like_repo.go",
+      "lineRange": [
+        11,
+        13
+      ],
+      "summary": "LikeRepository 封装 视频数据访问能力。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/video/like_repo.go:NewLikeRepository",
+      "type": "function",
+      "name": "NewLikeRepository",
+      "filePath": "internal/video/like_repo.go",
+      "lineRange": [
+        15,
+        17
+      ],
+      "summary": "构造 LikeRepository 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/like_repo.go:Like",
+      "type": "function",
+      "name": "Like",
+      "filePath": "internal/video/like_repo.go",
+      "lineRange": [
+        19,
+        21
+      ],
+      "summary": "处理用户互动动作，并同步必要的计数、缓存或异步事件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/like_repo.go:Unlike",
+      "type": "function",
+      "name": "Unlike",
+      "filePath": "internal/video/like_repo.go",
+      "lineRange": [
+        23,
+        27
+      ],
+      "summary": "处理删除、取消或撤销类业务动作。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/like_repo.go:IsLiked",
+      "type": "function",
+      "name": "IsLiked",
+      "filePath": "internal/video/like_repo.go",
+      "lineRange": [
+        29,
+        38
+      ],
+      "summary": "IsLiked 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/like_repo.go:ListLikedVideos",
+      "type": "function",
+      "name": "ListLikedVideos",
+      "filePath": "internal/video/like_repo.go",
+      "lineRange": [
+        40,
+        56
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/like_repo.go:BatchGetLiked",
+      "type": "function",
+      "name": "BatchGetLiked",
+      "filePath": "internal/video/like_repo.go",
+      "lineRange": [
+        58,
+        82
+      ],
+      "summary": "BatchGetLiked 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/like_repo.go:LikeIgnoreDuplicate",
+      "type": "function",
+      "name": "LikeIgnoreDuplicate",
+      "filePath": "internal/video/like_repo.go",
+      "lineRange": [
+        84,
+        97
+      ],
+      "summary": "处理用户互动动作，并同步必要的计数、缓存或异步事件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/like_repo.go:DeleteByVideoAndAccount",
+      "type": "function",
+      "name": "DeleteByVideoAndAccount",
+      "filePath": "internal/video/like_repo.go",
+      "lineRange": [
+        99,
+        107
+      ],
+      "summary": "处理删除、取消或撤销类业务动作。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/video/tag_entity.go",
+      "type": "file",
+      "name": "tag_entity.go",
+      "filePath": "internal/video/tag_entity.go",
+      "summary": "视频模块文件，参与 feedsystem 的 Go 服务实现。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/video/tag_entity.go:Tag",
+      "type": "class",
+      "name": "Tag",
+      "filePath": "internal/video/tag_entity.go",
+      "lineRange": [
+        13,
+        16
+      ],
+      "summary": "Tag 是 视频中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/video/tag_entity.go:VideoTag",
+      "type": "class",
+      "name": "VideoTag",
+      "filePath": "internal/video/tag_entity.go",
+      "lineRange": [
+        19,
+        23
+      ],
+      "summary": "VideoTag 是 视频中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/tag_entity.go:ExtractTags",
+      "type": "function",
+      "name": "ExtractTags",
+      "filePath": "internal/video/tag_entity.go",
+      "lineRange": [
+        29,
+        45
+      ],
+      "summary": "ExtractTags 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/video/video_entity.go",
+      "type": "file",
+      "name": "video_entity.go",
+      "filePath": "internal/video/video_entity.go",
+      "summary": "视频模块文件，参与 feedsystem 的 Go 服务实现。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/video/video_entity.go:Video",
+      "type": "class",
+      "name": "Video",
+      "filePath": "internal/video/video_entity.go",
+      "lineRange": [
+        5,
+        20
+      ],
+      "summary": "Video 是 视频中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/video/video_entity.go:PublishVideoRequest",
+      "type": "class",
+      "name": "PublishVideoRequest",
+      "filePath": "internal/video/video_entity.go",
+      "lineRange": [
+        22,
+        27
+      ],
+      "summary": "PublishVideoRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/video/video_entity.go:OutboxMsg",
+      "type": "class",
+      "name": "OutboxMsg",
+      "filePath": "internal/video/video_entity.go",
+      "lineRange": [
+        29,
+        35
+      ],
+      "summary": "OutboxMsg 是 视频中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/video/video_entity.go:GetDetailRequest",
+      "type": "class",
+      "name": "GetDetailRequest",
+      "filePath": "internal/video/video_entity.go",
+      "lineRange": [
+        37,
+        39
+      ],
+      "summary": "GetDetailRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/video/video_entity.go:ListByAuthorIDRequest",
+      "type": "class",
+      "name": "ListByAuthorIDRequest",
+      "filePath": "internal/video/video_entity.go",
+      "lineRange": [
+        41,
+        43
+      ],
+      "summary": "ListByAuthorIDRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/video/video_handler.go",
+      "type": "file",
+      "name": "video_handler.go",
+      "filePath": "internal/video/video_handler.go",
+      "summary": "视频模块文件，参与 feedsystem 的 Go 服务实现。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:internal/video/video_handler.go:VideoHandler",
+      "type": "class",
+      "name": "VideoHandler",
+      "filePath": "internal/video/video_handler.go",
+      "lineRange": [
+        19,
+        21
+      ],
+      "summary": "VideoHandler 聚合 HTTP handler 方法并持有 service 依赖。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/video/video_handler.go:NewVideoHandler",
+      "type": "function",
+      "name": "NewVideoHandler",
+      "filePath": "internal/video/video_handler.go",
+      "lineRange": [
+        23,
+        25
+      ],
+      "summary": "构造 VideoHandler 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_handler.go:UploadVideo",
+      "type": "function",
+      "name": "UploadVideo",
+      "filePath": "internal/video/video_handler.go",
+      "lineRange": [
+        28,
+        87
+      ],
+      "summary": "处理创建或上传类业务流程，并持久化相关状态。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/video/video_handler.go:UploadCover",
+      "type": "function",
+      "name": "UploadCover",
+      "filePath": "internal/video/video_handler.go",
+      "lineRange": [
+        89,
+        144
+      ],
+      "summary": "处理创建或上传类业务流程，并持久化相关状态。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/video/video_handler.go:PublishVideo",
+      "type": "function",
+      "name": "PublishVideo",
+      "filePath": "internal/video/video_handler.go",
+      "lineRange": [
+        146,
+        179
+      ],
+      "summary": "发布异步消息或任务，供后台 worker 消费。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_handler.go:GetDetail",
+      "type": "function",
+      "name": "GetDetail",
+      "filePath": "internal/video/video_handler.go",
+      "lineRange": [
+        181,
+        195
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_handler.go:ListByAuthorID",
+      "type": "function",
+      "name": "ListByAuthorID",
+      "filePath": "internal/video/video_handler.go",
+      "lineRange": [
+        197,
+        214
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_handler.go:buildAbsoluteURL",
+      "type": "function",
+      "name": "buildAbsoluteURL",
+      "filePath": "internal/video/video_handler.go",
+      "lineRange": [
+        224,
+        233
+      ],
+      "summary": "为业务流程提供 buildAbsoluteURL 辅助逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/video/video_repo.go",
+      "type": "file",
+      "name": "video_repo.go",
+      "filePath": "internal/video/video_repo.go",
+      "summary": "视频模块文件，参与 feedsystem 的 Go 服务实现。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/video/video_repo.go:VideoRepository",
+      "type": "class",
+      "name": "VideoRepository",
+      "filePath": "internal/video/video_repo.go",
+      "lineRange": [
+        10,
+        12
+      ],
+      "summary": "VideoRepository 封装 视频数据访问能力。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/video/video_repo.go:NewVideoRepository",
+      "type": "function",
+      "name": "NewVideoRepository",
+      "filePath": "internal/video/video_repo.go",
+      "lineRange": [
+        14,
+        16
+      ],
+      "summary": "构造 VideoRepository 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_repo.go:CreateVideo",
+      "type": "function",
+      "name": "CreateVideo",
+      "filePath": "internal/video/video_repo.go",
+      "lineRange": [
+        18,
+        23
+      ],
+      "summary": "处理创建或上传类业务流程，并持久化相关状态。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_repo.go:GetByID",
+      "type": "function",
+      "name": "GetByID",
+      "filePath": "internal/video/video_repo.go",
+      "lineRange": [
+        25,
+        31
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_repo.go:ListByAuthorID",
+      "type": "function",
+      "name": "ListByAuthorID",
+      "filePath": "internal/video/video_repo.go",
+      "lineRange": [
+        33,
+        43
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_repo.go:DeleteVideo",
+      "type": "function",
+      "name": "DeleteVideo",
+      "filePath": "internal/video/video_repo.go",
+      "lineRange": [
+        45,
+        50
+      ],
+      "summary": "处理删除、取消或撤销类业务动作。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_repo.go:IsExist",
+      "type": "function",
+      "name": "IsExist",
+      "filePath": "internal/video/video_repo.go",
+      "lineRange": [
+        52,
+        61
+      ],
+      "summary": "IsExist 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_repo.go:ChangePopularity",
+      "type": "function",
+      "name": "ChangePopularity",
+      "filePath": "internal/video/video_repo.go",
+      "lineRange": [
+        63,
+        67
+      ],
+      "summary": "处理更新类业务流程，并校验请求上下文。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_repo.go:ChangeLikesCount",
+      "type": "function",
+      "name": "ChangeLikesCount",
+      "filePath": "internal/video/video_repo.go",
+      "lineRange": [
+        69,
+        73
+      ],
+      "summary": "处理更新类业务流程，并校验请求上下文。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_repo.go:CountByAuthor",
+      "type": "function",
+      "name": "CountByAuthor",
+      "filePath": "internal/video/video_repo.go",
+      "lineRange": [
+        75,
+        81
+      ],
+      "summary": "CountByAuthor 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/video_repo.go:TotalLikesByAuthor",
+      "type": "function",
+      "name": "TotalLikesByAuthor",
+      "filePath": "internal/video/video_repo.go",
+      "lineRange": [
+        83,
+        91
+      ],
+      "summary": "TotalLikesByAuthor 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/worker/commentworker.go",
+      "type": "file",
+      "name": "commentworker.go",
+      "filePath": "internal/worker/commentworker.go",
+      "summary": "异步 worker处理器，消费 RabbitMQ 或 Redis 中的异步任务并更新数据库、缓存或 SSE 推送。",
+      "tags": [
+        "worker",
+        "异步处理",
+        "消息消费"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/worker/commentworker.go:CommentWorker",
+      "type": "class",
+      "name": "CommentWorker",
+      "filePath": "internal/worker/commentworker.go",
+      "lineRange": [
+        16,
+        21
+      ],
+      "summary": "CommentWorker 是 异步 worker中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/worker/commentworker.go:NewCommentWorker",
+      "type": "function",
+      "name": "NewCommentWorker",
+      "filePath": "internal/worker/commentworker.go",
+      "lineRange": [
+        23,
+        25
+      ],
+      "summary": "构造 CommentWorker 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/commentworker.go:Run",
+      "type": "function",
+      "name": "Run",
+      "filePath": "internal/worker/commentworker.go",
+      "lineRange": [
+        27,
+        51
+      ],
+      "summary": "启动长运行处理流程或后台循环。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/commentworker.go:handleDelivery",
+      "type": "function",
+      "name": "handleDelivery",
+      "filePath": "internal/worker/commentworker.go",
+      "lineRange": [
+        53,
+        78
+      ],
+      "summary": "handleDelivery 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/commentworker.go:process",
+      "type": "function",
+      "name": "process",
+      "filePath": "internal/worker/commentworker.go",
+      "lineRange": [
+        80,
+        94
+      ],
+      "summary": "process 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/commentworker.go:applyPublish",
+      "type": "function",
+      "name": "applyPublish",
+      "filePath": "internal/worker/commentworker.go",
+      "lineRange": [
+        96,
+        119
+      ],
+      "summary": "applyPublish 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/commentworker.go:applyDelete",
+      "type": "function",
+      "name": "applyDelete",
+      "filePath": "internal/worker/commentworker.go",
+      "lineRange": [
+        121,
+        133
+      ],
+      "summary": "applyDelete 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/worker/likeworker.go",
+      "type": "file",
+      "name": "likeworker.go",
+      "filePath": "internal/worker/likeworker.go",
+      "summary": "异步 worker处理器，消费 RabbitMQ 或 Redis 中的异步任务并更新数据库、缓存或 SSE 推送。",
+      "tags": [
+        "worker",
+        "异步处理",
+        "消息消费"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/worker/likeworker.go:LikeWorker",
+      "type": "class",
+      "name": "LikeWorker",
+      "filePath": "internal/worker/likeworker.go",
+      "lineRange": [
+        15,
+        20
+      ],
+      "summary": "LikeWorker 是 异步 worker中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/worker/likeworker.go:NewLikeWorker",
+      "type": "function",
+      "name": "NewLikeWorker",
+      "filePath": "internal/worker/likeworker.go",
+      "lineRange": [
+        22,
+        24
+      ],
+      "summary": "构造 LikeWorker 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/likeworker.go:Run",
+      "type": "function",
+      "name": "Run",
+      "filePath": "internal/worker/likeworker.go",
+      "lineRange": [
+        26,
+        50
+      ],
+      "summary": "启动长运行处理流程或后台循环。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/likeworker.go:handleDelivery",
+      "type": "function",
+      "name": "handleDelivery",
+      "filePath": "internal/worker/likeworker.go",
+      "lineRange": [
+        52,
+        75
+      ],
+      "summary": "handleDelivery 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/likeworker.go:process",
+      "type": "function",
+      "name": "process",
+      "filePath": "internal/worker/likeworker.go",
+      "lineRange": [
+        77,
+        94
+      ],
+      "summary": "process 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/likeworker.go:applyLike",
+      "type": "function",
+      "name": "applyLike",
+      "filePath": "internal/worker/likeworker.go",
+      "lineRange": [
+        96,
+        121
+      ],
+      "summary": "applyLike 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/likeworker.go:applyUnlike",
+      "type": "function",
+      "name": "applyUnlike",
+      "filePath": "internal/worker/likeworker.go",
+      "lineRange": [
+        123,
+        144
+      ],
+      "summary": "applyUnlike 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/worker/outboxworker.go",
+      "type": "file",
+      "name": "outboxworker.go",
+      "filePath": "internal/worker/outboxworker.go",
+      "summary": "异步 worker处理器，消费 RabbitMQ 或 Redis 中的异步任务并更新数据库、缓存或 SSE 推送。",
+      "tags": [
+        "worker",
+        "异步处理",
+        "消息消费"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/worker/outboxworker.go:StartOutboxPoller",
+      "type": "function",
+      "name": "StartOutboxPoller",
+      "filePath": "internal/worker/outboxworker.go",
+      "lineRange": [
+        17,
+        44
+      ],
+      "summary": "启动长运行处理流程或后台循环。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/outboxworker.go:StartConsumer",
+      "type": "function",
+      "name": "StartConsumer",
+      "filePath": "internal/worker/outboxworker.go",
+      "lineRange": [
+        46,
+        114
+      ],
+      "summary": "启动长运行处理流程或后台循环。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "class:internal/feed/repo.go:FeedRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "function:internal/feed/repo.go:NewFeedRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "function:internal/feed/repo.go:ListLatest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "function:internal/feed/repo.go:ListByFollowing",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "function:internal/feed/repo.go:ListLikesCountWithCursor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "function:internal/feed/repo.go:ListByTag",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "function:internal/feed/repo.go:ListByPopularity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "function:internal/feed/repo.go:GetByIDs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/social/entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/social/handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/social/repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/social/service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/video/chunk_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/video/chunk_handler_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/video/chunk_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/video/comment_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/video/comment_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/video/comment_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/video/comment_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/video/like_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/video/like_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/video/like_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/video/like_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/video/popularity_cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/video/tag_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/video/video_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/video/video_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/video/video_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/repo.go",
+      "target": "file:internal/video/video_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "class:internal/feed/service.go:FeedService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "function:internal/feed/service.go:NewFeedService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "function:internal/feed/service.go:GetVideoByIDs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "function:internal/feed/service.go:ListLatest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "function:internal/feed/service.go:listLatestFromDB",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "function:internal/feed/service.go:ListByFollowing",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "function:internal/feed/service.go:ListLikesCount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "function:internal/feed/service.go:ListByTag",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "function:internal/feed/service.go:ListByPopularity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "function:internal/feed/service.go:listPopularityFromRedis",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "function:internal/feed/service.go:listPopularityFromDB",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "function:internal/feed/service.go:buildFeedVideos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "function:internal/feed/service.go:getLikedMap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "function:internal/feed/service.go:setLikeCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "function:internal/feed/service.go:rebuildGlobalTimeline",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "function:internal/feed/service.go:parseVideoIDs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/middleware/redis/cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/middleware/redis/redis_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/middleware/redis/redis.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/middleware/redis/zset.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/video/chunk_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/video/chunk_handler_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/video/chunk_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/video/comment_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/video/comment_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/video/comment_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/video/comment_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/video/like_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/video/like_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/video/like_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/video/like_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/video/popularity_cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/video/tag_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/video/video_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/video/video_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/video/video_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/service.go",
+      "target": "file:internal/video/video_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/chunk_entity.go",
+      "target": "class:internal/video/chunk_entity.go:ChunkUploadSession",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_entity.go",
+      "target": "class:internal/video/chunk_entity.go:InitChunkUploadRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_entity.go",
+      "target": "class:internal/video/chunk_entity.go:UploadChunkRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_entity.go",
+      "target": "class:internal/video/chunk_entity.go:ChunkStatusRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_entity.go",
+      "target": "class:internal/video/chunk_entity.go:CompleteChunkUploadRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_entity.go",
+      "target": "function:internal/video/chunk_entity.go:UploadedChunks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/chunk_entity.go",
+      "target": "function:internal/video/chunk_entity.go:IsComplete",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_entity.go",
+      "target": "class:internal/video/comment_entity.go:Comment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_entity.go",
+      "target": "class:internal/video/comment_entity.go:PublishCommentRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_entity.go",
+      "target": "class:internal/video/comment_entity.go:DeleteCommentRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_entity.go",
+      "target": "class:internal/video/comment_entity.go:GetAllCommentsRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_repo.go",
+      "target": "class:internal/video/comment_repo.go:CommentRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_repo.go",
+      "target": "function:internal/video/comment_repo.go:NewCommentRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_repo.go",
+      "target": "function:internal/video/comment_repo.go:CreateComment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_repo.go",
+      "target": "function:internal/video/comment_repo.go:DeleteComment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_repo.go",
+      "target": "function:internal/video/comment_repo.go:GetAllComments",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_repo.go",
+      "target": "function:internal/video/comment_repo.go:IsExist",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_repo.go",
+      "target": "function:internal/video/comment_repo.go:GetByID",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_entity.go",
+      "target": "class:internal/video/like_entity.go:Like",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_entity.go",
+      "target": "class:internal/video/like_entity.go:LikeRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_handler.go",
+      "target": "class:internal/video/like_handler.go:LikeHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_handler.go",
+      "target": "function:internal/video/like_handler.go:NewLikeHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_handler.go",
+      "target": "function:internal/video/like_handler.go:Like",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_handler.go",
+      "target": "function:internal/video/like_handler.go:Unlike",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_handler.go",
+      "target": "function:internal/video/like_handler.go:IsLiked",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_handler.go",
+      "target": "function:internal/video/like_handler.go:ListMyLikedVideos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_handler.go",
+      "target": "file:internal/apierror/apierror.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/like_handler.go",
+      "target": "file:internal/middleware/jwt/jwt.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/like_repo.go",
+      "target": "class:internal/video/like_repo.go:LikeRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_repo.go",
+      "target": "function:internal/video/like_repo.go:NewLikeRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_repo.go",
+      "target": "function:internal/video/like_repo.go:Like",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_repo.go",
+      "target": "function:internal/video/like_repo.go:Unlike",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_repo.go",
+      "target": "function:internal/video/like_repo.go:IsLiked",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_repo.go",
+      "target": "function:internal/video/like_repo.go:ListLikedVideos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_repo.go",
+      "target": "function:internal/video/like_repo.go:BatchGetLiked",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_repo.go",
+      "target": "function:internal/video/like_repo.go:LikeIgnoreDuplicate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_repo.go",
+      "target": "function:internal/video/like_repo.go:DeleteByVideoAndAccount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/tag_entity.go",
+      "target": "class:internal/video/tag_entity.go:Tag",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/tag_entity.go",
+      "target": "class:internal/video/tag_entity.go:VideoTag",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/tag_entity.go",
+      "target": "function:internal/video/tag_entity.go:ExtractTags",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_entity.go",
+      "target": "class:internal/video/video_entity.go:Video",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_entity.go",
+      "target": "class:internal/video/video_entity.go:PublishVideoRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_entity.go",
+      "target": "class:internal/video/video_entity.go:OutboxMsg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_entity.go",
+      "target": "class:internal/video/video_entity.go:GetDetailRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_entity.go",
+      "target": "class:internal/video/video_entity.go:ListByAuthorIDRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_handler.go",
+      "target": "class:internal/video/video_handler.go:VideoHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_handler.go",
+      "target": "function:internal/video/video_handler.go:NewVideoHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_handler.go",
+      "target": "function:internal/video/video_handler.go:UploadVideo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_handler.go",
+      "target": "function:internal/video/video_handler.go:UploadCover",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_handler.go",
+      "target": "function:internal/video/video_handler.go:PublishVideo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_handler.go",
+      "target": "function:internal/video/video_handler.go:GetDetail",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_handler.go",
+      "target": "function:internal/video/video_handler.go:ListByAuthorID",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_handler.go",
+      "target": "function:internal/video/video_handler.go:buildAbsoluteURL",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_handler.go",
+      "target": "file:internal/apierror/apierror.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/video_handler.go",
+      "target": "file:internal/middleware/jwt/jwt.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/video_repo.go",
+      "target": "class:internal/video/video_repo.go:VideoRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_repo.go",
+      "target": "function:internal/video/video_repo.go:NewVideoRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_repo.go",
+      "target": "function:internal/video/video_repo.go:CreateVideo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_repo.go",
+      "target": "function:internal/video/video_repo.go:GetByID",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_repo.go",
+      "target": "function:internal/video/video_repo.go:ListByAuthorID",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_repo.go",
+      "target": "function:internal/video/video_repo.go:DeleteVideo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_repo.go",
+      "target": "function:internal/video/video_repo.go:IsExist",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_repo.go",
+      "target": "function:internal/video/video_repo.go:ChangePopularity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_repo.go",
+      "target": "function:internal/video/video_repo.go:ChangeLikesCount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_repo.go",
+      "target": "function:internal/video/video_repo.go:CountByAuthor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/video_repo.go",
+      "target": "function:internal/video/video_repo.go:TotalLikesByAuthor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "class:internal/worker/commentworker.go:CommentWorker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "function:internal/worker/commentworker.go:NewCommentWorker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "function:internal/worker/commentworker.go:Run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "function:internal/worker/commentworker.go:handleDelivery",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "function:internal/worker/commentworker.go:process",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "function:internal/worker/commentworker.go:applyPublish",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "function:internal/worker/commentworker.go:applyDelete",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/middleware/rabbitmq/dlx.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/middleware/rabbitmq/popularityMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/middleware/rabbitmq/timelineMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/video/chunk_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/video/chunk_handler_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/video/chunk_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/video/comment_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/video/comment_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/video/comment_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/video/comment_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/video/like_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/video/like_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/video/like_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/video/like_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/video/popularity_cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/video/tag_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/video/video_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/video/video_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/video/video_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/commentworker.go",
+      "target": "file:internal/video/video_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "class:internal/worker/likeworker.go:LikeWorker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "function:internal/worker/likeworker.go:NewLikeWorker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "function:internal/worker/likeworker.go:Run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "function:internal/worker/likeworker.go:handleDelivery",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "function:internal/worker/likeworker.go:process",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "function:internal/worker/likeworker.go:applyLike",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "function:internal/worker/likeworker.go:applyUnlike",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/middleware/rabbitmq/dlx.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/middleware/rabbitmq/popularityMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/middleware/rabbitmq/timelineMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/video/chunk_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/video/chunk_handler_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/video/chunk_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/video/comment_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/video/comment_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/video/comment_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/video/comment_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/video/like_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/video/like_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/video/like_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/video/like_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/video/popularity_cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/video/tag_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/video/video_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/video/video_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/video/video_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/likeworker.go",
+      "target": "file:internal/video/video_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "function:internal/worker/outboxworker.go:StartOutboxPoller",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "function:internal/worker/outboxworker.go:StartConsumer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/middleware/rabbitmq/dlx.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/middleware/rabbitmq/popularityMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/middleware/rabbitmq/timelineMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/middleware/redis/cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/middleware/redis/redis_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/middleware/redis/redis.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/middleware/redis/zset.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/video/chunk_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/video/chunk_handler_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/video/chunk_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/video/comment_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/video/comment_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/video/comment_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/video/comment_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/video/like_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/video/like_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/video/like_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/video/like_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/video/popularity_cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/video/tag_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/video/video_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/video/video_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/video/video_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/outboxworker.go",
+      "target": "file:internal/video/video_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,6914 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 18,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "internal/account/entity.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 80,
+      "nonEmptyLines": 66,
+      "classes": [
+        {
+          "name": "Account",
+          "startLine": 3,
+          "endLine": 11,
+          "methods": [],
+          "properties": [
+            "ID",
+            "Username",
+            "Password",
+            "Token",
+            "RefreshToken",
+            "AvatarURL",
+            "Bio"
+          ]
+        },
+        {
+          "name": "CreateAccountRequest",
+          "startLine": 13,
+          "endLine": 16,
+          "methods": [],
+          "properties": [
+            "Username",
+            "Password"
+          ]
+        },
+        {
+          "name": "FindByIDRequest",
+          "startLine": 18,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "ID"
+          ]
+        },
+        {
+          "name": "FindByIDResponse",
+          "startLine": 22,
+          "endLine": 27,
+          "methods": [],
+          "properties": [
+            "ID",
+            "Username",
+            "AvatarURL",
+            "Bio"
+          ]
+        },
+        {
+          "name": "FindByUsernameRequest",
+          "startLine": 29,
+          "endLine": 31,
+          "methods": [],
+          "properties": [
+            "Username"
+          ]
+        },
+        {
+          "name": "FindByUsernameResponse",
+          "startLine": 33,
+          "endLine": 38,
+          "methods": [],
+          "properties": [
+            "ID",
+            "Username",
+            "AvatarURL",
+            "Bio"
+          ]
+        },
+        {
+          "name": "LoginRequest",
+          "startLine": 40,
+          "endLine": 43,
+          "methods": [],
+          "properties": [
+            "Username",
+            "Password"
+          ]
+        },
+        {
+          "name": "ChangePasswordRequest",
+          "startLine": 45,
+          "endLine": 48,
+          "methods": [],
+          "properties": [
+            "OldPassword",
+            "NewPassword"
+          ]
+        },
+        {
+          "name": "GetProfileRequest",
+          "startLine": 50,
+          "endLine": 52,
+          "methods": [],
+          "properties": [
+            "AccountID"
+          ]
+        },
+        {
+          "name": "GetProfileResponse",
+          "startLine": 54,
+          "endLine": 60,
+          "methods": [],
+          "properties": [
+            "Account",
+            "VideoCount",
+            "TotalLikes",
+            "FollowerCount",
+            "VloggerCount"
+          ]
+        },
+        {
+          "name": "LoginResponse",
+          "startLine": 62,
+          "endLine": 67,
+          "methods": [],
+          "properties": [
+            "Token",
+            "RefreshToken",
+            "AccountID",
+            "Username"
+          ]
+        },
+        {
+          "name": "RenameRequest",
+          "startLine": 69,
+          "endLine": 71,
+          "methods": [],
+          "properties": [
+            "NewUsername"
+          ]
+        },
+        {
+          "name": "UpdateProfileRequest",
+          "startLine": 73,
+          "endLine": 76,
+          "methods": [],
+          "properties": [
+            "AvatarURL",
+            "Bio"
+          ]
+        },
+        {
+          "name": "RefreshRequest",
+          "startLine": 78,
+          "endLine": 80,
+          "methods": [],
+          "properties": [
+            "RefreshToken"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Account",
+          "line": 3,
+          "isDefault": false
+        },
+        {
+          "name": "CreateAccountRequest",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "FindByIDRequest",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "FindByIDResponse",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "FindByUsernameRequest",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "FindByUsernameResponse",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "LoginRequest",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "ChangePasswordRequest",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "GetProfileRequest",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "GetProfileResponse",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "LoginResponse",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "RenameRequest",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "UpdateProfileRequest",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "RefreshRequest",
+          "line": 78,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 14,
+        "functionCount": 0,
+        "classCount": 14
+      }
+    },
+    {
+      "path": "internal/account/handler.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 329,
+      "nonEmptyLines": 282,
+      "functions": [
+        {
+          "name": "NewAccountHandler",
+          "startLine": 24,
+          "endLine": 26,
+          "params": [
+            "accountService"
+          ]
+        },
+        {
+          "name": "CreateAccount",
+          "startLine": 28,
+          "endLine": 51,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "Login",
+          "startLine": 53,
+          "endLine": 78,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "Logout",
+          "startLine": 80,
+          "endLine": 93,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "Rename",
+          "startLine": 95,
+          "endLine": 124,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "FindByID",
+          "startLine": 126,
+          "endLine": 149,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "FindByUsername",
+          "startLine": 151,
+          "endLine": 178,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "UpdateProfile",
+          "startLine": 181,
+          "endLine": 200,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "UploadAvatar",
+          "startLine": 202,
+          "endLine": 257,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "Refresh",
+          "startLine": 259,
+          "endLine": 277,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "randHex",
+          "startLine": 279,
+          "endLine": 285,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "buildAbsoluteURL",
+          "startLine": 287,
+          "endLine": 296,
+          "params": [
+            "c",
+            "p"
+          ]
+        },
+        {
+          "name": "ChangePassword",
+          "startLine": 298,
+          "endLine": 317,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "getAccountID",
+          "startLine": 319,
+          "endLine": 329,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AccountHandler",
+          "startLine": 20,
+          "endLine": 22,
+          "methods": [
+            "CreateAccount",
+            "Login",
+            "Logout",
+            "Rename",
+            "FindByID",
+            "FindByUsername",
+            "UpdateProfile",
+            "UploadAvatar",
+            "Refresh",
+            "ChangePassword"
+          ],
+          "properties": [
+            "accountService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AccountHandler",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "NewAccountHandler",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "CreateAccount",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "Login",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "Logout",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "Rename",
+          "line": 95,
+          "isDefault": false
+        },
+        {
+          "name": "FindByID",
+          "line": 126,
+          "isDefault": false
+        },
+        {
+          "name": "FindByUsername",
+          "line": 151,
+          "isDefault": false
+        },
+        {
+          "name": "UpdateProfile",
+          "line": 181,
+          "isDefault": false
+        },
+        {
+          "name": "UploadAvatar",
+          "line": 202,
+          "isDefault": false
+        },
+        {
+          "name": "Refresh",
+          "line": 259,
+          "isDefault": false
+        },
+        {
+          "name": "ChangePassword",
+          "line": 298,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "CreateAccount",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 30
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "c.JSON",
+          "lineNumber": 31
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 31
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "err.Error",
+          "lineNumber": 31
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "h.accountService.CreateAccount",
+          "lineNumber": 35
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "c.Request.Context",
+          "lineNumber": 35
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "errors.Is",
+          "lineNumber": 40
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "errors.Is",
+          "lineNumber": 40
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "c.JSON",
+          "lineNumber": 41
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "err.Error",
+          "lineNumber": 41
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "errors.Is",
+          "lineNumber": 42
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "c.JSON",
+          "lineNumber": 43
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "err.Error",
+          "lineNumber": 43
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "c.JSON",
+          "lineNumber": 45
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "err.Error",
+          "lineNumber": 45
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "c.JSON",
+          "lineNumber": 50
+        },
+        {
+          "caller": "Login",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 55
+        },
+        {
+          "caller": "Login",
+          "callee": "c.JSON",
+          "lineNumber": 56
+        },
+        {
+          "caller": "Login",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 56
+        },
+        {
+          "caller": "Login",
+          "callee": "err.Error",
+          "lineNumber": 56
+        },
+        {
+          "caller": "Login",
+          "callee": "h.accountService.FindByUsername",
+          "lineNumber": 60
+        },
+        {
+          "caller": "Login",
+          "callee": "c.Request.Context",
+          "lineNumber": 60
+        },
+        {
+          "caller": "Login",
+          "callee": "c.JSON",
+          "lineNumber": 62
+        },
+        {
+          "caller": "Login",
+          "callee": "h.accountService.Login",
+          "lineNumber": 66
+        },
+        {
+          "caller": "Login",
+          "callee": "c.Request.Context",
+          "lineNumber": 66
+        },
+        {
+          "caller": "Login",
+          "callee": "c.JSON",
+          "lineNumber": 68
+        },
+        {
+          "caller": "Login",
+          "callee": "c.JSON",
+          "lineNumber": 72
+        },
+        {
+          "caller": "Logout",
+          "callee": "getAccountID",
+          "lineNumber": 81
+        },
+        {
+          "caller": "Logout",
+          "callee": "c.JSON",
+          "lineNumber": 83
+        },
+        {
+          "caller": "Logout",
+          "callee": "err.Error",
+          "lineNumber": 83
+        },
+        {
+          "caller": "Logout",
+          "callee": "h.accountService.Logout",
+          "lineNumber": 87
+        },
+        {
+          "caller": "Logout",
+          "callee": "c.Request.Context",
+          "lineNumber": 87
+        },
+        {
+          "caller": "Logout",
+          "callee": "c.JSON",
+          "lineNumber": 88
+        },
+        {
+          "caller": "Logout",
+          "callee": "err.Error",
+          "lineNumber": 88
+        },
+        {
+          "caller": "Logout",
+          "callee": "c.JSON",
+          "lineNumber": 92
+        },
+        {
+          "caller": "Rename",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 97
+        },
+        {
+          "caller": "Rename",
+          "callee": "c.JSON",
+          "lineNumber": 98
+        },
+        {
+          "caller": "Rename",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 98
+        },
+        {
+          "caller": "Rename",
+          "callee": "err.Error",
+          "lineNumber": 98
+        },
+        {
+          "caller": "Rename",
+          "callee": "getAccountID",
+          "lineNumber": 102
+        },
+        {
+          "caller": "Rename",
+          "callee": "c.JSON",
+          "lineNumber": 104
+        },
+        {
+          "caller": "Rename",
+          "callee": "err.Error",
+          "lineNumber": 104
+        },
+        {
+          "caller": "Rename",
+          "callee": "h.accountService.Rename",
+          "lineNumber": 108
+        },
+        {
+          "caller": "Rename",
+          "callee": "c.Request.Context",
+          "lineNumber": 108
+        },
+        {
+          "caller": "Rename",
+          "callee": "errors.Is",
+          "lineNumber": 111
+        },
+        {
+          "caller": "Rename",
+          "callee": "c.JSON",
+          "lineNumber": 112
+        },
+        {
+          "caller": "Rename",
+          "callee": "err.Error",
+          "lineNumber": 112
+        },
+        {
+          "caller": "Rename",
+          "callee": "errors.Is",
+          "lineNumber": 113
+        },
+        {
+          "caller": "Rename",
+          "callee": "c.JSON",
+          "lineNumber": 114
+        },
+        {
+          "caller": "Rename",
+          "callee": "err.Error",
+          "lineNumber": 114
+        },
+        {
+          "caller": "Rename",
+          "callee": "errors.Is",
+          "lineNumber": 115
+        },
+        {
+          "caller": "Rename",
+          "callee": "c.JSON",
+          "lineNumber": 116
+        },
+        {
+          "caller": "Rename",
+          "callee": "c.JSON",
+          "lineNumber": 118
+        },
+        {
+          "caller": "Rename",
+          "callee": "err.Error",
+          "lineNumber": 118
+        },
+        {
+          "caller": "Rename",
+          "callee": "c.JSON",
+          "lineNumber": 123
+        },
+        {
+          "caller": "FindByID",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 128
+        },
+        {
+          "caller": "FindByID",
+          "callee": "c.JSON",
+          "lineNumber": 129
+        },
+        {
+          "caller": "FindByID",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 129
+        },
+        {
+          "caller": "FindByID",
+          "callee": "err.Error",
+          "lineNumber": 129
+        },
+        {
+          "caller": "FindByID",
+          "callee": "h.accountService.FindByID",
+          "lineNumber": 133
+        },
+        {
+          "caller": "FindByID",
+          "callee": "c.Request.Context",
+          "lineNumber": 133
+        },
+        {
+          "caller": "FindByID",
+          "callee": "errors.Is",
+          "lineNumber": 135
+        },
+        {
+          "caller": "FindByID",
+          "callee": "c.JSON",
+          "lineNumber": 136
+        },
+        {
+          "caller": "FindByID",
+          "callee": "c.JSON",
+          "lineNumber": 139
+        },
+        {
+          "caller": "FindByID",
+          "callee": "err.Error",
+          "lineNumber": 139
+        },
+        {
+          "caller": "FindByID",
+          "callee": "c.JSON",
+          "lineNumber": 143
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 153
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "c.JSON",
+          "lineNumber": 154
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 154
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "err.Error",
+          "lineNumber": 154
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "h.accountService.FindByUsername",
+          "lineNumber": 158
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "c.Request.Context",
+          "lineNumber": 158
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "errors.Is",
+          "lineNumber": 160
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "c.JSON",
+          "lineNumber": 161
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "err.Error",
+          "lineNumber": 161
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "errors.Is",
+          "lineNumber": 164
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "c.JSON",
+          "lineNumber": 165
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "c.JSON",
+          "lineNumber": 168
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "err.Error",
+          "lineNumber": 168
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "c.JSON",
+          "lineNumber": 172
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "getAccountID",
+          "lineNumber": 182
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "c.JSON",
+          "lineNumber": 184
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "err.Error",
+          "lineNumber": 184
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 189
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "c.JSON",
+          "lineNumber": 190
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 190
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "err.Error",
+          "lineNumber": 190
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "h.accountService.UpdateProfile",
+          "lineNumber": 194
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "c.Request.Context",
+          "lineNumber": 194
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "c.JSON",
+          "lineNumber": 195
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 195
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "err.Error",
+          "lineNumber": 195
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "c.JSON",
+          "lineNumber": 199
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "getAccountID",
+          "lineNumber": 203
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "c.JSON",
+          "lineNumber": 205
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "err.Error",
+          "lineNumber": 205
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "c.FormFile",
+          "lineNumber": 209
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "c.JSON",
+          "lineNumber": 211
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "c.JSON",
+          "lineNumber": 217
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "strings.ToLower",
+          "lineNumber": 221
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "filepath.Ext",
+          "lineNumber": 221
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "c.JSON",
+          "lineNumber": 225
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "filepath.Join",
+          "lineNumber": 229
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "strconv.FormatUint",
+          "lineNumber": 229
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "uint64",
+          "lineNumber": 229
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "os.MkdirAll",
+          "lineNumber": 230
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "c.JSON",
+          "lineNumber": 231
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "err.Error",
+          "lineNumber": 231
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "randHex",
+          "lineNumber": 235
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "c.JSON",
+          "lineNumber": 237
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "err.Error",
+          "lineNumber": 237
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "filepath.Join",
+          "lineNumber": 242
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "c.SaveUploadedFile",
+          "lineNumber": 243
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "c.JSON",
+          "lineNumber": 244
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "err.Error",
+          "lineNumber": 244
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "path.Join",
+          "lineNumber": 248
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "strconv.FormatUint",
+          "lineNumber": 248
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "uint64",
+          "lineNumber": 248
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "buildAbsoluteURL",
+          "lineNumber": 249
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "h.accountService.UpdateAvatar",
+          "lineNumber": 251
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "c.Request.Context",
+          "lineNumber": 251
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "c.JSON",
+          "lineNumber": 252
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "err.Error",
+          "lineNumber": 252
+        },
+        {
+          "caller": "UploadAvatar",
+          "callee": "c.JSON",
+          "lineNumber": 256
+        },
+        {
+          "caller": "Refresh",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 261
+        },
+        {
+          "caller": "Refresh",
+          "callee": "c.JSON",
+          "lineNumber": 262
+        },
+        {
+          "caller": "Refresh",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 262
+        },
+        {
+          "caller": "Refresh",
+          "callee": "err.Error",
+          "lineNumber": 262
+        },
+        {
+          "caller": "Refresh",
+          "callee": "h.accountService.RefreshAccessToken",
+          "lineNumber": 266
+        },
+        {
+          "caller": "Refresh",
+          "callee": "c.Request.Context",
+          "lineNumber": 266
+        },
+        {
+          "caller": "Refresh",
+          "callee": "c.JSON",
+          "lineNumber": 268
+        },
+        {
+          "caller": "Refresh",
+          "callee": "c.JSON",
+          "lineNumber": 272
+        },
+        {
+          "caller": "randHex",
+          "callee": "make",
+          "lineNumber": 280
+        },
+        {
+          "caller": "randHex",
+          "callee": "rand.Read",
+          "lineNumber": 281
+        },
+        {
+          "caller": "randHex",
+          "callee": "fmt.Errorf",
+          "lineNumber": 282
+        },
+        {
+          "caller": "randHex",
+          "callee": "hex.EncodeToString",
+          "lineNumber": 284
+        },
+        {
+          "caller": "buildAbsoluteURL",
+          "callee": "c.GetHeader",
+          "lineNumber": 292
+        },
+        {
+          "caller": "buildAbsoluteURL",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 295
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "getAccountID",
+          "lineNumber": 299
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "c.JSON",
+          "lineNumber": 301
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "err.Error",
+          "lineNumber": 301
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 306
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "c.JSON",
+          "lineNumber": 307
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 307
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "err.Error",
+          "lineNumber": 307
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "h.accountService.ChangePassword",
+          "lineNumber": 311
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "c.Request.Context",
+          "lineNumber": 311
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "c.JSON",
+          "lineNumber": 312
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "c.JSON",
+          "lineNumber": 316
+        },
+        {
+          "caller": "getAccountID",
+          "callee": "c.Get",
+          "lineNumber": 320
+        },
+        {
+          "caller": "getAccountID",
+          "callee": "errors.New",
+          "lineNumber": 322
+        },
+        {
+          "caller": "getAccountID",
+          "callee": "errors.New",
+          "lineNumber": 326
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 12,
+        "functionCount": 14,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/account/repo.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 95,
+      "nonEmptyLines": 79,
+      "functions": [
+        {
+          "name": "NewAccountRepository",
+          "startLine": 13,
+          "endLine": 15,
+          "params": [
+            "db"
+          ]
+        },
+        {
+          "name": "CreateAccount",
+          "startLine": 17,
+          "endLine": 19,
+          "params": [
+            "ctx",
+            "account"
+          ]
+        },
+        {
+          "name": "FindByID",
+          "startLine": 21,
+          "endLine": 27,
+          "params": [
+            "ctx",
+            "id"
+          ]
+        },
+        {
+          "name": "FindByUsername",
+          "startLine": 29,
+          "endLine": 35,
+          "params": [
+            "ctx",
+            "username"
+          ]
+        },
+        {
+          "name": "Update",
+          "startLine": 37,
+          "endLine": 39,
+          "params": [
+            "ctx",
+            "account"
+          ]
+        },
+        {
+          "name": "Login",
+          "startLine": 41,
+          "endLine": 48,
+          "params": [
+            "ctx",
+            "id",
+            "token",
+            "refreshToken"
+          ]
+        },
+        {
+          "name": "Logout",
+          "startLine": 50,
+          "endLine": 57,
+          "params": [
+            "ctx",
+            "id"
+          ]
+        },
+        {
+          "name": "RenameWithToken",
+          "startLine": 59,
+          "endLine": 71,
+          "params": [
+            "ctx",
+            "id",
+            "newUsername",
+            "token"
+          ]
+        },
+        {
+          "name": "UpdateToken",
+          "startLine": 73,
+          "endLine": 75,
+          "params": [
+            "ctx",
+            "id",
+            "token"
+          ]
+        },
+        {
+          "name": "UpdateAvatar",
+          "startLine": 77,
+          "endLine": 79,
+          "params": [
+            "ctx",
+            "accountID",
+            "avatarURL"
+          ]
+        },
+        {
+          "name": "UpdateFields",
+          "startLine": 81,
+          "endLine": 83,
+          "params": [
+            "ctx",
+            "id",
+            "updates"
+          ]
+        },
+        {
+          "name": "FindAll",
+          "startLine": 85,
+          "endLine": 91,
+          "params": [
+            "ctx"
+          ]
+        },
+        {
+          "name": "ChangePassword",
+          "startLine": 93,
+          "endLine": 95,
+          "params": [
+            "ctx",
+            "id",
+            "newPassword"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AccountRepository",
+          "startLine": 9,
+          "endLine": 11,
+          "methods": [
+            "CreateAccount",
+            "FindByID",
+            "FindByUsername",
+            "Update",
+            "Login",
+            "Logout",
+            "RenameWithToken",
+            "UpdateToken",
+            "UpdateAvatar",
+            "UpdateFields",
+            "FindAll",
+            "ChangePassword"
+          ],
+          "properties": [
+            "db"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AccountRepository",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "NewAccountRepository",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "CreateAccount",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "FindByID",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "FindByUsername",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "Update",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "Login",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "Logout",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "RenameWithToken",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "UpdateToken",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "UpdateAvatar",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "UpdateFields",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "FindAll",
+          "line": 85,
+          "isDefault": false
+        },
+        {
+          "name": "ChangePassword",
+          "line": 93,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "CreateAccount",
+          "callee": "ar.db.WithContext(ctx).Create",
+          "lineNumber": 18
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "ar.db.WithContext",
+          "lineNumber": 18
+        },
+        {
+          "caller": "FindByID",
+          "callee": "ar.db.WithContext(ctx).First",
+          "lineNumber": 23
+        },
+        {
+          "caller": "FindByID",
+          "callee": "ar.db.WithContext",
+          "lineNumber": 23
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "ar.db.WithContext(ctx).Where(\"username = ?\", username).First",
+          "lineNumber": 31
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "ar.db.WithContext(ctx).Where",
+          "lineNumber": 31
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "ar.db.WithContext",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Update",
+          "callee": "ar.db.WithContext(ctx).Save",
+          "lineNumber": 38
+        },
+        {
+          "caller": "Update",
+          "callee": "ar.db.WithContext",
+          "lineNumber": 38
+        },
+        {
+          "caller": "Login",
+          "callee": "ar.db.WithContext(ctx).Model(&Account{}).\n\t\tWhere(\"id = ?\", id).\n\t\tUpdates",
+          "lineNumber": 42
+        },
+        {
+          "caller": "Login",
+          "callee": "ar.db.WithContext(ctx).Model(&Account{}).\n\t\tWhere",
+          "lineNumber": 42
+        },
+        {
+          "caller": "Login",
+          "callee": "ar.db.WithContext(ctx).Model",
+          "lineNumber": 42
+        },
+        {
+          "caller": "Login",
+          "callee": "ar.db.WithContext",
+          "lineNumber": 42
+        },
+        {
+          "caller": "Logout",
+          "callee": "ar.db.WithContext(ctx).Model(&Account{}).\n\t\tWhere(\"id = ?\", id).\n\t\tUpdates",
+          "lineNumber": 51
+        },
+        {
+          "caller": "Logout",
+          "callee": "ar.db.WithContext(ctx).Model(&Account{}).\n\t\tWhere",
+          "lineNumber": 51
+        },
+        {
+          "caller": "Logout",
+          "callee": "ar.db.WithContext(ctx).Model",
+          "lineNumber": 51
+        },
+        {
+          "caller": "Logout",
+          "callee": "ar.db.WithContext",
+          "lineNumber": 51
+        },
+        {
+          "caller": "RenameWithToken",
+          "callee": "ar.db.WithContext(ctx).Transaction",
+          "lineNumber": 61
+        },
+        {
+          "caller": "RenameWithToken",
+          "callee": "ar.db.WithContext",
+          "lineNumber": 61
+        },
+        {
+          "caller": "RenameWithToken",
+          "callee": "tx.Model(&Account{}).Where(\"id = ?\", id).Update",
+          "lineNumber": 62
+        },
+        {
+          "caller": "RenameWithToken",
+          "callee": "tx.Model(&Account{}).Where",
+          "lineNumber": 62
+        },
+        {
+          "caller": "RenameWithToken",
+          "callee": "tx.Model",
+          "lineNumber": 62
+        },
+        {
+          "caller": "RenameWithToken",
+          "callee": "tx.Model(&Account{}).Where(\"id = ?\", id).Update",
+          "lineNumber": 69
+        },
+        {
+          "caller": "RenameWithToken",
+          "callee": "tx.Model(&Account{}).Where",
+          "lineNumber": 69
+        },
+        {
+          "caller": "RenameWithToken",
+          "callee": "tx.Model",
+          "lineNumber": 69
+        },
+        {
+          "caller": "UpdateToken",
+          "callee": "ar.db.WithContext(ctx).Model(&Account{}).Where(\"id = ?\", id).Update",
+          "lineNumber": 74
+        },
+        {
+          "caller": "UpdateToken",
+          "callee": "ar.db.WithContext(ctx).Model(&Account{}).Where",
+          "lineNumber": 74
+        },
+        {
+          "caller": "UpdateToken",
+          "callee": "ar.db.WithContext(ctx).Model",
+          "lineNumber": 74
+        },
+        {
+          "caller": "UpdateToken",
+          "callee": "ar.db.WithContext",
+          "lineNumber": 74
+        },
+        {
+          "caller": "UpdateAvatar",
+          "callee": "ar.db.WithContext(ctx).Model(&Account{}).Where(\"id = ?\", accountID).Update",
+          "lineNumber": 78
+        },
+        {
+          "caller": "UpdateAvatar",
+          "callee": "ar.db.WithContext(ctx).Model(&Account{}).Where",
+          "lineNumber": 78
+        },
+        {
+          "caller": "UpdateAvatar",
+          "callee": "ar.db.WithContext(ctx).Model",
+          "lineNumber": 78
+        },
+        {
+          "caller": "UpdateAvatar",
+          "callee": "ar.db.WithContext",
+          "lineNumber": 78
+        },
+        {
+          "caller": "UpdateFields",
+          "callee": "ar.db.WithContext(ctx).Model(&Account{}).Where(\"id = ?\", id).Updates",
+          "lineNumber": 82
+        },
+        {
+          "caller": "UpdateFields",
+          "callee": "ar.db.WithContext(ctx).Model(&Account{}).Where",
+          "lineNumber": 82
+        },
+        {
+          "caller": "UpdateFields",
+          "callee": "ar.db.WithContext(ctx).Model",
+          "lineNumber": 82
+        },
+        {
+          "caller": "UpdateFields",
+          "callee": "ar.db.WithContext",
+          "lineNumber": 82
+        },
+        {
+          "caller": "FindAll",
+          "callee": "ar.db.WithContext(ctx).Find",
+          "lineNumber": 87
+        },
+        {
+          "caller": "FindAll",
+          "callee": "ar.db.WithContext",
+          "lineNumber": 87
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "ar.db.WithContext(ctx).Model(&Account{}).Where(\"id = ?\", id).Update",
+          "lineNumber": 94
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "ar.db.WithContext(ctx).Model(&Account{}).Where",
+          "lineNumber": 94
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "ar.db.WithContext(ctx).Model",
+          "lineNumber": 94
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "ar.db.WithContext",
+          "lineNumber": 94
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 14,
+        "functionCount": 13,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/account/service.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 304,
+      "nonEmptyLines": 252,
+      "functions": [
+        {
+          "name": "NewAccountService",
+          "startLine": 29,
+          "endLine": 34,
+          "params": [
+            "accountRepository",
+            "cache"
+          ]
+        },
+        {
+          "name": "CreateAccount",
+          "startLine": 36,
+          "endLine": 59,
+          "params": [
+            "ctx",
+            "account"
+          ]
+        },
+        {
+          "name": "FindByID",
+          "startLine": 61,
+          "endLine": 63,
+          "params": [
+            "ctx",
+            "id"
+          ]
+        },
+        {
+          "name": "FindByUsername",
+          "startLine": 65,
+          "endLine": 71,
+          "params": [
+            "ctx",
+            "username"
+          ]
+        },
+        {
+          "name": "Login",
+          "startLine": 73,
+          "endLine": 125,
+          "params": [
+            "ctx",
+            "username",
+            "password"
+          ]
+        },
+        {
+          "name": "Logout",
+          "startLine": 127,
+          "endLine": 157,
+          "params": [
+            "ctx",
+            "accountID"
+          ]
+        },
+        {
+          "name": "Rename",
+          "startLine": 159,
+          "endLine": 188,
+          "params": [
+            "ctx",
+            "accountID",
+            "newUsername"
+          ]
+        },
+        {
+          "name": "UpdateAvatar",
+          "startLine": 190,
+          "endLine": 192,
+          "params": [
+            "ctx",
+            "accountID",
+            "avatarURL"
+          ]
+        },
+        {
+          "name": "UpdateProfile",
+          "startLine": 194,
+          "endLine": 216,
+          "params": [
+            "ctx",
+            "accountID",
+            "req"
+          ]
+        },
+        {
+          "name": "RefreshAccessToken",
+          "startLine": 218,
+          "endLine": 283,
+          "params": [
+            "ctx",
+            "refreshToken"
+          ]
+        },
+        {
+          "name": "ChangePassword",
+          "startLine": 285,
+          "endLine": 304,
+          "params": [
+            "ctx",
+            "accountID",
+            "oldPassword",
+            "newPassword"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AccountService",
+          "startLine": 17,
+          "endLine": 20,
+          "methods": [
+            "CreateAccount",
+            "FindByID",
+            "FindByUsername",
+            "Login",
+            "Logout",
+            "Rename",
+            "UpdateAvatar",
+            "UpdateProfile",
+            "RefreshAccessToken",
+            "ChangePassword"
+          ],
+          "properties": [
+            "accountRepository",
+            "cache"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AccountService",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "NewAccountService",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "CreateAccount",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "FindByID",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "FindByUsername",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "Login",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "Logout",
+          "line": 127,
+          "isDefault": false
+        },
+        {
+          "name": "Rename",
+          "line": 159,
+          "isDefault": false
+        },
+        {
+          "name": "UpdateAvatar",
+          "line": 190,
+          "isDefault": false
+        },
+        {
+          "name": "UpdateProfile",
+          "line": 194,
+          "isDefault": false
+        },
+        {
+          "name": "RefreshAccessToken",
+          "line": 218,
+          "isDefault": false
+        },
+        {
+          "name": "ChangePassword",
+          "line": 285,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "CreateAccount",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 37
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "bcrypt.GenerateFromPassword",
+          "lineNumber": 45
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "string",
+          "lineNumber": 49
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "as.accountRepository.CreateAccount",
+          "lineNumber": 51
+        },
+        {
+          "caller": "CreateAccount",
+          "callee": "errors.As",
+          "lineNumber": 53
+        },
+        {
+          "caller": "FindByID",
+          "callee": "as.accountRepository.FindByID",
+          "lineNumber": 62
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 66
+        },
+        {
+          "caller": "FindByUsername",
+          "callee": "as.accountRepository.FindByUsername",
+          "lineNumber": 70
+        },
+        {
+          "caller": "Login",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 74
+        },
+        {
+          "caller": "Login",
+          "callee": "as.accountRepository.FindByUsername",
+          "lineNumber": 82
+        },
+        {
+          "caller": "Login",
+          "callee": "bcrypt.CompareHashAndPassword",
+          "lineNumber": 87
+        },
+        {
+          "caller": "Login",
+          "callee": "auth.GenerateToken",
+          "lineNumber": 91
+        },
+        {
+          "caller": "Login",
+          "callee": "auth.GenerateRefreshToken",
+          "lineNumber": 96
+        },
+        {
+          "caller": "Login",
+          "callee": "as.accountRepository.Login",
+          "lineNumber": 102
+        },
+        {
+          "caller": "Login",
+          "callee": "context.WithTimeout",
+          "lineNumber": 108
+        },
+        {
+          "caller": "Login",
+          "callee": "cancel",
+          "lineNumber": 109
+        },
+        {
+          "caller": "Login",
+          "callee": "as.cache.SetBytes",
+          "lineNumber": 111
+        },
+        {
+          "caller": "Login",
+          "callee": "as.cache.Key",
+          "lineNumber": 111
+        },
+        {
+          "caller": "Login",
+          "callee": "log.Printf",
+          "lineNumber": 112
+        },
+        {
+          "caller": "Login",
+          "callee": "as.cache.SetBytes",
+          "lineNumber": 115
+        },
+        {
+          "caller": "Login",
+          "callee": "as.cache.Key",
+          "lineNumber": 115
+        },
+        {
+          "caller": "Login",
+          "callee": "log.Printf",
+          "lineNumber": 116
+        },
+        {
+          "caller": "Login",
+          "callee": "as.cache.SetBytes",
+          "lineNumber": 119
+        },
+        {
+          "caller": "Login",
+          "callee": "as.cache.Key",
+          "lineNumber": 119
+        },
+        {
+          "caller": "Login",
+          "callee": "strconv.FormatUint",
+          "lineNumber": 119
+        },
+        {
+          "caller": "Login",
+          "callee": "uint64",
+          "lineNumber": 119
+        },
+        {
+          "caller": "Login",
+          "callee": "log.Printf",
+          "lineNumber": 120
+        },
+        {
+          "caller": "Logout",
+          "callee": "as.FindByID",
+          "lineNumber": 128
+        },
+        {
+          "caller": "Logout",
+          "callee": "context.WithTimeout",
+          "lineNumber": 138
+        },
+        {
+          "caller": "Logout",
+          "callee": "cancel",
+          "lineNumber": 139
+        },
+        {
+          "caller": "Logout",
+          "callee": "as.cache.Del",
+          "lineNumber": 141
+        },
+        {
+          "caller": "Logout",
+          "callee": "as.cache.Key",
+          "lineNumber": 141
+        },
+        {
+          "caller": "Logout",
+          "callee": "log.Printf",
+          "lineNumber": 142
+        },
+        {
+          "caller": "Logout",
+          "callee": "as.cache.Del",
+          "lineNumber": 145
+        },
+        {
+          "caller": "Logout",
+          "callee": "as.cache.Key",
+          "lineNumber": 145
+        },
+        {
+          "caller": "Logout",
+          "callee": "log.Printf",
+          "lineNumber": 146
+        },
+        {
+          "caller": "Logout",
+          "callee": "as.cache.Del",
+          "lineNumber": 150
+        },
+        {
+          "caller": "Logout",
+          "callee": "as.cache.Key",
+          "lineNumber": 150
+        },
+        {
+          "caller": "Logout",
+          "callee": "log.Printf",
+          "lineNumber": 151
+        },
+        {
+          "caller": "Logout",
+          "callee": "as.accountRepository.Logout",
+          "lineNumber": 156
+        },
+        {
+          "caller": "Rename",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 160
+        },
+        {
+          "caller": "Rename",
+          "callee": "auth.GenerateToken",
+          "lineNumber": 165
+        },
+        {
+          "caller": "Rename",
+          "callee": "as.accountRepository.RenameWithToken",
+          "lineNumber": 170
+        },
+        {
+          "caller": "Rename",
+          "callee": "errors.As",
+          "lineNumber": 172
+        },
+        {
+          "caller": "Rename",
+          "callee": "context.WithTimeout",
+          "lineNumber": 179
+        },
+        {
+          "caller": "Rename",
+          "callee": "cancel",
+          "lineNumber": 180
+        },
+        {
+          "caller": "Rename",
+          "callee": "as.cache.SetBytes",
+          "lineNumber": 182
+        },
+        {
+          "caller": "Rename",
+          "callee": "as.cache.Key",
+          "lineNumber": 182
+        },
+        {
+          "caller": "Rename",
+          "callee": "log.Printf",
+          "lineNumber": 183
+        },
+        {
+          "caller": "UpdateAvatar",
+          "callee": "as.accountRepository.UpdateAvatar",
+          "lineNumber": 191
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "errors.New",
+          "lineNumber": 196
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 204
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 208
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "len",
+          "lineNumber": 211
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "errors.New",
+          "lineNumber": 212
+        },
+        {
+          "caller": "UpdateProfile",
+          "callee": "as.accountRepository.UpdateFields",
+          "lineNumber": 215
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 219
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "errors.New",
+          "lineNumber": 221
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "context.WithTimeout",
+          "lineNumber": 225
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "cancel",
+          "lineNumber": 226
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "as.cache.GetBytes",
+          "lineNumber": 228
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "as.cache.Key",
+          "lineNumber": 228
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "strconv.ParseUint",
+          "lineNumber": 230
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "string",
+          "lineNumber": 230
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "as.FindByID",
+          "lineNumber": 232
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "uint",
+          "lineNumber": 232
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "auth.GenerateToken",
+          "lineNumber": 234
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "as.accountRepository.UpdateToken",
+          "lineNumber": 239
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "as.cache.SetBytes",
+          "lineNumber": 243
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "as.cache.Key",
+          "lineNumber": 243
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "log.Printf",
+          "lineNumber": 244
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "as.accountRepository.FindAll",
+          "lineNumber": 253
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "auth.GenerateToken",
+          "lineNumber": 260
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "as.accountRepository.UpdateToken",
+          "lineNumber": 265
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "context.WithTimeout",
+          "lineNumber": 270
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "cancel",
+          "lineNumber": 271
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "as.cache.SetBytes",
+          "lineNumber": 273
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "as.cache.Key",
+          "lineNumber": 273
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "log.Printf",
+          "lineNumber": 274
+        },
+        {
+          "caller": "RefreshAccessToken",
+          "callee": "errors.New",
+          "lineNumber": 282
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "as.FindByID",
+          "lineNumber": 286
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "bcrypt.CompareHashAndPassword",
+          "lineNumber": 290
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "bcrypt.GenerateFromPassword",
+          "lineNumber": 293
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "as.accountRepository.ChangePassword",
+          "lineNumber": 297
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "string",
+          "lineNumber": 297
+        },
+        {
+          "caller": "ChangePassword",
+          "callee": "as.Logout",
+          "lineNumber": 300
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 12,
+        "functionCount": 11,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/apierror/apierror.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 25,
+      "functions": [
+        {
+          "name": "ClassifyHTTPStatus",
+          "startLine": 17,
+          "endLine": 30,
+          "params": [
+            "err"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ClassifyHTTPStatus",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ClassifyHTTPStatus",
+          "callee": "errors.Is",
+          "lineNumber": 21
+        },
+        {
+          "caller": "ClassifyHTTPStatus",
+          "callee": "errors.Is",
+          "lineNumber": 23
+        },
+        {
+          "caller": "ClassifyHTTPStatus",
+          "callee": "errors.Is",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "internal/auth/jwt.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 82,
+      "nonEmptyLines": 74,
+      "functions": [
+        {
+          "name": "jwtSecret",
+          "startLine": 14,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "GenerateToken",
+          "startLine": 34,
+          "endLine": 47,
+          "params": [
+            "accountID",
+            "username"
+          ]
+        },
+        {
+          "name": "GenerateRefreshToken",
+          "startLine": 54,
+          "endLine": 60,
+          "params": [
+            "accountID"
+          ]
+        },
+        {
+          "name": "ParseToken",
+          "startLine": 62,
+          "endLine": 82,
+          "params": [
+            "tokenString"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Claims",
+          "startLine": 28,
+          "endLine": 32,
+          "methods": [],
+          "properties": [
+            "AccountID",
+            "Username"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Claims",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "GenerateToken",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "GenerateRefreshToken",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "ParseToken",
+          "line": 62,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "jwtSecret",
+          "callee": "os.Getenv",
+          "lineNumber": 15
+        },
+        {
+          "caller": "jwtSecret",
+          "callee": "make",
+          "lineNumber": 17
+        },
+        {
+          "caller": "jwtSecret",
+          "callee": "rand.Read",
+          "lineNumber": 18
+        },
+        {
+          "caller": "jwtSecret",
+          "callee": "log.Printf",
+          "lineNumber": 19
+        },
+        {
+          "caller": "jwtSecret",
+          "callee": "hex.EncodeToString",
+          "lineNumber": 22
+        },
+        {
+          "caller": "jwtSecret",
+          "callee": "log.Printf",
+          "lineNumber": 23
+        },
+        {
+          "caller": "GenerateToken",
+          "callee": "time.Now",
+          "lineNumber": 35
+        },
+        {
+          "caller": "GenerateToken",
+          "callee": "jwt.NewNumericDate",
+          "lineNumber": 40
+        },
+        {
+          "caller": "GenerateToken",
+          "callee": "now.Add",
+          "lineNumber": 40
+        },
+        {
+          "caller": "GenerateToken",
+          "callee": "jwt.NewNumericDate",
+          "lineNumber": 41
+        },
+        {
+          "caller": "GenerateToken",
+          "callee": "jwt.NewNumericDate",
+          "lineNumber": 42
+        },
+        {
+          "caller": "GenerateToken",
+          "callee": "jwt.NewWithClaims",
+          "lineNumber": 45
+        },
+        {
+          "caller": "GenerateToken",
+          "callee": "token.SignedString",
+          "lineNumber": 46
+        },
+        {
+          "caller": "GenerateToken",
+          "callee": "jwtSecret",
+          "lineNumber": 46
+        },
+        {
+          "caller": "GenerateRefreshToken",
+          "callee": "make",
+          "lineNumber": 55
+        },
+        {
+          "caller": "GenerateRefreshToken",
+          "callee": "rand.Read",
+          "lineNumber": 56
+        },
+        {
+          "caller": "GenerateRefreshToken",
+          "callee": "hex.EncodeToString",
+          "lineNumber": 59
+        },
+        {
+          "caller": "ParseToken",
+          "callee": "jwt.ParseWithClaims",
+          "lineNumber": 63
+        },
+        {
+          "caller": "ParseToken",
+          "callee": "token.Method.Alg",
+          "lineNumber": 67
+        },
+        {
+          "caller": "ParseToken",
+          "callee": "jwt.SigningMethodHS256.Alg",
+          "lineNumber": 67
+        },
+        {
+          "caller": "ParseToken",
+          "callee": "errors.New",
+          "lineNumber": 68
+        },
+        {
+          "caller": "ParseToken",
+          "callee": "jwtSecret",
+          "lineNumber": 70
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/db/db.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 71,
+      "nonEmptyLines": 62,
+      "functions": [
+        {
+          "name": "NewDB",
+          "startLine": 16,
+          "endLine": 46,
+          "params": [
+            "dbCfg"
+          ]
+        },
+        {
+          "name": "AutoMigrate",
+          "startLine": 49,
+          "endLine": 62,
+          "params": [
+            "db"
+          ]
+        },
+        {
+          "name": "CloseDB",
+          "startLine": 65,
+          "endLine": 71,
+          "params": [
+            "db"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "NewDB",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "AutoMigrate",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "CloseDB",
+          "line": 65,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NewDB",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 17
+        },
+        {
+          "caller": "NewDB",
+          "callee": "gorm.Open",
+          "lineNumber": 24
+        },
+        {
+          "caller": "NewDB",
+          "callee": "mysql.Open",
+          "lineNumber": 24
+        },
+        {
+          "caller": "NewDB",
+          "callee": "db.DB",
+          "lineNumber": 29
+        },
+        {
+          "caller": "NewDB",
+          "callee": "sqlDB.Ping",
+          "lineNumber": 42
+        },
+        {
+          "caller": "AutoMigrate",
+          "callee": "db.AutoMigrate",
+          "lineNumber": 50
+        },
+        {
+          "caller": "CloseDB",
+          "callee": "db.DB",
+          "lineNumber": 66
+        },
+        {
+          "caller": "CloseDB",
+          "callee": "sqlDB.Close",
+          "lineNumber": 70
+        }
+      ],
+      "metrics": {
+        "importCount": 35,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "internal/feed/entity.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 99,
+      "nonEmptyLines": 82,
+      "classes": [
+        {
+          "name": "FeedAuthor",
+          "startLine": 5,
+          "endLine": 8,
+          "methods": [],
+          "properties": [
+            "ID",
+            "Username"
+          ]
+        },
+        {
+          "name": "FeedVideoItem",
+          "startLine": 10,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "ID",
+            "Author",
+            "Title",
+            "Description",
+            "PlayURL",
+            "CoverURL",
+            "CreateTime",
+            "LikesCount",
+            "IsLiked"
+          ]
+        },
+        {
+          "name": "ListLatestRequest",
+          "startLine": 22,
+          "endLine": 25,
+          "methods": [],
+          "properties": [
+            "Limit",
+            "LatestTime"
+          ]
+        },
+        {
+          "name": "ListLatestResponse",
+          "startLine": 27,
+          "endLine": 31,
+          "methods": [],
+          "properties": [
+            "VideoList",
+            "NextTime",
+            "HasMore"
+          ]
+        },
+        {
+          "name": "ListByFollowingRequest",
+          "startLine": 33,
+          "endLine": 36,
+          "methods": [],
+          "properties": [
+            "Limit",
+            "LatestTime"
+          ]
+        },
+        {
+          "name": "ListByFollowingResponse",
+          "startLine": 38,
+          "endLine": 42,
+          "methods": [],
+          "properties": [
+            "VideoList",
+            "NextTime",
+            "HasMore"
+          ]
+        },
+        {
+          "name": "ListLikesCountRequest",
+          "startLine": 44,
+          "endLine": 48,
+          "methods": [],
+          "properties": [
+            "Limit",
+            "LikesCountBefore",
+            "IDBefore"
+          ]
+        },
+        {
+          "name": "LikesCountCursor",
+          "startLine": 50,
+          "endLine": 53,
+          "methods": [],
+          "properties": [
+            "LikesCount",
+            "ID"
+          ]
+        },
+        {
+          "name": "ListLikesCountResponse",
+          "startLine": 55,
+          "endLine": 60,
+          "methods": [],
+          "properties": [
+            "VideoList",
+            "NextLikesCountBefore",
+            "NextIDBefore",
+            "HasMore"
+          ]
+        },
+        {
+          "name": "ListByTagRequest",
+          "startLine": 62,
+          "endLine": 65,
+          "methods": [],
+          "properties": [
+            "TagName",
+            "Limit"
+          ]
+        },
+        {
+          "name": "ListByTagResponse",
+          "startLine": 67,
+          "endLine": 69,
+          "methods": [],
+          "properties": [
+            "VideoList"
+          ]
+        },
+        {
+          "name": "PopularityCursor",
+          "startLine": 71,
+          "endLine": 75,
+          "methods": [],
+          "properties": [
+            "Popularity",
+            "CreateTime",
+            "ID"
+          ]
+        },
+        {
+          "name": "ListByPopularityRequest",
+          "startLine": 79,
+          "endLine": 87,
+          "methods": [],
+          "properties": [
+            "Limit",
+            "AsOf",
+            "Offset",
+            "LatestIDBefore",
+            "LatestPopularity",
+            "LatestBefore"
+          ]
+        },
+        {
+          "name": "ListByPopularityResponse",
+          "startLine": 90,
+          "endLine": 99,
+          "methods": [],
+          "properties": [
+            "VideoList",
+            "AsOf",
+            "NextOffset",
+            "HasMore",
+            "NextLatestPopularity",
+            "NextLatestBefore",
+            "NextLatestIDBefore"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FeedAuthor",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "FeedVideoItem",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "ListLatestRequest",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "ListLatestResponse",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "ListByFollowingRequest",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "ListByFollowingResponse",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "ListLikesCountRequest",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "LikesCountCursor",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "ListLikesCountResponse",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "ListByTagRequest",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "ListByTagResponse",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "PopularityCursor",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "ListByPopularityRequest",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "ListByPopularityResponse",
+          "line": 90,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 14,
+        "functionCount": 0,
+        "classCount": 14
+      }
+    },
+    {
+      "path": "internal/feed/handler.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 236,
+      "nonEmptyLines": 191,
+      "functions": [
+        {
+          "name": "NewFeedHandler",
+          "startLine": 15,
+          "endLine": 17,
+          "params": [
+            "service"
+          ]
+        },
+        {
+          "name": "ListLatest",
+          "startLine": 19,
+          "endLine": 50,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "ListByFollowing",
+          "startLine": 53,
+          "endLine": 84,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "nonNilFeedVideoItems",
+          "startLine": 86,
+          "endLine": 91,
+          "params": [
+            "items"
+          ]
+        },
+        {
+          "name": "ListLikesCount",
+          "startLine": 94,
+          "endLine": 147,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "ListByTag",
+          "startLine": 149,
+          "endLine": 179,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "ListByPopularity",
+          "startLine": 181,
+          "endLine": 236,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FeedHandler",
+          "startLine": 11,
+          "endLine": 13,
+          "methods": [
+            "ListLatest",
+            "ListByFollowing",
+            "ListLikesCount",
+            "ListByTag",
+            "ListByPopularity"
+          ],
+          "properties": [
+            "service"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FeedHandler",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "NewFeedHandler",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "ListLatest",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "ListByFollowing",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "ListLikesCount",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "ListByTag",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "ListByPopularity",
+          "line": 181,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ListLatest",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 22
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "c.JSON",
+          "lineNumber": 23
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 23
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "err.Error",
+          "lineNumber": 23
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "time.UnixMilli",
+          "lineNumber": 34
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 37
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.service.ListLatest",
+          "lineNumber": 42
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "c.Request.Context",
+          "lineNumber": 42
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "c.JSON",
+          "lineNumber": 44
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "err.Error",
+          "lineNumber": 44
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "nonNilFeedVideoItems",
+          "lineNumber": 48
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "c.JSON",
+          "lineNumber": 49
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 56
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "c.JSON",
+          "lineNumber": 57
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 57
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "err.Error",
+          "lineNumber": 57
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "time.UnixMilli",
+          "lineNumber": 67
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 70
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "c.JSON",
+          "lineNumber": 72
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "f.service.ListByFollowing",
+          "lineNumber": 76
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "c.Request.Context",
+          "lineNumber": 76
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "c.JSON",
+          "lineNumber": 78
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "err.Error",
+          "lineNumber": 78
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "nonNilFeedVideoItems",
+          "lineNumber": 82
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "c.JSON",
+          "lineNumber": 83
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 97
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "c.JSON",
+          "lineNumber": 98
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 98
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "err.Error",
+          "lineNumber": 98
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "c.JSON",
+          "lineNumber": 109
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "c.JSON",
+          "lineNumber": 117
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "c.JSON",
+          "lineNumber": 123
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 134
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "f.service.ListLikesCount",
+          "lineNumber": 139
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "c.Request.Context",
+          "lineNumber": 139
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "c.JSON",
+          "lineNumber": 141
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "err.Error",
+          "lineNumber": 141
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "nonNilFeedVideoItems",
+          "lineNumber": 145
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "c.JSON",
+          "lineNumber": 146
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 152
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "c.JSON",
+          "lineNumber": 153
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 153
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "err.Error",
+          "lineNumber": 153
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "c.JSON",
+          "lineNumber": 158
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 166
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "f.service.ListByTag",
+          "lineNumber": 171
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "c.Request.Context",
+          "lineNumber": 171
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "c.JSON",
+          "lineNumber": 173
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 173
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "err.Error",
+          "lineNumber": 173
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "nonNilFeedVideoItems",
+          "lineNumber": 177
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "c.JSON",
+          "lineNumber": 178
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 184
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "c.JSON",
+          "lineNumber": 185
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 185
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "err.Error",
+          "lineNumber": 185
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "c.JSON",
+          "lineNumber": 198
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "req.LatestBefore.IsZero",
+          "lineNumber": 203
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "req.LatestBefore.IsZero",
+          "lineNumber": 205
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "c.JSON",
+          "lineNumber": 206
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 214
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "f.service.ListByPopularity",
+          "lineNumber": 219
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "c.Request.Context",
+          "lineNumber": 220
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "c.JSON",
+          "lineNumber": 230
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "err.Error",
+          "lineNumber": 230
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "nonNilFeedVideoItems",
+          "lineNumber": 234
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "c.JSON",
+          "lineNumber": 235
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/http/router.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 299,
+      "nonEmptyLines": 264,
+      "functions": [
+        {
+          "name": "SetupRouter",
+          "startLine": 23,
+          "endLine": 299,
+          "params": [
+            "db",
+            "cache",
+            "rmq"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SetupRouter",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "SetupRouter",
+          "callee": "gin.Default",
+          "lineNumber": 24
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "r.SetTrustedProxies",
+          "lineNumber": 26
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "log.Printf",
+          "lineNumber": 27
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "r.GET",
+          "lineNumber": 30
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "c.JSON",
+          "lineNumber": 31
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "r.Static",
+          "lineNumber": 34
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "ratelimit.Limit",
+          "lineNumber": 37
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "ratelimit.Limit",
+          "lineNumber": 38
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "ratelimit.Limit",
+          "lineNumber": 39
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "ratelimit.Limit",
+          "lineNumber": 40
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "ratelimit.Limit",
+          "lineNumber": 41
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "account.NewAccountRepository",
+          "lineNumber": 44
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "account.NewAccountService",
+          "lineNumber": 45
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "account.NewAccountHandler",
+          "lineNumber": 46
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "r.Group",
+          "lineNumber": 48
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "accountGroup.POST",
+          "lineNumber": 50
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "accountGroup.POST",
+          "lineNumber": 51
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "accountGroup.POST",
+          "lineNumber": 52
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "accountGroup.POST",
+          "lineNumber": 53
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "accountGroup.POST",
+          "lineNumber": 54
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "accountGroup.Group",
+          "lineNumber": 57
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedAccountGroup.Use",
+          "lineNumber": 58
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "jwtmiddleware.JWTAuth",
+          "lineNumber": 58
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedAccountGroup.POST",
+          "lineNumber": 60
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedAccountGroup.POST",
+          "lineNumber": 61
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedAccountGroup.POST",
+          "lineNumber": 62
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedAccountGroup.POST",
+          "lineNumber": 63
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedAccountGroup.POST",
+          "lineNumber": 64
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "video.NewVideoRepository",
+          "lineNumber": 68
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "video.NewVideoService",
+          "lineNumber": 69
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "video.NewVideoHandler",
+          "lineNumber": 70
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "video.NewChunkUploadHandler",
+          "lineNumber": 71
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "r.Group",
+          "lineNumber": 73
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "videoGroup.POST",
+          "lineNumber": 75
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "videoGroup.POST",
+          "lineNumber": 76
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "videoGroup.Group",
+          "lineNumber": 79
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedVideoGroup.Use",
+          "lineNumber": 80
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "jwtmiddleware.JWTAuth",
+          "lineNumber": 80
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedVideoGroup.POST",
+          "lineNumber": 82
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedVideoGroup.POST",
+          "lineNumber": 83
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedVideoGroup.POST",
+          "lineNumber": 84
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedVideoGroup.POST",
+          "lineNumber": 85
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedVideoGroup.POST",
+          "lineNumber": 86
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedVideoGroup.POST",
+          "lineNumber": 87
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedVideoGroup.POST",
+          "lineNumber": 88
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "video.NewLikeRepository",
+          "lineNumber": 92
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "rabbitmq.NewLikeMQ",
+          "lineNumber": 93
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "log.Printf",
+          "lineNumber": 95
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "rabbitmq.NewPopularityMQ",
+          "lineNumber": 99
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "log.Printf",
+          "lineNumber": 101
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "video.NewLikeService",
+          "lineNumber": 105
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "video.NewLikeHandler",
+          "lineNumber": 106
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "r.Group",
+          "lineNumber": 108
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "likeGroup.Group",
+          "lineNumber": 109
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedLikeGroup.Use",
+          "lineNumber": 110
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "jwtmiddleware.JWTAuth",
+          "lineNumber": 110
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedLikeGroup.POST",
+          "lineNumber": 112
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedLikeGroup.POST",
+          "lineNumber": 113
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedLikeGroup.POST",
+          "lineNumber": 114
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedLikeGroup.POST",
+          "lineNumber": 115
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "video.NewCommentRepository",
+          "lineNumber": 119
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "rabbitmq.NewCommentMQ",
+          "lineNumber": 120
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "log.Printf",
+          "lineNumber": 122
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "video.NewCommentService",
+          "lineNumber": 125
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "video.NewCommentHandler",
+          "lineNumber": 126
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "r.Group",
+          "lineNumber": 128
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "commentGroup.POST",
+          "lineNumber": 130
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "commentGroup.Group",
+          "lineNumber": 133
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedCommentGroup.Use",
+          "lineNumber": 134
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "jwtmiddleware.JWTAuth",
+          "lineNumber": 134
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedCommentGroup.POST",
+          "lineNumber": 136
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedCommentGroup.POST",
+          "lineNumber": 137
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "social.NewSocialRepository",
+          "lineNumber": 141
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "rabbitmq.NewSocialMQ",
+          "lineNumber": 142
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "log.Printf",
+          "lineNumber": 144
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "social.NewSocialService",
+          "lineNumber": 147
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "social.NewSocialHandler",
+          "lineNumber": 148
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "r.Group",
+          "lineNumber": 150
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "socialGroup.Group",
+          "lineNumber": 151
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedSocialGroup.Use",
+          "lineNumber": 152
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "jwtmiddleware.JWTAuth",
+          "lineNumber": 152
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedSocialGroup.POST",
+          "lineNumber": 154
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedSocialGroup.POST",
+          "lineNumber": 155
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedSocialGroup.POST",
+          "lineNumber": 156
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedSocialGroup.POST",
+          "lineNumber": 157
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedSocialGroup.POST",
+          "lineNumber": 158
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "rabbitmq.NewTimelineMQ",
+          "lineNumber": 161
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "log.Printf",
+          "lineNumber": 163
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "accountGroup.POST",
+          "lineNumber": 167
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 169
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "c.JSON",
+          "lineNumber": 170
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "err.Error",
+          "lineNumber": 170
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "c.JSON",
+          "lineNumber": 174
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "accountService.FindByID",
+          "lineNumber": 178
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "c.Request.Context",
+          "lineNumber": 178
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "c.JSON",
+          "lineNumber": 180
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "err.Error",
+          "lineNumber": 180
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "videoRepository.CountByAuthor",
+          "lineNumber": 183
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "c.Request.Context",
+          "lineNumber": 183
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "videoRepository.TotalLikesByAuthor",
+          "lineNumber": 184
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "c.Request.Context",
+          "lineNumber": 184
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "socialRepository.CountFollowers",
+          "lineNumber": 185
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "c.Request.Context",
+          "lineNumber": 185
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "socialRepository.CountVloggers",
+          "lineNumber": 186
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "c.Request.Context",
+          "lineNumber": 186
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "c.JSON",
+          "lineNumber": 188
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "worker.StartOutboxPoller",
+          "lineNumber": 203
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "worker.StartConsumer",
+          "lineNumber": 204
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "feed.NewFeedRepository",
+          "lineNumber": 207
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "feed.NewFeedService",
+          "lineNumber": 208
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "feed.NewFeedHandler",
+          "lineNumber": 209
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "r.Group",
+          "lineNumber": 211
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "feedGroup.Use",
+          "lineNumber": 214
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "jwtmiddleware.SoftJWTAuth",
+          "lineNumber": 214
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "feedGroup.POST",
+          "lineNumber": 216
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "feedGroup.POST",
+          "lineNumber": 217
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "feedGroup.POST",
+          "lineNumber": 218
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "feedGroup.POST",
+          "lineNumber": 219
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "feedGroup.Group",
+          "lineNumber": 222
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedFeedGroup.Use",
+          "lineNumber": 223
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "jwtmiddleware.JWTAuth",
+          "lineNumber": 223
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedFeedGroup.POST",
+          "lineNumber": 225
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "message.NewRepository",
+          "lineNumber": 229
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "message.NewService",
+          "lineNumber": 230
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "message.NewHandler",
+          "lineNumber": 231
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "r.Group",
+          "lineNumber": 233
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "messageGroup.Group",
+          "lineNumber": 234
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedMessageGroup.Use",
+          "lineNumber": 235
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "jwtmiddleware.JWTAuth",
+          "lineNumber": 235
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedMessageGroup.POST",
+          "lineNumber": 237
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "protectedMessageGroup.POST",
+          "lineNumber": 238
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "rmq.NewChannel",
+          "lineNumber": 244
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "rabbitmq.DeclareTopic",
+          "lineNumber": 246
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "log.Printf",
+          "lineNumber": 247
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "rabbitmq.DeclareTopic",
+          "lineNumber": 250
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "log.Printf",
+          "lineNumber": 251
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "rabbitmq.DeclareTopic",
+          "lineNumber": 254
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "log.Printf",
+          "lineNumber": 255
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "notifCh.Close",
+          "lineNumber": 257
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "log.Printf",
+          "lineNumber": 259
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "worker.NewSSEHub",
+          "lineNumber": 263
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "r.Group",
+          "lineNumber": 264
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "notifGroup.Use",
+          "lineNumber": 265
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "sseHub.SSERequireAuth",
+          "lineNumber": 265
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "sseHub.RegisterRoutes",
+          "lineNumber": 266
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "func() {\n\t\tif rmq != nil {\n\t\t\thub := sseHub\n\t\t\tctx := context.Background()\n\n\t\t\tfor _, q := range []string{\"notification.like\", \"notification.comment\", \"notification.social\"} {\n\t\t\t\tgo func(queue string) {\n\t\t\t\t\tfor {\n\t\t\t\t\t\tch, err := rmq.NewChannel()\n\t\t\t\t\t\tif err != nil {\n\t\t\t\t\t\t\tlog.Printf(\"notification-%s: 创建 Channel 失败: %v, 5秒后重试\", queue, err)\n\t\t\t\t\t\t\ttime.Sleep(5 * time.Second)\n\t\t\t\t\t\t\tcontinue\n\t\t\t\t\t\t}\n\n\t\t\t\t\t\tw := worker.NewNotificationWorker(ch, db, queue, hub)\n\t\t\t\t\t\tif err := w.Run(ctx); err != nil {\n\t\t\t\t\t\t\tlog.Printf(\"notification-%s: %v, 5秒后重连...\", queue, err)\n\t\t\t\t\t\t}\n\n\t\t\t\t\t\t_ = ch.Close()\n\t\t\t\t\t\ttime.Sleep(5 * time.Second)\n\t\t\t\t\t}\n\t\t\t\t}(q)\n\t\t\t}\n\t\t} else {\n\t\t\tlog.Printf(\"Notification SSE disabled (MQ not available)\")\n\t\t}\n\t}",
+          "lineNumber": 268
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "context.Background",
+          "lineNumber": 271
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "func(queue string) {\n\t\t\t\t\tfor {\n\t\t\t\t\t\tch, err := rmq.NewChannel()\n\t\t\t\t\t\tif err != nil {\n\t\t\t\t\t\t\tlog.Printf(\"notification-%s: 创建 Channel 失败: %v, 5秒后重试\", queue, err)\n\t\t\t\t\t\t\ttime.Sleep(5 * time.Second)\n\t\t\t\t\t\t\tcontinue\n\t\t\t\t\t\t}\n\n\t\t\t\t\t\tw := worker.NewNotificationWorker(ch, db, queue, hub)\n\t\t\t\t\t\tif err := w.Run(ctx); err != nil {\n\t\t\t\t\t\t\tlog.Printf(\"notification-%s: %v, 5秒后重连...\", queue, err)\n\t\t\t\t\t\t}\n\n\t\t\t\t\t\t_ = ch.Close()\n\t\t\t\t\t\ttime.Sleep(5 * time.Second)\n\t\t\t\t\t}\n\t\t\t\t}",
+          "lineNumber": 274
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "rmq.NewChannel",
+          "lineNumber": 276
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "log.Printf",
+          "lineNumber": 278
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "time.Sleep",
+          "lineNumber": 279
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "worker.NewNotificationWorker",
+          "lineNumber": 283
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "w.Run",
+          "lineNumber": 284
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "log.Printf",
+          "lineNumber": 285
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "ch.Close",
+          "lineNumber": 288
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "time.Sleep",
+          "lineNumber": 289
+        },
+        {
+          "caller": "SetupRouter",
+          "callee": "log.Printf",
+          "lineNumber": 294
+        }
+      ],
+      "metrics": {
+        "importCount": 51,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "internal/message/entity.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 21,
+      "classes": [
+        {
+          "name": "Message",
+          "startLine": 5,
+          "endLine": 13,
+          "methods": [],
+          "properties": [
+            "ID",
+            "FromID",
+            "ToID",
+            "Content",
+            "IsRead",
+            "CreatedAt"
+          ]
+        },
+        {
+          "name": "SendRequest",
+          "startLine": 15,
+          "endLine": 18,
+          "methods": [],
+          "properties": [
+            "ToID",
+            "Content"
+          ]
+        },
+        {
+          "name": "ListRequest",
+          "startLine": 20,
+          "endLine": 22,
+          "methods": [],
+          "properties": [
+            "PeerID"
+          ]
+        },
+        {
+          "name": "ListResponse",
+          "startLine": 24,
+          "endLine": 26,
+          "methods": [],
+          "properties": [
+            "Messages"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Message",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "SendRequest",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "ListRequest",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "ListResponse",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 0,
+        "classCount": 4
+      }
+    },
+    {
+      "path": "internal/message/handler.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 94,
+      "nonEmptyLines": 85,
+      "functions": [
+        {
+          "name": "NewRepository",
+          "startLine": 20,
+          "endLine": 20,
+          "params": [
+            "db"
+          ]
+        },
+        {
+          "name": "NewService",
+          "startLine": 21,
+          "endLine": 21,
+          "params": [
+            "repo"
+          ]
+        },
+        {
+          "name": "NewHandler",
+          "startLine": 22,
+          "endLine": 22,
+          "params": [
+            "service"
+          ]
+        },
+        {
+          "name": "AutoMigrate",
+          "startLine": 24,
+          "endLine": 26,
+          "params": [
+            "ctx"
+          ]
+        },
+        {
+          "name": "Send",
+          "startLine": 28,
+          "endLine": 35,
+          "params": [
+            "ctx",
+            "m"
+          ]
+        },
+        {
+          "name": "List",
+          "startLine": 37,
+          "endLine": 45,
+          "params": [
+            "ctx",
+            "userID",
+            "peerID",
+            "limit"
+          ]
+        },
+        {
+          "name": "Send",
+          "startLine": 47,
+          "endLine": 68,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "List",
+          "startLine": 70,
+          "endLine": 94,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Repository",
+          "startLine": 16,
+          "endLine": 16,
+          "methods": [
+            "AutoMigrate",
+            "Send",
+            "List"
+          ],
+          "properties": [
+            "db"
+          ]
+        },
+        {
+          "name": "Service",
+          "startLine": 17,
+          "endLine": 17,
+          "methods": [],
+          "properties": [
+            "repo"
+          ]
+        },
+        {
+          "name": "Handler",
+          "startLine": 18,
+          "endLine": 18,
+          "methods": [
+            "Send",
+            "List"
+          ],
+          "properties": [
+            "service"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Repository",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "Service",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "Handler",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "NewRepository",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "NewService",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "NewHandler",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "AutoMigrate",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "Send",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "List",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "Send",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "List",
+          "line": 70,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "AutoMigrate",
+          "callee": "r.db.WithContext(ctx).AutoMigrate",
+          "lineNumber": 25
+        },
+        {
+          "caller": "AutoMigrate",
+          "callee": "r.db.WithContext",
+          "lineNumber": 25
+        },
+        {
+          "caller": "Send",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 29
+        },
+        {
+          "caller": "Send",
+          "callee": "errors.New",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Send",
+          "callee": "time.Now",
+          "lineNumber": 33
+        },
+        {
+          "caller": "Send",
+          "callee": "r.db.WithContext(ctx).Create",
+          "lineNumber": 34
+        },
+        {
+          "caller": "Send",
+          "callee": "r.db.WithContext",
+          "lineNumber": 34
+        },
+        {
+          "caller": "List",
+          "callee": "r.db.WithContext(ctx).\n\t\tWhere(\"(from_id = ? AND to_id = ?) OR (from_id = ? AND to_id = ?)\", userID, peerID, peerID, userID).\n\t\tOrder(\"created_at desc\").\n\t\tLimit(limit).\n\t\tFind",
+          "lineNumber": 39
+        },
+        {
+          "caller": "List",
+          "callee": "r.db.WithContext(ctx).\n\t\tWhere(\"(from_id = ? AND to_id = ?) OR (from_id = ? AND to_id = ?)\", userID, peerID, peerID, userID).\n\t\tOrder(\"created_at desc\").\n\t\tLimit",
+          "lineNumber": 39
+        },
+        {
+          "caller": "List",
+          "callee": "r.db.WithContext(ctx).\n\t\tWhere(\"(from_id = ? AND to_id = ?) OR (from_id = ? AND to_id = ?)\", userID, peerID, peerID, userID).\n\t\tOrder",
+          "lineNumber": 39
+        },
+        {
+          "caller": "List",
+          "callee": "r.db.WithContext(ctx).\n\t\tWhere",
+          "lineNumber": 39
+        },
+        {
+          "caller": "List",
+          "callee": "r.db.WithContext",
+          "lineNumber": 39
+        },
+        {
+          "caller": "Send",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 48
+        },
+        {
+          "caller": "Send",
+          "callee": "c.JSON",
+          "lineNumber": 50
+        },
+        {
+          "caller": "Send",
+          "callee": "err.Error",
+          "lineNumber": 50
+        },
+        {
+          "caller": "Send",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 54
+        },
+        {
+          "caller": "Send",
+          "callee": "c.JSON",
+          "lineNumber": 55
+        },
+        {
+          "caller": "Send",
+          "callee": "err.Error",
+          "lineNumber": 55
+        },
+        {
+          "caller": "Send",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 58
+        },
+        {
+          "caller": "Send",
+          "callee": "c.JSON",
+          "lineNumber": 59
+        },
+        {
+          "caller": "Send",
+          "callee": "h.service.repo.Send",
+          "lineNumber": 63
+        },
+        {
+          "caller": "Send",
+          "callee": "c.Request.Context",
+          "lineNumber": 63
+        },
+        {
+          "caller": "Send",
+          "callee": "c.JSON",
+          "lineNumber": 64
+        },
+        {
+          "caller": "Send",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 64
+        },
+        {
+          "caller": "Send",
+          "callee": "err.Error",
+          "lineNumber": 64
+        },
+        {
+          "caller": "Send",
+          "callee": "c.JSON",
+          "lineNumber": 67
+        },
+        {
+          "caller": "List",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 71
+        },
+        {
+          "caller": "List",
+          "callee": "c.JSON",
+          "lineNumber": 73
+        },
+        {
+          "caller": "List",
+          "callee": "err.Error",
+          "lineNumber": 73
+        },
+        {
+          "caller": "List",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 77
+        },
+        {
+          "caller": "List",
+          "callee": "c.JSON",
+          "lineNumber": 78
+        },
+        {
+          "caller": "List",
+          "callee": "err.Error",
+          "lineNumber": 78
+        },
+        {
+          "caller": "List",
+          "callee": "c.JSON",
+          "lineNumber": 82
+        },
+        {
+          "caller": "List",
+          "callee": "h.service.repo.List",
+          "lineNumber": 85
+        },
+        {
+          "caller": "List",
+          "callee": "c.Request.Context",
+          "lineNumber": 85
+        },
+        {
+          "caller": "List",
+          "callee": "c.JSON",
+          "lineNumber": 87
+        },
+        {
+          "caller": "List",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 87
+        },
+        {
+          "caller": "List",
+          "callee": "err.Error",
+          "lineNumber": 87
+        },
+        {
+          "caller": "List",
+          "callee": "c.JSON",
+          "lineNumber": 93
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 11,
+        "functionCount": 8,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "internal/middleware/jwt/jwt.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 138,
+      "nonEmptyLines": 113,
+      "functions": [
+        {
+          "name": "JWTAuth",
+          "startLine": 17,
+          "endLine": 41,
+          "params": [
+            "accountRepo",
+            "cache"
+          ]
+        },
+        {
+          "name": "SoftJWTAuth",
+          "startLine": 43,
+          "endLine": 70,
+          "params": [
+            "accountRepo",
+            "cache"
+          ]
+        },
+        {
+          "name": "check",
+          "startLine": 72,
+          "endLine": 110,
+          "params": [
+            "c",
+            "claims",
+            "tokenString",
+            "accountRepo",
+            "cache"
+          ]
+        },
+        {
+          "name": "GetAccountID",
+          "startLine": 112,
+          "endLine": 124,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "GetUsername",
+          "startLine": 126,
+          "endLine": 138,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "JWTAuth",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "SoftJWTAuth",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "GetAccountID",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "GetUsername",
+          "line": 126,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "JWTAuth",
+          "callee": "c.GetHeader",
+          "lineNumber": 19
+        },
+        {
+          "caller": "JWTAuth",
+          "callee": "c.AbortWithStatusJSON",
+          "lineNumber": 21
+        },
+        {
+          "caller": "JWTAuth",
+          "callee": "strings.SplitN",
+          "lineNumber": 25
+        },
+        {
+          "caller": "JWTAuth",
+          "callee": "len",
+          "lineNumber": 26
+        },
+        {
+          "caller": "JWTAuth",
+          "callee": "strings.EqualFold",
+          "lineNumber": 26
+        },
+        {
+          "caller": "JWTAuth",
+          "callee": "c.AbortWithStatusJSON",
+          "lineNumber": 27
+        },
+        {
+          "caller": "JWTAuth",
+          "callee": "auth.ParseToken",
+          "lineNumber": 33
+        },
+        {
+          "caller": "JWTAuth",
+          "callee": "c.AbortWithStatusJSON",
+          "lineNumber": 35
+        },
+        {
+          "caller": "JWTAuth",
+          "callee": "check",
+          "lineNumber": 39
+        },
+        {
+          "caller": "SoftJWTAuth",
+          "callee": "c.GetHeader",
+          "lineNumber": 45
+        },
+        {
+          "caller": "SoftJWTAuth",
+          "callee": "c.Next",
+          "lineNumber": 50
+        },
+        {
+          "caller": "SoftJWTAuth",
+          "callee": "strings.SplitN",
+          "lineNumber": 54
+        },
+        {
+          "caller": "SoftJWTAuth",
+          "callee": "len",
+          "lineNumber": 55
+        },
+        {
+          "caller": "SoftJWTAuth",
+          "callee": "strings.EqualFold",
+          "lineNumber": 55
+        },
+        {
+          "caller": "SoftJWTAuth",
+          "callee": "c.AbortWithStatusJSON",
+          "lineNumber": 56
+        },
+        {
+          "caller": "SoftJWTAuth",
+          "callee": "auth.ParseToken",
+          "lineNumber": 62
+        },
+        {
+          "caller": "SoftJWTAuth",
+          "callee": "c.AbortWithStatusJSON",
+          "lineNumber": 64
+        },
+        {
+          "caller": "SoftJWTAuth",
+          "callee": "check",
+          "lineNumber": 68
+        },
+        {
+          "caller": "check",
+          "callee": "context.WithTimeout",
+          "lineNumber": 74
+        },
+        {
+          "caller": "check",
+          "callee": "c.Request.Context",
+          "lineNumber": 74
+        },
+        {
+          "caller": "check",
+          "callee": "cancel",
+          "lineNumber": 75
+        },
+        {
+          "caller": "check",
+          "callee": "cache.Key",
+          "lineNumber": 77
+        },
+        {
+          "caller": "check",
+          "callee": "cache.GetBytes",
+          "lineNumber": 78
+        },
+        {
+          "caller": "check",
+          "callee": "string",
+          "lineNumber": 80
+        },
+        {
+          "caller": "check",
+          "callee": "c.AbortWithStatusJSON",
+          "lineNumber": 81
+        },
+        {
+          "caller": "check",
+          "callee": "c.Set",
+          "lineNumber": 85
+        },
+        {
+          "caller": "check",
+          "callee": "c.Set",
+          "lineNumber": 86
+        },
+        {
+          "caller": "check",
+          "callee": "c.Next",
+          "lineNumber": 87
+        },
+        {
+          "caller": "check",
+          "callee": "accountRepo.FindByID",
+          "lineNumber": 92
+        },
+        {
+          "caller": "check",
+          "callee": "c.Request.Context",
+          "lineNumber": 92
+        },
+        {
+          "caller": "check",
+          "callee": "c.AbortWithStatusJSON",
+          "lineNumber": 94
+        },
+        {
+          "caller": "check",
+          "callee": "context.WithTimeout",
+          "lineNumber": 99
+        },
+        {
+          "caller": "check",
+          "callee": "c.Request.Context",
+          "lineNumber": 99
+        },
+        {
+          "caller": "check",
+          "callee": "cancel",
+          "lineNumber": 100
+        },
+        {
+          "caller": "check",
+          "callee": "cache.SetBytes",
+          "lineNumber": 102
+        },
+        {
+          "caller": "check",
+          "callee": "cache.Key",
+          "lineNumber": 102
+        },
+        {
+          "caller": "check",
+          "callee": "log.Printf",
+          "lineNumber": 103
+        },
+        {
+          "caller": "check",
+          "callee": "c.Set",
+          "lineNumber": 107
+        },
+        {
+          "caller": "check",
+          "callee": "c.Set",
+          "lineNumber": 108
+        },
+        {
+          "caller": "check",
+          "callee": "c.Next",
+          "lineNumber": 109
+        },
+        {
+          "caller": "GetAccountID",
+          "callee": "c.Get",
+          "lineNumber": 113
+        },
+        {
+          "caller": "GetAccountID",
+          "callee": "errors.New",
+          "lineNumber": 115
+        },
+        {
+          "caller": "GetAccountID",
+          "callee": "errors.New",
+          "lineNumber": 120
+        },
+        {
+          "caller": "GetUsername",
+          "callee": "c.Get",
+          "lineNumber": 127
+        },
+        {
+          "caller": "GetUsername",
+          "callee": "errors.New",
+          "lineNumber": 129
+        },
+        {
+          "caller": "GetUsername",
+          "callee": "errors.New",
+          "lineNumber": 134
+        }
+      ],
+      "metrics": {
+        "importCount": 9,
+        "exportCount": 4,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "internal/social/entity.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 42,
+      "classes": [
+        {
+          "name": "Social",
+          "startLine": 8,
+          "endLine": 21,
+          "methods": [],
+          "properties": [
+            "ID",
+            "FollowerID",
+            "VloggerID"
+          ]
+        },
+        {
+          "name": "FollowRequest",
+          "startLine": 23,
+          "endLine": 25,
+          "methods": [],
+          "properties": [
+            "VloggerID"
+          ]
+        },
+        {
+          "name": "UnfollowRequest",
+          "startLine": 27,
+          "endLine": 29,
+          "methods": [],
+          "properties": [
+            "VloggerID"
+          ]
+        },
+        {
+          "name": "GetAllFollowersRequest",
+          "startLine": 31,
+          "endLine": 33,
+          "methods": [],
+          "properties": [
+            "VloggerID"
+          ]
+        },
+        {
+          "name": "GetAllVloggersRequest",
+          "startLine": 35,
+          "endLine": 37,
+          "methods": [],
+          "properties": [
+            "FollowerID"
+          ]
+        },
+        {
+          "name": "GetAllFollowersResponse",
+          "startLine": 39,
+          "endLine": 42,
+          "methods": [],
+          "properties": [
+            "Followers",
+            "FollowerCount"
+          ]
+        },
+        {
+          "name": "GetAllVloggersResponse",
+          "startLine": 44,
+          "endLine": 47,
+          "methods": [],
+          "properties": [
+            "Vloggers",
+            "VloggerCount"
+          ]
+        },
+        {
+          "name": "SocialCounts",
+          "startLine": 49,
+          "endLine": 52,
+          "methods": [],
+          "properties": [
+            "FollowerCount",
+            "VloggerCount"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Social",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "FollowRequest",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "UnfollowRequest",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "GetAllFollowersRequest",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "GetAllVloggersRequest",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "GetAllFollowersResponse",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "GetAllVloggersResponse",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "SocialCounts",
+          "line": 49,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 8,
+        "functionCount": 0,
+        "classCount": 8
+      }
+    },
+    {
+      "path": "internal/social/handler.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 166,
+      "nonEmptyLines": 141,
+      "functions": [
+        {
+          "name": "NewSocialHandler",
+          "startLine": 15,
+          "endLine": 17,
+          "params": [
+            "service"
+          ]
+        },
+        {
+          "name": "Follow",
+          "startLine": 19,
+          "endLine": 46,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "Unfollow",
+          "startLine": 48,
+          "endLine": 75,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "GetAllFollowers",
+          "startLine": 77,
+          "endLine": 110,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "GetAllVloggers",
+          "startLine": 112,
+          "endLine": 145,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "GetCounts",
+          "startLine": 147,
+          "endLine": 166,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SocialHandler",
+          "startLine": 11,
+          "endLine": 13,
+          "methods": [
+            "Follow",
+            "Unfollow",
+            "GetAllFollowers",
+            "GetAllVloggers",
+            "GetCounts"
+          ],
+          "properties": [
+            "service"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SocialHandler",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "NewSocialHandler",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "Follow",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "Unfollow",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "GetAllFollowers",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "GetAllVloggers",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "GetCounts",
+          "line": 147,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Follow",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 21
+        },
+        {
+          "caller": "Follow",
+          "callee": "c.JSON",
+          "lineNumber": 22
+        },
+        {
+          "caller": "Follow",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 22
+        },
+        {
+          "caller": "Follow",
+          "callee": "err.Error",
+          "lineNumber": 22
+        },
+        {
+          "caller": "Follow",
+          "callee": "c.JSON",
+          "lineNumber": 26
+        },
+        {
+          "caller": "Follow",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 30
+        },
+        {
+          "caller": "Follow",
+          "callee": "c.JSON",
+          "lineNumber": 32
+        },
+        {
+          "caller": "Follow",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 32
+        },
+        {
+          "caller": "Follow",
+          "callee": "err.Error",
+          "lineNumber": 32
+        },
+        {
+          "caller": "Follow",
+          "callee": "h.service.Follow",
+          "lineNumber": 40
+        },
+        {
+          "caller": "Follow",
+          "callee": "c.Request.Context",
+          "lineNumber": 40
+        },
+        {
+          "caller": "Follow",
+          "callee": "c.JSON",
+          "lineNumber": 41
+        },
+        {
+          "caller": "Follow",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 41
+        },
+        {
+          "caller": "Follow",
+          "callee": "err.Error",
+          "lineNumber": 41
+        },
+        {
+          "caller": "Follow",
+          "callee": "c.JSON",
+          "lineNumber": 45
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 50
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "c.JSON",
+          "lineNumber": 51
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 51
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "err.Error",
+          "lineNumber": 51
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "c.JSON",
+          "lineNumber": 55
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 59
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "c.JSON",
+          "lineNumber": 61
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 61
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "err.Error",
+          "lineNumber": 61
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "h.service.Unfollow",
+          "lineNumber": 69
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "c.Request.Context",
+          "lineNumber": 69
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "c.JSON",
+          "lineNumber": 70
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 70
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "err.Error",
+          "lineNumber": 70
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "c.JSON",
+          "lineNumber": 74
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 79
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "c.JSON",
+          "lineNumber": 80
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 80
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "err.Error",
+          "lineNumber": 80
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 86
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "c.JSON",
+          "lineNumber": 88
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 88
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "err.Error",
+          "lineNumber": 88
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "h.service.GetAllFollowers",
+          "lineNumber": 94
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "c.Request.Context",
+          "lineNumber": 94
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "c.JSON",
+          "lineNumber": 96
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 96
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "err.Error",
+          "lineNumber": 96
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "h.service.CountFollowers",
+          "lineNumber": 103
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "c.Request.Context",
+          "lineNumber": 103
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "c.JSON",
+          "lineNumber": 105
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 105
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "err.Error",
+          "lineNumber": 105
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "c.JSON",
+          "lineNumber": 109
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 114
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "c.JSON",
+          "lineNumber": 115
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 115
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "err.Error",
+          "lineNumber": 115
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 121
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "c.JSON",
+          "lineNumber": 123
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 123
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "err.Error",
+          "lineNumber": 123
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "h.service.GetAllVloggers",
+          "lineNumber": 129
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "c.Request.Context",
+          "lineNumber": 129
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "c.JSON",
+          "lineNumber": 131
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 131
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "err.Error",
+          "lineNumber": 131
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "h.service.CountVloggers",
+          "lineNumber": 138
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "c.Request.Context",
+          "lineNumber": 138
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "c.JSON",
+          "lineNumber": 140
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 140
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "err.Error",
+          "lineNumber": 140
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "c.JSON",
+          "lineNumber": 144
+        },
+        {
+          "caller": "GetCounts",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 148
+        },
+        {
+          "caller": "GetCounts",
+          "callee": "c.JSON",
+          "lineNumber": 150
+        },
+        {
+          "caller": "GetCounts",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 150
+        },
+        {
+          "caller": "GetCounts",
+          "callee": "err.Error",
+          "lineNumber": 150
+        },
+        {
+          "caller": "GetCounts",
+          "callee": "h.service.CountFollowers",
+          "lineNumber": 154
+        },
+        {
+          "caller": "GetCounts",
+          "callee": "c.Request.Context",
+          "lineNumber": 154
+        },
+        {
+          "caller": "GetCounts",
+          "callee": "c.JSON",
+          "lineNumber": 156
+        },
+        {
+          "caller": "GetCounts",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 156
+        },
+        {
+          "caller": "GetCounts",
+          "callee": "err.Error",
+          "lineNumber": 156
+        },
+        {
+          "caller": "GetCounts",
+          "callee": "h.service.CountVloggers",
+          "lineNumber": 159
+        },
+        {
+          "caller": "GetCounts",
+          "callee": "c.Request.Context",
+          "lineNumber": 159
+        },
+        {
+          "caller": "GetCounts",
+          "callee": "c.JSON",
+          "lineNumber": 161
+        },
+        {
+          "caller": "GetCounts",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 161
+        },
+        {
+          "caller": "GetCounts",
+          "callee": "err.Error",
+          "lineNumber": 161
+        },
+        {
+          "caller": "GetCounts",
+          "callee": "c.JSON",
+          "lineNumber": 165
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 7,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/social/repo.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 115,
+      "nonEmptyLines": 100,
+      "functions": [
+        {
+          "name": "NewSocialRepository",
+          "startLine": 14,
+          "endLine": 16,
+          "params": [
+            "db"
+          ]
+        },
+        {
+          "name": "Follow",
+          "startLine": 18,
+          "endLine": 20,
+          "params": [
+            "ctx",
+            "social"
+          ]
+        },
+        {
+          "name": "Unfollow",
+          "startLine": 22,
+          "endLine": 26,
+          "params": [
+            "ctx",
+            "social"
+          ]
+        },
+        {
+          "name": "IsFollowed",
+          "startLine": 28,
+          "endLine": 37,
+          "params": [
+            "ctx",
+            "social"
+          ]
+        },
+        {
+          "name": "GetAllFollowers",
+          "startLine": 39,
+          "endLine": 65,
+          "params": [
+            "ctx",
+            "vloggerID"
+          ]
+        },
+        {
+          "name": "GetAllVloggers",
+          "startLine": 67,
+          "endLine": 93,
+          "params": [
+            "ctx",
+            "followerID"
+          ]
+        },
+        {
+          "name": "CountFollowers",
+          "startLine": 95,
+          "endLine": 104,
+          "params": [
+            "ctx",
+            "vloggerID"
+          ]
+        },
+        {
+          "name": "CountVloggers",
+          "startLine": 106,
+          "endLine": 115,
+          "params": [
+            "ctx",
+            "followerID"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SocialRepository",
+          "startLine": 10,
+          "endLine": 12,
+          "methods": [
+            "Follow",
+            "Unfollow",
+            "IsFollowed",
+            "GetAllFollowers",
+            "GetAllVloggers",
+            "CountFollowers",
+            "CountVloggers"
+          ],
+          "properties": [
+            "db"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SocialRepository",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "NewSocialRepository",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "Follow",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "Unfollow",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "IsFollowed",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "GetAllFollowers",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "GetAllVloggers",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "CountFollowers",
+          "line": 95,
+          "isDefault": false
+        },
+        {
+          "name": "CountVloggers",
+          "line": 106,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Follow",
+          "callee": "r.db.WithContext(ctx).Create",
+          "lineNumber": 19
+        },
+        {
+          "caller": "Follow",
+          "callee": "r.db.WithContext",
+          "lineNumber": 19
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "r.db.WithContext(ctx).\n\t\tWhere(\"follower_id = ? AND vlogger_id = ?\", social.FollowerID, social.VloggerID).\n\t\tDelete",
+          "lineNumber": 23
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "r.db.WithContext(ctx).\n\t\tWhere",
+          "lineNumber": 23
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "r.db.WithContext",
+          "lineNumber": 23
+        },
+        {
+          "caller": "IsFollowed",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&Social{}).\n\t\tWhere(\"follower_id = ? AND vlogger_id = ?\", social.FollowerID, social.VloggerID).\n\t\tCount",
+          "lineNumber": 30
+        },
+        {
+          "caller": "IsFollowed",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&Social{}).\n\t\tWhere",
+          "lineNumber": 30
+        },
+        {
+          "caller": "IsFollowed",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel",
+          "lineNumber": 30
+        },
+        {
+          "caller": "IsFollowed",
+          "callee": "r.db.WithContext",
+          "lineNumber": 30
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&Social{}).\n\t\tWhere(\"vlogger_id = ?\", vloggerID).\n\t\tLimit(200).\n\t\tFind",
+          "lineNumber": 41
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&Social{}).\n\t\tWhere(\"vlogger_id = ?\", vloggerID).\n\t\tLimit",
+          "lineNumber": 41
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&Social{}).\n\t\tWhere",
+          "lineNumber": 41
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel",
+          "lineNumber": 41
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "r.db.WithContext",
+          "lineNumber": 41
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "make",
+          "lineNumber": 49
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "len",
+          "lineNumber": 49
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "append",
+          "lineNumber": 51
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "len",
+          "lineNumber": 53
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&account.Account{}).\n\t\tWhere(\"id IN ?\", followerIDs).\n\t\tFind",
+          "lineNumber": 58
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&account.Account{}).\n\t\tWhere",
+          "lineNumber": 58
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel",
+          "lineNumber": 58
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "r.db.WithContext",
+          "lineNumber": 58
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&Social{}).\n\t\tWhere(\"follower_id = ?\", followerID).\n\t\tLimit(200).\n\t\tFind",
+          "lineNumber": 69
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&Social{}).\n\t\tWhere(\"follower_id = ?\", followerID).\n\t\tLimit",
+          "lineNumber": 69
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&Social{}).\n\t\tWhere",
+          "lineNumber": 69
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel",
+          "lineNumber": 69
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "r.db.WithContext",
+          "lineNumber": 69
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "make",
+          "lineNumber": 77
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "len",
+          "lineNumber": 77
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "append",
+          "lineNumber": 79
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "len",
+          "lineNumber": 81
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&account.Account{}).\n\t\tWhere(\"id IN ?\", vloggerIDs).\n\t\tFind",
+          "lineNumber": 86
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&account.Account{}).\n\t\tWhere",
+          "lineNumber": 86
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel",
+          "lineNumber": 86
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "r.db.WithContext",
+          "lineNumber": 86
+        },
+        {
+          "caller": "CountFollowers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&Social{}).\n\t\tWhere(\"vlogger_id = ?\", vloggerID).\n\t\tCount",
+          "lineNumber": 97
+        },
+        {
+          "caller": "CountFollowers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&Social{}).\n\t\tWhere",
+          "lineNumber": 97
+        },
+        {
+          "caller": "CountFollowers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel",
+          "lineNumber": 97
+        },
+        {
+          "caller": "CountFollowers",
+          "callee": "r.db.WithContext",
+          "lineNumber": 97
+        },
+        {
+          "caller": "CountVloggers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&Social{}).\n\t\tWhere(\"follower_id = ?\", followerID).\n\t\tCount",
+          "lineNumber": 108
+        },
+        {
+          "caller": "CountVloggers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&Social{}).\n\t\tWhere",
+          "lineNumber": 108
+        },
+        {
+          "caller": "CountVloggers",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel",
+          "lineNumber": 108
+        },
+        {
+          "caller": "CountVloggers",
+          "callee": "r.db.WithContext",
+          "lineNumber": 108
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 9,
+        "functionCount": 8,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/video/comment_handler.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 107,
+      "nonEmptyLines": 91,
+      "functions": [
+        {
+          "name": "NewCommentHandler",
+          "startLine": 16,
+          "endLine": 18,
+          "params": [
+            "service",
+            "accountService"
+          ]
+        },
+        {
+          "name": "PublishComment",
+          "startLine": 20,
+          "endLine": 59,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "DeleteComment",
+          "startLine": 61,
+          "endLine": 84,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "GetAllComments",
+          "startLine": 86,
+          "endLine": 107,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CommentHandler",
+          "startLine": 11,
+          "endLine": 14,
+          "methods": [
+            "PublishComment",
+            "DeleteComment",
+            "GetAllComments"
+          ],
+          "properties": [
+            "service",
+            "accountService"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CommentHandler",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "NewCommentHandler",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "PublishComment",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "DeleteComment",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "GetAllComments",
+          "line": 86,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "PublishComment",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 22
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "c.JSON",
+          "lineNumber": 23
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 23
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "err.Error",
+          "lineNumber": 23
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "c.JSON",
+          "lineNumber": 27
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "c.JSON",
+          "lineNumber": 31
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 35
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "c.JSON",
+          "lineNumber": 37
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 37
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "err.Error",
+          "lineNumber": 37
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "h.accountService.FindByID",
+          "lineNumber": 41
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "c.Request.Context",
+          "lineNumber": 41
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "c.JSON",
+          "lineNumber": 43
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 43
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "err.Error",
+          "lineNumber": 43
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "h.service.Publish",
+          "lineNumber": 53
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "c.Request.Context",
+          "lineNumber": 53
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "c.JSON",
+          "lineNumber": 54
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 54
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "err.Error",
+          "lineNumber": 54
+        },
+        {
+          "caller": "PublishComment",
+          "callee": "c.JSON",
+          "lineNumber": 58
+        },
+        {
+          "caller": "DeleteComment",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 63
+        },
+        {
+          "caller": "DeleteComment",
+          "callee": "c.JSON",
+          "lineNumber": 64
+        },
+        {
+          "caller": "DeleteComment",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 64
+        },
+        {
+          "caller": "DeleteComment",
+          "callee": "err.Error",
+          "lineNumber": 64
+        },
+        {
+          "caller": "DeleteComment",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 68
+        },
+        {
+          "caller": "DeleteComment",
+          "callee": "c.JSON",
+          "lineNumber": 70
+        },
+        {
+          "caller": "DeleteComment",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 70
+        },
+        {
+          "caller": "DeleteComment",
+          "callee": "err.Error",
+          "lineNumber": 70
+        },
+        {
+          "caller": "DeleteComment",
+          "callee": "c.JSON",
+          "lineNumber": 74
+        },
+        {
+          "caller": "DeleteComment",
+          "callee": "h.service.Delete",
+          "lineNumber": 78
+        },
+        {
+          "caller": "DeleteComment",
+          "callee": "c.Request.Context",
+          "lineNumber": 78
+        },
+        {
+          "caller": "DeleteComment",
+          "callee": "c.JSON",
+          "lineNumber": 79
+        },
+        {
+          "caller": "DeleteComment",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 79
+        },
+        {
+          "caller": "DeleteComment",
+          "callee": "err.Error",
+          "lineNumber": 79
+        },
+        {
+          "caller": "DeleteComment",
+          "callee": "c.JSON",
+          "lineNumber": 83
+        },
+        {
+          "caller": "GetAllComments",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 88
+        },
+        {
+          "caller": "GetAllComments",
+          "callee": "c.JSON",
+          "lineNumber": 89
+        },
+        {
+          "caller": "GetAllComments",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 89
+        },
+        {
+          "caller": "GetAllComments",
+          "callee": "err.Error",
+          "lineNumber": 89
+        },
+        {
+          "caller": "GetAllComments",
+          "callee": "c.JSON",
+          "lineNumber": 93
+        },
+        {
+          "caller": "GetAllComments",
+          "callee": "h.service.GetAll",
+          "lineNumber": 97
+        },
+        {
+          "caller": "GetAllComments",
+          "callee": "c.Request.Context",
+          "lineNumber": 97
+        },
+        {
+          "caller": "GetAllComments",
+          "callee": "c.JSON",
+          "lineNumber": 99
+        },
+        {
+          "caller": "GetAllComments",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 99
+        },
+        {
+          "caller": "GetAllComments",
+          "callee": "err.Error",
+          "lineNumber": 99
+        },
+        {
+          "caller": "GetAllComments",
+          "callee": "c.JSON",
+          "lineNumber": 106
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/worker/ssehub.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 261,
+      "nonEmptyLines": 217,
+      "functions": [
+        {
+          "name": "NewSSEHub",
+          "startLine": 28,
+          "endLine": 30,
+          "params": [
+            "db"
+          ]
+        },
+        {
+          "name": "Push",
+          "startLine": 33,
+          "endLine": 51,
+          "params": [
+            "userID",
+            "n"
+          ]
+        },
+        {
+          "name": "Subscribe",
+          "startLine": 53,
+          "endLine": 61,
+          "params": [
+            "userID"
+          ]
+        },
+        {
+          "name": "Unsubscribe",
+          "startLine": 63,
+          "endLine": 81,
+          "params": [
+            "userID",
+            "ch"
+          ]
+        },
+        {
+          "name": "sseAccountID",
+          "startLine": 83,
+          "endLine": 91,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "SSERequireAuth",
+          "startLine": 93,
+          "endLine": 117,
+          "params": []
+        },
+        {
+          "name": "SSEHandler",
+          "startLine": 119,
+          "endLine": 168,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "ListHandler",
+          "startLine": 170,
+          "endLine": 192,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "MarkReadHandler",
+          "startLine": 194,
+          "endLine": 229,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "UnreadCountHandler",
+          "startLine": 231,
+          "endLine": 248,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "RegisterRoutes",
+          "startLine": 250,
+          "endLine": 259,
+          "params": [
+            "r",
+            "group"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SSEHub",
+          "startLine": 18,
+          "endLine": 26,
+          "methods": [
+            "Push",
+            "Subscribe",
+            "Unsubscribe",
+            "SSERequireAuth",
+            "SSEHandler",
+            "ListHandler",
+            "MarkReadHandler",
+            "UnreadCountHandler",
+            "RegisterRoutes"
+          ],
+          "properties": [
+            "mu",
+            "clients",
+            "db"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SSEHub",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "NewSSEHub",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "Push",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "Subscribe",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "Unsubscribe",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "SSERequireAuth",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "SSEHandler",
+          "line": 119,
+          "isDefault": false
+        },
+        {
+          "name": "ListHandler",
+          "line": 170,
+          "isDefault": false
+        },
+        {
+          "name": "MarkReadHandler",
+          "line": 194,
+          "isDefault": false
+        },
+        {
+          "name": "UnreadCountHandler",
+          "line": 231,
+          "isDefault": false
+        },
+        {
+          "name": "RegisterRoutes",
+          "line": 250,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NewSSEHub",
+          "callee": "make",
+          "lineNumber": 29
+        },
+        {
+          "caller": "Push",
+          "callee": "h.mu.RLock",
+          "lineNumber": 34
+        },
+        {
+          "caller": "Push",
+          "callee": "h.mu.RUnlock",
+          "lineNumber": 35
+        },
+        {
+          "caller": "Subscribe",
+          "callee": "make",
+          "lineNumber": 54
+        },
+        {
+          "caller": "Subscribe",
+          "callee": "h.mu.Lock",
+          "lineNumber": 56
+        },
+        {
+          "caller": "Subscribe",
+          "callee": "append",
+          "lineNumber": 57
+        },
+        {
+          "caller": "Subscribe",
+          "callee": "h.mu.Unlock",
+          "lineNumber": 58
+        },
+        {
+          "caller": "Unsubscribe",
+          "callee": "h.mu.Lock",
+          "lineNumber": 64
+        },
+        {
+          "caller": "Unsubscribe",
+          "callee": "h.mu.Unlock",
+          "lineNumber": 65
+        },
+        {
+          "caller": "Unsubscribe",
+          "callee": "append",
+          "lineNumber": 71
+        },
+        {
+          "caller": "Unsubscribe",
+          "callee": "len",
+          "lineNumber": 72
+        },
+        {
+          "caller": "Unsubscribe",
+          "callee": "delete",
+          "lineNumber": 73
+        },
+        {
+          "caller": "Unsubscribe",
+          "callee": "close",
+          "lineNumber": 77
+        },
+        {
+          "caller": "sseAccountID",
+          "callee": "c.Get",
+          "lineNumber": 84
+        },
+        {
+          "caller": "SSERequireAuth",
+          "callee": "c.Query",
+          "lineNumber": 95
+        },
+        {
+          "caller": "SSERequireAuth",
+          "callee": "c.GetHeader",
+          "lineNumber": 97
+        },
+        {
+          "caller": "SSERequireAuth",
+          "callee": "len",
+          "lineNumber": 98
+        },
+        {
+          "caller": "SSERequireAuth",
+          "callee": "c.AbortWithStatusJSON",
+          "lineNumber": 104
+        },
+        {
+          "caller": "SSERequireAuth",
+          "callee": "auth.ParseToken",
+          "lineNumber": 108
+        },
+        {
+          "caller": "SSERequireAuth",
+          "callee": "c.AbortWithStatusJSON",
+          "lineNumber": 110
+        },
+        {
+          "caller": "SSERequireAuth",
+          "callee": "c.Set",
+          "lineNumber": 114
+        },
+        {
+          "caller": "SSERequireAuth",
+          "callee": "c.Next",
+          "lineNumber": 115
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "sseAccountID",
+          "lineNumber": 120
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "c.JSON",
+          "lineNumber": 122
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "c.Writer.Header().Set",
+          "lineNumber": 126
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "c.Writer.Header",
+          "lineNumber": 126
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "c.Writer.Header().Set",
+          "lineNumber": 127
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "c.Writer.Header",
+          "lineNumber": 127
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "c.Writer.Header().Set",
+          "lineNumber": 128
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "c.Writer.Header",
+          "lineNumber": 128
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "c.Writer.WriteHeader",
+          "lineNumber": 129
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "h.Subscribe",
+          "lineNumber": 131
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "h.Unsubscribe",
+          "lineNumber": 132
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "c.Request.Context",
+          "lineNumber": 134
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "ctx.Done",
+          "lineNumber": 139
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "json.Marshal",
+          "lineNumber": 147
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "fmt.Fprintf",
+          "lineNumber": 150
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "flusher.Flush",
+          "lineNumber": 154
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "time.After",
+          "lineNumber": 157
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "fmt.Fprintf",
+          "lineNumber": 161
+        },
+        {
+          "caller": "SSEHandler",
+          "callee": "flusher.Flush",
+          "lineNumber": 164
+        },
+        {
+          "caller": "ListHandler",
+          "callee": "sseAccountID",
+          "lineNumber": 171
+        },
+        {
+          "caller": "ListHandler",
+          "callee": "c.JSON",
+          "lineNumber": 173
+        },
+        {
+          "caller": "ListHandler",
+          "callee": "h.db.WithContext(c.Request.Context()).\n\t\tWhere(\"recipient_id = ?\", userID).\n\t\tOrder(\"created_at desc\").\n\t\tLimit(50).\n\t\tFind",
+          "lineNumber": 178
+        },
+        {
+          "caller": "ListHandler",
+          "callee": "h.db.WithContext(c.Request.Context()).\n\t\tWhere(\"recipient_id = ?\", userID).\n\t\tOrder(\"created_at desc\").\n\t\tLimit",
+          "lineNumber": 178
+        },
+        {
+          "caller": "ListHandler",
+          "callee": "h.db.WithContext(c.Request.Context()).\n\t\tWhere(\"recipient_id = ?\", userID).\n\t\tOrder",
+          "lineNumber": 178
+        },
+        {
+          "caller": "ListHandler",
+          "callee": "h.db.WithContext(c.Request.Context()).\n\t\tWhere",
+          "lineNumber": 178
+        },
+        {
+          "caller": "ListHandler",
+          "callee": "h.db.WithContext",
+          "lineNumber": 178
+        },
+        {
+          "caller": "ListHandler",
+          "callee": "c.Request.Context",
+          "lineNumber": 178
+        },
+        {
+          "caller": "ListHandler",
+          "callee": "c.JSON",
+          "lineNumber": 183
+        },
+        {
+          "caller": "ListHandler",
+          "callee": "err.Error",
+          "lineNumber": 183
+        },
+        {
+          "caller": "ListHandler",
+          "callee": "c.JSON",
+          "lineNumber": 191
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "sseAccountID",
+          "lineNumber": 195
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "c.JSON",
+          "lineNumber": 197
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 205
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "errors.Is",
+          "lineNumber": 205
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "c.JSON",
+          "lineNumber": 206
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "err.Error",
+          "lineNumber": 206
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "h.db.WithContext(c.Request.Context()).\n\t\t\tModel(&Notification{}).\n\t\t\tWhere(\"id = ? AND recipient_id = ?\", *req.ID, userID).\n\t\t\tUpdate",
+          "lineNumber": 212
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "h.db.WithContext(c.Request.Context()).\n\t\t\tModel(&Notification{}).\n\t\t\tWhere",
+          "lineNumber": 212
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "h.db.WithContext(c.Request.Context()).\n\t\t\tModel",
+          "lineNumber": 212
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "h.db.WithContext",
+          "lineNumber": 212
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "c.Request.Context",
+          "lineNumber": 212
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "h.db.WithContext(c.Request.Context()).\n\t\t\tModel(&Notification{}).\n\t\t\tWhere(\"recipient_id = ?\", userID).\n\t\t\tUpdate",
+          "lineNumber": 217
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "h.db.WithContext(c.Request.Context()).\n\t\t\tModel(&Notification{}).\n\t\t\tWhere",
+          "lineNumber": 217
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "h.db.WithContext(c.Request.Context()).\n\t\t\tModel",
+          "lineNumber": 217
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "h.db.WithContext",
+          "lineNumber": 217
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "c.Request.Context",
+          "lineNumber": 217
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "c.JSON",
+          "lineNumber": 224
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "err.Error",
+          "lineNumber": 224
+        },
+        {
+          "caller": "MarkReadHandler",
+          "callee": "c.JSON",
+          "lineNumber": 228
+        },
+        {
+          "caller": "UnreadCountHandler",
+          "callee": "sseAccountID",
+          "lineNumber": 232
+        },
+        {
+          "caller": "UnreadCountHandler",
+          "callee": "c.JSON",
+          "lineNumber": 234
+        },
+        {
+          "caller": "UnreadCountHandler",
+          "callee": "h.db.WithContext(c.Request.Context()).\n\t\tModel(&Notification{}).\n\t\tWhere(\"recipient_id = ? AND is_read = ?\", userID, false).\n\t\tCount",
+          "lineNumber": 239
+        },
+        {
+          "caller": "UnreadCountHandler",
+          "callee": "h.db.WithContext(c.Request.Context()).\n\t\tModel(&Notification{}).\n\t\tWhere",
+          "lineNumber": 239
+        },
+        {
+          "caller": "UnreadCountHandler",
+          "callee": "h.db.WithContext(c.Request.Context()).\n\t\tModel",
+          "lineNumber": 239
+        },
+        {
+          "caller": "UnreadCountHandler",
+          "callee": "h.db.WithContext",
+          "lineNumber": 239
+        },
+        {
+          "caller": "UnreadCountHandler",
+          "callee": "c.Request.Context",
+          "lineNumber": 239
+        },
+        {
+          "caller": "UnreadCountHandler",
+          "callee": "c.JSON",
+          "lineNumber": 243
+        },
+        {
+          "caller": "UnreadCountHandler",
+          "callee": "err.Error",
+          "lineNumber": 243
+        },
+        {
+          "caller": "UnreadCountHandler",
+          "callee": "c.JSON",
+          "lineNumber": 247
+        },
+        {
+          "caller": "RegisterRoutes",
+          "callee": "group.GET",
+          "lineNumber": 252
+        },
+        {
+          "caller": "RegisterRoutes",
+          "callee": "group.POST",
+          "lineNumber": 254
+        },
+        {
+          "caller": "RegisterRoutes",
+          "callee": "group.POST",
+          "lineNumber": 256
+        },
+        {
+          "caller": "RegisterRoutes",
+          "callee": "group.POST",
+          "lineNumber": 258
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 11,
+        "functionCount": 11,
+        "classCount": 1
+      }
+    }
+  ]
+}

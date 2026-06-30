@@ -1,0 +1,46 @@
+{
+  "nodes": [
+    {
+      "id": "config:go.mod",
+      "type": "config",
+      "name": "go.mod",
+      "filePath": "go.mod",
+      "summary": "Go module 依赖清单，声明 Gin、GORM、MySQL driver、JWT、Redis 与 RabbitMQ 等后端依赖。",
+      "tags": [
+        "dependencies",
+        "go-module",
+        "build-system"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:go.sum",
+      "type": "config",
+      "name": "go.sum",
+      "filePath": "go.sum",
+      "summary": "Go module 校验和文件，锁定依赖版本的完整性校验信息。",
+      "tags": [
+        "dependencies",
+        "go-module",
+        "build-system"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:go.mod",
+      "target": "file:cmd/main.go",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:go.mod",
+      "target": "file:cmd/worker/main.go",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,3158 @@
+{
+  "nodes": [
+    {
+      "id": "file:cmd/main.go",
+      "type": "file",
+      "name": "main.go",
+      "filePath": "cmd/main.go",
+      "summary": "API 服务入口，负责加载环境与配置，初始化 pprof、MySQL、Redis、RabbitMQ，并挂载 Gin 路由启动 HTTP 服务。",
+      "tags": [
+        "入口点",
+        "go-binary",
+        "启动流程"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:cmd/main.go:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "cmd/main.go",
+      "lineRange": [
+        19,
+        97
+      ],
+      "summary": "组装并启动 HTTP API 服务，按顺序初始化配置、数据库、缓存、消息队列和路由。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:cmd/worker/main.go",
+      "type": "file",
+      "name": "main.go",
+      "filePath": "cmd/worker/main.go",
+      "summary": "后台 worker 入口，初始化配置、数据库、Redis 与 RabbitMQ，并启动通知、点赞、评论、社交关系、Feed timeline 和热度等异步消费者。",
+      "tags": [
+        "入口点",
+        "go-binary",
+        "启动流程"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:cmd/worker/main.go:main",
+      "type": "function",
+      "name": "main",
+      "filePath": "cmd/worker/main.go",
+      "lineRange": [
+        42,
+        150
+      ],
+      "summary": "组装后台消费者运行时，启动多个异步 worker 并保持进程运行。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:cmd/worker/main.go:runWorkerWithRetry",
+      "type": "function",
+      "name": "runWorkerWithRetry",
+      "filePath": "cmd/worker/main.go",
+      "lineRange": [
+        151,
+        180
+      ],
+      "summary": "runWorkerWithRetry 实现 模块中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:cmd/worker/main.go:connectWithRetry",
+      "type": "function",
+      "name": "connectWithRetry",
+      "filePath": "cmd/worker/main.go",
+      "lineRange": [
+        182,
+        198
+      ],
+      "summary": "connectWithRetry 实现 模块中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/config/loadConfig.go",
+      "type": "file",
+      "name": "loadConfig.go",
+      "filePath": "internal/config/loadConfig.go",
+      "summary": "从 YAML 与环境变量加载运行时配置，覆盖服务器、数据库、Redis、RabbitMQ 和可观测性参数。",
+      "tags": [
+        "configuration",
+        "yaml",
+        "runtime-config"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/config/loadConfig.go:Config",
+      "type": "class",
+      "name": "Config",
+      "filePath": "internal/config/loadConfig.go",
+      "lineRange": [
+        12,
+        18
+      ],
+      "summary": "Config 是 配置加载中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/config/loadConfig.go:ServerConfig",
+      "type": "class",
+      "name": "ServerConfig",
+      "filePath": "internal/config/loadConfig.go",
+      "lineRange": [
+        20,
+        22
+      ],
+      "summary": "ServerConfig 是 配置加载中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/config/loadConfig.go:DatabaseConfig",
+      "type": "class",
+      "name": "DatabaseConfig",
+      "filePath": "internal/config/loadConfig.go",
+      "lineRange": [
+        24,
+        30
+      ],
+      "summary": "DatabaseConfig 是 配置加载中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/config/loadConfig.go:RedisConfig",
+      "type": "class",
+      "name": "RedisConfig",
+      "filePath": "internal/config/loadConfig.go",
+      "lineRange": [
+        31,
+        36
+      ],
+      "summary": "RedisConfig 是 配置加载中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/config/loadConfig.go:RabbitMQConfig",
+      "type": "class",
+      "name": "RabbitMQConfig",
+      "filePath": "internal/config/loadConfig.go",
+      "lineRange": [
+        38,
+        43
+      ],
+      "summary": "RabbitMQConfig 是 配置加载中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/config/loadConfig.go:ObservabilityConfig",
+      "type": "class",
+      "name": "ObservabilityConfig",
+      "filePath": "internal/config/loadConfig.go",
+      "lineRange": [
+        45,
+        47
+      ],
+      "summary": "ObservabilityConfig 是 配置加载中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/config/loadConfig.go:PprofConfig",
+      "type": "class",
+      "name": "PprofConfig",
+      "filePath": "internal/config/loadConfig.go",
+      "lineRange": [
+        49,
+        53
+      ],
+      "summary": "PprofConfig 是 配置加载中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/config/loadConfig.go:LoadLocalDev",
+      "type": "function",
+      "name": "LoadLocalDev",
+      "filePath": "internal/config/loadConfig.go",
+      "lineRange": [
+        58,
+        69
+      ],
+      "summary": "LoadLocalDev 实现 配置加载中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/config/loadConfig.go:Load",
+      "type": "function",
+      "name": "Load",
+      "filePath": "internal/config/loadConfig.go",
+      "lineRange": [
+        71,
+        83
+      ],
+      "summary": "Load 实现 配置加载中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/config/loadConfig.go:DefaultLocalConfig",
+      "type": "function",
+      "name": "DefaultLocalConfig",
+      "filePath": "internal/config/loadConfig.go",
+      "lineRange": [
+        86,
+        121
+      ],
+      "summary": "DefaultLocalConfig 实现 配置加载中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/config/loadConfig.go:ApplyEnvOverrides",
+      "type": "function",
+      "name": "ApplyEnvOverrides",
+      "filePath": "internal/config/loadConfig.go",
+      "lineRange": [
+        123,
+        183
+      ],
+      "summary": "ApplyEnvOverrides 实现 配置加载中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "type": "file",
+      "name": "commentMQ.go",
+      "filePath": "internal/middleware/rabbitmq/commentMQ.go",
+      "summary": "RabbitMQ 中间件封装队列、交换机和消息发布细节，为异步事件流提供统一入口。",
+      "tags": [
+        "rabbitmq",
+        "message-queue",
+        "middleware"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/middleware/rabbitmq/commentMQ.go:CommentMQ",
+      "type": "class",
+      "name": "CommentMQ",
+      "filePath": "internal/middleware/rabbitmq/commentMQ.go",
+      "lineRange": [
+        11,
+        13
+      ],
+      "summary": "CommentMQ 是 基础中间件中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/middleware/rabbitmq/commentMQ.go:CommentEvent",
+      "type": "class",
+      "name": "CommentEvent",
+      "filePath": "internal/middleware/rabbitmq/commentMQ.go",
+      "lineRange": [
+        24,
+        33
+      ],
+      "summary": "CommentEvent 是 基础中间件中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/commentMQ.go:NewCommentMQ",
+      "type": "function",
+      "name": "NewCommentMQ",
+      "filePath": "internal/middleware/rabbitmq/commentMQ.go",
+      "lineRange": [
+        35,
+        48
+      ],
+      "summary": "构造 CommentMQ 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/commentMQ.go:Publish",
+      "type": "function",
+      "name": "Publish",
+      "filePath": "internal/middleware/rabbitmq/commentMQ.go",
+      "lineRange": [
+        51,
+        58
+      ],
+      "summary": "发布异步消息或任务，供后台 worker 消费。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/commentMQ.go:Delete",
+      "type": "function",
+      "name": "Delete",
+      "filePath": "internal/middleware/rabbitmq/commentMQ.go",
+      "lineRange": [
+        60,
+        64
+      ],
+      "summary": "处理删除、取消或撤销类业务动作。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/commentMQ.go:publish",
+      "type": "function",
+      "name": "publish",
+      "filePath": "internal/middleware/rabbitmq/commentMQ.go",
+      "lineRange": [
+        67,
+        79
+      ],
+      "summary": "publish 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/middleware/rabbitmq/dlx.go",
+      "type": "file",
+      "name": "dlx.go",
+      "filePath": "internal/middleware/rabbitmq/dlx.go",
+      "summary": "RabbitMQ 中间件封装队列、交换机和消息发布细节，为异步事件流提供统一入口。",
+      "tags": [
+        "rabbitmq",
+        "message-queue",
+        "middleware"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/dlx.go:DeclareDLX",
+      "type": "function",
+      "name": "DeclareDLX",
+      "filePath": "internal/middleware/rabbitmq/dlx.go",
+      "lineRange": [
+        11,
+        27
+      ],
+      "summary": "DeclareDLX 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "type": "file",
+      "name": "likeMQ.go",
+      "filePath": "internal/middleware/rabbitmq/likeMQ.go",
+      "summary": "RabbitMQ 中间件封装队列、交换机和消息发布细节，为异步事件流提供统一入口。",
+      "tags": [
+        "rabbitmq",
+        "message-queue",
+        "middleware"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/middleware/rabbitmq/likeMQ.go:LikeMQ",
+      "type": "class",
+      "name": "LikeMQ",
+      "filePath": "internal/middleware/rabbitmq/likeMQ.go",
+      "lineRange": [
+        11,
+        13
+      ],
+      "summary": "LikeMQ 是 基础中间件中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/middleware/rabbitmq/likeMQ.go:LikeEvent",
+      "type": "class",
+      "name": "LikeEvent",
+      "filePath": "internal/middleware/rabbitmq/likeMQ.go",
+      "lineRange": [
+        24,
+        30
+      ],
+      "summary": "LikeEvent 是 基础中间件中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/likeMQ.go:NewLikeMQ",
+      "type": "function",
+      "name": "NewLikeMQ",
+      "filePath": "internal/middleware/rabbitmq/likeMQ.go",
+      "lineRange": [
+        32,
+        45
+      ],
+      "summary": "构造 LikeMQ 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/likeMQ.go:Like",
+      "type": "function",
+      "name": "Like",
+      "filePath": "internal/middleware/rabbitmq/likeMQ.go",
+      "lineRange": [
+        47,
+        49
+      ],
+      "summary": "处理用户互动动作，并同步必要的计数、缓存或异步事件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/likeMQ.go:Unlike",
+      "type": "function",
+      "name": "Unlike",
+      "filePath": "internal/middleware/rabbitmq/likeMQ.go",
+      "lineRange": [
+        51,
+        53
+      ],
+      "summary": "处理删除、取消或撤销类业务动作。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/likeMQ.go:publish",
+      "type": "function",
+      "name": "publish",
+      "filePath": "internal/middleware/rabbitmq/likeMQ.go",
+      "lineRange": [
+        55,
+        74
+      ],
+      "summary": "publish 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/middleware/rabbitmq/popularityMQ.go",
+      "type": "file",
+      "name": "popularityMQ.go",
+      "filePath": "internal/middleware/rabbitmq/popularityMQ.go",
+      "summary": "RabbitMQ 中间件封装队列、交换机和消息发布细节，为异步事件流提供统一入口。",
+      "tags": [
+        "rabbitmq",
+        "message-queue",
+        "middleware"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/middleware/rabbitmq/popularityMQ.go:PopularityMQ",
+      "type": "class",
+      "name": "PopularityMQ",
+      "filePath": "internal/middleware/rabbitmq/popularityMQ.go",
+      "lineRange": [
+        11,
+        13
+      ],
+      "summary": "PopularityMQ 是 基础中间件中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/middleware/rabbitmq/popularityMQ.go:PopularityEvent",
+      "type": "class",
+      "name": "PopularityEvent",
+      "filePath": "internal/middleware/rabbitmq/popularityMQ.go",
+      "lineRange": [
+        23,
+        28
+      ],
+      "summary": "PopularityEvent 是 基础中间件中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/popularityMQ.go:NewPopularityMQ",
+      "type": "function",
+      "name": "NewPopularityMQ",
+      "filePath": "internal/middleware/rabbitmq/popularityMQ.go",
+      "lineRange": [
+        30,
+        43
+      ],
+      "summary": "构造 PopularityMQ 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/popularityMQ.go:Update",
+      "type": "function",
+      "name": "Update",
+      "filePath": "internal/middleware/rabbitmq/popularityMQ.go",
+      "lineRange": [
+        45,
+        63
+      ],
+      "summary": "处理更新类业务流程，并校验请求上下文。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "type": "file",
+      "name": "rabbitMQ.go",
+      "filePath": "internal/middleware/rabbitmq/rabbitMQ.go",
+      "summary": "RabbitMQ 中间件封装队列、交换机和消息发布细节，为异步事件流提供统一入口。",
+      "tags": [
+        "rabbitmq",
+        "message-queue",
+        "middleware"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/middleware/rabbitmq/rabbitMQ.go:RabbitMQ",
+      "type": "class",
+      "name": "RabbitMQ",
+      "filePath": "internal/middleware/rabbitmq/rabbitMQ.go",
+      "lineRange": [
+        17,
+        19
+      ],
+      "summary": "RabbitMQ 是 基础中间件中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/rabbitMQ.go:NewRabbitMQ",
+      "type": "function",
+      "name": "NewRabbitMQ",
+      "filePath": "internal/middleware/rabbitmq/rabbitMQ.go",
+      "lineRange": [
+        21,
+        31
+      ],
+      "summary": "构造 RabbitMQ 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/rabbitMQ.go:Close",
+      "type": "function",
+      "name": "Close",
+      "filePath": "internal/middleware/rabbitmq/rabbitMQ.go",
+      "lineRange": [
+        33,
+        41
+      ],
+      "summary": "Close 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/rabbitMQ.go:NewChannel",
+      "type": "function",
+      "name": "NewChannel",
+      "filePath": "internal/middleware/rabbitmq/rabbitMQ.go",
+      "lineRange": [
+        43,
+        48
+      ],
+      "summary": "构造 Channel 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/rabbitMQ.go:DeclareTopic",
+      "type": "function",
+      "name": "DeclareTopic",
+      "filePath": "internal/middleware/rabbitmq/rabbitMQ.go",
+      "lineRange": [
+        50,
+        77
+      ],
+      "summary": "DeclareTopic 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/rabbitMQ.go:PublishJSON",
+      "type": "function",
+      "name": "PublishJSON",
+      "filePath": "internal/middleware/rabbitmq/rabbitMQ.go",
+      "lineRange": [
+        79,
+        97
+      ],
+      "summary": "发布异步消息或任务，供后台 worker 消费。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "type": "file",
+      "name": "socialMQ.go",
+      "filePath": "internal/middleware/rabbitmq/socialMQ.go",
+      "summary": "RabbitMQ 中间件封装队列、交换机和消息发布细节，为异步事件流提供统一入口。",
+      "tags": [
+        "rabbitmq",
+        "message-queue",
+        "middleware"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/middleware/rabbitmq/socialMQ.go:SocialMQ",
+      "type": "class",
+      "name": "SocialMQ",
+      "filePath": "internal/middleware/rabbitmq/socialMQ.go",
+      "lineRange": [
+        11,
+        13
+      ],
+      "summary": "SocialMQ 是 基础中间件中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/middleware/rabbitmq/socialMQ.go:SocialEvent",
+      "type": "class",
+      "name": "SocialEvent",
+      "filePath": "internal/middleware/rabbitmq/socialMQ.go",
+      "lineRange": [
+        24,
+        30
+      ],
+      "summary": "SocialEvent 是 基础中间件中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/socialMQ.go:NewSocialMQ",
+      "type": "function",
+      "name": "NewSocialMQ",
+      "filePath": "internal/middleware/rabbitmq/socialMQ.go",
+      "lineRange": [
+        32,
+        45
+      ],
+      "summary": "构造 SocialMQ 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/socialMQ.go:Follow",
+      "type": "function",
+      "name": "Follow",
+      "filePath": "internal/middleware/rabbitmq/socialMQ.go",
+      "lineRange": [
+        47,
+        49
+      ],
+      "summary": "处理用户互动动作，并同步必要的计数、缓存或异步事件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/socialMQ.go:UnFollow",
+      "type": "function",
+      "name": "UnFollow",
+      "filePath": "internal/middleware/rabbitmq/socialMQ.go",
+      "lineRange": [
+        51,
+        53
+      ],
+      "summary": "UnFollow 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/socialMQ.go:publish",
+      "type": "function",
+      "name": "publish",
+      "filePath": "internal/middleware/rabbitmq/socialMQ.go",
+      "lineRange": [
+        55,
+        74
+      ],
+      "summary": "publish 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/middleware/rabbitmq/timelineMQ.go",
+      "type": "file",
+      "name": "timelineMQ.go",
+      "filePath": "internal/middleware/rabbitmq/timelineMQ.go",
+      "summary": "RabbitMQ 中间件封装队列、交换机和消息发布细节，为异步事件流提供统一入口。",
+      "tags": [
+        "rabbitmq",
+        "message-queue",
+        "middleware"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/middleware/rabbitmq/timelineMQ.go:TimelineMQ",
+      "type": "class",
+      "name": "TimelineMQ",
+      "filePath": "internal/middleware/rabbitmq/timelineMQ.go",
+      "lineRange": [
+        11,
+        13
+      ],
+      "summary": "TimelineMQ 是 基础中间件中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/middleware/rabbitmq/timelineMQ.go:TimelineEvent",
+      "type": "class",
+      "name": "TimelineEvent",
+      "filePath": "internal/middleware/rabbitmq/timelineMQ.go",
+      "lineRange": [
+        22,
+        27
+      ],
+      "summary": "TimelineEvent 是 基础中间件中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/timelineMQ.go:NewTimelineMQ",
+      "type": "function",
+      "name": "NewTimelineMQ",
+      "filePath": "internal/middleware/rabbitmq/timelineMQ.go",
+      "lineRange": [
+        29,
+        42
+      ],
+      "summary": "构造 TimelineMQ 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/rabbitmq/timelineMQ.go:PublishVideo",
+      "type": "function",
+      "name": "PublishVideo",
+      "filePath": "internal/middleware/rabbitmq/timelineMQ.go",
+      "lineRange": [
+        44,
+        62
+      ],
+      "summary": "发布异步消息或任务，供后台 worker 消费。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/observability/pprof.go",
+      "type": "file",
+      "name": "pprof.go",
+      "filePath": "internal/observability/pprof.go",
+      "summary": "pprof 可观测性服务封装，用于在运行时按配置开启诊断端口。",
+      "tags": [
+        "observability",
+        "pprof",
+        "diagnostics"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/observability/pprof.go:PprofServer",
+      "type": "class",
+      "name": "PprofServer",
+      "filePath": "internal/observability/pprof.go",
+      "lineRange": [
+        14,
+        21
+      ],
+      "summary": "PprofServer 是 可观测性中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/observability/pprof.go:NewPprofMux",
+      "type": "function",
+      "name": "NewPprofMux",
+      "filePath": "internal/observability/pprof.go",
+      "lineRange": [
+        24,
+        38
+      ],
+      "summary": "构造 PprofMux 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/observability/pprof.go:NewPprofServer",
+      "type": "function",
+      "name": "NewPprofServer",
+      "filePath": "internal/observability/pprof.go",
+      "lineRange": [
+        40,
+        64
+      ],
+      "summary": "构造 PprofServer 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/observability/pprof.go:Close",
+      "type": "function",
+      "name": "Close",
+      "filePath": "internal/observability/pprof.go",
+      "lineRange": [
+        66,
+        77
+      ],
+      "summary": "Close 实现 可观测性中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/observability/pprof.go:Shutdown",
+      "type": "function",
+      "name": "Shutdown",
+      "filePath": "internal/observability/pprof.go",
+      "lineRange": [
+        79,
+        84
+      ],
+      "summary": "Shutdown 实现 可观测性中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/observability/pprof_test.go",
+      "type": "file",
+      "name": "pprof_test.go",
+      "filePath": "internal/observability/pprof_test.go",
+      "summary": "pprof 可观测性服务封装，用于在运行时按配置开启诊断端口。",
+      "tags": [
+        "observability",
+        "pprof",
+        "diagnostics"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/observability/pprof_test.go:TestNewPprofMux",
+      "type": "function",
+      "name": "TestNewPprofMux",
+      "filePath": "internal/observability/pprof_test.go",
+      "lineRange": [
+        9,
+        20
+      ],
+      "summary": "TestNewPprofMux 实现 可观测性中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/observability/pprof_test.go:TestNewPprofServerWithDisabled",
+      "type": "function",
+      "name": "TestNewPprofServerWithDisabled",
+      "filePath": "internal/observability/pprof_test.go",
+      "lineRange": [
+        23,
+        33
+      ],
+      "summary": "TestNewPprofServerWithDisabled 实现 可观测性中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/observability/pprof_test.go:TestPprofServerCloseWithDisabledServer",
+      "type": "function",
+      "name": "TestPprofServerCloseWithDisabledServer",
+      "filePath": "internal/observability/pprof_test.go",
+      "lineRange": [
+        36,
+        46
+      ],
+      "summary": "TestPprofServerCloseWithDisabledServer 实现 可观测性中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/social/service.go",
+      "type": "file",
+      "name": "service.go",
+      "filePath": "internal/social/service.go",
+      "summary": "社交关系 service 层，承载核心业务规则并编排仓储、缓存、消息队列或其他领域模块。",
+      "tags": [
+        "service",
+        "业务逻辑",
+        "领域编排"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/social/service.go:SocialService",
+      "type": "class",
+      "name": "SocialService",
+      "filePath": "internal/social/service.go",
+      "lineRange": [
+        12,
+        17
+      ],
+      "summary": "SocialService 承载 社交关系业务编排能力。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/social/service.go:NewSocialService",
+      "type": "function",
+      "name": "NewSocialService",
+      "filePath": "internal/social/service.go",
+      "lineRange": [
+        19,
+        21
+      ],
+      "summary": "构造 SocialService 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/service.go:Follow",
+      "type": "function",
+      "name": "Follow",
+      "filePath": "internal/social/service.go",
+      "lineRange": [
+        23,
+        61
+      ],
+      "summary": "处理用户互动动作，并同步必要的计数、缓存或异步事件。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/service.go:Unfollow",
+      "type": "function",
+      "name": "Unfollow",
+      "filePath": "internal/social/service.go",
+      "lineRange": [
+        63,
+        98
+      ],
+      "summary": "处理删除、取消或撤销类业务动作。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/service.go:GetAllFollowers",
+      "type": "function",
+      "name": "GetAllFollowers",
+      "filePath": "internal/social/service.go",
+      "lineRange": [
+        100,
+        106
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/service.go:GetAllVloggers",
+      "type": "function",
+      "name": "GetAllVloggers",
+      "filePath": "internal/social/service.go",
+      "lineRange": [
+        108,
+        114
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/service.go:CountFollowers",
+      "type": "function",
+      "name": "CountFollowers",
+      "filePath": "internal/social/service.go",
+      "lineRange": [
+        116,
+        118
+      ],
+      "summary": "CountFollowers 实现 社交关系中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/service.go:CountVloggers",
+      "type": "function",
+      "name": "CountVloggers",
+      "filePath": "internal/social/service.go",
+      "lineRange": [
+        120,
+        122
+      ],
+      "summary": "CountVloggers 实现 社交关系中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/service.go:IsFollowed",
+      "type": "function",
+      "name": "IsFollowed",
+      "filePath": "internal/social/service.go",
+      "lineRange": [
+        124,
+        137
+      ],
+      "summary": "IsFollowed 实现 社交关系中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/video/comment_service.go",
+      "type": "file",
+      "name": "comment_service.go",
+      "filePath": "internal/video/comment_service.go",
+      "summary": "视频模块文件，参与 feedsystem 的 Go 服务实现。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/video/comment_service.go:CommentService",
+      "type": "class",
+      "name": "CommentService",
+      "filePath": "internal/video/comment_service.go",
+      "lineRange": [
+        16,
+        22
+      ],
+      "summary": "CommentService 承载 视频业务编排能力。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/video/comment_service.go:NewCommentService",
+      "type": "function",
+      "name": "NewCommentService",
+      "filePath": "internal/video/comment_service.go",
+      "lineRange": [
+        24,
+        26
+      ],
+      "summary": "构造 CommentService 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/comment_service.go:Publish",
+      "type": "function",
+      "name": "Publish",
+      "filePath": "internal/video/comment_service.go",
+      "lineRange": [
+        28,
+        90
+      ],
+      "summary": "发布异步消息或任务，供后台 worker 消费。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/video/comment_service.go:Delete",
+      "type": "function",
+      "name": "Delete",
+      "filePath": "internal/video/comment_service.go",
+      "lineRange": [
+        93,
+        112
+      ],
+      "summary": "处理删除、取消或撤销类业务动作。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/comment_service.go:GetAll",
+      "type": "function",
+      "name": "GetAll",
+      "filePath": "internal/video/comment_service.go",
+      "lineRange": [
+        114,
+        123
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/comment_service.go:notifyMentions",
+      "type": "function",
+      "name": "notifyMentions",
+      "filePath": "internal/video/comment_service.go",
+      "lineRange": [
+        127,
+        172
+      ],
+      "summary": "notifyMentions 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/video/like_service.go",
+      "type": "file",
+      "name": "like_service.go",
+      "filePath": "internal/video/like_service.go",
+      "summary": "视频模块文件，参与 feedsystem 的 Go 服务实现。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:internal/video/like_service.go:LikeService",
+      "type": "class",
+      "name": "LikeService",
+      "filePath": "internal/video/like_service.go",
+      "lineRange": [
+        15,
+        21
+      ],
+      "summary": "LikeService 承载 视频业务编排能力。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/video/like_service.go:NewLikeService",
+      "type": "function",
+      "name": "NewLikeService",
+      "filePath": "internal/video/like_service.go",
+      "lineRange": [
+        23,
+        25
+      ],
+      "summary": "构造 LikeService 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/like_service.go:Like",
+      "type": "function",
+      "name": "Like",
+      "filePath": "internal/video/like_service.go",
+      "lineRange": [
+        32,
+        106
+      ],
+      "summary": "处理用户互动动作，并同步必要的计数、缓存或异步事件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/video/like_service.go:Unlike",
+      "type": "function",
+      "name": "Unlike",
+      "filePath": "internal/video/like_service.go",
+      "lineRange": [
+        108,
+        176
+      ],
+      "summary": "处理删除、取消或撤销类业务动作。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/video/like_service.go:IsLiked",
+      "type": "function",
+      "name": "IsLiked",
+      "filePath": "internal/video/like_service.go",
+      "lineRange": [
+        178,
+        205
+      ],
+      "summary": "IsLiked 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/like_service.go:ListLikedVideos",
+      "type": "function",
+      "name": "ListLikedVideos",
+      "filePath": "internal/video/like_service.go",
+      "lineRange": [
+        207,
+        209
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/like_service.go:setLikeCache",
+      "type": "function",
+      "name": "setLikeCache",
+      "filePath": "internal/video/like_service.go",
+      "lineRange": [
+        211,
+        223
+      ],
+      "summary": "为业务流程提供 setLikeCache 辅助逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/like_service.go:deleteLikeCache",
+      "type": "function",
+      "name": "deleteLikeCache",
+      "filePath": "internal/video/like_service.go",
+      "lineRange": [
+        225,
+        237
+      ],
+      "summary": "deleteLikeCache 实现 视频中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/worker/notificationworker.go",
+      "type": "file",
+      "name": "notificationworker.go",
+      "filePath": "internal/worker/notificationworker.go",
+      "summary": "异步 worker处理器，消费 RabbitMQ 或 Redis 中的异步任务并更新数据库、缓存或 SSE 推送。",
+      "tags": [
+        "worker",
+        "异步处理",
+        "消息消费"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/worker/notificationworker.go:Notification",
+      "type": "class",
+      "name": "Notification",
+      "filePath": "internal/worker/notificationworker.go",
+      "lineRange": [
+        15,
+        27
+      ],
+      "summary": "Notification 是 异步 worker中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/worker/notificationworker.go:NotificationWorker",
+      "type": "class",
+      "name": "NotificationWorker",
+      "filePath": "internal/worker/notificationworker.go",
+      "lineRange": [
+        29,
+        34
+      ],
+      "summary": "NotificationWorker 是 异步 worker中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/worker/notificationworker.go:NotificationHub",
+      "type": "class",
+      "name": "NotificationHub",
+      "filePath": "internal/worker/notificationworker.go",
+      "lineRange": [
+        38,
+        40
+      ],
+      "summary": "NotificationHub 是 异步 worker中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/notificationworker.go:NewNotificationWorker",
+      "type": "function",
+      "name": "NewNotificationWorker",
+      "filePath": "internal/worker/notificationworker.go",
+      "lineRange": [
+        42,
+        44
+      ],
+      "summary": "构造 NotificationWorker 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/notificationworker.go:Run",
+      "type": "function",
+      "name": "Run",
+      "filePath": "internal/worker/notificationworker.go",
+      "lineRange": [
+        46,
+        73
+      ],
+      "summary": "启动长运行处理流程或后台循环。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/notificationworker.go:handleDelivery",
+      "type": "function",
+      "name": "handleDelivery",
+      "filePath": "internal/worker/notificationworker.go",
+      "lineRange": [
+        75,
+        102
+      ],
+      "summary": "handleDelivery 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/notificationworker.go:process",
+      "type": "function",
+      "name": "process",
+      "filePath": "internal/worker/notificationworker.go",
+      "lineRange": [
+        104,
+        203
+      ],
+      "summary": "process 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:internal/worker/socialworker.go",
+      "type": "file",
+      "name": "socialworker.go",
+      "filePath": "internal/worker/socialworker.go",
+      "summary": "异步 worker处理器，消费 RabbitMQ 或 Redis 中的异步任务并更新数据库、缓存或 SSE 推送。",
+      "tags": [
+        "worker",
+        "异步处理",
+        "消息消费"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/worker/socialworker.go:SocialWorker",
+      "type": "class",
+      "name": "SocialWorker",
+      "filePath": "internal/worker/socialworker.go",
+      "lineRange": [
+        16,
+        20
+      ],
+      "summary": "SocialWorker 是 异步 worker中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/socialworker.go:NewSocialWorker",
+      "type": "function",
+      "name": "NewSocialWorker",
+      "filePath": "internal/worker/socialworker.go",
+      "lineRange": [
+        22,
+        24
+      ],
+      "summary": "构造 SocialWorker 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/socialworker.go:Run",
+      "type": "function",
+      "name": "Run",
+      "filePath": "internal/worker/socialworker.go",
+      "lineRange": [
+        26,
+        50
+      ],
+      "summary": "启动长运行处理流程或后台循环。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/socialworker.go:handleDelivery",
+      "type": "function",
+      "name": "handleDelivery",
+      "filePath": "internal/worker/socialworker.go",
+      "lineRange": [
+        52,
+        76
+      ],
+      "summary": "handleDelivery 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/socialworker.go:process",
+      "type": "function",
+      "name": "process",
+      "filePath": "internal/worker/socialworker.go",
+      "lineRange": [
+        78,
+        109
+      ],
+      "summary": "process 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:cmd/main.go",
+      "target": "function:cmd/main.go:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:cmd/main.go",
+      "target": "file:internal/config/loadConfig.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/main.go",
+      "target": "file:internal/db/db.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/main.go",
+      "target": "file:internal/http/router.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/main.go",
+      "target": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/main.go",
+      "target": "file:internal/middleware/rabbitmq/dlx.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/main.go",
+      "target": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/main.go",
+      "target": "file:internal/middleware/rabbitmq/popularityMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/main.go",
+      "target": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/main.go",
+      "target": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/main.go",
+      "target": "file:internal/middleware/rabbitmq/timelineMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/main.go",
+      "target": "file:internal/middleware/redis/cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/main.go",
+      "target": "file:internal/middleware/redis/redis_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/main.go",
+      "target": "file:internal/middleware/redis/redis.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/main.go",
+      "target": "file:internal/middleware/redis/zset.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/main.go",
+      "target": "file:internal/observability/pprof_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/main.go",
+      "target": "file:internal/observability/pprof.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "function:cmd/worker/main.go:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "function:cmd/worker/main.go:runWorkerWithRetry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "function:cmd/worker/main.go:connectWithRetry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/config/loadConfig.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/db/db.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/middleware/rabbitmq/dlx.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/middleware/rabbitmq/popularityMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/middleware/rabbitmq/timelineMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/middleware/redis/cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/middleware/redis/redis_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/middleware/redis/redis.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/middleware/redis/zset.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/observability/pprof_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/observability/pprof.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/social/entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/social/handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/social/repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/social/service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/video/chunk_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/video/chunk_handler_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/video/chunk_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/video/comment_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/video/comment_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/video/comment_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/video/comment_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/video/like_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/video/like_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/video/like_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/video/like_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/video/popularity_cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/video/tag_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/video/video_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/video/video_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/video/video_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/video/video_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/worker/commentworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/worker/likeworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/worker/notificationworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/worker/outboxworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/worker/popularityworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/worker/socialworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:cmd/worker/main.go",
+      "target": "file:internal/worker/ssehub.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/config/loadConfig.go",
+      "target": "class:internal/config/loadConfig.go:Config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/config/loadConfig.go",
+      "target": "class:internal/config/loadConfig.go:ServerConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/config/loadConfig.go",
+      "target": "class:internal/config/loadConfig.go:DatabaseConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/config/loadConfig.go",
+      "target": "class:internal/config/loadConfig.go:RedisConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/config/loadConfig.go",
+      "target": "class:internal/config/loadConfig.go:RabbitMQConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/config/loadConfig.go",
+      "target": "class:internal/config/loadConfig.go:ObservabilityConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/config/loadConfig.go",
+      "target": "class:internal/config/loadConfig.go:PprofConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/config/loadConfig.go",
+      "target": "function:internal/config/loadConfig.go:LoadLocalDev",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/config/loadConfig.go",
+      "target": "function:internal/config/loadConfig.go:Load",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/config/loadConfig.go",
+      "target": "function:internal/config/loadConfig.go:DefaultLocalConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/config/loadConfig.go",
+      "target": "function:internal/config/loadConfig.go:ApplyEnvOverrides",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "target": "class:internal/middleware/rabbitmq/commentMQ.go:CommentMQ",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "target": "class:internal/middleware/rabbitmq/commentMQ.go:CommentEvent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "target": "function:internal/middleware/rabbitmq/commentMQ.go:NewCommentMQ",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "target": "function:internal/middleware/rabbitmq/commentMQ.go:Publish",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "target": "function:internal/middleware/rabbitmq/commentMQ.go:Delete",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "target": "function:internal/middleware/rabbitmq/commentMQ.go:publish",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/dlx.go",
+      "target": "function:internal/middleware/rabbitmq/dlx.go:DeclareDLX",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "target": "class:internal/middleware/rabbitmq/likeMQ.go:LikeMQ",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "target": "class:internal/middleware/rabbitmq/likeMQ.go:LikeEvent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "target": "function:internal/middleware/rabbitmq/likeMQ.go:NewLikeMQ",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "target": "function:internal/middleware/rabbitmq/likeMQ.go:Like",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "target": "function:internal/middleware/rabbitmq/likeMQ.go:Unlike",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "target": "function:internal/middleware/rabbitmq/likeMQ.go:publish",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/popularityMQ.go",
+      "target": "class:internal/middleware/rabbitmq/popularityMQ.go:PopularityMQ",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/popularityMQ.go",
+      "target": "class:internal/middleware/rabbitmq/popularityMQ.go:PopularityEvent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/popularityMQ.go",
+      "target": "function:internal/middleware/rabbitmq/popularityMQ.go:NewPopularityMQ",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/popularityMQ.go",
+      "target": "function:internal/middleware/rabbitmq/popularityMQ.go:Update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "target": "class:internal/middleware/rabbitmq/rabbitMQ.go:RabbitMQ",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "target": "function:internal/middleware/rabbitmq/rabbitMQ.go:NewRabbitMQ",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "target": "function:internal/middleware/rabbitmq/rabbitMQ.go:Close",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "target": "function:internal/middleware/rabbitmq/rabbitMQ.go:NewChannel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "target": "function:internal/middleware/rabbitmq/rabbitMQ.go:DeclareTopic",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "target": "function:internal/middleware/rabbitmq/rabbitMQ.go:PublishJSON",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "target": "file:internal/config/loadConfig.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "target": "class:internal/middleware/rabbitmq/socialMQ.go:SocialMQ",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "target": "class:internal/middleware/rabbitmq/socialMQ.go:SocialEvent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "target": "function:internal/middleware/rabbitmq/socialMQ.go:NewSocialMQ",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "target": "function:internal/middleware/rabbitmq/socialMQ.go:Follow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "target": "function:internal/middleware/rabbitmq/socialMQ.go:UnFollow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "target": "function:internal/middleware/rabbitmq/socialMQ.go:publish",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/timelineMQ.go",
+      "target": "class:internal/middleware/rabbitmq/timelineMQ.go:TimelineMQ",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/timelineMQ.go",
+      "target": "class:internal/middleware/rabbitmq/timelineMQ.go:TimelineEvent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/timelineMQ.go",
+      "target": "function:internal/middleware/rabbitmq/timelineMQ.go:NewTimelineMQ",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/rabbitmq/timelineMQ.go",
+      "target": "function:internal/middleware/rabbitmq/timelineMQ.go:PublishVideo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/observability/pprof.go",
+      "target": "class:internal/observability/pprof.go:PprofServer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/observability/pprof.go",
+      "target": "function:internal/observability/pprof.go:NewPprofMux",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/observability/pprof.go",
+      "target": "function:internal/observability/pprof.go:NewPprofServer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/observability/pprof.go",
+      "target": "function:internal/observability/pprof.go:Close",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/observability/pprof.go",
+      "target": "function:internal/observability/pprof.go:Shutdown",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/observability/pprof_test.go",
+      "target": "function:internal/observability/pprof_test.go:TestNewPprofMux",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/observability/pprof_test.go",
+      "target": "function:internal/observability/pprof_test.go:TestNewPprofServerWithDisabled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/observability/pprof_test.go",
+      "target": "function:internal/observability/pprof_test.go:TestPprofServerCloseWithDisabledServer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "class:internal/social/service.go:SocialService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "function:internal/social/service.go:NewSocialService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "function:internal/social/service.go:Follow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "function:internal/social/service.go:Unfollow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "function:internal/social/service.go:GetAllFollowers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "function:internal/social/service.go:GetAllVloggers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "function:internal/social/service.go:CountFollowers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "function:internal/social/service.go:CountVloggers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "function:internal/social/service.go:IsFollowed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "file:internal/account/entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "file:internal/account/handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "file:internal/account/repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "file:internal/account/service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "file:internal/middleware/rabbitmq/dlx.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "file:internal/middleware/rabbitmq/popularityMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "file:internal/middleware/rabbitmq/timelineMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "file:internal/middleware/redis/cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "file:internal/middleware/redis/redis_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "file:internal/middleware/redis/redis.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/service.go",
+      "target": "file:internal/middleware/redis/zset.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "class:internal/video/comment_service.go:CommentService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "function:internal/video/comment_service.go:NewCommentService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "function:internal/video/comment_service.go:Publish",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "function:internal/video/comment_service.go:Delete",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "function:internal/video/comment_service.go:GetAll",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "function:internal/video/comment_service.go:notifyMentions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "file:internal/apierror/apierror.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "file:internal/middleware/rabbitmq/dlx.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "file:internal/middleware/rabbitmq/popularityMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "file:internal/middleware/rabbitmq/timelineMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "file:internal/middleware/redis/cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "file:internal/middleware/redis/redis_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "file:internal/middleware/redis/redis.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_service.go",
+      "target": "file:internal/middleware/redis/zset.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "class:internal/video/like_service.go:LikeService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "function:internal/video/like_service.go:NewLikeService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "function:internal/video/like_service.go:Like",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "function:internal/video/like_service.go:Unlike",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "function:internal/video/like_service.go:IsLiked",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "function:internal/video/like_service.go:ListLikedVideos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "function:internal/video/like_service.go:setLikeCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "function:internal/video/like_service.go:deleteLikeCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "file:internal/middleware/rabbitmq/dlx.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "file:internal/middleware/rabbitmq/popularityMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "file:internal/middleware/rabbitmq/timelineMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "file:internal/middleware/redis/cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "file:internal/middleware/redis/redis_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "file:internal/middleware/redis/redis.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/like_service.go",
+      "target": "file:internal/middleware/redis/zset.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/notificationworker.go",
+      "target": "class:internal/worker/notificationworker.go:Notification",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/notificationworker.go",
+      "target": "class:internal/worker/notificationworker.go:NotificationWorker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/notificationworker.go",
+      "target": "class:internal/worker/notificationworker.go:NotificationHub",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/notificationworker.go",
+      "target": "function:internal/worker/notificationworker.go:NewNotificationWorker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/notificationworker.go",
+      "target": "function:internal/worker/notificationworker.go:Run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/notificationworker.go",
+      "target": "function:internal/worker/notificationworker.go:handleDelivery",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/notificationworker.go",
+      "target": "function:internal/worker/notificationworker.go:process",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/notificationworker.go",
+      "target": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/notificationworker.go",
+      "target": "file:internal/middleware/rabbitmq/dlx.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/notificationworker.go",
+      "target": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/notificationworker.go",
+      "target": "file:internal/middleware/rabbitmq/popularityMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/notificationworker.go",
+      "target": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/notificationworker.go",
+      "target": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/notificationworker.go",
+      "target": "file:internal/middleware/rabbitmq/timelineMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/socialworker.go",
+      "target": "class:internal/worker/socialworker.go:SocialWorker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/socialworker.go",
+      "target": "function:internal/worker/socialworker.go:NewSocialWorker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/socialworker.go",
+      "target": "function:internal/worker/socialworker.go:Run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/socialworker.go",
+      "target": "function:internal/worker/socialworker.go:handleDelivery",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/socialworker.go",
+      "target": "function:internal/worker/socialworker.go:process",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/socialworker.go",
+      "target": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/socialworker.go",
+      "target": "file:internal/middleware/rabbitmq/dlx.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/socialworker.go",
+      "target": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/socialworker.go",
+      "target": "file:internal/middleware/rabbitmq/popularityMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/socialworker.go",
+      "target": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/socialworker.go",
+      "target": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/socialworker.go",
+      "target": "file:internal/middleware/rabbitmq/timelineMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/socialworker.go",
+      "target": "file:internal/social/entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/socialworker.go",
+      "target": "file:internal/social/handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/socialworker.go",
+      "target": "file:internal/social/repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/socialworker.go",
+      "target": "file:internal/social/service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

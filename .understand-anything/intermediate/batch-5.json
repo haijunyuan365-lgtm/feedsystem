@@ -1,0 +1,200 @@
+{
+  "nodes": [
+    {
+      "id": "resource:.dockerignore",
+      "type": "resource",
+      "name": ".dockerignore",
+      "filePath": ".dockerignore",
+      "summary": "Docker 构建上下文排除规则，避免临时文件、构建产物和本地配置进入镜像构建上下文。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "docker-compose.yml",
+      "summary": "本地 Docker Compose 编排，启动应用依赖的 MySQL、Redis、RabbitMQ 以及服务容器。",
+      "tags": [
+        "orchestration",
+        "docker-compose",
+        "local-env"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "service:Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "Dockerfile",
+      "summary": "多阶段 Docker 构建文件，分别构建 API 与 worker 二进制并打包进最小运行时镜像。",
+      "tags": [
+        "containerization",
+        "docker",
+        "deployment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:Dockerfile:deps",
+      "type": "service",
+      "name": "deps",
+      "filePath": "Dockerfile",
+      "lineRange": [
+        7,
+        21
+      ],
+      "summary": "Dockerfile 的 deps 阶段，基于 golang:${GO_VERSION} 构建应用依赖、源码、二进制或运行时镜像。",
+      "tags": [
+        "docker-stage",
+        "containerization",
+        "deployment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:Dockerfile:source",
+      "type": "service",
+      "name": "source",
+      "filePath": "Dockerfile",
+      "lineRange": [
+        22,
+        28
+      ],
+      "summary": "Dockerfile 的 source 阶段，基于 deps 构建应用依赖、源码、二进制或运行时镜像。",
+      "tags": [
+        "docker-stage",
+        "containerization",
+        "deployment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:Dockerfile:api-build",
+      "type": "service",
+      "name": "api-build",
+      "filePath": "Dockerfile",
+      "lineRange": [
+        29,
+        34
+      ],
+      "summary": "Dockerfile 的 api-build 阶段，基于 source 构建应用依赖、源码、二进制或运行时镜像。",
+      "tags": [
+        "docker-stage",
+        "containerization",
+        "deployment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:Dockerfile:worker-build",
+      "type": "service",
+      "name": "worker-build",
+      "filePath": "Dockerfile",
+      "lineRange": [
+        35,
+        40
+      ],
+      "summary": "Dockerfile 的 worker-build 阶段，基于 source 构建应用依赖、源码、二进制或运行时镜像。",
+      "tags": [
+        "docker-stage",
+        "containerization",
+        "deployment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:Dockerfile:runtime",
+      "type": "service",
+      "name": "runtime",
+      "filePath": "Dockerfile",
+      "lineRange": [
+        41,
+        59
+      ],
+      "summary": "Dockerfile 的 runtime 阶段，基于 alpine:3.21 构建应用依赖、源码、二进制或运行时镜像。",
+      "tags": [
+        "docker-stage",
+        "containerization",
+        "deployment"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "service:docker-compose.yml",
+      "target": "service:Dockerfile",
+      "type": "deploys",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "service:docker-compose.yml",
+      "target": "config:configs/config.compose-local.yaml",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "service:Dockerfile",
+      "target": "service:Dockerfile:deps",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "service:Dockerfile",
+      "target": "service:Dockerfile:source",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "service:Dockerfile",
+      "target": "service:Dockerfile:api-build",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "service:Dockerfile",
+      "target": "service:Dockerfile:worker-build",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "service:Dockerfile",
+      "target": "service:Dockerfile:runtime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "service:Dockerfile",
+      "target": "file:cmd/main.go",
+      "type": "deploys",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "service:Dockerfile",
+      "target": "file:cmd/worker/main.go",
+      "type": "deploys",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "service:Dockerfile",
+      "target": "config:go.mod",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

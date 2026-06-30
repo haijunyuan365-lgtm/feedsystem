@@ -1,0 +1,3989 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 17,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "cmd/main.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 97,
+      "nonEmptyLines": 89,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 19,
+          "endLine": 97,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "godotenv.Load",
+          "lineNumber": 22
+        },
+        {
+          "caller": "main",
+          "callee": "log.Println",
+          "lineNumber": 23
+        },
+        {
+          "caller": "main",
+          "callee": "os.Getenv",
+          "lineNumber": 27
+        },
+        {
+          "caller": "main",
+          "callee": "log.Printf",
+          "lineNumber": 31
+        },
+        {
+          "caller": "main",
+          "callee": "config.LoadLocalDev",
+          "lineNumber": 32
+        },
+        {
+          "caller": "main",
+          "callee": "log.Fatalf",
+          "lineNumber": 34
+        },
+        {
+          "caller": "main",
+          "callee": "log.Printf",
+          "lineNumber": 37
+        },
+        {
+          "caller": "main",
+          "callee": "log.Printf",
+          "lineNumber": 39
+        },
+        {
+          "caller": "main",
+          "callee": "observability.NewPprofServer",
+          "lineNumber": 42
+        },
+        {
+          "caller": "main",
+          "callee": "log.Printf",
+          "lineNumber": 48
+        },
+        {
+          "caller": "main",
+          "callee": "pprofServer.Close",
+          "lineNumber": 51
+        },
+        {
+          "caller": "main",
+          "callee": "db.NewDB",
+          "lineNumber": 56
+        },
+        {
+          "caller": "main",
+          "callee": "log.Fatalf",
+          "lineNumber": 58
+        },
+        {
+          "caller": "main",
+          "callee": "db.AutoMigrate",
+          "lineNumber": 60
+        },
+        {
+          "caller": "main",
+          "callee": "log.Fatalf",
+          "lineNumber": 61
+        },
+        {
+          "caller": "main",
+          "callee": "db.CloseDB",
+          "lineNumber": 63
+        },
+        {
+          "caller": "main",
+          "callee": "rediscache.NewFromEnv",
+          "lineNumber": 66
+        },
+        {
+          "caller": "main",
+          "callee": "log.Printf",
+          "lineNumber": 68
+        },
+        {
+          "caller": "main",
+          "callee": "context.WithTimeout",
+          "lineNumber": 71
+        },
+        {
+          "caller": "main",
+          "callee": "context.Background",
+          "lineNumber": 71
+        },
+        {
+          "caller": "main",
+          "callee": "cancel",
+          "lineNumber": 72
+        },
+        {
+          "caller": "main",
+          "callee": "cache.Ping",
+          "lineNumber": 73
+        },
+        {
+          "caller": "main",
+          "callee": "log.Printf",
+          "lineNumber": 74
+        },
+        {
+          "caller": "main",
+          "callee": "cache.Close",
+          "lineNumber": 75
+        },
+        {
+          "caller": "main",
+          "callee": "cache.Close",
+          "lineNumber": 78
+        },
+        {
+          "caller": "main",
+          "callee": "log.Printf",
+          "lineNumber": 79
+        },
+        {
+          "caller": "main",
+          "callee": "rabbitmq.NewRabbitMQ",
+          "lineNumber": 83
+        },
+        {
+          "caller": "main",
+          "callee": "log.Printf",
+          "lineNumber": 85
+        },
+        {
+          "caller": "main",
+          "callee": "rmq.Close",
+          "lineNumber": 88
+        },
+        {
+          "caller": "main",
+          "callee": "log.Printf",
+          "lineNumber": 89
+        },
+        {
+          "caller": "main",
+          "callee": "apphttp.SetupRouter",
+          "lineNumber": 92
+        },
+        {
+          "caller": "main",
+          "callee": "log.Printf",
+          "lineNumber": 93
+        },
+        {
+          "caller": "main",
+          "callee": "r.Run",
+          "lineNumber": 94
+        },
+        {
+          "caller": "main",
+          "callee": "strconv.Itoa",
+          "lineNumber": 94
+        },
+        {
+          "caller": "main",
+          "callee": "log.Fatalf",
+          "lineNumber": 95
+        }
+      ],
+      "metrics": {
+        "importCount": 16,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "cmd/worker/main.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 198,
+      "nonEmptyLines": 173,
+      "functions": [
+        {
+          "name": "main",
+          "startLine": 42,
+          "endLine": 150,
+          "params": []
+        },
+        {
+          "name": "runWorkerWithRetry",
+          "startLine": 151,
+          "endLine": 180,
+          "params": [
+            "ctx",
+            "name",
+            "conn",
+            "fn"
+          ]
+        },
+        {
+          "name": "connectWithRetry",
+          "startLine": 182,
+          "endLine": 198,
+          "params": [
+            "name",
+            "maxRetries",
+            "fn"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "main",
+          "callee": "godotenv.Load",
+          "lineNumber": 43
+        },
+        {
+          "caller": "main",
+          "callee": "log.Println",
+          "lineNumber": 44
+        },
+        {
+          "caller": "main",
+          "callee": "os.Getenv",
+          "lineNumber": 47
+        },
+        {
+          "caller": "main",
+          "callee": "config.LoadLocalDev",
+          "lineNumber": 51
+        },
+        {
+          "caller": "main",
+          "callee": "log.Fatalf",
+          "lineNumber": 53
+        },
+        {
+          "caller": "main",
+          "callee": "observability.NewPprofServer",
+          "lineNumber": 56
+        },
+        {
+          "caller": "main",
+          "callee": "log.Printf",
+          "lineNumber": 62
+        },
+        {
+          "caller": "main",
+          "callee": "pprofServer.Close",
+          "lineNumber": 65
+        },
+        {
+          "caller": "main",
+          "callee": "connectWithRetry",
+          "lineNumber": 70
+        },
+        {
+          "caller": "main",
+          "callee": "db.NewDB",
+          "lineNumber": 72
+        },
+        {
+          "caller": "main",
+          "callee": "db.CloseDB",
+          "lineNumber": 75
+        },
+        {
+          "caller": "main",
+          "callee": "connectWithRetry",
+          "lineNumber": 79
+        },
+        {
+          "caller": "main",
+          "callee": "rediscache.NewFromEnv",
+          "lineNumber": 81
+        },
+        {
+          "caller": "main",
+          "callee": "cache.Close",
+          "lineNumber": 84
+        },
+        {
+          "caller": "main",
+          "callee": "connectWithRetry",
+          "lineNumber": 88
+        },
+        {
+          "caller": "main",
+          "callee": "rabbitmq.NewRabbitMQ",
+          "lineNumber": 90
+        },
+        {
+          "caller": "main",
+          "callee": "rmq.Close",
+          "lineNumber": 93
+        },
+        {
+          "caller": "main",
+          "callee": "rmq.NewChannel",
+          "lineNumber": 95
+        },
+        {
+          "caller": "main",
+          "callee": "log.Fatalf",
+          "lineNumber": 97
+        },
+        {
+          "caller": "main",
+          "callee": "rabbitmq.DeclareTopic",
+          "lineNumber": 99
+        },
+        {
+          "caller": "main",
+          "callee": "log.Fatalf",
+          "lineNumber": 100
+        },
+        {
+          "caller": "main",
+          "callee": "rabbitmq.DeclareTopic",
+          "lineNumber": 102
+        },
+        {
+          "caller": "main",
+          "callee": "log.Fatalf",
+          "lineNumber": 103
+        },
+        {
+          "caller": "main",
+          "callee": "rabbitmq.DeclareTopic",
+          "lineNumber": 105
+        },
+        {
+          "caller": "main",
+          "callee": "log.Fatalf",
+          "lineNumber": 106
+        },
+        {
+          "caller": "main",
+          "callee": "rabbitmq.DeclareTopic",
+          "lineNumber": 108
+        },
+        {
+          "caller": "main",
+          "callee": "log.Fatalf",
+          "lineNumber": 109
+        },
+        {
+          "caller": "main",
+          "callee": "topologyCh.Close",
+          "lineNumber": 111
+        },
+        {
+          "caller": "main",
+          "callee": "rmq.NewChannel",
+          "lineNumber": 113
+        },
+        {
+          "caller": "main",
+          "callee": "log.Fatalf",
+          "lineNumber": 115
+        },
+        {
+          "caller": "main",
+          "callee": "workerCh.Close",
+          "lineNumber": 117
+        },
+        {
+          "caller": "main",
+          "callee": "workerCh.Qos",
+          "lineNumber": 118
+        },
+        {
+          "caller": "main",
+          "callee": "log.Printf",
+          "lineNumber": 119
+        },
+        {
+          "caller": "main",
+          "callee": "social.NewSocialRepository",
+          "lineNumber": 122
+        },
+        {
+          "caller": "main",
+          "callee": "video.NewLikeRepository",
+          "lineNumber": 123
+        },
+        {
+          "caller": "main",
+          "callee": "video.NewVideoRepository",
+          "lineNumber": 124
+        },
+        {
+          "caller": "main",
+          "callee": "video.NewCommentRepository",
+          "lineNumber": 125
+        },
+        {
+          "caller": "main",
+          "callee": "signal.NotifyContext",
+          "lineNumber": 127
+        },
+        {
+          "caller": "main",
+          "callee": "context.Background",
+          "lineNumber": 127
+        },
+        {
+          "caller": "main",
+          "callee": "stop",
+          "lineNumber": 128
+        },
+        {
+          "caller": "main",
+          "callee": "runWorkerWithRetry",
+          "lineNumber": 130
+        },
+        {
+          "caller": "main",
+          "callee": "worker.NewSocialWorker(ch, socialRepo, socialQueue).Run",
+          "lineNumber": 131
+        },
+        {
+          "caller": "main",
+          "callee": "worker.NewSocialWorker",
+          "lineNumber": 131
+        },
+        {
+          "caller": "main",
+          "callee": "runWorkerWithRetry",
+          "lineNumber": 133
+        },
+        {
+          "caller": "main",
+          "callee": "worker.NewLikeWorker(ch, likeRepo, videoRepo, likeQueue).Run",
+          "lineNumber": 134
+        },
+        {
+          "caller": "main",
+          "callee": "worker.NewLikeWorker",
+          "lineNumber": 134
+        },
+        {
+          "caller": "main",
+          "callee": "runWorkerWithRetry",
+          "lineNumber": 136
+        },
+        {
+          "caller": "main",
+          "callee": "worker.NewCommentWorker(ch, commentRepo, videoRepo, commentQueue).Run",
+          "lineNumber": 137
+        },
+        {
+          "caller": "main",
+          "callee": "worker.NewCommentWorker",
+          "lineNumber": 137
+        },
+        {
+          "caller": "main",
+          "callee": "runWorkerWithRetry",
+          "lineNumber": 140
+        },
+        {
+          "caller": "main",
+          "callee": "worker.NewPopularityWorker(ch, cache, popularityQueue).Run",
+          "lineNumber": 141
+        },
+        {
+          "caller": "main",
+          "callee": "worker.NewPopularityWorker",
+          "lineNumber": 141
+        },
+        {
+          "caller": "main",
+          "callee": "ctx.Done",
+          "lineNumber": 145
+        },
+        {
+          "caller": "main",
+          "callee": "log.Printf",
+          "lineNumber": 146
+        },
+        {
+          "caller": "main",
+          "callee": "time.Sleep",
+          "lineNumber": 147
+        },
+        {
+          "caller": "main",
+          "callee": "log.Printf",
+          "lineNumber": 148
+        },
+        {
+          "caller": "runWorkerWithRetry",
+          "callee": "ctx.Done",
+          "lineNumber": 154
+        },
+        {
+          "caller": "runWorkerWithRetry",
+          "callee": "conn.Channel",
+          "lineNumber": 159
+        },
+        {
+          "caller": "runWorkerWithRetry",
+          "callee": "log.Printf",
+          "lineNumber": 161
+        },
+        {
+          "caller": "runWorkerWithRetry",
+          "callee": "time.Sleep",
+          "lineNumber": 162
+        },
+        {
+          "caller": "runWorkerWithRetry",
+          "callee": "ch.Qos",
+          "lineNumber": 165
+        },
+        {
+          "caller": "runWorkerWithRetry",
+          "callee": "log.Printf",
+          "lineNumber": 166
+        },
+        {
+          "caller": "runWorkerWithRetry",
+          "callee": "log.Printf",
+          "lineNumber": 169
+        },
+        {
+          "caller": "runWorkerWithRetry",
+          "callee": "fn",
+          "lineNumber": 170
+        },
+        {
+          "caller": "runWorkerWithRetry",
+          "callee": "ctx.Err",
+          "lineNumber": 171
+        },
+        {
+          "caller": "runWorkerWithRetry",
+          "callee": "ch.Close",
+          "lineNumber": 172
+        },
+        {
+          "caller": "runWorkerWithRetry",
+          "callee": "log.Printf",
+          "lineNumber": 175
+        },
+        {
+          "caller": "runWorkerWithRetry",
+          "callee": "ch.Close",
+          "lineNumber": 177
+        },
+        {
+          "caller": "runWorkerWithRetry",
+          "callee": "time.Sleep",
+          "lineNumber": 178
+        },
+        {
+          "caller": "connectWithRetry",
+          "callee": "fn",
+          "lineNumber": 184
+        },
+        {
+          "caller": "connectWithRetry",
+          "callee": "time.Duration",
+          "lineNumber": 188
+        },
+        {
+          "caller": "connectWithRetry",
+          "callee": "log.Printf",
+          "lineNumber": 193
+        },
+        {
+          "caller": "connectWithRetry",
+          "callee": "time.Sleep",
+          "lineNumber": 194
+        },
+        {
+          "caller": "connectWithRetry",
+          "callee": "log.Fatalf",
+          "lineNumber": 197
+        }
+      ],
+      "metrics": {
+        "importCount": 43,
+        "exportCount": 0,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "internal/config/loadConfig.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 183,
+      "nonEmptyLines": 171,
+      "functions": [
+        {
+          "name": "LoadLocalDev",
+          "startLine": 58,
+          "endLine": 69,
+          "params": [
+            "configPath"
+          ]
+        },
+        {
+          "name": "Load",
+          "startLine": 71,
+          "endLine": 83,
+          "params": [
+            "configPath"
+          ]
+        },
+        {
+          "name": "DefaultLocalConfig",
+          "startLine": 86,
+          "endLine": 121,
+          "params": []
+        },
+        {
+          "name": "ApplyEnvOverrides",
+          "startLine": 123,
+          "endLine": 183,
+          "params": [
+            "cfg"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Config",
+          "startLine": 12,
+          "endLine": 18,
+          "methods": [],
+          "properties": [
+            "Server",
+            "Database",
+            "Redis",
+            "RabbitMQ",
+            "ObservabilityConfig"
+          ]
+        },
+        {
+          "name": "ServerConfig",
+          "startLine": 20,
+          "endLine": 22,
+          "methods": [],
+          "properties": [
+            "Port"
+          ]
+        },
+        {
+          "name": "DatabaseConfig",
+          "startLine": 24,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "Host",
+            "Port",
+            "Username",
+            "Password",
+            "DBName"
+          ]
+        },
+        {
+          "name": "RedisConfig",
+          "startLine": 31,
+          "endLine": 36,
+          "methods": [],
+          "properties": [
+            "Host",
+            "Port",
+            "Password",
+            "DB"
+          ]
+        },
+        {
+          "name": "RabbitMQConfig",
+          "startLine": 38,
+          "endLine": 43,
+          "methods": [],
+          "properties": [
+            "Host",
+            "Port",
+            "Username",
+            "Password"
+          ]
+        },
+        {
+          "name": "ObservabilityConfig",
+          "startLine": 45,
+          "endLine": 47,
+          "methods": [],
+          "properties": [
+            "Pprof"
+          ]
+        },
+        {
+          "name": "PprofConfig",
+          "startLine": 49,
+          "endLine": 53,
+          "methods": [],
+          "properties": [
+            "Enabled",
+            "ApiAddr",
+            "WorkerAddr"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Config",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "ServerConfig",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "DatabaseConfig",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "RedisConfig",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "RabbitMQConfig",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "ObservabilityConfig",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "PprofConfig",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "LoadLocalDev",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "Load",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "DefaultLocalConfig",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "ApplyEnvOverrides",
+          "line": 123,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "LoadLocalDev",
+          "callee": "Load",
+          "lineNumber": 59
+        },
+        {
+          "caller": "LoadLocalDev",
+          "callee": "errors.Is",
+          "lineNumber": 65
+        },
+        {
+          "caller": "LoadLocalDev",
+          "callee": "DefaultLocalConfig",
+          "lineNumber": 66
+        },
+        {
+          "caller": "Load",
+          "callee": "os.ReadFile",
+          "lineNumber": 72
+        },
+        {
+          "caller": "Load",
+          "callee": "fmt.Errorf",
+          "lineNumber": 74
+        },
+        {
+          "caller": "Load",
+          "callee": "yaml.Unmarshal",
+          "lineNumber": 77
+        },
+        {
+          "caller": "Load",
+          "callee": "fmt.Errorf",
+          "lineNumber": 78
+        },
+        {
+          "caller": "Load",
+          "callee": "ApplyEnvOverrides",
+          "lineNumber": 81
+        },
+        {
+          "caller": "DefaultLocalConfig",
+          "callee": "ApplyEnvOverrides",
+          "lineNumber": 119
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "os.Getenv",
+          "lineNumber": 127
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "strconv.Atoi",
+          "lineNumber": 129
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "os.Getenv",
+          "lineNumber": 133
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "os.Getenv",
+          "lineNumber": 136
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "strconv.Atoi",
+          "lineNumber": 137
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "os.Getenv",
+          "lineNumber": 141
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "os.Getenv",
+          "lineNumber": 144
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "os.Getenv",
+          "lineNumber": 147
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "os.Getenv",
+          "lineNumber": 150
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "os.Getenv",
+          "lineNumber": 153
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "os.Getenv",
+          "lineNumber": 156
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "strconv.Atoi",
+          "lineNumber": 157
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "os.Getenv",
+          "lineNumber": 161
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "os.Getenv",
+          "lineNumber": 164
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "strconv.Atoi",
+          "lineNumber": 165
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "os.Getenv",
+          "lineNumber": 169
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "os.Getenv",
+          "lineNumber": 172
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "strconv.Atoi",
+          "lineNumber": 173
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "os.Getenv",
+          "lineNumber": 177
+        },
+        {
+          "caller": "ApplyEnvOverrides",
+          "callee": "os.Getenv",
+          "lineNumber": 180
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 11,
+        "functionCount": 4,
+        "classCount": 7
+      }
+    },
+    {
+      "path": "internal/middleware/rabbitmq/commentMQ.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 79,
+      "nonEmptyLines": 69,
+      "functions": [
+        {
+          "name": "NewCommentMQ",
+          "startLine": 35,
+          "endLine": 48,
+          "params": [
+            "base"
+          ]
+        },
+        {
+          "name": "Publish",
+          "startLine": 51,
+          "endLine": 58,
+          "params": [
+            "ctx",
+            "username",
+            "videoID",
+            "authorID",
+            "content"
+          ]
+        },
+        {
+          "name": "Delete",
+          "startLine": 60,
+          "endLine": 64,
+          "params": [
+            "ctx",
+            "commentID"
+          ]
+        },
+        {
+          "name": "publish",
+          "startLine": 67,
+          "endLine": 79,
+          "params": [
+            "ctx",
+            "action",
+            "routingKey",
+            "event"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CommentMQ",
+          "startLine": 11,
+          "endLine": 13,
+          "methods": [
+            "Publish",
+            "Delete",
+            "publish"
+          ],
+          "properties": [
+            "ch"
+          ]
+        },
+        {
+          "name": "CommentEvent",
+          "startLine": 24,
+          "endLine": 33,
+          "methods": [],
+          "properties": [
+            "EventID",
+            "Action",
+            "CommentID",
+            "Username",
+            "VideoID",
+            "AuthorID",
+            "Content",
+            "OccurredAt"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CommentMQ",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "CommentEvent",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "NewCommentMQ",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "Publish",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "Delete",
+          "line": 60,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NewCommentMQ",
+          "callee": "errors.New",
+          "lineNumber": 37
+        },
+        {
+          "caller": "NewCommentMQ",
+          "callee": "base.NewChannel",
+          "lineNumber": 39
+        },
+        {
+          "caller": "NewCommentMQ",
+          "callee": "DeclareTopic",
+          "lineNumber": 43
+        },
+        {
+          "caller": "NewCommentMQ",
+          "callee": "ch.Close",
+          "lineNumber": 44
+        },
+        {
+          "caller": "Publish",
+          "callee": "c.publish",
+          "lineNumber": 52
+        },
+        {
+          "caller": "Delete",
+          "callee": "c.publish",
+          "lineNumber": 61
+        },
+        {
+          "caller": "publish",
+          "callee": "errors.New",
+          "lineNumber": 69
+        },
+        {
+          "caller": "publish",
+          "callee": "newEventID",
+          "lineNumber": 71
+        },
+        {
+          "caller": "publish",
+          "callee": "time.Now",
+          "lineNumber": 77
+        },
+        {
+          "caller": "publish",
+          "callee": "PublishJSON",
+          "lineNumber": 78
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "internal/middleware/rabbitmq/dlx.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 27,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "DeclareDLX",
+          "startLine": 11,
+          "endLine": 27,
+          "params": [
+            "ch",
+            "queueName"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DeclareDLX",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "DeclareDLX",
+          "callee": "ch.ExchangeDeclare",
+          "lineNumber": 15
+        },
+        {
+          "caller": "DeclareDLX",
+          "callee": "ch.QueueDeclare",
+          "lineNumber": 19
+        },
+        {
+          "caller": "DeclareDLX",
+          "callee": "ch.QueueBind",
+          "lineNumber": 22
+        },
+        {
+          "caller": "DeclareDLX",
+          "callee": "log.Printf",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "internal/middleware/rabbitmq/likeMQ.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 74,
+      "nonEmptyLines": 64,
+      "functions": [
+        {
+          "name": "NewLikeMQ",
+          "startLine": 32,
+          "endLine": 45,
+          "params": [
+            "base"
+          ]
+        },
+        {
+          "name": "Like",
+          "startLine": 47,
+          "endLine": 49,
+          "params": [
+            "ctx",
+            "userID",
+            "videoID"
+          ]
+        },
+        {
+          "name": "Unlike",
+          "startLine": 51,
+          "endLine": 53,
+          "params": [
+            "ctx",
+            "userID",
+            "videoID"
+          ]
+        },
+        {
+          "name": "publish",
+          "startLine": 55,
+          "endLine": 74,
+          "params": [
+            "ctx",
+            "action",
+            "routingKey",
+            "userID",
+            "videoID"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LikeMQ",
+          "startLine": 11,
+          "endLine": 13,
+          "methods": [
+            "Like",
+            "Unlike",
+            "publish"
+          ],
+          "properties": [
+            "ch"
+          ]
+        },
+        {
+          "name": "LikeEvent",
+          "startLine": 24,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "EventID",
+            "Action",
+            "UserID",
+            "VideoID",
+            "OccurredAt"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "LikeMQ",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "LikeEvent",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "NewLikeMQ",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "Like",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "Unlike",
+          "line": 51,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NewLikeMQ",
+          "callee": "errors.New",
+          "lineNumber": 34
+        },
+        {
+          "caller": "NewLikeMQ",
+          "callee": "base.NewChannel",
+          "lineNumber": 36
+        },
+        {
+          "caller": "NewLikeMQ",
+          "callee": "DeclareTopic",
+          "lineNumber": 40
+        },
+        {
+          "caller": "NewLikeMQ",
+          "callee": "ch.Close",
+          "lineNumber": 41
+        },
+        {
+          "caller": "Like",
+          "callee": "l.publish",
+          "lineNumber": 48
+        },
+        {
+          "caller": "Unlike",
+          "callee": "l.publish",
+          "lineNumber": 52
+        },
+        {
+          "caller": "publish",
+          "callee": "errors.New",
+          "lineNumber": 57
+        },
+        {
+          "caller": "publish",
+          "callee": "errors.New",
+          "lineNumber": 60
+        },
+        {
+          "caller": "publish",
+          "callee": "newEventID",
+          "lineNumber": 62
+        },
+        {
+          "caller": "publish",
+          "callee": "time.Now",
+          "lineNumber": 71
+        },
+        {
+          "caller": "publish",
+          "callee": "PublishJSON",
+          "lineNumber": 73
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "internal/middleware/rabbitmq/popularityMQ.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 55,
+      "functions": [
+        {
+          "name": "NewPopularityMQ",
+          "startLine": 30,
+          "endLine": 43,
+          "params": [
+            "base"
+          ]
+        },
+        {
+          "name": "Update",
+          "startLine": 45,
+          "endLine": 63,
+          "params": [
+            "ctx",
+            "videoID",
+            "change"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PopularityMQ",
+          "startLine": 11,
+          "endLine": 13,
+          "methods": [
+            "Update"
+          ],
+          "properties": [
+            "ch"
+          ]
+        },
+        {
+          "name": "PopularityEvent",
+          "startLine": 23,
+          "endLine": 28,
+          "methods": [],
+          "properties": [
+            "EventID",
+            "VideoID",
+            "Change",
+            "OccurredAt"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PopularityMQ",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "PopularityEvent",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "NewPopularityMQ",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "Update",
+          "line": 45,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NewPopularityMQ",
+          "callee": "errors.New",
+          "lineNumber": 32
+        },
+        {
+          "caller": "NewPopularityMQ",
+          "callee": "base.NewChannel",
+          "lineNumber": 34
+        },
+        {
+          "caller": "NewPopularityMQ",
+          "callee": "DeclareTopic",
+          "lineNumber": 38
+        },
+        {
+          "caller": "NewPopularityMQ",
+          "callee": "ch.Close",
+          "lineNumber": 39
+        },
+        {
+          "caller": "Update",
+          "callee": "errors.New",
+          "lineNumber": 47
+        },
+        {
+          "caller": "Update",
+          "callee": "errors.New",
+          "lineNumber": 50
+        },
+        {
+          "caller": "Update",
+          "callee": "newEventID",
+          "lineNumber": 52
+        },
+        {
+          "caller": "Update",
+          "callee": "time.Now().UTC",
+          "lineNumber": 60
+        },
+        {
+          "caller": "Update",
+          "callee": "time.Now",
+          "lineNumber": 60
+        },
+        {
+          "caller": "Update",
+          "callee": "PublishJSON",
+          "lineNumber": 62
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "internal/middleware/rabbitmq/rabbitMQ.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 105,
+      "nonEmptyLines": 93,
+      "functions": [
+        {
+          "name": "NewRabbitMQ",
+          "startLine": 21,
+          "endLine": 31,
+          "params": [
+            "cfg"
+          ]
+        },
+        {
+          "name": "Close",
+          "startLine": 33,
+          "endLine": 41,
+          "params": []
+        },
+        {
+          "name": "NewChannel",
+          "startLine": 43,
+          "endLine": 48,
+          "params": []
+        },
+        {
+          "name": "DeclareTopic",
+          "startLine": 50,
+          "endLine": 77,
+          "params": [
+            "ch",
+            "exchange",
+            "queue",
+            "bindingKey"
+          ]
+        },
+        {
+          "name": "PublishJSON",
+          "startLine": 79,
+          "endLine": 97,
+          "params": [
+            "ctx",
+            "ch",
+            "exchange",
+            "routingKey",
+            "payload"
+          ]
+        },
+        {
+          "name": "newEventID",
+          "startLine": 99,
+          "endLine": 105,
+          "params": [
+            "n"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RabbitMQ",
+          "startLine": 17,
+          "endLine": 19,
+          "methods": [
+            "Close",
+            "NewChannel"
+          ],
+          "properties": [
+            "Conn"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RabbitMQ",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "NewRabbitMQ",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "Close",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "NewChannel",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "DeclareTopic",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "PublishJSON",
+          "line": 79,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NewRabbitMQ",
+          "callee": "errors.New",
+          "lineNumber": 23
+        },
+        {
+          "caller": "NewRabbitMQ",
+          "callee": "strconv.Itoa",
+          "lineNumber": 25
+        },
+        {
+          "caller": "NewRabbitMQ",
+          "callee": "amqp.Dial",
+          "lineNumber": 26
+        },
+        {
+          "caller": "Close",
+          "callee": "r.Conn.Close",
+          "lineNumber": 38
+        },
+        {
+          "caller": "NewChannel",
+          "callee": "errors.New",
+          "lineNumber": 45
+        },
+        {
+          "caller": "NewChannel",
+          "callee": "r.Conn.Channel",
+          "lineNumber": 47
+        },
+        {
+          "caller": "DeclareTopic",
+          "callee": "errors.New",
+          "lineNumber": 52
+        },
+        {
+          "caller": "DeclareTopic",
+          "callee": "errors.New",
+          "lineNumber": 55
+        },
+        {
+          "caller": "DeclareTopic",
+          "callee": "ch.ExchangeDeclare",
+          "lineNumber": 58
+        },
+        {
+          "caller": "DeclareTopic",
+          "callee": "ch.QueueDeclare",
+          "lineNumber": 62
+        },
+        {
+          "caller": "DeclareTopic",
+          "callee": "ch.QueueBind",
+          "lineNumber": 70
+        },
+        {
+          "caller": "DeclareTopic",
+          "callee": "DeclareDLX",
+          "lineNumber": 73
+        },
+        {
+          "caller": "DeclareTopic",
+          "callee": "log.Printf",
+          "lineNumber": 74
+        },
+        {
+          "caller": "PublishJSON",
+          "callee": "errors.New",
+          "lineNumber": 81
+        },
+        {
+          "caller": "PublishJSON",
+          "callee": "errors.New",
+          "lineNumber": 84
+        },
+        {
+          "caller": "PublishJSON",
+          "callee": "json.Marshal",
+          "lineNumber": 86
+        },
+        {
+          "caller": "PublishJSON",
+          "callee": "ch.PublishWithContext",
+          "lineNumber": 90
+        },
+        {
+          "caller": "PublishJSON",
+          "callee": "time.Now",
+          "lineNumber": 94
+        },
+        {
+          "caller": "newEventID",
+          "callee": "make",
+          "lineNumber": 100
+        },
+        {
+          "caller": "newEventID",
+          "callee": "rand.Read",
+          "lineNumber": 101
+        },
+        {
+          "caller": "newEventID",
+          "callee": "hex.EncodeToString",
+          "lineNumber": 104
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/middleware/rabbitmq/socialMQ.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 74,
+      "nonEmptyLines": 64,
+      "functions": [
+        {
+          "name": "NewSocialMQ",
+          "startLine": 32,
+          "endLine": 45,
+          "params": [
+            "base"
+          ]
+        },
+        {
+          "name": "Follow",
+          "startLine": 47,
+          "endLine": 49,
+          "params": [
+            "ctx",
+            "followerID",
+            "vloggerID"
+          ]
+        },
+        {
+          "name": "UnFollow",
+          "startLine": 51,
+          "endLine": 53,
+          "params": [
+            "ctx",
+            "followerID",
+            "vloggerID"
+          ]
+        },
+        {
+          "name": "publish",
+          "startLine": 55,
+          "endLine": 74,
+          "params": [
+            "ctx",
+            "action",
+            "routingKey",
+            "followerID",
+            "vloggerID"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SocialMQ",
+          "startLine": 11,
+          "endLine": 13,
+          "methods": [
+            "Follow",
+            "UnFollow",
+            "publish"
+          ],
+          "properties": [
+            "ch"
+          ]
+        },
+        {
+          "name": "SocialEvent",
+          "startLine": 24,
+          "endLine": 30,
+          "methods": [],
+          "properties": [
+            "EventID",
+            "Action",
+            "FollowerID",
+            "VloggerID",
+            "OccurredAt"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SocialMQ",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "SocialEvent",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "NewSocialMQ",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "Follow",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "UnFollow",
+          "line": 51,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NewSocialMQ",
+          "callee": "errors.New",
+          "lineNumber": 34
+        },
+        {
+          "caller": "NewSocialMQ",
+          "callee": "base.NewChannel",
+          "lineNumber": 36
+        },
+        {
+          "caller": "NewSocialMQ",
+          "callee": "DeclareTopic",
+          "lineNumber": 40
+        },
+        {
+          "caller": "NewSocialMQ",
+          "callee": "ch.Close",
+          "lineNumber": 41
+        },
+        {
+          "caller": "Follow",
+          "callee": "s.publish",
+          "lineNumber": 48
+        },
+        {
+          "caller": "UnFollow",
+          "callee": "s.publish",
+          "lineNumber": 52
+        },
+        {
+          "caller": "publish",
+          "callee": "errors.New",
+          "lineNumber": 57
+        },
+        {
+          "caller": "publish",
+          "callee": "errors.New",
+          "lineNumber": 60
+        },
+        {
+          "caller": "publish",
+          "callee": "newEventID",
+          "lineNumber": 62
+        },
+        {
+          "caller": "publish",
+          "callee": "time.Now",
+          "lineNumber": 71
+        },
+        {
+          "caller": "publish",
+          "callee": "PublishJSON",
+          "lineNumber": 73
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "internal/middleware/rabbitmq/timelineMQ.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 62,
+      "nonEmptyLines": 55,
+      "functions": [
+        {
+          "name": "NewTimelineMQ",
+          "startLine": 29,
+          "endLine": 42,
+          "params": [
+            "base"
+          ]
+        },
+        {
+          "name": "PublishVideo",
+          "startLine": 44,
+          "endLine": 62,
+          "params": [
+            "ctx",
+            "videoID",
+            "createTime"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TimelineMQ",
+          "startLine": 11,
+          "endLine": 13,
+          "methods": [
+            "PublishVideo"
+          ],
+          "properties": [
+            "ch"
+          ]
+        },
+        {
+          "name": "TimelineEvent",
+          "startLine": 22,
+          "endLine": 27,
+          "methods": [],
+          "properties": [
+            "EventID",
+            "VideoID",
+            "CreateTime",
+            "OccurredAt"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TimelineMQ",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "TimelineEvent",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "NewTimelineMQ",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "PublishVideo",
+          "line": 44,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NewTimelineMQ",
+          "callee": "errors.New",
+          "lineNumber": 31
+        },
+        {
+          "caller": "NewTimelineMQ",
+          "callee": "base.NewChannel",
+          "lineNumber": 33
+        },
+        {
+          "caller": "NewTimelineMQ",
+          "callee": "DeclareTopic",
+          "lineNumber": 37
+        },
+        {
+          "caller": "NewTimelineMQ",
+          "callee": "ch.Close",
+          "lineNumber": 38
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "errors.New",
+          "lineNumber": 46
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "errors.New",
+          "lineNumber": 49
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "newEventID",
+          "lineNumber": 51
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "createTime.UnixMilli",
+          "lineNumber": 58
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "time.Now",
+          "lineNumber": 59
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "PublishJSON",
+          "lineNumber": 61
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "internal/observability/pprof.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 84,
+      "nonEmptyLines": 77,
+      "functions": [
+        {
+          "name": "NewPprofMux",
+          "startLine": 24,
+          "endLine": 38,
+          "params": []
+        },
+        {
+          "name": "NewPprofServer",
+          "startLine": 40,
+          "endLine": 64,
+          "params": [
+            "name",
+            "enabled",
+            "addr"
+          ]
+        },
+        {
+          "name": "Close",
+          "startLine": 66,
+          "endLine": 77,
+          "params": []
+        },
+        {
+          "name": "Shutdown",
+          "startLine": 79,
+          "endLine": 84,
+          "params": [
+            "ctx",
+            "srv"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PprofServer",
+          "startLine": 14,
+          "endLine": 21,
+          "methods": [
+            "Close"
+          ],
+          "properties": [
+            "name",
+            "server",
+            "shutdownTimeout"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PprofServer",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "NewPprofMux",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "NewPprofServer",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "Close",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "Shutdown",
+          "line": 79,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NewPprofMux",
+          "callee": "http.NewServeMux",
+          "lineNumber": 25
+        },
+        {
+          "caller": "NewPprofMux",
+          "callee": "mux.HandleFunc",
+          "lineNumber": 27
+        },
+        {
+          "caller": "NewPprofMux",
+          "callee": "mux.HandleFunc",
+          "lineNumber": 29
+        },
+        {
+          "caller": "NewPprofMux",
+          "callee": "mux.HandleFunc",
+          "lineNumber": 31
+        },
+        {
+          "caller": "NewPprofMux",
+          "callee": "mux.HandleFunc",
+          "lineNumber": 33
+        },
+        {
+          "caller": "NewPprofMux",
+          "callee": "mux.HandleFunc",
+          "lineNumber": 35
+        },
+        {
+          "caller": "NewPprofServer",
+          "callee": "net.Listen",
+          "lineNumber": 44
+        },
+        {
+          "caller": "NewPprofServer",
+          "callee": "fmt.Errorf",
+          "lineNumber": 46
+        },
+        {
+          "caller": "NewPprofServer",
+          "callee": "NewPprofMux",
+          "lineNumber": 54
+        },
+        {
+          "caller": "NewPprofServer",
+          "callee": "func() {\n\t\tlog.Printf(\"%s pprof listening on %s\", name, addr)\n\t\tif err := pprofServer.server.Serve(ln); err != nil && !errors.Is(err, http.ErrServerClosed) {\n\t\t\tlog.Printf(\"%s pprof server error: %v\", name, err)\n\t\t}\n\t}",
+          "lineNumber": 57
+        },
+        {
+          "caller": "NewPprofServer",
+          "callee": "log.Printf",
+          "lineNumber": 58
+        },
+        {
+          "caller": "NewPprofServer",
+          "callee": "pprofServer.server.Serve",
+          "lineNumber": 59
+        },
+        {
+          "caller": "NewPprofServer",
+          "callee": "errors.Is",
+          "lineNumber": 59
+        },
+        {
+          "caller": "NewPprofServer",
+          "callee": "log.Printf",
+          "lineNumber": 60
+        },
+        {
+          "caller": "Close",
+          "callee": "context.WithTimeout",
+          "lineNumber": 70
+        },
+        {
+          "caller": "Close",
+          "callee": "context.Background",
+          "lineNumber": 70
+        },
+        {
+          "caller": "Close",
+          "callee": "cancel",
+          "lineNumber": 71
+        },
+        {
+          "caller": "Close",
+          "callee": "Shutdown",
+          "lineNumber": 72
+        },
+        {
+          "caller": "Close",
+          "callee": "log.Printf",
+          "lineNumber": 73
+        },
+        {
+          "caller": "Shutdown",
+          "callee": "srv.Shutdown",
+          "lineNumber": 83
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/observability/pprof_test.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "TestNewPprofMux",
+          "startLine": 9,
+          "endLine": 20,
+          "params": [
+            "t"
+          ]
+        },
+        {
+          "name": "TestNewPprofServerWithDisabled",
+          "startLine": 23,
+          "endLine": 33,
+          "params": [
+            "t"
+          ]
+        },
+        {
+          "name": "TestPprofServerCloseWithDisabledServer",
+          "startLine": 36,
+          "endLine": 46,
+          "params": [
+            "t"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TestNewPprofMux",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "TestNewPprofServerWithDisabled",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "TestPprofServerCloseWithDisabledServer",
+          "line": 36,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "TestNewPprofMux",
+          "callee": "t.Parallel",
+          "lineNumber": 10
+        },
+        {
+          "caller": "TestNewPprofMux",
+          "callee": "httptest.NewRequest",
+          "lineNumber": 12
+        },
+        {
+          "caller": "TestNewPprofMux",
+          "callee": "httptest.NewRecorder",
+          "lineNumber": 13
+        },
+        {
+          "caller": "TestNewPprofMux",
+          "callee": "NewPprofMux().ServeHTTP",
+          "lineNumber": 15
+        },
+        {
+          "caller": "TestNewPprofMux",
+          "callee": "NewPprofMux",
+          "lineNumber": 15
+        },
+        {
+          "caller": "TestNewPprofMux",
+          "callee": "t.Errorf",
+          "lineNumber": 18
+        },
+        {
+          "caller": "TestNewPprofServerWithDisabled",
+          "callee": "t.Parallel",
+          "lineNumber": 24
+        },
+        {
+          "caller": "TestNewPprofServerWithDisabled",
+          "callee": "NewPprofServer",
+          "lineNumber": 26
+        },
+        {
+          "caller": "TestNewPprofServerWithDisabled",
+          "callee": "t.Fatalf",
+          "lineNumber": 28
+        },
+        {
+          "caller": "TestNewPprofServerWithDisabled",
+          "callee": "t.Fatalf",
+          "lineNumber": 31
+        },
+        {
+          "caller": "TestPprofServerCloseWithDisabledServer",
+          "callee": "t.Parallel",
+          "lineNumber": 37
+        },
+        {
+          "caller": "TestPprofServerCloseWithDisabledServer",
+          "callee": "NewPprofServer",
+          "lineNumber": 39
+        },
+        {
+          "caller": "TestPprofServerCloseWithDisabledServer",
+          "callee": "t.Fatalf",
+          "lineNumber": 41
+        },
+        {
+          "caller": "TestPprofServerCloseWithDisabledServer",
+          "callee": "pprofServer.Close",
+          "lineNumber": 43
+        },
+        {
+          "caller": "TestPprofServerCloseWithDisabledServer",
+          "callee": "t.Fatalf",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "internal/social/service.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 147,
+      "nonEmptyLines": 130,
+      "functions": [
+        {
+          "name": "NewSocialService",
+          "startLine": 19,
+          "endLine": 21,
+          "params": [
+            "repo",
+            "accountRepo",
+            "socialMQ",
+            "cache"
+          ]
+        },
+        {
+          "name": "Follow",
+          "startLine": 23,
+          "endLine": 61,
+          "params": [
+            "ctx",
+            "social"
+          ]
+        },
+        {
+          "name": "Unfollow",
+          "startLine": 63,
+          "endLine": 98,
+          "params": [
+            "ctx",
+            "social"
+          ]
+        },
+        {
+          "name": "GetAllFollowers",
+          "startLine": 100,
+          "endLine": 106,
+          "params": [
+            "ctx",
+            "vloggerID"
+          ]
+        },
+        {
+          "name": "GetAllVloggers",
+          "startLine": 108,
+          "endLine": 114,
+          "params": [
+            "ctx",
+            "followerID"
+          ]
+        },
+        {
+          "name": "CountFollowers",
+          "startLine": 116,
+          "endLine": 118,
+          "params": [
+            "ctx",
+            "vloggerID"
+          ]
+        },
+        {
+          "name": "CountVloggers",
+          "startLine": 120,
+          "endLine": 122,
+          "params": [
+            "ctx",
+            "followerID"
+          ]
+        },
+        {
+          "name": "IsFollowed",
+          "startLine": 124,
+          "endLine": 137,
+          "params": [
+            "ctx",
+            "social"
+          ]
+        },
+        {
+          "name": "invalidateFollowingFeedCache",
+          "startLine": 139,
+          "endLine": 147,
+          "params": [
+            "ctx",
+            "accountID"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SocialService",
+          "startLine": 12,
+          "endLine": 17,
+          "methods": [
+            "Follow",
+            "Unfollow",
+            "GetAllFollowers",
+            "GetAllVloggers",
+            "CountFollowers",
+            "CountVloggers",
+            "IsFollowed",
+            "invalidateFollowingFeedCache"
+          ],
+          "properties": [
+            "repo",
+            "accountRepo",
+            "socialMQ",
+            "cache"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SocialService",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "NewSocialService",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "Follow",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "Unfollow",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "GetAllFollowers",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "GetAllVloggers",
+          "line": 108,
+          "isDefault": false
+        },
+        {
+          "name": "CountFollowers",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "CountVloggers",
+          "line": 120,
+          "isDefault": false
+        },
+        {
+          "name": "IsFollowed",
+          "line": 124,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Follow",
+          "callee": "errors.New",
+          "lineNumber": 25
+        },
+        {
+          "caller": "Follow",
+          "callee": "errors.New",
+          "lineNumber": 28
+        },
+        {
+          "caller": "Follow",
+          "callee": "s.accountRepo.FindByID",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Follow",
+          "callee": "s.accountRepo.FindByID",
+          "lineNumber": 35
+        },
+        {
+          "caller": "Follow",
+          "callee": "errors.New",
+          "lineNumber": 40
+        },
+        {
+          "caller": "Follow",
+          "callee": "s.repo.IsFollowed",
+          "lineNumber": 43
+        },
+        {
+          "caller": "Follow",
+          "callee": "errors.New",
+          "lineNumber": 48
+        },
+        {
+          "caller": "Follow",
+          "callee": "s.repo.Follow",
+          "lineNumber": 51
+        },
+        {
+          "caller": "Follow",
+          "callee": "s.invalidateFollowingFeedCache",
+          "lineNumber": 54
+        },
+        {
+          "caller": "Follow",
+          "callee": "context.Background",
+          "lineNumber": 54
+        },
+        {
+          "caller": "Follow",
+          "callee": "s.socialMQ.Follow",
+          "lineNumber": 56
+        },
+        {
+          "caller": "Follow",
+          "callee": "log.Printf",
+          "lineNumber": 57
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "errors.New",
+          "lineNumber": 65
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "errors.New",
+          "lineNumber": 68
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "s.accountRepo.FindByID",
+          "lineNumber": 71
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "s.accountRepo.FindByID",
+          "lineNumber": 75
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "s.repo.IsFollowed",
+          "lineNumber": 80
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "errors.New",
+          "lineNumber": 85
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "s.repo.Unfollow",
+          "lineNumber": 88
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "s.invalidateFollowingFeedCache",
+          "lineNumber": 91
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "context.Background",
+          "lineNumber": 91
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "s.socialMQ.UnFollow",
+          "lineNumber": 93
+        },
+        {
+          "caller": "Unfollow",
+          "callee": "log.Printf",
+          "lineNumber": 94
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "s.accountRepo.FindByID",
+          "lineNumber": 101
+        },
+        {
+          "caller": "GetAllFollowers",
+          "callee": "s.repo.GetAllFollowers",
+          "lineNumber": 105
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "s.accountRepo.FindByID",
+          "lineNumber": 109
+        },
+        {
+          "caller": "GetAllVloggers",
+          "callee": "s.repo.GetAllVloggers",
+          "lineNumber": 113
+        },
+        {
+          "caller": "CountFollowers",
+          "callee": "s.repo.CountFollowers",
+          "lineNumber": 117
+        },
+        {
+          "caller": "CountVloggers",
+          "callee": "s.repo.CountVloggers",
+          "lineNumber": 121
+        },
+        {
+          "caller": "IsFollowed",
+          "callee": "errors.New",
+          "lineNumber": 126
+        },
+        {
+          "caller": "IsFollowed",
+          "callee": "s.accountRepo.FindByID",
+          "lineNumber": 128
+        },
+        {
+          "caller": "IsFollowed",
+          "callee": "s.accountRepo.FindByID",
+          "lineNumber": 132
+        },
+        {
+          "caller": "IsFollowed",
+          "callee": "s.repo.IsFollowed",
+          "lineNumber": 136
+        },
+        {
+          "caller": "invalidateFollowingFeedCache",
+          "callee": "s.cache.Key",
+          "lineNumber": 143
+        },
+        {
+          "caller": "invalidateFollowingFeedCache",
+          "callee": "s.cache.DelByPattern",
+          "lineNumber": 144
+        },
+        {
+          "caller": "invalidateFollowingFeedCache",
+          "callee": "log.Printf",
+          "lineNumber": 145
+        }
+      ],
+      "metrics": {
+        "importCount": 15,
+        "exportCount": 9,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/video/comment_service.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 172,
+      "nonEmptyLines": 154,
+      "functions": [
+        {
+          "name": "NewCommentService",
+          "startLine": 24,
+          "endLine": 26,
+          "params": [
+            "repo",
+            "videoRepo",
+            "cache",
+            "commentMQ",
+            "popularityMQ"
+          ]
+        },
+        {
+          "name": "Publish",
+          "startLine": 28,
+          "endLine": 90,
+          "params": [
+            "ctx",
+            "comment"
+          ]
+        },
+        {
+          "name": "Delete",
+          "startLine": 93,
+          "endLine": 112,
+          "params": [
+            "ctx",
+            "commentID",
+            "accountID"
+          ]
+        },
+        {
+          "name": "GetAll",
+          "startLine": 114,
+          "endLine": 123,
+          "params": [
+            "ctx",
+            "videoID"
+          ]
+        },
+        {
+          "name": "notifyMentions",
+          "startLine": 127,
+          "endLine": 172,
+          "params": [
+            "ctx",
+            "comment"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CommentService",
+          "startLine": 16,
+          "endLine": 22,
+          "methods": [
+            "Publish",
+            "Delete",
+            "GetAll",
+            "notifyMentions"
+          ],
+          "properties": [
+            "repo",
+            "VideoRepository",
+            "cache",
+            "commentMQ",
+            "popularityMQ"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CommentService",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "NewCommentService",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "Publish",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "Delete",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "GetAll",
+          "line": 114,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Publish",
+          "callee": "errors.New",
+          "lineNumber": 30
+        },
+        {
+          "caller": "Publish",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 33
+        },
+        {
+          "caller": "Publish",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 34
+        },
+        {
+          "caller": "Publish",
+          "callee": "errors.New",
+          "lineNumber": 36
+        },
+        {
+          "caller": "Publish",
+          "callee": "errors.New",
+          "lineNumber": 39
+        },
+        {
+          "caller": "Publish",
+          "callee": "s.VideoRepository.IsExist",
+          "lineNumber": 42
+        },
+        {
+          "caller": "Publish",
+          "callee": "errors.New",
+          "lineNumber": 47
+        },
+        {
+          "caller": "Publish",
+          "callee": "s.commentMQ.Publish",
+          "lineNumber": 53
+        },
+        {
+          "caller": "Publish",
+          "callee": "s.popularityMQ.Update",
+          "lineNumber": 58
+        },
+        {
+          "caller": "Publish",
+          "callee": "s.notifyMentions",
+          "lineNumber": 63
+        },
+        {
+          "caller": "Publish",
+          "callee": "s.repo.db.WithContext(ctx).Transaction",
+          "lineNumber": 68
+        },
+        {
+          "caller": "Publish",
+          "callee": "s.repo.db.WithContext",
+          "lineNumber": 68
+        },
+        {
+          "caller": "Publish",
+          "callee": "tx.Select(\"id\").First",
+          "lineNumber": 69
+        },
+        {
+          "caller": "Publish",
+          "callee": "tx.Select",
+          "lineNumber": 69
+        },
+        {
+          "caller": "Publish",
+          "callee": "errors.Is",
+          "lineNumber": 70
+        },
+        {
+          "caller": "Publish",
+          "callee": "errors.New",
+          "lineNumber": 71
+        },
+        {
+          "caller": "Publish",
+          "callee": "tx.Create",
+          "lineNumber": 75
+        },
+        {
+          "caller": "Publish",
+          "callee": "tx.Model(&Video{}).Where(\"id = ?\", comment.VideoID).\n\t\t\t\tUpdateColumn",
+          "lineNumber": 78
+        },
+        {
+          "caller": "Publish",
+          "callee": "tx.Model(&Video{}).Where",
+          "lineNumber": 78
+        },
+        {
+          "caller": "Publish",
+          "callee": "tx.Model",
+          "lineNumber": 78
+        },
+        {
+          "caller": "Publish",
+          "callee": "gorm.Expr",
+          "lineNumber": 79
+        },
+        {
+          "caller": "Publish",
+          "callee": "UpdatePopularityCache",
+          "lineNumber": 86
+        },
+        {
+          "caller": "Publish",
+          "callee": "s.notifyMentions",
+          "lineNumber": 88
+        },
+        {
+          "caller": "Delete",
+          "callee": "s.repo.GetByID",
+          "lineNumber": 94
+        },
+        {
+          "caller": "Delete",
+          "callee": "errors.New",
+          "lineNumber": 99
+        },
+        {
+          "caller": "Delete",
+          "callee": "s.commentMQ.Delete",
+          "lineNumber": 106
+        },
+        {
+          "caller": "Delete",
+          "callee": "s.repo.DeleteComment",
+          "lineNumber": 111
+        },
+        {
+          "caller": "GetAll",
+          "callee": "s.VideoRepository.IsExist",
+          "lineNumber": 115
+        },
+        {
+          "caller": "GetAll",
+          "callee": "errors.New",
+          "lineNumber": 120
+        },
+        {
+          "caller": "GetAll",
+          "callee": "s.repo.GetAllComments",
+          "lineNumber": 122
+        },
+        {
+          "caller": "notifyMentions",
+          "callee": "mentionRegex.FindAllStringSubmatch",
+          "lineNumber": 129
+        },
+        {
+          "caller": "notifyMentions",
+          "callee": "len",
+          "lineNumber": 130
+        },
+        {
+          "caller": "notifyMentions",
+          "callee": "make",
+          "lineNumber": 135
+        },
+        {
+          "caller": "notifyMentions",
+          "callee": "s.repo.db.WithContext(ctx).\n\t\t\tTable(\"accounts\").\n\t\t\tWhere(\"username = ?\", username).\n\t\t\tSelect(\"id\").\n\t\t\tScan",
+          "lineNumber": 144
+        },
+        {
+          "caller": "notifyMentions",
+          "callee": "s.repo.db.WithContext(ctx).\n\t\t\tTable(\"accounts\").\n\t\t\tWhere(\"username = ?\", username).\n\t\t\tSelect",
+          "lineNumber": 144
+        },
+        {
+          "caller": "notifyMentions",
+          "callee": "s.repo.db.WithContext(ctx).\n\t\t\tTable(\"accounts\").\n\t\t\tWhere",
+          "lineNumber": 144
+        },
+        {
+          "caller": "notifyMentions",
+          "callee": "s.repo.db.WithContext(ctx).\n\t\t\tTable",
+          "lineNumber": 144
+        },
+        {
+          "caller": "notifyMentions",
+          "callee": "s.repo.db.WithContext",
+          "lineNumber": 144
+        },
+        {
+          "caller": "notifyMentions",
+          "callee": "s.repo.db.WithContext(ctx).Table(\"notifications\").Create",
+          "lineNumber": 168
+        },
+        {
+          "caller": "notifyMentions",
+          "callee": "s.repo.db.WithContext(ctx).Table",
+          "lineNumber": 168
+        },
+        {
+          "caller": "notifyMentions",
+          "callee": "s.repo.db.WithContext",
+          "lineNumber": 168
+        },
+        {
+          "caller": "notifyMentions",
+          "callee": "log.Printf",
+          "lineNumber": 169
+        }
+      ],
+      "metrics": {
+        "importCount": 12,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/video/like_service.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 241,
+      "nonEmptyLines": 211,
+      "functions": [
+        {
+          "name": "NewLikeService",
+          "startLine": 23,
+          "endLine": 25,
+          "params": [
+            "repo",
+            "videoRepo",
+            "cache",
+            "likeMQ",
+            "popularityMQ"
+          ]
+        },
+        {
+          "name": "isDupKey",
+          "startLine": 27,
+          "endLine": 30,
+          "params": [
+            "err"
+          ]
+        },
+        {
+          "name": "Like",
+          "startLine": 32,
+          "endLine": 106,
+          "params": [
+            "ctx",
+            "like"
+          ]
+        },
+        {
+          "name": "Unlike",
+          "startLine": 108,
+          "endLine": 176,
+          "params": [
+            "ctx",
+            "like"
+          ]
+        },
+        {
+          "name": "IsLiked",
+          "startLine": 178,
+          "endLine": 205,
+          "params": [
+            "ctx",
+            "videoID",
+            "accountID"
+          ]
+        },
+        {
+          "name": "ListLikedVideos",
+          "startLine": 207,
+          "endLine": 209,
+          "params": [
+            "ctx",
+            "accountID"
+          ]
+        },
+        {
+          "name": "setLikeCache",
+          "startLine": 211,
+          "endLine": 223,
+          "params": [
+            "ctx",
+            "videoID",
+            "accountID"
+          ]
+        },
+        {
+          "name": "deleteLikeCache",
+          "startLine": 225,
+          "endLine": 237,
+          "params": [
+            "ctx",
+            "videoID",
+            "accountID"
+          ]
+        },
+        {
+          "name": "likeCacheKey",
+          "startLine": 239,
+          "endLine": 241,
+          "params": [
+            "videoID",
+            "accountID"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LikeService",
+          "startLine": 15,
+          "endLine": 21,
+          "methods": [
+            "Like",
+            "Unlike",
+            "IsLiked",
+            "ListLikedVideos",
+            "setLikeCache",
+            "deleteLikeCache",
+            "likeCacheKey"
+          ],
+          "properties": [
+            "repo",
+            "VideoRepo",
+            "cache",
+            "likeMQ",
+            "popularityMQ"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "LikeService",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "NewLikeService",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "Like",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "Unlike",
+          "line": 108,
+          "isDefault": false
+        },
+        {
+          "name": "IsLiked",
+          "line": 178,
+          "isDefault": false
+        },
+        {
+          "name": "ListLikedVideos",
+          "line": 207,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "isDupKey",
+          "callee": "errors.As",
+          "lineNumber": 29
+        },
+        {
+          "caller": "Like",
+          "callee": "errors.New",
+          "lineNumber": 34
+        },
+        {
+          "caller": "Like",
+          "callee": "errors.New",
+          "lineNumber": 37
+        },
+        {
+          "caller": "Like",
+          "callee": "s.VideoRepo.IsExist",
+          "lineNumber": 41
+        },
+        {
+          "caller": "Like",
+          "callee": "errors.New",
+          "lineNumber": 46
+        },
+        {
+          "caller": "Like",
+          "callee": "s.repo.IsLiked",
+          "lineNumber": 50
+        },
+        {
+          "caller": "Like",
+          "callee": "errors.New",
+          "lineNumber": 55
+        },
+        {
+          "caller": "Like",
+          "callee": "time.Now",
+          "lineNumber": 58
+        },
+        {
+          "caller": "Like",
+          "callee": "s.likeMQ.Like",
+          "lineNumber": 63
+        },
+        {
+          "caller": "Like",
+          "callee": "s.popularityMQ.Update",
+          "lineNumber": 68
+        },
+        {
+          "caller": "Like",
+          "callee": "s.repo.db.WithContext(ctx).Transaction",
+          "lineNumber": 77
+        },
+        {
+          "caller": "Like",
+          "callee": "s.repo.db.WithContext",
+          "lineNumber": 77
+        },
+        {
+          "caller": "Like",
+          "callee": "tx.Select(\"id\").First",
+          "lineNumber": 78
+        },
+        {
+          "caller": "Like",
+          "callee": "tx.Select",
+          "lineNumber": 78
+        },
+        {
+          "caller": "Like",
+          "callee": "errors.Is",
+          "lineNumber": 79
+        },
+        {
+          "caller": "Like",
+          "callee": "errors.New",
+          "lineNumber": 80
+        },
+        {
+          "caller": "Like",
+          "callee": "tx.Create",
+          "lineNumber": 84
+        },
+        {
+          "caller": "Like",
+          "callee": "isDupKey",
+          "lineNumber": 85
+        },
+        {
+          "caller": "Like",
+          "callee": "errors.New",
+          "lineNumber": 86
+        },
+        {
+          "caller": "Like",
+          "callee": "tx.Model(&Video{}).Where(\"id = ?\", like.VideoID).\n\t\t\t\tUpdateColumn",
+          "lineNumber": 90
+        },
+        {
+          "caller": "Like",
+          "callee": "tx.Model(&Video{}).Where",
+          "lineNumber": 90
+        },
+        {
+          "caller": "Like",
+          "callee": "tx.Model",
+          "lineNumber": 90
+        },
+        {
+          "caller": "Like",
+          "callee": "gorm.Expr",
+          "lineNumber": 91
+        },
+        {
+          "caller": "Like",
+          "callee": "tx.Model(&Video{}).Where(\"id = ?\", like.VideoID).\n\t\t\t\tUpdateColumn",
+          "lineNumber": 94
+        },
+        {
+          "caller": "Like",
+          "callee": "tx.Model(&Video{}).Where",
+          "lineNumber": 94
+        },
+        {
+          "caller": "Like",
+          "callee": "tx.Model",
+          "lineNumber": 94
+        },
+        {
+          "caller": "Like",
+          "callee": "gorm.Expr",
+          "lineNumber": 95
+        },
+        {
+          "caller": "Like",
+          "callee": "UpdatePopularityCache",
+          "lineNumber": 103
+        },
+        {
+          "caller": "Unlike",
+          "callee": "errors.New",
+          "lineNumber": 110
+        },
+        {
+          "caller": "Unlike",
+          "callee": "errors.New",
+          "lineNumber": 113
+        },
+        {
+          "caller": "Unlike",
+          "callee": "s.VideoRepo.IsExist",
+          "lineNumber": 117
+        },
+        {
+          "caller": "Unlike",
+          "callee": "errors.New",
+          "lineNumber": 122
+        },
+        {
+          "caller": "Unlike",
+          "callee": "s.repo.IsLiked",
+          "lineNumber": 126
+        },
+        {
+          "caller": "Unlike",
+          "callee": "errors.New",
+          "lineNumber": 131
+        },
+        {
+          "caller": "Unlike",
+          "callee": "s.likeMQ.Unlike",
+          "lineNumber": 138
+        },
+        {
+          "caller": "Unlike",
+          "callee": "s.popularityMQ.Update",
+          "lineNumber": 143
+        },
+        {
+          "caller": "Unlike",
+          "callee": "s.repo.db.WithContext(ctx).Transaction",
+          "lineNumber": 152
+        },
+        {
+          "caller": "Unlike",
+          "callee": "s.repo.db.WithContext",
+          "lineNumber": 152
+        },
+        {
+          "caller": "Unlike",
+          "callee": "tx.Where(\"video_id = ? AND account_id = ?\", like.VideoID, like.AccountID).Delete",
+          "lineNumber": 153
+        },
+        {
+          "caller": "Unlike",
+          "callee": "tx.Where",
+          "lineNumber": 153
+        },
+        {
+          "caller": "Unlike",
+          "callee": "errors.New",
+          "lineNumber": 158
+        },
+        {
+          "caller": "Unlike",
+          "callee": "tx.Model(&Video{}).Where(\"id = ?\", like.VideoID).\n\t\t\t\tUpdateColumn",
+          "lineNumber": 160
+        },
+        {
+          "caller": "Unlike",
+          "callee": "tx.Model(&Video{}).Where",
+          "lineNumber": 160
+        },
+        {
+          "caller": "Unlike",
+          "callee": "tx.Model",
+          "lineNumber": 160
+        },
+        {
+          "caller": "Unlike",
+          "callee": "gorm.Expr",
+          "lineNumber": 161
+        },
+        {
+          "caller": "Unlike",
+          "callee": "tx.Model(&Video{}).Where(\"id = ?\", like.VideoID).\n\t\t\t\tUpdateColumn",
+          "lineNumber": 164
+        },
+        {
+          "caller": "Unlike",
+          "callee": "tx.Model(&Video{}).Where",
+          "lineNumber": 164
+        },
+        {
+          "caller": "Unlike",
+          "callee": "tx.Model",
+          "lineNumber": 164
+        },
+        {
+          "caller": "Unlike",
+          "callee": "gorm.Expr",
+          "lineNumber": 165
+        },
+        {
+          "caller": "Unlike",
+          "callee": "UpdatePopularityCache",
+          "lineNumber": 173
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "s.likeCacheKey",
+          "lineNumber": 184
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "context.WithTimeout",
+          "lineNumber": 185
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "s.cache.GetBytes",
+          "lineNumber": 186
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "cancel",
+          "lineNumber": 187
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "string",
+          "lineNumber": 189
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "rediscache.IsMiss",
+          "lineNumber": 192
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "log.Printf",
+          "lineNumber": 193
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "s.repo.IsLiked",
+          "lineNumber": 197
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "s.setLikeCache",
+          "lineNumber": 202
+        },
+        {
+          "caller": "ListLikedVideos",
+          "callee": "s.repo.ListLikedVideos",
+          "lineNumber": 208
+        },
+        {
+          "caller": "setLikeCache",
+          "callee": "s.likeCacheKey",
+          "lineNumber": 216
+        },
+        {
+          "caller": "setLikeCache",
+          "callee": "context.WithTimeout",
+          "lineNumber": 217
+        },
+        {
+          "caller": "setLikeCache",
+          "callee": "cancel",
+          "lineNumber": 218
+        },
+        {
+          "caller": "setLikeCache",
+          "callee": "s.cache.SetBytes",
+          "lineNumber": 220
+        },
+        {
+          "caller": "setLikeCache",
+          "callee": "log.Printf",
+          "lineNumber": 221
+        },
+        {
+          "caller": "deleteLikeCache",
+          "callee": "s.likeCacheKey",
+          "lineNumber": 230
+        },
+        {
+          "caller": "deleteLikeCache",
+          "callee": "context.WithTimeout",
+          "lineNumber": 231
+        },
+        {
+          "caller": "deleteLikeCache",
+          "callee": "cancel",
+          "lineNumber": 232
+        },
+        {
+          "caller": "deleteLikeCache",
+          "callee": "s.cache.Del",
+          "lineNumber": 234
+        },
+        {
+          "caller": "deleteLikeCache",
+          "callee": "log.Printf",
+          "lineNumber": 235
+        },
+        {
+          "caller": "likeCacheKey",
+          "callee": "s.cache.Key",
+          "lineNumber": 240
+        }
+      ],
+      "metrics": {
+        "importCount": 11,
+        "exportCount": 6,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/worker/notificationworker.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 203,
+      "nonEmptyLines": 173,
+      "functions": [
+        {
+          "name": "NewNotificationWorker",
+          "startLine": 42,
+          "endLine": 44,
+          "params": [
+            "ch",
+            "db",
+            "queue",
+            "hub"
+          ]
+        },
+        {
+          "name": "Run",
+          "startLine": 46,
+          "endLine": 73,
+          "params": [
+            "ctx"
+          ]
+        },
+        {
+          "name": "handleDelivery",
+          "startLine": 75,
+          "endLine": 102,
+          "params": [
+            "ctx",
+            "d"
+          ]
+        },
+        {
+          "name": "process",
+          "startLine": 104,
+          "endLine": 203,
+          "params": [
+            "ctx",
+            "d"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Notification",
+          "startLine": 15,
+          "endLine": 27,
+          "methods": [],
+          "properties": [
+            "ID",
+            "RecipientID",
+            "SenderID",
+            "Type",
+            "TargetID",
+            "Content",
+            "IsRead",
+            "CreatedAt"
+          ]
+        },
+        {
+          "name": "NotificationWorker",
+          "startLine": 29,
+          "endLine": 34,
+          "methods": [
+            "Run",
+            "handleDelivery",
+            "process"
+          ],
+          "properties": [
+            "ch",
+            "db",
+            "queue",
+            "hub"
+          ]
+        },
+        {
+          "name": "NotificationHub",
+          "startLine": 38,
+          "endLine": 40,
+          "methods": [
+            "Push"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Notification",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "NotificationWorker",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "NotificationHub",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "NewNotificationWorker",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "Run",
+          "line": 46,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Run",
+          "callee": "errors.New",
+          "lineNumber": 48
+        },
+        {
+          "caller": "Run",
+          "callee": "errors.New",
+          "lineNumber": 51
+        },
+        {
+          "caller": "Run",
+          "callee": "w.db.WithContext(ctx).AutoMigrate",
+          "lineNumber": 53
+        },
+        {
+          "caller": "Run",
+          "callee": "w.db.WithContext",
+          "lineNumber": 53
+        },
+        {
+          "caller": "Run",
+          "callee": "w.ch.Consume",
+          "lineNumber": 57
+        },
+        {
+          "caller": "Run",
+          "callee": "ctx.Done",
+          "lineNumber": 64
+        },
+        {
+          "caller": "Run",
+          "callee": "ctx.Err",
+          "lineNumber": 65
+        },
+        {
+          "caller": "Run",
+          "callee": "errors.New",
+          "lineNumber": 68
+        },
+        {
+          "caller": "Run",
+          "callee": "w.handleDelivery",
+          "lineNumber": 70
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "ctx.Done",
+          "lineNumber": 80
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "d.Nack",
+          "lineNumber": 81
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "w.process",
+          "lineNumber": 86
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "log.Printf",
+          "lineNumber": 88
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "d.Ack",
+          "lineNumber": 89
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "time.Duration",
+          "lineNumber": 93
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "uint",
+          "lineNumber": 93
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "log.Printf",
+          "lineNumber": 94
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "time.Sleep",
+          "lineNumber": 95
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "d.Ack",
+          "lineNumber": 99
+        },
+        {
+          "caller": "process",
+          "callee": "len",
+          "lineNumber": 106
+        },
+        {
+          "caller": "process",
+          "callee": "json.Unmarshal",
+          "lineNumber": 116
+        },
+        {
+          "caller": "process",
+          "callee": "w.db.WithContext(ctx).Table(\"videos\").\n\t\t\tWhere(\"id = ?\", evt.VideoID).\n\t\t\tSelect(\"author_id\").\n\t\t\tScan",
+          "lineNumber": 124
+        },
+        {
+          "caller": "process",
+          "callee": "w.db.WithContext(ctx).Table(\"videos\").\n\t\t\tWhere(\"id = ?\", evt.VideoID).\n\t\t\tSelect",
+          "lineNumber": 124
+        },
+        {
+          "caller": "process",
+          "callee": "w.db.WithContext(ctx).Table(\"videos\").\n\t\t\tWhere",
+          "lineNumber": 124
+        },
+        {
+          "caller": "process",
+          "callee": "w.db.WithContext(ctx).Table",
+          "lineNumber": 124
+        },
+        {
+          "caller": "process",
+          "callee": "w.db.WithContext",
+          "lineNumber": 124
+        },
+        {
+          "caller": "process",
+          "callee": "json.Unmarshal",
+          "lineNumber": 145
+        },
+        {
+          "caller": "process",
+          "callee": "w.db.WithContext(ctx).Table(\"videos\").\n\t\t\tWhere(\"id = ?\", evt.VideoID).\n\t\t\tSelect(\"author_id\").\n\t\t\tScan",
+          "lineNumber": 153
+        },
+        {
+          "caller": "process",
+          "callee": "w.db.WithContext(ctx).Table(\"videos\").\n\t\t\tWhere(\"id = ?\", evt.VideoID).\n\t\t\tSelect",
+          "lineNumber": 153
+        },
+        {
+          "caller": "process",
+          "callee": "w.db.WithContext(ctx).Table(\"videos\").\n\t\t\tWhere",
+          "lineNumber": 153
+        },
+        {
+          "caller": "process",
+          "callee": "w.db.WithContext(ctx).Table",
+          "lineNumber": 153
+        },
+        {
+          "caller": "process",
+          "callee": "w.db.WithContext",
+          "lineNumber": 153
+        },
+        {
+          "caller": "process",
+          "callee": "json.Unmarshal",
+          "lineNumber": 174
+        },
+        {
+          "caller": "process",
+          "callee": "w.db.WithContext(ctx).Create",
+          "lineNumber": 194
+        },
+        {
+          "caller": "process",
+          "callee": "w.db.WithContext",
+          "lineNumber": 194
+        },
+        {
+          "caller": "process",
+          "callee": "w.hub.Push",
+          "lineNumber": 199
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "internal/worker/socialworker.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 109,
+      "nonEmptyLines": 98,
+      "functions": [
+        {
+          "name": "NewSocialWorker",
+          "startLine": 22,
+          "endLine": 24,
+          "params": [
+            "ch",
+            "repo",
+            "queue"
+          ]
+        },
+        {
+          "name": "Run",
+          "startLine": 26,
+          "endLine": 50,
+          "params": [
+            "ctx"
+          ]
+        },
+        {
+          "name": "handleDelivery",
+          "startLine": 52,
+          "endLine": 76,
+          "params": [
+            "ctx",
+            "d"
+          ]
+        },
+        {
+          "name": "process",
+          "startLine": 78,
+          "endLine": 109,
+          "params": [
+            "ctx",
+            "body"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SocialWorker",
+          "startLine": 16,
+          "endLine": 20,
+          "methods": [
+            "Run",
+            "handleDelivery",
+            "process"
+          ],
+          "properties": [
+            "ch",
+            "repo",
+            "queue"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SocialWorker",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "NewSocialWorker",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Run",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Run",
+          "callee": "errors.New",
+          "lineNumber": 28
+        },
+        {
+          "caller": "Run",
+          "callee": "errors.New",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Run",
+          "callee": "w.ch.Consume",
+          "lineNumber": 34
+        },
+        {
+          "caller": "Run",
+          "callee": "ctx.Done",
+          "lineNumber": 41
+        },
+        {
+          "caller": "Run",
+          "callee": "ctx.Err",
+          "lineNumber": 42
+        },
+        {
+          "caller": "Run",
+          "callee": "errors.New",
+          "lineNumber": 45
+        },
+        {
+          "caller": "Run",
+          "callee": "w.handleDelivery",
+          "lineNumber": 47
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "ctx.Done",
+          "lineNumber": 56
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "d.Nack",
+          "lineNumber": 57
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "w.process",
+          "lineNumber": 62
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "log.Printf",
+          "lineNumber": 64
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "d.Ack",
+          "lineNumber": 65
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "time.Duration",
+          "lineNumber": 68
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "uint",
+          "lineNumber": 68
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "log.Printf",
+          "lineNumber": 69
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "time.Sleep",
+          "lineNumber": 70
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "d.Ack",
+          "lineNumber": 73
+        },
+        {
+          "caller": "process",
+          "callee": "json.Unmarshal",
+          "lineNumber": 80
+        },
+        {
+          "caller": "process",
+          "callee": "w.repo.Follow",
+          "lineNumber": 89
+        },
+        {
+          "caller": "process",
+          "callee": "errors.As",
+          "lineNumber": 97
+        },
+        {
+          "caller": "process",
+          "callee": "w.repo.Unfollow",
+          "lineNumber": 102
+        }
+      ],
+      "metrics": {
+        "importCount": 11,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    }
+  ]
+}

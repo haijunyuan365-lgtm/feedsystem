@@ -1,0 +1,4798 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 15,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "internal/feed/repo.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 134,
+      "nonEmptyLines": 104,
+      "functions": [
+        {
+          "name": "NewFeedRepository",
+          "startLine": 16,
+          "endLine": 18,
+          "params": [
+            "db"
+          ]
+        },
+        {
+          "name": "ListLatest",
+          "startLine": 20,
+          "endLine": 35,
+          "params": [
+            "ctx",
+            "limit",
+            "latestBefore"
+          ]
+        },
+        {
+          "name": "ListByFollowing",
+          "startLine": 37,
+          "endLine": 61,
+          "params": [
+            "ctx",
+            "limit",
+            "viewerAccountID",
+            "latestBefore"
+          ]
+        },
+        {
+          "name": "ListLikesCountWithCursor",
+          "startLine": 63,
+          "endLine": 83,
+          "params": [
+            "ctx",
+            "limit",
+            "cursor"
+          ]
+        },
+        {
+          "name": "ListByTag",
+          "startLine": 85,
+          "endLine": 97,
+          "params": [
+            "ctx",
+            "tagName",
+            "limit"
+          ]
+        },
+        {
+          "name": "ListByPopularity",
+          "startLine": 99,
+          "endLine": 120,
+          "params": [
+            "ctx",
+            "limit",
+            "cursor"
+          ]
+        },
+        {
+          "name": "GetByIDs",
+          "startLine": 123,
+          "endLine": 134,
+          "params": [
+            "ctx",
+            "ids"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FeedRepository",
+          "startLine": 12,
+          "endLine": 14,
+          "methods": [
+            "ListLatest",
+            "ListByFollowing",
+            "ListLikesCountWithCursor",
+            "ListByTag",
+            "ListByPopularity",
+            "GetByIDs"
+          ],
+          "properties": [
+            "db"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FeedRepository",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "NewFeedRepository",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "ListLatest",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "ListByFollowing",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "ListLikesCountWithCursor",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "ListByTag",
+          "line": 85,
+          "isDefault": false
+        },
+        {
+          "name": "ListByPopularity",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "GetByIDs",
+          "line": 123,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ListLatest",
+          "callee": "repo.db.WithContext(ctx).Model(&video.Video{}).\n\t\tOrder",
+          "lineNumber": 23
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "repo.db.WithContext(ctx).Model",
+          "lineNumber": 23
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "repo.db.WithContext",
+          "lineNumber": 23
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "latestBefore.IsZero",
+          "lineNumber": 26
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "query.Where",
+          "lineNumber": 27
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "query.Limit(limit).Find",
+          "lineNumber": 30
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "query.Limit",
+          "lineNumber": 30
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "repo.db.WithContext(ctx).Model(&video.Video{}).\n\t\tOrder",
+          "lineNumber": 40
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "repo.db.WithContext(ctx).Model",
+          "lineNumber": 40
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "repo.db.WithContext",
+          "lineNumber": 40
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "repo.db.WithContext(ctx).\n\t\t\tModel(&social.Social{}).\n\t\t\tSelect(\"vlogger_id\").\n\t\t\tWhere",
+          "lineNumber": 44
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "repo.db.WithContext(ctx).\n\t\t\tModel(&social.Social{}).\n\t\t\tSelect",
+          "lineNumber": 44
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "repo.db.WithContext(ctx).\n\t\t\tModel",
+          "lineNumber": 44
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "repo.db.WithContext",
+          "lineNumber": 44
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "query.Where",
+          "lineNumber": 49
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "latestBefore.IsZero",
+          "lineNumber": 52
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "query.Where",
+          "lineNumber": 53
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "query.Limit(limit).Find",
+          "lineNumber": 56
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "query.Limit",
+          "lineNumber": 56
+        },
+        {
+          "caller": "ListLikesCountWithCursor",
+          "callee": "repo.db.WithContext(ctx).Model(&video.Video{}).\n\t\tOrder",
+          "lineNumber": 66
+        },
+        {
+          "caller": "ListLikesCountWithCursor",
+          "callee": "repo.db.WithContext(ctx).Model",
+          "lineNumber": 66
+        },
+        {
+          "caller": "ListLikesCountWithCursor",
+          "callee": "repo.db.WithContext",
+          "lineNumber": 66
+        },
+        {
+          "caller": "ListLikesCountWithCursor",
+          "callee": "query.Where",
+          "lineNumber": 70
+        },
+        {
+          "caller": "ListLikesCountWithCursor",
+          "callee": "query.Limit(limit).Find",
+          "lineNumber": 78
+        },
+        {
+          "caller": "ListLikesCountWithCursor",
+          "callee": "query.Limit",
+          "lineNumber": 78
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "repo.db.WithContext(ctx).Model(&video.Video{}).Table(\"videos\").\n\t\tJoins(\"JOIN video_tags ON video_tags.video_id = videos.id\").\n\t\tJoins(\"JOIN tags ON tags.id = video_tags.tag_id\").\n\t\tWhere(\"tags.name = ?\", tagName).\n\t\tOrder(\"videos.create_time DESC\").\n\t\tLimit(limit).\n\t\tFind",
+          "lineNumber": 88
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "repo.db.WithContext(ctx).Model(&video.Video{}).Table(\"videos\").\n\t\tJoins(\"JOIN video_tags ON video_tags.video_id = videos.id\").\n\t\tJoins(\"JOIN tags ON tags.id = video_tags.tag_id\").\n\t\tWhere(\"tags.name = ?\", tagName).\n\t\tOrder(\"videos.create_time DESC\").\n\t\tLimit",
+          "lineNumber": 88
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "repo.db.WithContext(ctx).Model(&video.Video{}).Table(\"videos\").\n\t\tJoins(\"JOIN video_tags ON video_tags.video_id = videos.id\").\n\t\tJoins(\"JOIN tags ON tags.id = video_tags.tag_id\").\n\t\tWhere(\"tags.name = ?\", tagName).\n\t\tOrder",
+          "lineNumber": 88
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "repo.db.WithContext(ctx).Model(&video.Video{}).Table(\"videos\").\n\t\tJoins(\"JOIN video_tags ON video_tags.video_id = videos.id\").\n\t\tJoins(\"JOIN tags ON tags.id = video_tags.tag_id\").\n\t\tWhere",
+          "lineNumber": 88
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "repo.db.WithContext(ctx).Model(&video.Video{}).Table(\"videos\").\n\t\tJoins(\"JOIN video_tags ON video_tags.video_id = videos.id\").\n\t\tJoins",
+          "lineNumber": 88
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "repo.db.WithContext(ctx).Model(&video.Video{}).Table(\"videos\").\n\t\tJoins",
+          "lineNumber": 88
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "repo.db.WithContext(ctx).Model(&video.Video{}).Table",
+          "lineNumber": 88
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "repo.db.WithContext(ctx).Model",
+          "lineNumber": 88
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "repo.db.WithContext",
+          "lineNumber": 88
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "repo.db.WithContext(ctx).Model(&video.Video{}).\n\t\tOrder",
+          "lineNumber": 102
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "repo.db.WithContext(ctx).Model",
+          "lineNumber": 102
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "repo.db.WithContext",
+          "lineNumber": 102
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "query.Where",
+          "lineNumber": 107
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "query.Limit(limit).Find",
+          "lineNumber": 115
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "query.Limit",
+          "lineNumber": 115
+        },
+        {
+          "caller": "GetByIDs",
+          "callee": "len",
+          "lineNumber": 125
+        },
+        {
+          "caller": "GetByIDs",
+          "callee": "repo.db.WithContext(ctx).Model(&video.Video{}).\n\t\tWhere(\"id IN ?\", ids).\n\t\tFind",
+          "lineNumber": 128
+        },
+        {
+          "caller": "GetByIDs",
+          "callee": "repo.db.WithContext(ctx).Model(&video.Video{}).\n\t\tWhere",
+          "lineNumber": 128
+        },
+        {
+          "caller": "GetByIDs",
+          "callee": "repo.db.WithContext(ctx).Model",
+          "lineNumber": 128
+        },
+        {
+          "caller": "GetByIDs",
+          "callee": "repo.db.WithContext",
+          "lineNumber": 128
+        }
+      ],
+      "metrics": {
+        "importCount": 21,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/feed/service.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 656,
+      "nonEmptyLines": 570,
+      "functions": [
+        {
+          "name": "NewFeedService",
+          "startLine": 29,
+          "endLine": 37,
+          "params": [
+            "repo",
+            "likeRepo",
+            "cacheClient"
+          ]
+        },
+        {
+          "name": "GetVideoByIDs",
+          "startLine": 39,
+          "endLine": 161,
+          "params": [
+            "ctx",
+            "videoIDs"
+          ]
+        },
+        {
+          "name": "ListLatest",
+          "startLine": 163,
+          "endLine": 287,
+          "params": [
+            "ctx",
+            "limit",
+            "latestBefore",
+            "viewerAccountID"
+          ]
+        },
+        {
+          "name": "listLatestFromDB",
+          "startLine": 289,
+          "endLine": 310,
+          "params": [
+            "ctx",
+            "limit",
+            "latestBefore",
+            "viewerAccountID"
+          ]
+        },
+        {
+          "name": "ListByFollowing",
+          "startLine": 312,
+          "endLine": 333,
+          "params": [
+            "ctx",
+            "limit",
+            "latestBefore",
+            "viewerAccountID"
+          ]
+        },
+        {
+          "name": "ListLikesCount",
+          "startLine": 335,
+          "endLine": 358,
+          "params": [
+            "ctx",
+            "limit",
+            "cursor",
+            "viewerAccountID"
+          ]
+        },
+        {
+          "name": "ListByTag",
+          "startLine": 360,
+          "endLine": 372,
+          "params": [
+            "ctx",
+            "tagName",
+            "limit",
+            "viewerAccountID"
+          ]
+        },
+        {
+          "name": "ListByPopularity",
+          "startLine": 374,
+          "endLine": 392,
+          "params": [
+            "ctx",
+            "limit",
+            "reqAsOf",
+            "offset",
+            "viewerAccountID",
+            "latestPopularity",
+            "latestBefore",
+            "latestIDBefore"
+          ]
+        },
+        {
+          "name": "listPopularityFromRedis",
+          "startLine": 394,
+          "endLine": 463,
+          "params": [
+            "ctx",
+            "limit",
+            "reqAsOf",
+            "offset",
+            "viewerAccountID"
+          ]
+        },
+        {
+          "name": "listPopularityFromDB",
+          "startLine": 465,
+          "endLine": 493,
+          "params": [
+            "ctx",
+            "limit",
+            "cursor",
+            "viewerAccountID"
+          ]
+        },
+        {
+          "name": "buildFeedVideos",
+          "startLine": 495,
+          "endLine": 526,
+          "params": [
+            "ctx",
+            "videos",
+            "viewerAccountID"
+          ]
+        },
+        {
+          "name": "getLikedMap",
+          "startLine": 528,
+          "endLine": 581,
+          "params": [
+            "ctx",
+            "videoIDs",
+            "viewerAccountID"
+          ]
+        },
+        {
+          "name": "setLikeCache",
+          "startLine": 583,
+          "endLine": 595,
+          "params": [
+            "ctx",
+            "videoID",
+            "accountID"
+          ]
+        },
+        {
+          "name": "likeCacheKey",
+          "startLine": 597,
+          "endLine": 599,
+          "params": [
+            "videoID",
+            "accountID"
+          ]
+        },
+        {
+          "name": "rebuildGlobalTimeline",
+          "startLine": 601,
+          "endLine": 626,
+          "params": [
+            "ctx"
+          ]
+        },
+        {
+          "name": "parseVideoIDs",
+          "startLine": 628,
+          "endLine": 638,
+          "params": [
+            "idStrs"
+          ]
+        },
+        {
+          "name": "buildOrderedResult",
+          "startLine": 640,
+          "endLine": 648,
+          "params": [
+            "orderedIDs",
+            "dataMap"
+          ]
+        },
+        {
+          "name": "buildOrderedVideoResult",
+          "startLine": 650,
+          "endLine": 656,
+          "params": [
+            "orderedIDs",
+            "videos"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FeedService",
+          "startLine": 20,
+          "endLine": 27,
+          "methods": [
+            "GetVideoByIDs",
+            "ListLatest",
+            "listLatestFromDB",
+            "ListByFollowing",
+            "ListLikesCount",
+            "ListByTag",
+            "ListByPopularity",
+            "listPopularityFromRedis",
+            "listPopularityFromDB",
+            "buildFeedVideos",
+            "getLikedMap",
+            "setLikeCache",
+            "likeCacheKey",
+            "rebuildGlobalTimeline"
+          ],
+          "properties": [
+            "repo",
+            "likeRepo",
+            "cache",
+            "localcache",
+            "cacheTTL",
+            "requestGroup"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FeedService",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "NewFeedService",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "GetVideoByIDs",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "ListLatest",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "ListByFollowing",
+          "line": 312,
+          "isDefault": false
+        },
+        {
+          "name": "ListLikesCount",
+          "line": 335,
+          "isDefault": false
+        },
+        {
+          "name": "ListByTag",
+          "line": 360,
+          "isDefault": false
+        },
+        {
+          "name": "ListByPopularity",
+          "line": 374,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NewFeedService",
+          "callee": "localcache.New",
+          "lineNumber": 34
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "len",
+          "lineNumber": 40
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "f.repo.GetByIDs",
+          "lineNumber": 44
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "buildOrderedVideoResult",
+          "lineNumber": 48
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "make",
+          "lineNumber": 51
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "f.cache.Key",
+          "lineNumber": 55
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "f.localcache.Get",
+          "lineNumber": 57
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "append",
+          "lineNumber": 64
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "len",
+          "lineNumber": 67
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "buildOrderedResult",
+          "lineNumber": 68
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "make",
+          "lineNumber": 72
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "len",
+          "lineNumber": 72
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "f.cache.Key",
+          "lineNumber": 74
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "context.WithTimeout",
+          "lineNumber": 77
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "f.cache.MGet",
+          "lineNumber": 78
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "cancel",
+          "lineNumber": 79
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "json.Unmarshal",
+          "lineNumber": 87
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "f.localcache.Set",
+          "lineNumber": 90
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "append",
+          "lineNumber": 96
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "log.Printf",
+          "lineNumber": 99
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "len",
+          "lineNumber": 103
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "buildOrderedResult",
+          "lineNumber": 104
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "wg.Add",
+          "lineNumber": 115
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "func(videoID uint) {\n\t\t\t//当前 goroutine 执行结束时，告诉 WaitGroup：我这个任务完成了  waitGroup + 1\n\t\t\tdefer wg.Done()\n\n\t\t\tsfKey := f.cache.Key(\"sf:entity:%d\", videoID)\n\t\t\t//f.requestGroup.Do(key, fn)\n\t\t\t//如果很多 goroutine 同时请求同一个 key，只有第一个会真的执行 fn，其他会等它执行完，直接拿同一份结果\n\t\t\tv, err, _ := f.requestGroup.Do(sfKey, func() (interface{}, error) {\n\t\t\t\tvideoList, err := f.repo.GetByIDs(ctx, []uint{videoID})\n\t\t\t\tif err != nil || len(videoList) == 0 {\n\t\t\t\t\treturn nil, err\n\t\t\t\t}\n\n\t\t\t\tsafeCopy := *videoList[0]\n\t\t\t\t//回写入redis\n\t\t\t\tcacheKey := f.cache.Key(\"video:entity:%d\", safeCopy.ID)\n\t\t\t\tif b, err := json.Marshal(safeCopy); err == nil {\n\t\t\t\t\tgo func(k string, b []byte) {\n\t\t\t\t\t\tsetCtx, setCancel := context.WithTimeout(context.Background(), 50*time.Millisecond)\n\t\t\t\t\t\tdefer setCancel()\n\t\t\t\t\t\t_ = f.cache.SetBytes(setCtx, k, b, time.Hour)\n\t\t\t\t\t}(cacheKey, b)\n\t\t\t\t}\n\t\t\t\treturn videoList[0], nil\n\t\t\t})\n\n\t\t\tif err == nil && v != nil {\n\t\t\t\tsafeCopy := *(v.(*video.Video))\n\t\t\t\t//videoMap 是一个普通的 Go map\n\t\t\t\t//这里开了多个goroutine，而 Go 的普通 map 不能被多个 goroutine 同时写\n\t\t\t\tmu.Lock()\n\t\t\t\tvideoMap[videoID] = &safeCopy\n\t\t\t\tmu.Unlock()\n\t\t\t\t//回写入localcache\n\t\t\t\tif f.localcache != nil {\n\t\t\t\t\tf.localcache.Set(f.cache.Key(\"video:entity:%d\", safeCopy.ID), safeCopy, 5*time.Second)\n\t\t\t\t}\n\t\t\t}\n\t\t}",
+          "lineNumber": 116
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "wg.Done",
+          "lineNumber": 118
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "f.cache.Key",
+          "lineNumber": 120
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "f.requestGroup.Do",
+          "lineNumber": 123
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "f.repo.GetByIDs",
+          "lineNumber": 124
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "len",
+          "lineNumber": 125
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "f.cache.Key",
+          "lineNumber": 131
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "json.Marshal",
+          "lineNumber": 132
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "func(k string, b []byte) {\n\t\t\t\t\t\tsetCtx, setCancel := context.WithTimeout(context.Background(), 50*time.Millisecond)\n\t\t\t\t\t\tdefer setCancel()\n\t\t\t\t\t\t_ = f.cache.SetBytes(setCtx, k, b, time.Hour)\n\t\t\t\t\t}",
+          "lineNumber": 133
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "context.WithTimeout",
+          "lineNumber": 134
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "context.Background",
+          "lineNumber": 134
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "setCancel",
+          "lineNumber": 135
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "f.cache.SetBytes",
+          "lineNumber": 136
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "mu.Lock",
+          "lineNumber": 146
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "mu.Unlock",
+          "lineNumber": 148
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "f.localcache.Set",
+          "lineNumber": 151
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "f.cache.Key",
+          "lineNumber": 151
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "wg.Wait",
+          "lineNumber": 158
+        },
+        {
+          "caller": "GetVideoByIDs",
+          "callee": "buildOrderedResult",
+          "lineNumber": 160
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.listLatestFromDB",
+          "lineNumber": 165
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.cache.Key",
+          "lineNumber": 168
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.cache.ZRangeWithScores",
+          "lineNumber": 169
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "log.Printf",
+          "lineNumber": 171
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.listLatestFromDB",
+          "lineNumber": 172
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "len",
+          "lineNumber": 175
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.cache.Key",
+          "lineNumber": 176
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.requestGroup.Do",
+          "lineNumber": 178
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.repo.ListLatest",
+          "lineNumber": 179
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "len",
+          "lineNumber": 183
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "context.WithTimeout",
+          "lineNumber": 187
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "context.Background",
+          "lineNumber": 187
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "cancel",
+          "lineNumber": 188
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "make",
+          "lineNumber": 190
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "len",
+          "lineNumber": 190
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "append",
+          "lineNumber": 192
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "float64",
+          "lineNumber": 193
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "vid.CreateTime.UnixMilli",
+          "lineNumber": 193
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "strconv.FormatUint",
+          "lineNumber": 194
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "uint64",
+          "lineNumber": 194
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.cache.ZAdd",
+          "lineNumber": 197
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "log.Printf",
+          "lineNumber": 203
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.listLatestFromDB",
+          "lineNumber": 204
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.ListLatest",
+          "lineNumber": 210
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "int64",
+          "lineNumber": 213
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "time.Now().UnixMilli",
+          "lineNumber": 214
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "time.Now",
+          "lineNumber": 214
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "latestBefore.IsZero",
+          "lineNumber": 215
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "latestBefore.UnixMilli",
+          "lineNumber": 216
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.cache.Key",
+          "lineNumber": 223
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.requestGroup.Do",
+          "lineNumber": 224
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.repo.ListLatest",
+          "lineNumber": 225
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "latestBefore.IsZero",
+          "lineNumber": 234
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 235
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "context.WithTimeout",
+          "lineNumber": 238
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.cache.ZRevRangeByScore",
+          "lineNumber": 239
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "int64",
+          "lineNumber": 239
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "cancel",
+          "lineNumber": 240
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "log.Printf",
+          "lineNumber": 242
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.listLatestFromDB",
+          "lineNumber": 243
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "parseVideoIDs",
+          "lineNumber": 246
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "len",
+          "lineNumber": 247
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.GetVideoByIDs",
+          "lineNumber": 248
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "len",
+          "lineNumber": 255
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "len",
+          "lineNumber": 256
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "len",
+          "lineNumber": 258
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "len",
+          "lineNumber": 259
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.cache.Key",
+          "lineNumber": 262
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "coldCursor.UnixMilli",
+          "lineNumber": 262
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.requestGroup.Do",
+          "lineNumber": 263
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.repo.ListLatest",
+          "lineNumber": 264
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "append",
+          "lineNumber": 267
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "f.buildFeedVideos",
+          "lineNumber": 272
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "len",
+          "lineNumber": 278
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "baseVideos[len(baseVideos)-1].CreateTime.UnixMilli",
+          "lineNumber": 279
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "len",
+          "lineNumber": 279
+        },
+        {
+          "caller": "ListLatest",
+          "callee": "len",
+          "lineNumber": 285
+        },
+        {
+          "caller": "listLatestFromDB",
+          "callee": "f.repo.ListLatest",
+          "lineNumber": 290
+        },
+        {
+          "caller": "listLatestFromDB",
+          "callee": "f.buildFeedVideos",
+          "lineNumber": 295
+        },
+        {
+          "caller": "listLatestFromDB",
+          "callee": "len",
+          "lineNumber": 301
+        },
+        {
+          "caller": "listLatestFromDB",
+          "callee": "videos[len(videos)-1].CreateTime.UnixMilli",
+          "lineNumber": 302
+        },
+        {
+          "caller": "listLatestFromDB",
+          "callee": "len",
+          "lineNumber": 302
+        },
+        {
+          "caller": "listLatestFromDB",
+          "callee": "len",
+          "lineNumber": 308
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "f.repo.ListByFollowing",
+          "lineNumber": 313
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "f.buildFeedVideos",
+          "lineNumber": 318
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "len",
+          "lineNumber": 324
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "videos[len(videos)-1].CreateTime.UnixMilli",
+          "lineNumber": 325
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "len",
+          "lineNumber": 325
+        },
+        {
+          "caller": "ListByFollowing",
+          "callee": "len",
+          "lineNumber": 331
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "f.repo.ListLikesCountWithCursor",
+          "lineNumber": 336
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "f.buildFeedVideos",
+          "lineNumber": 341
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "len",
+          "lineNumber": 348
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "len",
+          "lineNumber": 350
+        },
+        {
+          "caller": "ListLikesCount",
+          "callee": "len",
+          "lineNumber": 351
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "f.repo.ListByTag",
+          "lineNumber": 361
+        },
+        {
+          "caller": "ListByTag",
+          "callee": "f.buildFeedVideos",
+          "lineNumber": 366
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "f.listPopularityFromRedis",
+          "lineNumber": 376
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "latestBefore.IsZero",
+          "lineNumber": 384
+        },
+        {
+          "caller": "ListByPopularity",
+          "callee": "f.listPopularityFromDB",
+          "lineNumber": 391
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "time.Now().UTC().Truncate",
+          "lineNumber": 395
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "time.Now().UTC",
+          "lineNumber": 395
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "time.Now",
+          "lineNumber": 395
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "time.Unix(reqAsOf, 0).UTC().Truncate",
+          "lineNumber": 397
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "time.Unix(reqAsOf, 0).UTC",
+          "lineNumber": 397
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "time.Unix",
+          "lineNumber": 397
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "make",
+          "lineNumber": 401
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "append",
+          "lineNumber": 403
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "f.cache.Key",
+          "lineNumber": 403
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "asOf.Add(-time.Duration(i)*time.Minute).Format",
+          "lineNumber": 403
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "asOf.Add",
+          "lineNumber": 403
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "time.Duration",
+          "lineNumber": 403
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "f.cache.Key",
+          "lineNumber": 406
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "asOf.Format",
+          "lineNumber": 406
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "context.WithTimeout",
+          "lineNumber": 407
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "cancel",
+          "lineNumber": 408
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "f.cache.Exists",
+          "lineNumber": 410
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "f.cache.ZUnionStore",
+          "lineNumber": 412
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "f.cache.Expire",
+          "lineNumber": 413
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "int64",
+          "lineNumber": 416
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "int64",
+          "lineNumber": 417
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "f.cache.ZRevRange",
+          "lineNumber": 418
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "log.Printf",
+          "lineNumber": 420
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "len",
+          "lineNumber": 423
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "asOf.Unix",
+          "lineNumber": 427
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "parseVideoIDs",
+          "lineNumber": 435
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "f.GetVideoByIDs",
+          "lineNumber": 436
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "f.buildFeedVideos",
+          "lineNumber": 441
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "asOf.Unix",
+          "lineNumber": 448
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "len",
+          "lineNumber": 449
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "len",
+          "lineNumber": 450
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "len",
+          "lineNumber": 452
+        },
+        {
+          "caller": "listPopularityFromRedis",
+          "callee": "len",
+          "lineNumber": 453
+        },
+        {
+          "caller": "listPopularityFromDB",
+          "callee": "f.repo.ListByPopularity",
+          "lineNumber": 466
+        },
+        {
+          "caller": "listPopularityFromDB",
+          "callee": "f.buildFeedVideos",
+          "lineNumber": 471
+        },
+        {
+          "caller": "listPopularityFromDB",
+          "callee": "len",
+          "lineNumber": 480
+        },
+        {
+          "caller": "listPopularityFromDB",
+          "callee": "len",
+          "lineNumber": 482
+        },
+        {
+          "caller": "listPopularityFromDB",
+          "callee": "len",
+          "lineNumber": 483
+        },
+        {
+          "caller": "buildFeedVideos",
+          "callee": "make",
+          "lineNumber": 496
+        },
+        {
+          "caller": "buildFeedVideos",
+          "callee": "len",
+          "lineNumber": 496
+        },
+        {
+          "caller": "buildFeedVideos",
+          "callee": "make",
+          "lineNumber": 498
+        },
+        {
+          "caller": "buildFeedVideos",
+          "callee": "len",
+          "lineNumber": 498
+        },
+        {
+          "caller": "buildFeedVideos",
+          "callee": "append",
+          "lineNumber": 500
+        },
+        {
+          "caller": "buildFeedVideos",
+          "callee": "f.getLikedMap",
+          "lineNumber": 503
+        },
+        {
+          "caller": "buildFeedVideos",
+          "callee": "append",
+          "lineNumber": 509
+        },
+        {
+          "caller": "buildFeedVideos",
+          "callee": "v.CreateTime.UnixMilli",
+          "lineNumber": 519
+        },
+        {
+          "caller": "getLikedMap",
+          "callee": "make",
+          "lineNumber": 529
+        },
+        {
+          "caller": "getLikedMap",
+          "callee": "len",
+          "lineNumber": 530
+        },
+        {
+          "caller": "getLikedMap",
+          "callee": "make",
+          "lineNumber": 536
+        },
+        {
+          "caller": "getLikedMap",
+          "callee": "len",
+          "lineNumber": 536
+        },
+        {
+          "caller": "getLikedMap",
+          "callee": "append",
+          "lineNumber": 538
+        },
+        {
+          "caller": "getLikedMap",
+          "callee": "f.likeCacheKey",
+          "lineNumber": 538
+        },
+        {
+          "caller": "getLikedMap",
+          "callee": "context.WithTimeout",
+          "lineNumber": 541
+        },
+        {
+          "caller": "getLikedMap",
+          "callee": "f.cache.MGet",
+          "lineNumber": 542
+        },
+        {
+          "caller": "getLikedMap",
+          "callee": "cancel",
+          "lineNumber": 543
+        },
+        {
+          "caller": "getLikedMap",
+          "callee": "make",
+          "lineNumber": 546
+        },
+        {
+          "caller": "getLikedMap",
+          "callee": "append",
+          "lineNumber": 550
+        },
+        {
+          "caller": "getLikedMap",
+          "callee": "append",
+          "lineNumber": 557
+        },
+        {
+          "caller": "getLikedMap",
+          "callee": "log.Printf",
+          "lineNumber": 560
+        },
+        {
+          "caller": "getLikedMap",
+          "callee": "len",
+          "lineNumber": 564
+        },
+        {
+          "caller": "getLikedMap",
+          "callee": "f.likeRepo.BatchGetLiked",
+          "lineNumber": 568
+        },
+        {
+          "caller": "getLikedMap",
+          "callee": "f.setLikeCache",
+          "lineNumber": 576
+        },
+        {
+          "caller": "setLikeCache",
+          "callee": "f.likeCacheKey",
+          "lineNumber": 588
+        },
+        {
+          "caller": "setLikeCache",
+          "callee": "context.WithTimeout",
+          "lineNumber": 589
+        },
+        {
+          "caller": "setLikeCache",
+          "callee": "cancel",
+          "lineNumber": 590
+        },
+        {
+          "caller": "setLikeCache",
+          "callee": "f.cache.SetBytes",
+          "lineNumber": 592
+        },
+        {
+          "caller": "setLikeCache",
+          "callee": "log.Printf",
+          "lineNumber": 593
+        },
+        {
+          "caller": "likeCacheKey",
+          "callee": "f.cache.Key",
+          "lineNumber": 598
+        },
+        {
+          "caller": "rebuildGlobalTimeline",
+          "callee": "f.repo.ListLatest",
+          "lineNumber": 606
+        },
+        {
+          "caller": "rebuildGlobalTimeline",
+          "callee": "len",
+          "lineNumber": 610
+        },
+        {
+          "caller": "rebuildGlobalTimeline",
+          "callee": "make",
+          "lineNumber": 614
+        },
+        {
+          "caller": "rebuildGlobalTimeline",
+          "callee": "len",
+          "lineNumber": 614
+        },
+        {
+          "caller": "rebuildGlobalTimeline",
+          "callee": "append",
+          "lineNumber": 616
+        },
+        {
+          "caller": "rebuildGlobalTimeline",
+          "callee": "float64",
+          "lineNumber": 617
+        },
+        {
+          "caller": "rebuildGlobalTimeline",
+          "callee": "v.CreateTime.UnixMilli",
+          "lineNumber": 617
+        },
+        {
+          "caller": "rebuildGlobalTimeline",
+          "callee": "strconv.FormatUint",
+          "lineNumber": 618
+        },
+        {
+          "caller": "rebuildGlobalTimeline",
+          "callee": "uint64",
+          "lineNumber": 618
+        },
+        {
+          "caller": "rebuildGlobalTimeline",
+          "callee": "context.WithTimeout",
+          "lineNumber": 622
+        },
+        {
+          "caller": "rebuildGlobalTimeline",
+          "callee": "cancel",
+          "lineNumber": 623
+        },
+        {
+          "caller": "rebuildGlobalTimeline",
+          "callee": "f.cache.ZAdd",
+          "lineNumber": 625
+        },
+        {
+          "caller": "rebuildGlobalTimeline",
+          "callee": "f.cache.Key",
+          "lineNumber": 625
+        },
+        {
+          "caller": "parseVideoIDs",
+          "callee": "make",
+          "lineNumber": 629
+        },
+        {
+          "caller": "parseVideoIDs",
+          "callee": "len",
+          "lineNumber": 629
+        },
+        {
+          "caller": "parseVideoIDs",
+          "callee": "strconv.ParseUint",
+          "lineNumber": 631
+        },
+        {
+          "caller": "parseVideoIDs",
+          "callee": "append",
+          "lineNumber": 635
+        },
+        {
+          "caller": "parseVideoIDs",
+          "callee": "uint",
+          "lineNumber": 635
+        },
+        {
+          "caller": "buildOrderedResult",
+          "callee": "make",
+          "lineNumber": 641
+        },
+        {
+          "caller": "buildOrderedResult",
+          "callee": "len",
+          "lineNumber": 641
+        },
+        {
+          "caller": "buildOrderedResult",
+          "callee": "append",
+          "lineNumber": 644
+        },
+        {
+          "caller": "buildOrderedVideoResult",
+          "callee": "make",
+          "lineNumber": 651
+        },
+        {
+          "caller": "buildOrderedVideoResult",
+          "callee": "len",
+          "lineNumber": 651
+        },
+        {
+          "caller": "buildOrderedVideoResult",
+          "callee": "buildOrderedResult",
+          "lineNumber": 655
+        }
+      ],
+      "metrics": {
+        "importCount": 21,
+        "exportCount": 8,
+        "functionCount": 18,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/video/chunk_entity.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 48,
+      "functions": [
+        {
+          "name": "UploadedChunks",
+          "startLine": 16,
+          "endLine": 24,
+          "params": []
+        },
+        {
+          "name": "IsComplete",
+          "startLine": 26,
+          "endLine": 33,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ChunkUploadSession",
+          "startLine": 5,
+          "endLine": 14,
+          "methods": [
+            "UploadedChunks",
+            "IsComplete"
+          ],
+          "properties": [
+            "UploadID",
+            "AccountID",
+            "Filename",
+            "FileSize",
+            "ChunkSize",
+            "TotalChunks",
+            "FileHash",
+            "UploadedBits"
+          ]
+        },
+        {
+          "name": "InitChunkUploadRequest",
+          "startLine": 35,
+          "endLine": 41,
+          "methods": [],
+          "properties": [
+            "Filename",
+            "FileSize",
+            "ChunkSize",
+            "TotalChunks",
+            "FileHash"
+          ]
+        },
+        {
+          "name": "UploadChunkRequest",
+          "startLine": 44,
+          "endLine": 48,
+          "methods": [],
+          "properties": [
+            "UploadID",
+            "ChunkIndex",
+            "ChunkHash"
+          ]
+        },
+        {
+          "name": "ChunkStatusRequest",
+          "startLine": 50,
+          "endLine": 52,
+          "methods": [],
+          "properties": [
+            "UploadID"
+          ]
+        },
+        {
+          "name": "CompleteChunkUploadRequest",
+          "startLine": 54,
+          "endLine": 56,
+          "methods": [],
+          "properties": [
+            "UploadID"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ChunkUploadSession",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "UploadedChunks",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "IsComplete",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "InitChunkUploadRequest",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "UploadChunkRequest",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "ChunkStatusRequest",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "CompleteChunkUploadRequest",
+          "line": 54,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "UploadedChunks",
+          "callee": "append",
+          "lineNumber": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 2,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "internal/video/comment_entity.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 26,
+      "nonEmptyLines": 21,
+      "classes": [
+        {
+          "name": "Comment",
+          "startLine": 5,
+          "endLine": 13,
+          "methods": [],
+          "properties": [
+            "ID",
+            "Username",
+            "VideoID",
+            "AuthorID",
+            "Content",
+            "CreatedAt"
+          ]
+        },
+        {
+          "name": "PublishCommentRequest",
+          "startLine": 15,
+          "endLine": 18,
+          "methods": [],
+          "properties": [
+            "VideoID",
+            "Content"
+          ]
+        },
+        {
+          "name": "DeleteCommentRequest",
+          "startLine": 20,
+          "endLine": 22,
+          "methods": [],
+          "properties": [
+            "CommentID"
+          ]
+        },
+        {
+          "name": "GetAllCommentsRequest",
+          "startLine": 24,
+          "endLine": 26,
+          "methods": [],
+          "properties": [
+            "VideoID"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Comment",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "PublishCommentRequest",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "DeleteCommentRequest",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "GetAllCommentsRequest",
+          "line": 24,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 0,
+        "classCount": 4
+      }
+    },
+    {
+      "path": "internal/video/comment_repo.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 48,
+      "functions": [
+        {
+          "name": "NewCommentRepository",
+          "startLine": 14,
+          "endLine": 16,
+          "params": [
+            "db"
+          ]
+        },
+        {
+          "name": "CreateComment",
+          "startLine": 18,
+          "endLine": 20,
+          "params": [
+            "ctx",
+            "comment"
+          ]
+        },
+        {
+          "name": "DeleteComment",
+          "startLine": 22,
+          "endLine": 24,
+          "params": [
+            "ctx",
+            "comment"
+          ]
+        },
+        {
+          "name": "GetAllComments",
+          "startLine": 26,
+          "endLine": 34,
+          "params": [
+            "ctx",
+            "videoID"
+          ]
+        },
+        {
+          "name": "IsExist",
+          "startLine": 36,
+          "endLine": 46,
+          "params": [
+            "ctx",
+            "id"
+          ]
+        },
+        {
+          "name": "GetByID",
+          "startLine": 48,
+          "endLine": 57,
+          "params": [
+            "ctx",
+            "id"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CommentRepository",
+          "startLine": 10,
+          "endLine": 12,
+          "methods": [
+            "CreateComment",
+            "DeleteComment",
+            "GetAllComments",
+            "IsExist",
+            "GetByID"
+          ],
+          "properties": [
+            "db"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CommentRepository",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "NewCommentRepository",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "CreateComment",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "DeleteComment",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "GetAllComments",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "IsExist",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "GetByID",
+          "line": 48,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "CreateComment",
+          "callee": "r.db.WithContext(ctx).Create",
+          "lineNumber": 19
+        },
+        {
+          "caller": "CreateComment",
+          "callee": "r.db.WithContext",
+          "lineNumber": 19
+        },
+        {
+          "caller": "DeleteComment",
+          "callee": "r.db.WithContext(ctx).Delete",
+          "lineNumber": 23
+        },
+        {
+          "caller": "DeleteComment",
+          "callee": "r.db.WithContext",
+          "lineNumber": 23
+        },
+        {
+          "caller": "GetAllComments",
+          "callee": "r.db.WithContext(ctx).\n\t\tWhere(\"video_id = ?\", videoID).\n\t\tOrder(\"created_at asc\").\n\t\tLimit(200).\n\t\tFind",
+          "lineNumber": 28
+        },
+        {
+          "caller": "GetAllComments",
+          "callee": "r.db.WithContext(ctx).\n\t\tWhere(\"video_id = ?\", videoID).\n\t\tOrder(\"created_at asc\").\n\t\tLimit",
+          "lineNumber": 28
+        },
+        {
+          "caller": "GetAllComments",
+          "callee": "r.db.WithContext(ctx).\n\t\tWhere(\"video_id = ?\", videoID).\n\t\tOrder",
+          "lineNumber": 28
+        },
+        {
+          "caller": "GetAllComments",
+          "callee": "r.db.WithContext(ctx).\n\t\tWhere",
+          "lineNumber": 28
+        },
+        {
+          "caller": "GetAllComments",
+          "callee": "r.db.WithContext",
+          "lineNumber": 28
+        },
+        {
+          "caller": "IsExist",
+          "callee": "r.db.WithContext(ctx).First",
+          "lineNumber": 38
+        },
+        {
+          "caller": "IsExist",
+          "callee": "r.db.WithContext",
+          "lineNumber": 38
+        },
+        {
+          "caller": "IsExist",
+          "callee": "errors.Is",
+          "lineNumber": 40
+        },
+        {
+          "caller": "GetByID",
+          "callee": "r.db.WithContext(ctx).First",
+          "lineNumber": 50
+        },
+        {
+          "caller": "GetByID",
+          "callee": "r.db.WithContext",
+          "lineNumber": 50
+        },
+        {
+          "caller": "GetByID",
+          "callee": "errors.Is",
+          "lineNumber": 51
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/video/like_entity.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 15,
+      "classes": [
+        {
+          "name": "Like",
+          "startLine": 6,
+          "endLine": 14,
+          "methods": [],
+          "properties": [
+            "ID",
+            "VideoID",
+            "AccountID",
+            "CreatedAt"
+          ]
+        },
+        {
+          "name": "LikeRequest",
+          "startLine": 15,
+          "endLine": 17,
+          "methods": [],
+          "properties": [
+            "VideoID"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Like",
+          "line": 6,
+          "isDefault": false
+        },
+        {
+          "name": "LikeRequest",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "internal/video/like_handler.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 115,
+      "nonEmptyLines": 100,
+      "functions": [
+        {
+          "name": "NewLikeHandler",
+          "startLine": 14,
+          "endLine": 16,
+          "params": [
+            "service"
+          ]
+        },
+        {
+          "name": "Like",
+          "startLine": 18,
+          "endLine": 44,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "Unlike",
+          "startLine": 46,
+          "endLine": 72,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "IsLiked",
+          "startLine": 74,
+          "endLine": 97,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "ListMyLikedVideos",
+          "startLine": 99,
+          "endLine": 115,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LikeHandler",
+          "startLine": 10,
+          "endLine": 12,
+          "methods": [
+            "Like",
+            "Unlike",
+            "IsLiked",
+            "ListMyLikedVideos"
+          ],
+          "properties": [
+            "service"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "LikeHandler",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "NewLikeHandler",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "Like",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "Unlike",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "IsLiked",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "ListMyLikedVideos",
+          "line": 99,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Like",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 20
+        },
+        {
+          "caller": "Like",
+          "callee": "c.JSON",
+          "lineNumber": 21
+        },
+        {
+          "caller": "Like",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 21
+        },
+        {
+          "caller": "Like",
+          "callee": "err.Error",
+          "lineNumber": 21
+        },
+        {
+          "caller": "Like",
+          "callee": "c.JSON",
+          "lineNumber": 25
+        },
+        {
+          "caller": "Like",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 29
+        },
+        {
+          "caller": "Like",
+          "callee": "c.JSON",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Like",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Like",
+          "callee": "err.Error",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Like",
+          "callee": "lh.service.Like",
+          "lineNumber": 39
+        },
+        {
+          "caller": "Like",
+          "callee": "c.Request.Context",
+          "lineNumber": 39
+        },
+        {
+          "caller": "Like",
+          "callee": "c.JSON",
+          "lineNumber": 40
+        },
+        {
+          "caller": "Like",
+          "callee": "err.Error",
+          "lineNumber": 40
+        },
+        {
+          "caller": "Like",
+          "callee": "c.JSON",
+          "lineNumber": 43
+        },
+        {
+          "caller": "Unlike",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 48
+        },
+        {
+          "caller": "Unlike",
+          "callee": "c.JSON",
+          "lineNumber": 49
+        },
+        {
+          "caller": "Unlike",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 49
+        },
+        {
+          "caller": "Unlike",
+          "callee": "err.Error",
+          "lineNumber": 49
+        },
+        {
+          "caller": "Unlike",
+          "callee": "c.JSON",
+          "lineNumber": 53
+        },
+        {
+          "caller": "Unlike",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 57
+        },
+        {
+          "caller": "Unlike",
+          "callee": "c.JSON",
+          "lineNumber": 59
+        },
+        {
+          "caller": "Unlike",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 59
+        },
+        {
+          "caller": "Unlike",
+          "callee": "err.Error",
+          "lineNumber": 59
+        },
+        {
+          "caller": "Unlike",
+          "callee": "lh.service.Unlike",
+          "lineNumber": 67
+        },
+        {
+          "caller": "Unlike",
+          "callee": "c.Request.Context",
+          "lineNumber": 67
+        },
+        {
+          "caller": "Unlike",
+          "callee": "c.JSON",
+          "lineNumber": 68
+        },
+        {
+          "caller": "Unlike",
+          "callee": "err.Error",
+          "lineNumber": 68
+        },
+        {
+          "caller": "Unlike",
+          "callee": "c.JSON",
+          "lineNumber": 71
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 76
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "c.JSON",
+          "lineNumber": 77
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 77
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "err.Error",
+          "lineNumber": 77
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "c.JSON",
+          "lineNumber": 81
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 85
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "c.JSON",
+          "lineNumber": 87
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 87
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "err.Error",
+          "lineNumber": 87
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "lh.service.IsLiked",
+          "lineNumber": 91
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "c.Request.Context",
+          "lineNumber": 91
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "c.JSON",
+          "lineNumber": 93
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "err.Error",
+          "lineNumber": 93
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "c.JSON",
+          "lineNumber": 96
+        },
+        {
+          "caller": "ListMyLikedVideos",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 100
+        },
+        {
+          "caller": "ListMyLikedVideos",
+          "callee": "c.JSON",
+          "lineNumber": 102
+        },
+        {
+          "caller": "ListMyLikedVideos",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 102
+        },
+        {
+          "caller": "ListMyLikedVideos",
+          "callee": "err.Error",
+          "lineNumber": 102
+        },
+        {
+          "caller": "ListMyLikedVideos",
+          "callee": "lh.service.ListLikedVideos",
+          "lineNumber": 106
+        },
+        {
+          "caller": "ListMyLikedVideos",
+          "callee": "c.Request.Context",
+          "lineNumber": 106
+        },
+        {
+          "caller": "ListMyLikedVideos",
+          "callee": "c.JSON",
+          "lineNumber": 108
+        },
+        {
+          "caller": "ListMyLikedVideos",
+          "callee": "err.Error",
+          "lineNumber": 108
+        },
+        {
+          "caller": "ListMyLikedVideos",
+          "callee": "c.JSON",
+          "lineNumber": 114
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/video/like_repo.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 107,
+      "nonEmptyLines": 91,
+      "functions": [
+        {
+          "name": "NewLikeRepository",
+          "startLine": 15,
+          "endLine": 17,
+          "params": [
+            "db"
+          ]
+        },
+        {
+          "name": "Like",
+          "startLine": 19,
+          "endLine": 21,
+          "params": [
+            "ctx",
+            "like"
+          ]
+        },
+        {
+          "name": "Unlike",
+          "startLine": 23,
+          "endLine": 27,
+          "params": [
+            "ctx",
+            "like"
+          ]
+        },
+        {
+          "name": "IsLiked",
+          "startLine": 29,
+          "endLine": 38,
+          "params": [
+            "ctx",
+            "videoID",
+            "accountID"
+          ]
+        },
+        {
+          "name": "ListLikedVideos",
+          "startLine": 40,
+          "endLine": 56,
+          "params": [
+            "ctx",
+            "accountID"
+          ]
+        },
+        {
+          "name": "BatchGetLiked",
+          "startLine": 58,
+          "endLine": 82,
+          "params": [
+            "ctx",
+            "videoIDs",
+            "accountID"
+          ]
+        },
+        {
+          "name": "LikeIgnoreDuplicate",
+          "startLine": 84,
+          "endLine": 97,
+          "params": [
+            "ctx",
+            "like"
+          ]
+        },
+        {
+          "name": "DeleteByVideoAndAccount",
+          "startLine": 99,
+          "endLine": 107,
+          "params": [
+            "ctx",
+            "videoID",
+            "accountID"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LikeRepository",
+          "startLine": 11,
+          "endLine": 13,
+          "methods": [
+            "Like",
+            "Unlike",
+            "IsLiked",
+            "ListLikedVideos",
+            "BatchGetLiked",
+            "LikeIgnoreDuplicate",
+            "DeleteByVideoAndAccount"
+          ],
+          "properties": [
+            "db"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "LikeRepository",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "NewLikeRepository",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "Like",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "Unlike",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "IsLiked",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "ListLikedVideos",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "BatchGetLiked",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "LikeIgnoreDuplicate",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "DeleteByVideoAndAccount",
+          "line": 99,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Like",
+          "callee": "r.db.WithContext(ctx).Create",
+          "lineNumber": 20
+        },
+        {
+          "caller": "Like",
+          "callee": "r.db.WithContext",
+          "lineNumber": 20
+        },
+        {
+          "caller": "Unlike",
+          "callee": "r.db.WithContext(ctx).\n\t\tWhere(\"video_id = ? AND account_id = ?\", like.VideoID, like.AccountID).\n\t\tDelete",
+          "lineNumber": 24
+        },
+        {
+          "caller": "Unlike",
+          "callee": "r.db.WithContext(ctx).\n\t\tWhere",
+          "lineNumber": 24
+        },
+        {
+          "caller": "Unlike",
+          "callee": "r.db.WithContext",
+          "lineNumber": 24
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "r.db.WithContext(ctx).Model(&Like{}).\n\t\tWhere(\"video_id = ? AND account_id = ?\", videoID, accountID).\n\t\tCount",
+          "lineNumber": 31
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "r.db.WithContext(ctx).Model(&Like{}).\n\t\tWhere",
+          "lineNumber": 31
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "r.db.WithContext(ctx).Model",
+          "lineNumber": 31
+        },
+        {
+          "caller": "IsLiked",
+          "callee": "r.db.WithContext",
+          "lineNumber": 31
+        },
+        {
+          "caller": "ListLikedVideos",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&Video{}).\n\t\tJoins(\"JOIN likes ON likes.video_id = videos.id\").\n\t\tWhere(\"likes.account_id = ?\", accountID).\n\t\tOrder(\"likes.created_at desc\").\n\t\tLimit(200).\n\t\tFind",
+          "lineNumber": 45
+        },
+        {
+          "caller": "ListLikedVideos",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&Video{}).\n\t\tJoins(\"JOIN likes ON likes.video_id = videos.id\").\n\t\tWhere(\"likes.account_id = ?\", accountID).\n\t\tOrder(\"likes.created_at desc\").\n\t\tLimit",
+          "lineNumber": 45
+        },
+        {
+          "caller": "ListLikedVideos",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&Video{}).\n\t\tJoins(\"JOIN likes ON likes.video_id = videos.id\").\n\t\tWhere(\"likes.account_id = ?\", accountID).\n\t\tOrder",
+          "lineNumber": 45
+        },
+        {
+          "caller": "ListLikedVideos",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&Video{}).\n\t\tJoins(\"JOIN likes ON likes.video_id = videos.id\").\n\t\tWhere",
+          "lineNumber": 45
+        },
+        {
+          "caller": "ListLikedVideos",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel(&Video{}).\n\t\tJoins",
+          "lineNumber": 45
+        },
+        {
+          "caller": "ListLikedVideos",
+          "callee": "r.db.WithContext(ctx).\n\t\tModel",
+          "lineNumber": 45
+        },
+        {
+          "caller": "ListLikedVideos",
+          "callee": "r.db.WithContext",
+          "lineNumber": 45
+        },
+        {
+          "caller": "BatchGetLiked",
+          "callee": "make",
+          "lineNumber": 59
+        },
+        {
+          "caller": "BatchGetLiked",
+          "callee": "len",
+          "lineNumber": 61
+        },
+        {
+          "caller": "BatchGetLiked",
+          "callee": "r.db.WithContext(ctx).Model(&Like{}).\n\t\tWhere(\"video_id IN ? AND account_id = ?\", videoIDs, accountID).\n\t\tFind",
+          "lineNumber": 70
+        },
+        {
+          "caller": "BatchGetLiked",
+          "callee": "r.db.WithContext(ctx).Model(&Like{}).\n\t\tWhere",
+          "lineNumber": 70
+        },
+        {
+          "caller": "BatchGetLiked",
+          "callee": "r.db.WithContext(ctx).Model",
+          "lineNumber": 70
+        },
+        {
+          "caller": "BatchGetLiked",
+          "callee": "r.db.WithContext",
+          "lineNumber": 70
+        },
+        {
+          "caller": "LikeIgnoreDuplicate",
+          "callee": "r.db.WithContext(ctx).Create",
+          "lineNumber": 88
+        },
+        {
+          "caller": "LikeIgnoreDuplicate",
+          "callee": "r.db.WithContext",
+          "lineNumber": 88
+        },
+        {
+          "caller": "LikeIgnoreDuplicate",
+          "callee": "errors.As",
+          "lineNumber": 93
+        },
+        {
+          "caller": "DeleteByVideoAndAccount",
+          "callee": "r.db.WithContext(ctx).\n\t\tWhere(\"video_id = ? AND account_id = ?\", videoID, accountID).\n\t\tDelete",
+          "lineNumber": 103
+        },
+        {
+          "caller": "DeleteByVideoAndAccount",
+          "callee": "r.db.WithContext(ctx).\n\t\tWhere",
+          "lineNumber": 103
+        },
+        {
+          "caller": "DeleteByVideoAndAccount",
+          "callee": "r.db.WithContext",
+          "lineNumber": 103
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 8,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/video/tag_entity.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "ExtractTags",
+          "startLine": 29,
+          "endLine": 45,
+          "params": [
+            "text"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Tag",
+          "startLine": 13,
+          "endLine": 16,
+          "methods": [],
+          "properties": [
+            "ID",
+            "Name"
+          ]
+        },
+        {
+          "name": "VideoTag",
+          "startLine": 19,
+          "endLine": 23,
+          "methods": [],
+          "properties": [
+            "ID",
+            "VideoID",
+            "TagID"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Tag",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "VideoTag",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "ExtractTags",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ExtractTags",
+          "callee": "tagRegex.FindAllStringSubmatch",
+          "lineNumber": 30
+        },
+        {
+          "caller": "ExtractTags",
+          "callee": "make",
+          "lineNumber": 32
+        },
+        {
+          "caller": "ExtractTags",
+          "callee": "append",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 1,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "internal/video/video_entity.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 43,
+      "nonEmptyLines": 37,
+      "classes": [
+        {
+          "name": "Video",
+          "startLine": 5,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "ID",
+            "AuthorID",
+            "Username",
+            "Title",
+            "Description",
+            "PlayURL",
+            "CoverURL",
+            "CreateTime",
+            "LikesCount",
+            "Popularity"
+          ]
+        },
+        {
+          "name": "PublishVideoRequest",
+          "startLine": 22,
+          "endLine": 27,
+          "methods": [],
+          "properties": [
+            "Title",
+            "Description",
+            "PlayURL",
+            "CoverURL"
+          ]
+        },
+        {
+          "name": "OutboxMsg",
+          "startLine": 29,
+          "endLine": 35,
+          "methods": [],
+          "properties": [
+            "ID",
+            "VideoID",
+            "EventType",
+            "CreateTime",
+            "Status"
+          ]
+        },
+        {
+          "name": "GetDetailRequest",
+          "startLine": 37,
+          "endLine": 39,
+          "methods": [],
+          "properties": [
+            "ID"
+          ]
+        },
+        {
+          "name": "ListByAuthorIDRequest",
+          "startLine": 41,
+          "endLine": 43,
+          "methods": [],
+          "properties": [
+            "AuthorID"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Video",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "PublishVideoRequest",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "OutboxMsg",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "GetDetailRequest",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "ListByAuthorIDRequest",
+          "line": 41,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 0,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "internal/video/video_handler.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 233,
+      "nonEmptyLines": 206,
+      "functions": [
+        {
+          "name": "NewVideoHandler",
+          "startLine": 23,
+          "endLine": 25,
+          "params": [
+            "service"
+          ]
+        },
+        {
+          "name": "UploadVideo",
+          "startLine": 28,
+          "endLine": 87,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "UploadCover",
+          "startLine": 89,
+          "endLine": 144,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "PublishVideo",
+          "startLine": 146,
+          "endLine": 179,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "GetDetail",
+          "startLine": 181,
+          "endLine": 195,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "ListByAuthorID",
+          "startLine": 197,
+          "endLine": 214,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "randHex",
+          "startLine": 216,
+          "endLine": 222,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "buildAbsoluteURL",
+          "startLine": 224,
+          "endLine": 233,
+          "params": [
+            "c",
+            "p"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "VideoHandler",
+          "startLine": 19,
+          "endLine": 21,
+          "methods": [
+            "UploadVideo",
+            "UploadCover",
+            "PublishVideo",
+            "GetDetail",
+            "ListByAuthorID"
+          ],
+          "properties": [
+            "service"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "VideoHandler",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "NewVideoHandler",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "UploadVideo",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "UploadCover",
+          "line": 89,
+          "isDefault": false
+        },
+        {
+          "name": "PublishVideo",
+          "line": 146,
+          "isDefault": false
+        },
+        {
+          "name": "GetDetail",
+          "line": 181,
+          "isDefault": false
+        },
+        {
+          "name": "ListByAuthorID",
+          "line": 197,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "UploadVideo",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 29
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "c.JSON",
+          "lineNumber": 31
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "err.Error",
+          "lineNumber": 31
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "c.FormFile",
+          "lineNumber": 35
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "c.JSON",
+          "lineNumber": 37
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "c.JSON",
+          "lineNumber": 44
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "strings.ToLower",
+          "lineNumber": 48
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "filepath.Ext",
+          "lineNumber": 48
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "c.JSON",
+          "lineNumber": 50
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "time.Now().Format",
+          "lineNumber": 54
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "time.Now",
+          "lineNumber": 54
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "filepath.Join",
+          "lineNumber": 56
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 56
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "filepath.Join",
+          "lineNumber": 58
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "filepath.Join",
+          "lineNumber": 60
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "os.MkdirAll",
+          "lineNumber": 62
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "c.JSON",
+          "lineNumber": 63
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "err.Error",
+          "lineNumber": 63
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "randHex",
+          "lineNumber": 67
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "c.JSON",
+          "lineNumber": 69
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "filepath.Join",
+          "lineNumber": 73
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "c.SaveUploadedFile",
+          "lineNumber": 75
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "c.JSON",
+          "lineNumber": 76
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "err.Error",
+          "lineNumber": 76
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "path.Join",
+          "lineNumber": 81
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 81
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "c.JSON",
+          "lineNumber": 82
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "buildAbsoluteURL",
+          "lineNumber": 84
+        },
+        {
+          "caller": "UploadVideo",
+          "callee": "buildAbsoluteURL",
+          "lineNumber": 85
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 90
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "c.JSON",
+          "lineNumber": 92
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "err.Error",
+          "lineNumber": 92
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "c.FormFile",
+          "lineNumber": 96
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "c.JSON",
+          "lineNumber": 98
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "c.JSON",
+          "lineNumber": 104
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "strings.ToLower",
+          "lineNumber": 108
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "filepath.Ext",
+          "lineNumber": 108
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "c.JSON",
+          "lineNumber": 113
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "time.Now().Format",
+          "lineNumber": 117
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "time.Now",
+          "lineNumber": 117
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "filepath.Join",
+          "lineNumber": 118
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 118
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "filepath.Join",
+          "lineNumber": 119
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "filepath.Join",
+          "lineNumber": 120
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "os.MkdirAll",
+          "lineNumber": 121
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "c.JSON",
+          "lineNumber": 122
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "err.Error",
+          "lineNumber": 122
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "randHex",
+          "lineNumber": 126
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "c.JSON",
+          "lineNumber": 128
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "filepath.Join",
+          "lineNumber": 132
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "c.SaveUploadedFile",
+          "lineNumber": 134
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "c.JSON",
+          "lineNumber": 135
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "err.Error",
+          "lineNumber": 135
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "path.Join",
+          "lineNumber": 139
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 139
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "c.JSON",
+          "lineNumber": 140
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "buildAbsoluteURL",
+          "lineNumber": 141
+        },
+        {
+          "caller": "UploadCover",
+          "callee": "buildAbsoluteURL",
+          "lineNumber": 142
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 148
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "c.JSON",
+          "lineNumber": 149
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 149
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "err.Error",
+          "lineNumber": 149
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 153
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "c.JSON",
+          "lineNumber": 155
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 155
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "err.Error",
+          "lineNumber": 155
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "jwt.GetUsername",
+          "lineNumber": 158
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "c.JSON",
+          "lineNumber": 160
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 160
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "err.Error",
+          "lineNumber": 160
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "time.Now",
+          "lineNumber": 171
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "vh.service.Publish",
+          "lineNumber": 173
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "c.Request.Context",
+          "lineNumber": 173
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "c.JSON",
+          "lineNumber": 174
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 174
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "err.Error",
+          "lineNumber": 174
+        },
+        {
+          "caller": "PublishVideo",
+          "callee": "c.JSON",
+          "lineNumber": 178
+        },
+        {
+          "caller": "GetDetail",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 183
+        },
+        {
+          "caller": "GetDetail",
+          "callee": "c.JSON",
+          "lineNumber": 184
+        },
+        {
+          "caller": "GetDetail",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 184
+        },
+        {
+          "caller": "GetDetail",
+          "callee": "err.Error",
+          "lineNumber": 184
+        },
+        {
+          "caller": "GetDetail",
+          "callee": "vh.service.GetDetail",
+          "lineNumber": 188
+        },
+        {
+          "caller": "GetDetail",
+          "callee": "c.Request.Context",
+          "lineNumber": 188
+        },
+        {
+          "caller": "GetDetail",
+          "callee": "c.JSON",
+          "lineNumber": 190
+        },
+        {
+          "caller": "GetDetail",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 190
+        },
+        {
+          "caller": "GetDetail",
+          "callee": "err.Error",
+          "lineNumber": 190
+        },
+        {
+          "caller": "GetDetail",
+          "callee": "c.JSON",
+          "lineNumber": 194
+        },
+        {
+          "caller": "ListByAuthorID",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 199
+        },
+        {
+          "caller": "ListByAuthorID",
+          "callee": "c.JSON",
+          "lineNumber": 200
+        },
+        {
+          "caller": "ListByAuthorID",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 200
+        },
+        {
+          "caller": "ListByAuthorID",
+          "callee": "err.Error",
+          "lineNumber": 200
+        },
+        {
+          "caller": "ListByAuthorID",
+          "callee": "vh.service.ListByAuthorID",
+          "lineNumber": 204
+        },
+        {
+          "caller": "ListByAuthorID",
+          "callee": "c.Request.Context",
+          "lineNumber": 204
+        },
+        {
+          "caller": "ListByAuthorID",
+          "callee": "c.JSON",
+          "lineNumber": 206
+        },
+        {
+          "caller": "ListByAuthorID",
+          "callee": "apierror.ClassifyHTTPStatus",
+          "lineNumber": 206
+        },
+        {
+          "caller": "ListByAuthorID",
+          "callee": "err.Error",
+          "lineNumber": 206
+        },
+        {
+          "caller": "ListByAuthorID",
+          "callee": "c.JSON",
+          "lineNumber": 213
+        },
+        {
+          "caller": "randHex",
+          "callee": "make",
+          "lineNumber": 217
+        },
+        {
+          "caller": "randHex",
+          "callee": "rand.Read",
+          "lineNumber": 218
+        },
+        {
+          "caller": "randHex",
+          "callee": "fmt.Errorf",
+          "lineNumber": 219
+        },
+        {
+          "caller": "randHex",
+          "callee": "hex.EncodeToString",
+          "lineNumber": 221
+        },
+        {
+          "caller": "buildAbsoluteURL",
+          "callee": "c.GetHeader",
+          "lineNumber": 229
+        },
+        {
+          "caller": "buildAbsoluteURL",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 232
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 7,
+        "functionCount": 8,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/video/video_repo.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 91,
+      "nonEmptyLines": 78,
+      "functions": [
+        {
+          "name": "NewVideoRepository",
+          "startLine": 14,
+          "endLine": 16,
+          "params": [
+            "db"
+          ]
+        },
+        {
+          "name": "CreateVideo",
+          "startLine": 18,
+          "endLine": 23,
+          "params": [
+            "ctx",
+            "video"
+          ]
+        },
+        {
+          "name": "GetByID",
+          "startLine": 25,
+          "endLine": 31,
+          "params": [
+            "ctx",
+            "id"
+          ]
+        },
+        {
+          "name": "ListByAuthorID",
+          "startLine": 33,
+          "endLine": 43,
+          "params": [
+            "ctx",
+            "authorID"
+          ]
+        },
+        {
+          "name": "DeleteVideo",
+          "startLine": 45,
+          "endLine": 50,
+          "params": [
+            "ctx",
+            "id"
+          ]
+        },
+        {
+          "name": "IsExist",
+          "startLine": 52,
+          "endLine": 61,
+          "params": [
+            "ctx",
+            "id"
+          ]
+        },
+        {
+          "name": "ChangePopularity",
+          "startLine": 63,
+          "endLine": 67,
+          "params": [
+            "ctx",
+            "id",
+            "change"
+          ]
+        },
+        {
+          "name": "ChangeLikesCount",
+          "startLine": 69,
+          "endLine": 73,
+          "params": [
+            "ctx",
+            "id",
+            "change"
+          ]
+        },
+        {
+          "name": "CountByAuthor",
+          "startLine": 75,
+          "endLine": 81,
+          "params": [
+            "ctx",
+            "authorID"
+          ]
+        },
+        {
+          "name": "TotalLikesByAuthor",
+          "startLine": 83,
+          "endLine": 91,
+          "params": [
+            "ctx",
+            "authorID"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "VideoRepository",
+          "startLine": 10,
+          "endLine": 12,
+          "methods": [
+            "CreateVideo",
+            "GetByID",
+            "ListByAuthorID",
+            "DeleteVideo",
+            "IsExist",
+            "ChangePopularity",
+            "ChangeLikesCount",
+            "CountByAuthor",
+            "TotalLikesByAuthor"
+          ],
+          "properties": [
+            "db"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "VideoRepository",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "NewVideoRepository",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "CreateVideo",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "GetByID",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "ListByAuthorID",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "DeleteVideo",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "IsExist",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "ChangePopularity",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "ChangeLikesCount",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "CountByAuthor",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "TotalLikesByAuthor",
+          "line": 83,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "CreateVideo",
+          "callee": "vr.db.WithContext(ctx).Create",
+          "lineNumber": 19
+        },
+        {
+          "caller": "CreateVideo",
+          "callee": "vr.db.WithContext",
+          "lineNumber": 19
+        },
+        {
+          "caller": "GetByID",
+          "callee": "vr.db.WithContext(ctx).First",
+          "lineNumber": 27
+        },
+        {
+          "caller": "GetByID",
+          "callee": "vr.db.WithContext",
+          "lineNumber": 27
+        },
+        {
+          "caller": "ListByAuthorID",
+          "callee": "vr.db.WithContext(ctx).\n\t\tWhere(\"author_id = ?\", authorID).\n\t\tOrder(\"create_time desc\").\n\t\tLimit(200).\n\t\tFind",
+          "lineNumber": 35
+        },
+        {
+          "caller": "ListByAuthorID",
+          "callee": "vr.db.WithContext(ctx).\n\t\tWhere(\"author_id = ?\", authorID).\n\t\tOrder(\"create_time desc\").\n\t\tLimit",
+          "lineNumber": 35
+        },
+        {
+          "caller": "ListByAuthorID",
+          "callee": "vr.db.WithContext(ctx).\n\t\tWhere(\"author_id = ?\", authorID).\n\t\tOrder",
+          "lineNumber": 35
+        },
+        {
+          "caller": "ListByAuthorID",
+          "callee": "vr.db.WithContext(ctx).\n\t\tWhere",
+          "lineNumber": 35
+        },
+        {
+          "caller": "ListByAuthorID",
+          "callee": "vr.db.WithContext",
+          "lineNumber": 35
+        },
+        {
+          "caller": "DeleteVideo",
+          "callee": "vr.db.WithContext(ctx).Delete",
+          "lineNumber": 46
+        },
+        {
+          "caller": "DeleteVideo",
+          "callee": "vr.db.WithContext",
+          "lineNumber": 46
+        },
+        {
+          "caller": "IsExist",
+          "callee": "vr.db.WithContext(ctx).First",
+          "lineNumber": 54
+        },
+        {
+          "caller": "IsExist",
+          "callee": "vr.db.WithContext",
+          "lineNumber": 54
+        },
+        {
+          "caller": "IsExist",
+          "callee": "errors.Is",
+          "lineNumber": 55
+        },
+        {
+          "caller": "ChangePopularity",
+          "callee": "vr.db.WithContext(ctx).Model(&Video{}).\n\t\tWhere(\"id = ?\", id).\n\t\tUpdateColumn",
+          "lineNumber": 64
+        },
+        {
+          "caller": "ChangePopularity",
+          "callee": "vr.db.WithContext(ctx).Model(&Video{}).\n\t\tWhere",
+          "lineNumber": 64
+        },
+        {
+          "caller": "ChangePopularity",
+          "callee": "vr.db.WithContext(ctx).Model",
+          "lineNumber": 64
+        },
+        {
+          "caller": "ChangePopularity",
+          "callee": "vr.db.WithContext",
+          "lineNumber": 64
+        },
+        {
+          "caller": "ChangePopularity",
+          "callee": "gorm.Expr",
+          "lineNumber": 66
+        },
+        {
+          "caller": "ChangeLikesCount",
+          "callee": "vr.db.WithContext(ctx).Model(&Video{}).\n\t\tWhere(\"id = ?\", id).\n\t\tUpdateColumn",
+          "lineNumber": 70
+        },
+        {
+          "caller": "ChangeLikesCount",
+          "callee": "vr.db.WithContext(ctx).Model(&Video{}).\n\t\tWhere",
+          "lineNumber": 70
+        },
+        {
+          "caller": "ChangeLikesCount",
+          "callee": "vr.db.WithContext(ctx).Model",
+          "lineNumber": 70
+        },
+        {
+          "caller": "ChangeLikesCount",
+          "callee": "vr.db.WithContext",
+          "lineNumber": 70
+        },
+        {
+          "caller": "ChangeLikesCount",
+          "callee": "gorm.Expr",
+          "lineNumber": 72
+        },
+        {
+          "caller": "CountByAuthor",
+          "callee": "vr.db.WithContext(ctx).Model(&Video{}).Where(\"author_id = ?\", authorID).Count",
+          "lineNumber": 77
+        },
+        {
+          "caller": "CountByAuthor",
+          "callee": "vr.db.WithContext(ctx).Model(&Video{}).Where",
+          "lineNumber": 77
+        },
+        {
+          "caller": "CountByAuthor",
+          "callee": "vr.db.WithContext(ctx).Model",
+          "lineNumber": 77
+        },
+        {
+          "caller": "CountByAuthor",
+          "callee": "vr.db.WithContext",
+          "lineNumber": 77
+        },
+        {
+          "caller": "TotalLikesByAuthor",
+          "callee": "vr.db.WithContext(ctx).Model(&Video{}).Where(\"author_id = ?\", authorID).Select(\"COALESCE(SUM(likes_count), 0)\").Scan",
+          "lineNumber": 87
+        },
+        {
+          "caller": "TotalLikesByAuthor",
+          "callee": "vr.db.WithContext(ctx).Model(&Video{}).Where(\"author_id = ?\", authorID).Select",
+          "lineNumber": 87
+        },
+        {
+          "caller": "TotalLikesByAuthor",
+          "callee": "vr.db.WithContext(ctx).Model(&Video{}).Where",
+          "lineNumber": 87
+        },
+        {
+          "caller": "TotalLikesByAuthor",
+          "callee": "vr.db.WithContext(ctx).Model",
+          "lineNumber": 87
+        },
+        {
+          "caller": "TotalLikesByAuthor",
+          "callee": "vr.db.WithContext",
+          "lineNumber": 87
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 11,
+        "functionCount": 10,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/worker/commentworker.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 133,
+      "nonEmptyLines": 118,
+      "functions": [
+        {
+          "name": "NewCommentWorker",
+          "startLine": 23,
+          "endLine": 25,
+          "params": [
+            "ch",
+            "comments",
+            "videos",
+            "queue"
+          ]
+        },
+        {
+          "name": "Run",
+          "startLine": 27,
+          "endLine": 51,
+          "params": [
+            "ctx"
+          ]
+        },
+        {
+          "name": "handleDelivery",
+          "startLine": 53,
+          "endLine": 78,
+          "params": [
+            "ctx",
+            "d"
+          ]
+        },
+        {
+          "name": "process",
+          "startLine": 80,
+          "endLine": 94,
+          "params": [
+            "ctx",
+            "body"
+          ]
+        },
+        {
+          "name": "applyPublish",
+          "startLine": 96,
+          "endLine": 119,
+          "params": [
+            "ctx",
+            "event"
+          ]
+        },
+        {
+          "name": "applyDelete",
+          "startLine": 121,
+          "endLine": 133,
+          "params": [
+            "ctx",
+            "event"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CommentWorker",
+          "startLine": 16,
+          "endLine": 21,
+          "methods": [
+            "Run",
+            "handleDelivery",
+            "process",
+            "applyPublish",
+            "applyDelete"
+          ],
+          "properties": [
+            "ch",
+            "comments",
+            "videos",
+            "queue"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CommentWorker",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "NewCommentWorker",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "Run",
+          "line": 27,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Run",
+          "callee": "errors.New",
+          "lineNumber": 29
+        },
+        {
+          "caller": "Run",
+          "callee": "errors.New",
+          "lineNumber": 32
+        },
+        {
+          "caller": "Run",
+          "callee": "w.ch.Consume",
+          "lineNumber": 35
+        },
+        {
+          "caller": "Run",
+          "callee": "ctx.Done",
+          "lineNumber": 42
+        },
+        {
+          "caller": "Run",
+          "callee": "ctx.Err",
+          "lineNumber": 43
+        },
+        {
+          "caller": "Run",
+          "callee": "errors.New",
+          "lineNumber": 46
+        },
+        {
+          "caller": "Run",
+          "callee": "w.handleDelivery",
+          "lineNumber": 48
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "ctx.Done",
+          "lineNumber": 57
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "d.Nack",
+          "lineNumber": 59
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "w.process",
+          "lineNumber": 64
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "log.Printf",
+          "lineNumber": 66
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "d.Ack",
+          "lineNumber": 67
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "time.Duration",
+          "lineNumber": 70
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "uint",
+          "lineNumber": 70
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "log.Printf",
+          "lineNumber": 71
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "time.Sleep",
+          "lineNumber": 72
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "d.Ack",
+          "lineNumber": 75
+        },
+        {
+          "caller": "process",
+          "callee": "json.Unmarshal",
+          "lineNumber": 82
+        },
+        {
+          "caller": "process",
+          "callee": "w.applyPublish",
+          "lineNumber": 88
+        },
+        {
+          "caller": "process",
+          "callee": "w.applyDelete",
+          "lineNumber": 90
+        },
+        {
+          "caller": "applyPublish",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 97
+        },
+        {
+          "caller": "applyPublish",
+          "callee": "w.videos.IsExist",
+          "lineNumber": 101
+        },
+        {
+          "caller": "applyPublish",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 110
+        },
+        {
+          "caller": "applyPublish",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 113
+        },
+        {
+          "caller": "applyPublish",
+          "callee": "w.comments.CreateComment",
+          "lineNumber": 115
+        },
+        {
+          "caller": "applyPublish",
+          "callee": "w.videos.ChangePopularity",
+          "lineNumber": 118
+        },
+        {
+          "caller": "applyDelete",
+          "callee": "w.comments.GetByID",
+          "lineNumber": 125
+        },
+        {
+          "caller": "applyDelete",
+          "callee": "w.comments.DeleteComment",
+          "lineNumber": 132
+        }
+      ],
+      "metrics": {
+        "importCount": 24,
+        "exportCount": 3,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/worker/likeworker.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 144,
+      "nonEmptyLines": 128,
+      "functions": [
+        {
+          "name": "NewLikeWorker",
+          "startLine": 22,
+          "endLine": 24,
+          "params": [
+            "ch",
+            "likes",
+            "videos",
+            "queue"
+          ]
+        },
+        {
+          "name": "Run",
+          "startLine": 26,
+          "endLine": 50,
+          "params": [
+            "ctx"
+          ]
+        },
+        {
+          "name": "handleDelivery",
+          "startLine": 52,
+          "endLine": 75,
+          "params": [
+            "ctx",
+            "d"
+          ]
+        },
+        {
+          "name": "process",
+          "startLine": 77,
+          "endLine": 94,
+          "params": [
+            "ctx",
+            "body"
+          ]
+        },
+        {
+          "name": "applyLike",
+          "startLine": 96,
+          "endLine": 121,
+          "params": [
+            "ctx",
+            "userID",
+            "videoID"
+          ]
+        },
+        {
+          "name": "applyUnlike",
+          "startLine": 123,
+          "endLine": 144,
+          "params": [
+            "ctx",
+            "userID",
+            "videoID"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "LikeWorker",
+          "startLine": 15,
+          "endLine": 20,
+          "methods": [
+            "Run",
+            "handleDelivery",
+            "process",
+            "applyLike",
+            "applyUnlike"
+          ],
+          "properties": [
+            "ch",
+            "likes",
+            "videos",
+            "queue"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "LikeWorker",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "NewLikeWorker",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Run",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Run",
+          "callee": "errors.New",
+          "lineNumber": 28
+        },
+        {
+          "caller": "Run",
+          "callee": "errors.New",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Run",
+          "callee": "w.ch.Consume",
+          "lineNumber": 34
+        },
+        {
+          "caller": "Run",
+          "callee": "ctx.Done",
+          "lineNumber": 41
+        },
+        {
+          "caller": "Run",
+          "callee": "ctx.Err",
+          "lineNumber": 42
+        },
+        {
+          "caller": "Run",
+          "callee": "errors.New",
+          "lineNumber": 45
+        },
+        {
+          "caller": "Run",
+          "callee": "w.handleDelivery",
+          "lineNumber": 47
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "ctx.Done",
+          "lineNumber": 56
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "d.Nack",
+          "lineNumber": 57
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "w.process",
+          "lineNumber": 61
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "log.Printf",
+          "lineNumber": 63
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "d.Ack",
+          "lineNumber": 64
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "time.Duration",
+          "lineNumber": 67
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "uint",
+          "lineNumber": 67
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "log.Printf",
+          "lineNumber": 68
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "time.Sleep",
+          "lineNumber": 69
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "d.Ack",
+          "lineNumber": 72
+        },
+        {
+          "caller": "process",
+          "callee": "json.Unmarshal",
+          "lineNumber": 79
+        },
+        {
+          "caller": "process",
+          "callee": "w.applyLike",
+          "lineNumber": 88
+        },
+        {
+          "caller": "process",
+          "callee": "w.applyUnlike",
+          "lineNumber": 90
+        },
+        {
+          "caller": "applyLike",
+          "callee": "w.videos.IsExist",
+          "lineNumber": 97
+        },
+        {
+          "caller": "applyLike",
+          "callee": "w.likes.LikeIgnoreDuplicate",
+          "lineNumber": 105
+        },
+        {
+          "caller": "applyLike",
+          "callee": "time.Now",
+          "lineNumber": 108
+        },
+        {
+          "caller": "applyLike",
+          "callee": "w.videos.ChangeLikesCount",
+          "lineNumber": 117
+        },
+        {
+          "caller": "applyLike",
+          "callee": "w.videos.ChangePopularity",
+          "lineNumber": 120
+        },
+        {
+          "caller": "applyUnlike",
+          "callee": "w.videos.IsExist",
+          "lineNumber": 124
+        },
+        {
+          "caller": "applyUnlike",
+          "callee": "w.likes.DeleteByVideoAndAccount",
+          "lineNumber": 132
+        },
+        {
+          "caller": "applyUnlike",
+          "callee": "w.videos.ChangeLikesCount",
+          "lineNumber": 140
+        },
+        {
+          "caller": "applyUnlike",
+          "callee": "w.videos.ChangePopularity",
+          "lineNumber": 143
+        }
+      ],
+      "metrics": {
+        "importCount": 24,
+        "exportCount": 3,
+        "functionCount": 6,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/worker/outboxworker.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 114,
+      "nonEmptyLines": 101,
+      "functions": [
+        {
+          "name": "StartOutboxPoller",
+          "startLine": 17,
+          "endLine": 44,
+          "params": [
+            "db",
+            "tmq"
+          ]
+        },
+        {
+          "name": "StartConsumer",
+          "startLine": 46,
+          "endLine": 114,
+          "params": [
+            "tmq",
+            "queueName",
+            "redisClient",
+            "rmq"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "StartOutboxPoller",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "StartConsumer",
+          "line": 46,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "StartOutboxPoller",
+          "callee": "log.Printf",
+          "lineNumber": 19
+        },
+        {
+          "caller": "StartOutboxPoller",
+          "callee": "func() {\n\t\tfor {\n\t\t\tvar messages []video.OutboxMsg\n\t\t\terr := db.Where(\"status = ?\", \"pending\").Order(\"create_time ASC\").Limit(100).Find(&messages).Error\n\t\t\tif err != nil || len(messages) == 0 {\n\t\t\t\ttime.Sleep(1 * time.Second)\n\t\t\t\tcontinue\n\t\t\t}\n\n\t\t\tfor _, msg := range messages {\n\t\t\t\terr := tmq.PublishVideo(context.Background(), msg.VideoID, msg.CreateTime)\n\t\t\t\tif err == nil {\n\t\t\t\t\tif err := db.Delete(&msg).Error; err != nil {\n\t\t\t\t\t\tlog.Printf(\"删除 outbox 消息失败: id=%d, err=%v\", msg.ID, err)\n\t\t\t\t\t}\n\t\t\t\t} else {\n\t\t\t\t\tlog.Printf(\"投递MQ失败: VideoID: %d, err: %v\", msg.VideoID, err)\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}",
+          "lineNumber": 23
+        },
+        {
+          "caller": "StartOutboxPoller",
+          "callee": "db.Where(\"status = ?\", \"pending\").Order(\"create_time ASC\").Limit(100).Find",
+          "lineNumber": 26
+        },
+        {
+          "caller": "StartOutboxPoller",
+          "callee": "db.Where(\"status = ?\", \"pending\").Order(\"create_time ASC\").Limit",
+          "lineNumber": 26
+        },
+        {
+          "caller": "StartOutboxPoller",
+          "callee": "db.Where(\"status = ?\", \"pending\").Order",
+          "lineNumber": 26
+        },
+        {
+          "caller": "StartOutboxPoller",
+          "callee": "db.Where",
+          "lineNumber": 26
+        },
+        {
+          "caller": "StartOutboxPoller",
+          "callee": "len",
+          "lineNumber": 27
+        },
+        {
+          "caller": "StartOutboxPoller",
+          "callee": "time.Sleep",
+          "lineNumber": 28
+        },
+        {
+          "caller": "StartOutboxPoller",
+          "callee": "tmq.PublishVideo",
+          "lineNumber": 33
+        },
+        {
+          "caller": "StartOutboxPoller",
+          "callee": "context.Background",
+          "lineNumber": 33
+        },
+        {
+          "caller": "StartOutboxPoller",
+          "callee": "db.Delete",
+          "lineNumber": 35
+        },
+        {
+          "caller": "StartOutboxPoller",
+          "callee": "log.Printf",
+          "lineNumber": 36
+        },
+        {
+          "caller": "StartOutboxPoller",
+          "callee": "log.Printf",
+          "lineNumber": 39
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "log.Printf",
+          "lineNumber": 48
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "log.Printf",
+          "lineNumber": 52
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "func() {\n\t\tfor {\n\t\t\tch, err := rmq.NewChannel()\n\t\t\tif err != nil {\n\t\t\t\tlog.Printf(\"Timeline consumer: 创建 Channel 失败: %v, 5秒后重试\", err)\n\t\t\t\ttime.Sleep(5 * time.Second)\n\t\t\t\tcontinue\n\t\t\t}\n\t\t\t//防止 RabbitMQ 一口气把大量消息都推给这个 consumer，导致内存压力或某个 consumer 被塞爆。\n\t\t\tif err := ch.Qos(10, 0, false); err != nil {\n\t\t\t\tlog.Printf(\"Timeline consumer: QoS 设置失败: %v\", err)\n\t\t\t}\n\n\t\t\tmsgs, err := ch.Consume(queueName, \"\", false, false, false, false, nil)\n\t\t\tif err != nil {\n\t\t\t\tlog.Printf(\"Timeline consumer: 注册消费失败: %v, 5秒后重试\", err)\n\t\t\t\tch.Close()\n\t\t\t\ttime.Sleep(5 * time.Second)\n\t\t\t\tcontinue\n\t\t\t}\n\n\t\t\tlog.Printf(\"Timeline consumer 已启动, queue=%s\", queueName)\n\t\t\t//队列暂时没消息：for msg := range msgs 会等着，不会退出\n\t\t\t//消费通道异常断开：msgs 被关闭，for range 才会退出,就会启动重连策略\n\t\t\tfor msg := range msgs {\n\t\t\t\tvar event rabbitmq.TimelineEvent\n\t\t\t\tif err := json.Unmarshal(msg.Body, &event); err != nil {\n\t\t\t\t\tlog.Printf(\"Timeline consumer: 反序列化失败: %v\", err)\n\t\t\t\t\tmsg.Ack(false)\n\t\t\t\t\tcontinue\n\t\t\t\t}\n\n\t\t\t\tctx, cancel := context.WithTimeout(context.Background(), 500*time.Millisecond)\n\t\t\t\ttimelineKey := redisClient.Key(\"feed:global_timeline\")\n\t\t\t\terr = redisClient.ZAdd(ctx, timelineKey, oredis.Z{\n\t\t\t\t\tScore:  float64(event.CreateTime),\n\t\t\t\t\tMember: fmt.Sprintf(\"%d\", event.VideoID),\n\t\t\t\t})\n\t\t\t\tif err != nil {\n\t\t\t\t\tlog.Printf(\"Timeline consumer: 写入Zset失败: %v\", err)\n\t\t\t\t\tmsg.Nack(false, true)\n\t\t\t\t\tcancel()\n\t\t\t\t\tcontinue\n\t\t\t\t}\n\n\t\t\t\tif err := redisClient.ZRemRangeByRank(ctx, timelineKey, 0, -1001); err != nil {\n\t\t\t\t\tlog.Printf(\"Timeline consumer: ZRem失败: %v\", err)\n\t\t\t\t}\n\n\t\t\t\tmsg.Ack(false)\n\t\t\t\tcancel()\n\t\t\t}\n\n\t\t\tch.Close()\n\t\t\tlog.Printf(\"Timeline consumer: Channel 断开, 5秒后重连...\")\n\t\t\ttime.Sleep(5 * time.Second)\n\t\t}\n\t}",
+          "lineNumber": 56
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "rmq.NewChannel",
+          "lineNumber": 58
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "log.Printf",
+          "lineNumber": 60
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "time.Sleep",
+          "lineNumber": 61
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "ch.Qos",
+          "lineNumber": 65
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "log.Printf",
+          "lineNumber": 66
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "ch.Consume",
+          "lineNumber": 69
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "log.Printf",
+          "lineNumber": 71
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "ch.Close",
+          "lineNumber": 72
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "time.Sleep",
+          "lineNumber": 73
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "log.Printf",
+          "lineNumber": 77
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "json.Unmarshal",
+          "lineNumber": 82
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "log.Printf",
+          "lineNumber": 83
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "msg.Ack",
+          "lineNumber": 84
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "context.WithTimeout",
+          "lineNumber": 88
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "context.Background",
+          "lineNumber": 88
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "redisClient.Key",
+          "lineNumber": 89
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "redisClient.ZAdd",
+          "lineNumber": 90
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "float64",
+          "lineNumber": 91
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 92
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "log.Printf",
+          "lineNumber": 95
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "msg.Nack",
+          "lineNumber": 96
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "cancel",
+          "lineNumber": 97
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "redisClient.ZRemRangeByRank",
+          "lineNumber": 101
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "log.Printf",
+          "lineNumber": 102
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "msg.Ack",
+          "lineNumber": 105
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "cancel",
+          "lineNumber": 106
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "ch.Close",
+          "lineNumber": 109
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "log.Printf",
+          "lineNumber": 110
+        },
+        {
+          "caller": "StartConsumer",
+          "callee": "time.Sleep",
+          "lineNumber": 111
+        }
+      ],
+      "metrics": {
+        "importCount": 28,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    }
+  ]
+}

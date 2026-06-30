@@ -1,0 +1,141 @@
+{
+    "projectRoot":  "D:\\Projects\\GolandProjects\\feedsystem",
+    "batchFiles":  [
+                       {
+                           "path":  "internal/middleware/ratelimit/ratelimit.go",
+                           "language":  "go",
+                           "sizeLines":  78,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/middleware/redis/cache.go",
+                           "language":  "go",
+                           "sizeLines":  46,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/middleware/redis/redis.go",
+                           "language":  "go",
+                           "sizeLines":  118,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/middleware/redis/redis_test.go",
+                           "language":  "go",
+                           "sizeLines":  56,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/middleware/redis/zset.go",
+                           "language":  "go",
+                           "sizeLines":  84,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/video/chunk_handler.go",
+                           "language":  "go",
+                           "sizeLines":  375,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/video/chunk_handler_test.go",
+                           "language":  "go",
+                           "sizeLines":  427,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/video/popularity_cache.go",
+                           "language":  "go",
+                           "sizeLines":  29,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/video/video_service.go",
+                           "language":  "go",
+                           "sizeLines":  152,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/worker/popularityworker.go",
+                           "language":  "go",
+                           "sizeLines":  87,
+                           "fileCategory":  "code"
+                       }
+                   ],
+    "batchImportData":  {
+                            "internal/middleware/ratelimit/ratelimit.go":  [
+                                                                               "internal/middleware/jwt/jwt.go",
+                                                                               "internal/middleware/redis/cache.go",
+                                                                               "internal/middleware/redis/redis_test.go",
+                                                                               "internal/middleware/redis/redis.go",
+                                                                               "internal/middleware/redis/zset.go"
+                                                                           ],
+                            "internal/middleware/redis/cache.go":  [
+
+                                                                   ],
+                            "internal/middleware/redis/redis.go":  [
+                                                                       "internal/config/loadConfig.go"
+                                                                   ],
+                            "internal/middleware/redis/redis_test.go":  [
+
+                                                                        ],
+                            "internal/middleware/redis/zset.go":  [
+
+                                                                  ],
+                            "internal/video/chunk_handler.go":  [
+                                                                    "internal/middleware/jwt/jwt.go",
+                                                                    "internal/middleware/redis/cache.go",
+                                                                    "internal/middleware/redis/redis_test.go",
+                                                                    "internal/middleware/redis/redis.go",
+                                                                    "internal/middleware/redis/zset.go"
+                                                                ],
+                            "internal/video/chunk_handler_test.go":  [
+                                                                         "internal/middleware/redis/cache.go",
+                                                                         "internal/middleware/redis/redis_test.go",
+                                                                         "internal/middleware/redis/redis.go",
+                                                                         "internal/middleware/redis/zset.go"
+                                                                     ],
+                            "internal/video/popularity_cache.go":  [
+                                                                       "internal/middleware/redis/cache.go",
+                                                                       "internal/middleware/redis/redis_test.go",
+                                                                       "internal/middleware/redis/redis.go",
+                                                                       "internal/middleware/redis/zset.go"
+                                                                   ],
+                            "internal/video/video_service.go":  [
+                                                                    "internal/middleware/redis/cache.go",
+                                                                    "internal/middleware/redis/redis_test.go",
+                                                                    "internal/middleware/redis/redis.go",
+                                                                    "internal/middleware/redis/zset.go"
+                                                                ],
+                            "internal/worker/popularityworker.go":  [
+                                                                        "internal/middleware/rabbitmq/commentMQ.go",
+                                                                        "internal/middleware/rabbitmq/dlx.go",
+                                                                        "internal/middleware/rabbitmq/likeMQ.go",
+                                                                        "internal/middleware/rabbitmq/popularityMQ.go",
+                                                                        "internal/middleware/rabbitmq/rabbitMQ.go",
+                                                                        "internal/middleware/rabbitmq/socialMQ.go",
+                                                                        "internal/middleware/rabbitmq/timelineMQ.go",
+                                                                        "internal/middleware/redis/cache.go",
+                                                                        "internal/middleware/redis/redis_test.go",
+                                                                        "internal/middleware/redis/redis.go",
+                                                                        "internal/middleware/redis/zset.go",
+                                                                        "internal/video/chunk_entity.go",
+                                                                        "internal/video/chunk_handler_test.go",
+                                                                        "internal/video/chunk_handler.go",
+                                                                        "internal/video/comment_entity.go",
+                                                                        "internal/video/comment_handler.go",
+                                                                        "internal/video/comment_repo.go",
+                                                                        "internal/video/comment_service.go",
+                                                                        "internal/video/like_entity.go",
+                                                                        "internal/video/like_handler.go",
+                                                                        "internal/video/like_repo.go",
+                                                                        "internal/video/like_service.go",
+                                                                        "internal/video/popularity_cache.go",
+                                                                        "internal/video/tag_entity.go",
+                                                                        "internal/video/video_entity.go",
+                                                                        "internal/video/video_handler.go",
+                                                                        "internal/video/video_repo.go",
+                                                                        "internal/video/video_service.go"
+                                                                    ]
+                        }
+}

@@ -1,0 +1,4495 @@
+{
+  "nodes": [
+    {
+      "id": "file:internal/account/entity.go",
+      "type": "file",
+      "name": "entity.go",
+      "filePath": "internal/account/entity.go",
+      "summary": "账号实体、请求 DTO 与响应 DTO 定义，描述数据库模型和 API 数据结构。",
+      "tags": [
+        "data-model",
+        "gorm-model",
+        "请求响应"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:internal/account/entity.go:Account",
+      "type": "class",
+      "name": "Account",
+      "filePath": "internal/account/entity.go",
+      "lineRange": [
+        3,
+        11
+      ],
+      "summary": "Account 是 账号中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/account/entity.go:CreateAccountRequest",
+      "type": "class",
+      "name": "CreateAccountRequest",
+      "filePath": "internal/account/entity.go",
+      "lineRange": [
+        13,
+        16
+      ],
+      "summary": "CreateAccountRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/account/entity.go:FindByIDRequest",
+      "type": "class",
+      "name": "FindByIDRequest",
+      "filePath": "internal/account/entity.go",
+      "lineRange": [
+        18,
+        20
+      ],
+      "summary": "FindByIDRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/account/entity.go:FindByIDResponse",
+      "type": "class",
+      "name": "FindByIDResponse",
+      "filePath": "internal/account/entity.go",
+      "lineRange": [
+        22,
+        27
+      ],
+      "summary": "FindByIDResponse 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/account/entity.go:FindByUsernameRequest",
+      "type": "class",
+      "name": "FindByUsernameRequest",
+      "filePath": "internal/account/entity.go",
+      "lineRange": [
+        29,
+        31
+      ],
+      "summary": "FindByUsernameRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/account/entity.go:FindByUsernameResponse",
+      "type": "class",
+      "name": "FindByUsernameResponse",
+      "filePath": "internal/account/entity.go",
+      "lineRange": [
+        33,
+        38
+      ],
+      "summary": "FindByUsernameResponse 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/account/entity.go:LoginRequest",
+      "type": "class",
+      "name": "LoginRequest",
+      "filePath": "internal/account/entity.go",
+      "lineRange": [
+        40,
+        43
+      ],
+      "summary": "LoginRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/account/entity.go:ChangePasswordRequest",
+      "type": "class",
+      "name": "ChangePasswordRequest",
+      "filePath": "internal/account/entity.go",
+      "lineRange": [
+        45,
+        48
+      ],
+      "summary": "ChangePasswordRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/account/entity.go:GetProfileRequest",
+      "type": "class",
+      "name": "GetProfileRequest",
+      "filePath": "internal/account/entity.go",
+      "lineRange": [
+        50,
+        52
+      ],
+      "summary": "GetProfileRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/account/entity.go:GetProfileResponse",
+      "type": "class",
+      "name": "GetProfileResponse",
+      "filePath": "internal/account/entity.go",
+      "lineRange": [
+        54,
+        60
+      ],
+      "summary": "GetProfileResponse 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/account/entity.go:LoginResponse",
+      "type": "class",
+      "name": "LoginResponse",
+      "filePath": "internal/account/entity.go",
+      "lineRange": [
+        62,
+        67
+      ],
+      "summary": "LoginResponse 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/account/entity.go:RenameRequest",
+      "type": "class",
+      "name": "RenameRequest",
+      "filePath": "internal/account/entity.go",
+      "lineRange": [
+        69,
+        71
+      ],
+      "summary": "RenameRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/account/entity.go:UpdateProfileRequest",
+      "type": "class",
+      "name": "UpdateProfileRequest",
+      "filePath": "internal/account/entity.go",
+      "lineRange": [
+        73,
+        76
+      ],
+      "summary": "UpdateProfileRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/account/entity.go:RefreshRequest",
+      "type": "class",
+      "name": "RefreshRequest",
+      "filePath": "internal/account/entity.go",
+      "lineRange": [
+        78,
+        80
+      ],
+      "summary": "RefreshRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/account/handler.go",
+      "type": "file",
+      "name": "handler.go",
+      "filePath": "internal/account/handler.go",
+      "summary": "账号 HTTP handler，负责绑定请求、调用 service，并将业务结果转换为 Gin JSON 响应。",
+      "tags": [
+        "api-handler",
+        "gin",
+        "请求处理"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:internal/account/handler.go:AccountHandler",
+      "type": "class",
+      "name": "AccountHandler",
+      "filePath": "internal/account/handler.go",
+      "lineRange": [
+        20,
+        22
+      ],
+      "summary": "AccountHandler 聚合 HTTP handler 方法并持有 service 依赖。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/account/handler.go:NewAccountHandler",
+      "type": "function",
+      "name": "NewAccountHandler",
+      "filePath": "internal/account/handler.go",
+      "lineRange": [
+        24,
+        26
+      ],
+      "summary": "构造 AccountHandler 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/handler.go:CreateAccount",
+      "type": "function",
+      "name": "CreateAccount",
+      "filePath": "internal/account/handler.go",
+      "lineRange": [
+        28,
+        51
+      ],
+      "summary": "处理创建或上传类业务流程，并持久化相关状态。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/handler.go:Login",
+      "type": "function",
+      "name": "Login",
+      "filePath": "internal/account/handler.go",
+      "lineRange": [
+        53,
+        78
+      ],
+      "summary": "Login 实现 账号中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/handler.go:Logout",
+      "type": "function",
+      "name": "Logout",
+      "filePath": "internal/account/handler.go",
+      "lineRange": [
+        80,
+        93
+      ],
+      "summary": "Logout 实现 账号中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/handler.go:Rename",
+      "type": "function",
+      "name": "Rename",
+      "filePath": "internal/account/handler.go",
+      "lineRange": [
+        95,
+        124
+      ],
+      "summary": "处理更新类业务流程，并校验请求上下文。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/handler.go:FindByID",
+      "type": "function",
+      "name": "FindByID",
+      "filePath": "internal/account/handler.go",
+      "lineRange": [
+        126,
+        149
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/handler.go:FindByUsername",
+      "type": "function",
+      "name": "FindByUsername",
+      "filePath": "internal/account/handler.go",
+      "lineRange": [
+        151,
+        178
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/handler.go:UpdateProfile",
+      "type": "function",
+      "name": "UpdateProfile",
+      "filePath": "internal/account/handler.go",
+      "lineRange": [
+        181,
+        200
+      ],
+      "summary": "处理更新类业务流程，并校验请求上下文。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/handler.go:UploadAvatar",
+      "type": "function",
+      "name": "UploadAvatar",
+      "filePath": "internal/account/handler.go",
+      "lineRange": [
+        202,
+        257
+      ],
+      "summary": "处理创建或上传类业务流程，并持久化相关状态。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/account/handler.go:Refresh",
+      "type": "function",
+      "name": "Refresh",
+      "filePath": "internal/account/handler.go",
+      "lineRange": [
+        259,
+        277
+      ],
+      "summary": "Refresh 实现 账号中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/handler.go:buildAbsoluteURL",
+      "type": "function",
+      "name": "buildAbsoluteURL",
+      "filePath": "internal/account/handler.go",
+      "lineRange": [
+        287,
+        296
+      ],
+      "summary": "为业务流程提供 buildAbsoluteURL 辅助逻辑。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/handler.go:ChangePassword",
+      "type": "function",
+      "name": "ChangePassword",
+      "filePath": "internal/account/handler.go",
+      "lineRange": [
+        298,
+        317
+      ],
+      "summary": "处理更新类业务流程，并校验请求上下文。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/handler.go:getAccountID",
+      "type": "function",
+      "name": "getAccountID",
+      "filePath": "internal/account/handler.go",
+      "lineRange": [
+        319,
+        329
+      ],
+      "summary": "为业务流程提供 getAccountID 辅助逻辑。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/account/repo.go",
+      "type": "file",
+      "name": "repo.go",
+      "filePath": "internal/account/repo.go",
+      "summary": "账号 repository 层，使用 GORM 封装数据库查询、写入和聚合统计。",
+      "tags": [
+        "repository",
+        "gorm",
+        "数据访问"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:internal/account/repo.go:AccountRepository",
+      "type": "class",
+      "name": "AccountRepository",
+      "filePath": "internal/account/repo.go",
+      "lineRange": [
+        9,
+        11
+      ],
+      "summary": "AccountRepository 封装 账号数据访问能力。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/account/repo.go:NewAccountRepository",
+      "type": "function",
+      "name": "NewAccountRepository",
+      "filePath": "internal/account/repo.go",
+      "lineRange": [
+        13,
+        15
+      ],
+      "summary": "构造 AccountRepository 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/repo.go:CreateAccount",
+      "type": "function",
+      "name": "CreateAccount",
+      "filePath": "internal/account/repo.go",
+      "lineRange": [
+        17,
+        19
+      ],
+      "summary": "处理创建或上传类业务流程，并持久化相关状态。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/repo.go:FindByID",
+      "type": "function",
+      "name": "FindByID",
+      "filePath": "internal/account/repo.go",
+      "lineRange": [
+        21,
+        27
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/repo.go:FindByUsername",
+      "type": "function",
+      "name": "FindByUsername",
+      "filePath": "internal/account/repo.go",
+      "lineRange": [
+        29,
+        35
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/repo.go:Update",
+      "type": "function",
+      "name": "Update",
+      "filePath": "internal/account/repo.go",
+      "lineRange": [
+        37,
+        39
+      ],
+      "summary": "处理更新类业务流程，并校验请求上下文。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/repo.go:Login",
+      "type": "function",
+      "name": "Login",
+      "filePath": "internal/account/repo.go",
+      "lineRange": [
+        41,
+        48
+      ],
+      "summary": "Login 实现 账号中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/repo.go:Logout",
+      "type": "function",
+      "name": "Logout",
+      "filePath": "internal/account/repo.go",
+      "lineRange": [
+        50,
+        57
+      ],
+      "summary": "Logout 实现 账号中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/repo.go:RenameWithToken",
+      "type": "function",
+      "name": "RenameWithToken",
+      "filePath": "internal/account/repo.go",
+      "lineRange": [
+        59,
+        71
+      ],
+      "summary": "处理更新类业务流程，并校验请求上下文。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/repo.go:UpdateToken",
+      "type": "function",
+      "name": "UpdateToken",
+      "filePath": "internal/account/repo.go",
+      "lineRange": [
+        73,
+        75
+      ],
+      "summary": "处理更新类业务流程，并校验请求上下文。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/repo.go:UpdateAvatar",
+      "type": "function",
+      "name": "UpdateAvatar",
+      "filePath": "internal/account/repo.go",
+      "lineRange": [
+        77,
+        79
+      ],
+      "summary": "处理更新类业务流程，并校验请求上下文。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/repo.go:UpdateFields",
+      "type": "function",
+      "name": "UpdateFields",
+      "filePath": "internal/account/repo.go",
+      "lineRange": [
+        81,
+        83
+      ],
+      "summary": "处理更新类业务流程，并校验请求上下文。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/repo.go:FindAll",
+      "type": "function",
+      "name": "FindAll",
+      "filePath": "internal/account/repo.go",
+      "lineRange": [
+        85,
+        91
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/repo.go:ChangePassword",
+      "type": "function",
+      "name": "ChangePassword",
+      "filePath": "internal/account/repo.go",
+      "lineRange": [
+        93,
+        95
+      ],
+      "summary": "处理更新类业务流程，并校验请求上下文。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/account/service.go",
+      "type": "file",
+      "name": "service.go",
+      "filePath": "internal/account/service.go",
+      "summary": "账号 service 层，承载核心业务规则并编排仓储、缓存、消息队列或其他领域模块。",
+      "tags": [
+        "service",
+        "业务逻辑",
+        "领域编排"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:internal/account/service.go:AccountService",
+      "type": "class",
+      "name": "AccountService",
+      "filePath": "internal/account/service.go",
+      "lineRange": [
+        17,
+        20
+      ],
+      "summary": "AccountService 承载 账号业务编排能力。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/account/service.go:NewAccountService",
+      "type": "function",
+      "name": "NewAccountService",
+      "filePath": "internal/account/service.go",
+      "lineRange": [
+        29,
+        34
+      ],
+      "summary": "构造 AccountService 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/service.go:CreateAccount",
+      "type": "function",
+      "name": "CreateAccount",
+      "filePath": "internal/account/service.go",
+      "lineRange": [
+        36,
+        59
+      ],
+      "summary": "处理创建或上传类业务流程，并持久化相关状态。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/service.go:FindByID",
+      "type": "function",
+      "name": "FindByID",
+      "filePath": "internal/account/service.go",
+      "lineRange": [
+        61,
+        63
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/service.go:FindByUsername",
+      "type": "function",
+      "name": "FindByUsername",
+      "filePath": "internal/account/service.go",
+      "lineRange": [
+        65,
+        71
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/service.go:Login",
+      "type": "function",
+      "name": "Login",
+      "filePath": "internal/account/service.go",
+      "lineRange": [
+        73,
+        125
+      ],
+      "summary": "Login 实现 账号中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/account/service.go:Logout",
+      "type": "function",
+      "name": "Logout",
+      "filePath": "internal/account/service.go",
+      "lineRange": [
+        127,
+        157
+      ],
+      "summary": "Logout 实现 账号中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/service.go:Rename",
+      "type": "function",
+      "name": "Rename",
+      "filePath": "internal/account/service.go",
+      "lineRange": [
+        159,
+        188
+      ],
+      "summary": "处理更新类业务流程，并校验请求上下文。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/service.go:UpdateAvatar",
+      "type": "function",
+      "name": "UpdateAvatar",
+      "filePath": "internal/account/service.go",
+      "lineRange": [
+        190,
+        192
+      ],
+      "summary": "处理更新类业务流程，并校验请求上下文。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/service.go:UpdateProfile",
+      "type": "function",
+      "name": "UpdateProfile",
+      "filePath": "internal/account/service.go",
+      "lineRange": [
+        194,
+        216
+      ],
+      "summary": "处理更新类业务流程，并校验请求上下文。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/account/service.go:RefreshAccessToken",
+      "type": "function",
+      "name": "RefreshAccessToken",
+      "filePath": "internal/account/service.go",
+      "lineRange": [
+        218,
+        283
+      ],
+      "summary": "RefreshAccessToken 实现 账号中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/account/service.go:ChangePassword",
+      "type": "function",
+      "name": "ChangePassword",
+      "filePath": "internal/account/service.go",
+      "lineRange": [
+        285,
+        304
+      ],
+      "summary": "处理更新类业务流程，并校验请求上下文。",
+      "tags": [
+        "go-function",
+        "service-method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/apierror/apierror.go",
+      "type": "file",
+      "name": "apierror.go",
+      "filePath": "internal/apierror/apierror.go",
+      "summary": "统一 API 错误类型与错误码定义，帮助 handler 层输出稳定的错误响应。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/apierror/apierror.go:ClassifyHTTPStatus",
+      "type": "function",
+      "name": "ClassifyHTTPStatus",
+      "filePath": "internal/apierror/apierror.go",
+      "lineRange": [
+        17,
+        30
+      ],
+      "summary": "ClassifyHTTPStatus 实现 API 错误中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/auth/jwt.go",
+      "type": "file",
+      "name": "jwt.go",
+      "filePath": "internal/auth/jwt.go",
+      "summary": "封装 JWT access token 与 refresh token 的生成、解析和校验逻辑，支撑登录态与认证中间件。",
+      "tags": [
+        "jwt",
+        "auth",
+        "token"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/auth/jwt.go:Claims",
+      "type": "class",
+      "name": "Claims",
+      "filePath": "internal/auth/jwt.go",
+      "lineRange": [
+        28,
+        32
+      ],
+      "summary": "Claims 是 认证中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/auth/jwt.go:jwtSecret",
+      "type": "function",
+      "name": "jwtSecret",
+      "filePath": "internal/auth/jwt.go",
+      "lineRange": [
+        14,
+        26
+      ],
+      "summary": "jwtSecret 实现 认证中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/auth/jwt.go:GenerateToken",
+      "type": "function",
+      "name": "GenerateToken",
+      "filePath": "internal/auth/jwt.go",
+      "lineRange": [
+        34,
+        47
+      ],
+      "summary": "GenerateToken 实现 认证中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/auth/jwt.go:GenerateRefreshToken",
+      "type": "function",
+      "name": "GenerateRefreshToken",
+      "filePath": "internal/auth/jwt.go",
+      "lineRange": [
+        54,
+        60
+      ],
+      "summary": "GenerateRefreshToken 实现 认证中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/auth/jwt.go:ParseToken",
+      "type": "function",
+      "name": "ParseToken",
+      "filePath": "internal/auth/jwt.go",
+      "lineRange": [
+        62,
+        82
+      ],
+      "summary": "ParseToken 实现 认证中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/db/db.go",
+      "type": "file",
+      "name": "db.go",
+      "filePath": "internal/db/db.go",
+      "summary": "封装 GORM/MySQL 连接、自动迁移与连接关闭逻辑，为业务仓储层提供数据库基础设施。",
+      "tags": [
+        "database",
+        "gorm",
+        "mysql"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/db/db.go:NewDB",
+      "type": "function",
+      "name": "NewDB",
+      "filePath": "internal/db/db.go",
+      "lineRange": [
+        16,
+        46
+      ],
+      "summary": "构造 DB 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/db/db.go:AutoMigrate",
+      "type": "function",
+      "name": "AutoMigrate",
+      "filePath": "internal/db/db.go",
+      "lineRange": [
+        49,
+        62
+      ],
+      "summary": "AutoMigrate 实现 数据库中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/db/db.go:CloseDB",
+      "type": "function",
+      "name": "CloseDB",
+      "filePath": "internal/db/db.go",
+      "lineRange": [
+        65,
+        71
+      ],
+      "summary": "CloseDB 实现 数据库中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/feed/entity.go",
+      "type": "file",
+      "name": "entity.go",
+      "filePath": "internal/feed/entity.go",
+      "summary": "Feed实体、请求 DTO 与响应 DTO 定义，描述数据库模型和 API 数据结构。",
+      "tags": [
+        "data-model",
+        "gorm-model",
+        "请求响应"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:internal/feed/entity.go:FeedAuthor",
+      "type": "class",
+      "name": "FeedAuthor",
+      "filePath": "internal/feed/entity.go",
+      "lineRange": [
+        5,
+        8
+      ],
+      "summary": "FeedAuthor 是 Feed中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/feed/entity.go:FeedVideoItem",
+      "type": "class",
+      "name": "FeedVideoItem",
+      "filePath": "internal/feed/entity.go",
+      "lineRange": [
+        10,
+        20
+      ],
+      "summary": "FeedVideoItem 是 Feed中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/feed/entity.go:ListLatestRequest",
+      "type": "class",
+      "name": "ListLatestRequest",
+      "filePath": "internal/feed/entity.go",
+      "lineRange": [
+        22,
+        25
+      ],
+      "summary": "ListLatestRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/feed/entity.go:ListLatestResponse",
+      "type": "class",
+      "name": "ListLatestResponse",
+      "filePath": "internal/feed/entity.go",
+      "lineRange": [
+        27,
+        31
+      ],
+      "summary": "ListLatestResponse 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/feed/entity.go:ListByFollowingRequest",
+      "type": "class",
+      "name": "ListByFollowingRequest",
+      "filePath": "internal/feed/entity.go",
+      "lineRange": [
+        33,
+        36
+      ],
+      "summary": "ListByFollowingRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/feed/entity.go:ListByFollowingResponse",
+      "type": "class",
+      "name": "ListByFollowingResponse",
+      "filePath": "internal/feed/entity.go",
+      "lineRange": [
+        38,
+        42
+      ],
+      "summary": "ListByFollowingResponse 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/feed/entity.go:ListLikesCountRequest",
+      "type": "class",
+      "name": "ListLikesCountRequest",
+      "filePath": "internal/feed/entity.go",
+      "lineRange": [
+        44,
+        48
+      ],
+      "summary": "ListLikesCountRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/feed/entity.go:LikesCountCursor",
+      "type": "class",
+      "name": "LikesCountCursor",
+      "filePath": "internal/feed/entity.go",
+      "lineRange": [
+        50,
+        53
+      ],
+      "summary": "LikesCountCursor 是 Feed中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/feed/entity.go:ListLikesCountResponse",
+      "type": "class",
+      "name": "ListLikesCountResponse",
+      "filePath": "internal/feed/entity.go",
+      "lineRange": [
+        55,
+        60
+      ],
+      "summary": "ListLikesCountResponse 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/feed/entity.go:ListByTagRequest",
+      "type": "class",
+      "name": "ListByTagRequest",
+      "filePath": "internal/feed/entity.go",
+      "lineRange": [
+        62,
+        65
+      ],
+      "summary": "ListByTagRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/feed/entity.go:ListByTagResponse",
+      "type": "class",
+      "name": "ListByTagResponse",
+      "filePath": "internal/feed/entity.go",
+      "lineRange": [
+        67,
+        69
+      ],
+      "summary": "ListByTagResponse 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/feed/entity.go:PopularityCursor",
+      "type": "class",
+      "name": "PopularityCursor",
+      "filePath": "internal/feed/entity.go",
+      "lineRange": [
+        71,
+        75
+      ],
+      "summary": "PopularityCursor 是 Feed中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/feed/entity.go:ListByPopularityRequest",
+      "type": "class",
+      "name": "ListByPopularityRequest",
+      "filePath": "internal/feed/entity.go",
+      "lineRange": [
+        79,
+        87
+      ],
+      "summary": "ListByPopularityRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/feed/entity.go:ListByPopularityResponse",
+      "type": "class",
+      "name": "ListByPopularityResponse",
+      "filePath": "internal/feed/entity.go",
+      "lineRange": [
+        90,
+        99
+      ],
+      "summary": "ListByPopularityResponse 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/feed/handler.go",
+      "type": "file",
+      "name": "handler.go",
+      "filePath": "internal/feed/handler.go",
+      "summary": "Feed HTTP handler，负责绑定请求、调用 service，并将业务结果转换为 Gin JSON 响应。",
+      "tags": [
+        "api-handler",
+        "gin",
+        "请求处理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/feed/handler.go:FeedHandler",
+      "type": "class",
+      "name": "FeedHandler",
+      "filePath": "internal/feed/handler.go",
+      "lineRange": [
+        11,
+        13
+      ],
+      "summary": "FeedHandler 聚合 HTTP handler 方法并持有 service 依赖。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/feed/handler.go:NewFeedHandler",
+      "type": "function",
+      "name": "NewFeedHandler",
+      "filePath": "internal/feed/handler.go",
+      "lineRange": [
+        15,
+        17
+      ],
+      "summary": "构造 FeedHandler 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/handler.go:ListLatest",
+      "type": "function",
+      "name": "ListLatest",
+      "filePath": "internal/feed/handler.go",
+      "lineRange": [
+        19,
+        50
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/handler.go:ListByFollowing",
+      "type": "function",
+      "name": "ListByFollowing",
+      "filePath": "internal/feed/handler.go",
+      "lineRange": [
+        53,
+        84
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/handler.go:ListLikesCount",
+      "type": "function",
+      "name": "ListLikesCount",
+      "filePath": "internal/feed/handler.go",
+      "lineRange": [
+        94,
+        147
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/feed/handler.go:ListByTag",
+      "type": "function",
+      "name": "ListByTag",
+      "filePath": "internal/feed/handler.go",
+      "lineRange": [
+        149,
+        179
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/feed/handler.go:ListByPopularity",
+      "type": "function",
+      "name": "ListByPopularity",
+      "filePath": "internal/feed/handler.go",
+      "lineRange": [
+        181,
+        236
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:internal/http/router.go",
+      "type": "file",
+      "name": "router.go",
+      "filePath": "internal/http/router.go",
+      "summary": "集中注册 Gin 路由、认证中间件、限流中间件和各业务 handler，是外部 HTTP API 进入账号、视频、社交与消息模块的枢纽。",
+      "tags": [
+        "router",
+        "gin",
+        "api-routes"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:internal/http/router.go:SetupRouter",
+      "type": "function",
+      "name": "SetupRouter",
+      "filePath": "internal/http/router.go",
+      "lineRange": [
+        23,
+        299
+      ],
+      "summary": "SetupRouter 实现 HTTP 路由中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:internal/message/entity.go",
+      "type": "file",
+      "name": "entity.go",
+      "filePath": "internal/message/entity.go",
+      "summary": "消息通知实体、请求 DTO 与响应 DTO 定义，描述数据库模型和 API 数据结构。",
+      "tags": [
+        "data-model",
+        "gorm-model",
+        "请求响应"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/message/entity.go:Message",
+      "type": "class",
+      "name": "Message",
+      "filePath": "internal/message/entity.go",
+      "lineRange": [
+        5,
+        13
+      ],
+      "summary": "Message 是 消息通知中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/message/entity.go:SendRequest",
+      "type": "class",
+      "name": "SendRequest",
+      "filePath": "internal/message/entity.go",
+      "lineRange": [
+        15,
+        18
+      ],
+      "summary": "SendRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/message/entity.go:ListRequest",
+      "type": "class",
+      "name": "ListRequest",
+      "filePath": "internal/message/entity.go",
+      "lineRange": [
+        20,
+        22
+      ],
+      "summary": "ListRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/message/entity.go:ListResponse",
+      "type": "class",
+      "name": "ListResponse",
+      "filePath": "internal/message/entity.go",
+      "lineRange": [
+        24,
+        26
+      ],
+      "summary": "ListResponse 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/message/handler.go",
+      "type": "file",
+      "name": "handler.go",
+      "filePath": "internal/message/handler.go",
+      "summary": "消息通知 HTTP handler，负责绑定请求、调用 service，并将业务结果转换为 Gin JSON 响应。",
+      "tags": [
+        "api-handler",
+        "gin",
+        "请求处理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/message/handler.go:Repository",
+      "type": "class",
+      "name": "Repository",
+      "filePath": "internal/message/handler.go",
+      "lineRange": [
+        16,
+        16
+      ],
+      "summary": "Repository 封装 消息通知数据访问能力。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/message/handler.go:Service",
+      "type": "class",
+      "name": "Service",
+      "filePath": "internal/message/handler.go",
+      "lineRange": [
+        17,
+        17
+      ],
+      "summary": "Service 承载 消息通知业务编排能力。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/message/handler.go:Handler",
+      "type": "class",
+      "name": "Handler",
+      "filePath": "internal/message/handler.go",
+      "lineRange": [
+        18,
+        18
+      ],
+      "summary": "Handler 聚合 HTTP handler 方法并持有 service 依赖。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/message/handler.go:NewRepository",
+      "type": "function",
+      "name": "NewRepository",
+      "filePath": "internal/message/handler.go",
+      "lineRange": [
+        20,
+        20
+      ],
+      "summary": "构造 Repository 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/message/handler.go:NewService",
+      "type": "function",
+      "name": "NewService",
+      "filePath": "internal/message/handler.go",
+      "lineRange": [
+        21,
+        21
+      ],
+      "summary": "构造 Service 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/message/handler.go:NewHandler",
+      "type": "function",
+      "name": "NewHandler",
+      "filePath": "internal/message/handler.go",
+      "lineRange": [
+        22,
+        22
+      ],
+      "summary": "构造 Handler 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/message/handler.go:AutoMigrate",
+      "type": "function",
+      "name": "AutoMigrate",
+      "filePath": "internal/message/handler.go",
+      "lineRange": [
+        24,
+        26
+      ],
+      "summary": "AutoMigrate 实现 消息通知中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/message/handler.go:Send",
+      "type": "function",
+      "name": "Send",
+      "filePath": "internal/message/handler.go",
+      "lineRange": [
+        28,
+        35
+      ],
+      "summary": "Send 实现 消息通知中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/message/handler.go:List",
+      "type": "function",
+      "name": "List",
+      "filePath": "internal/message/handler.go",
+      "lineRange": [
+        37,
+        45
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/message/handler.go:Send",
+      "type": "function",
+      "name": "Send",
+      "filePath": "internal/message/handler.go",
+      "lineRange": [
+        47,
+        68
+      ],
+      "summary": "Send 实现 消息通知中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/message/handler.go:List",
+      "type": "function",
+      "name": "List",
+      "filePath": "internal/message/handler.go",
+      "lineRange": [
+        70,
+        94
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/middleware/jwt/jwt.go",
+      "type": "file",
+      "name": "jwt.go",
+      "filePath": "internal/middleware/jwt/jwt.go",
+      "summary": "Gin JWT 中间件，从请求中解析 token 并把账号身份写入上下文供受保护路由使用。",
+      "tags": [
+        "middleware",
+        "jwt",
+        "认证"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/middleware/jwt/jwt.go:JWTAuth",
+      "type": "function",
+      "name": "JWTAuth",
+      "filePath": "internal/middleware/jwt/jwt.go",
+      "lineRange": [
+        17,
+        41
+      ],
+      "summary": "JWTAuth 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/jwt/jwt.go:SoftJWTAuth",
+      "type": "function",
+      "name": "SoftJWTAuth",
+      "filePath": "internal/middleware/jwt/jwt.go",
+      "lineRange": [
+        43,
+        70
+      ],
+      "summary": "SoftJWTAuth 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/jwt/jwt.go:check",
+      "type": "function",
+      "name": "check",
+      "filePath": "internal/middleware/jwt/jwt.go",
+      "lineRange": [
+        72,
+        110
+      ],
+      "summary": "check 实现 基础中间件中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/jwt/jwt.go:GetAccountID",
+      "type": "function",
+      "name": "GetAccountID",
+      "filePath": "internal/middleware/jwt/jwt.go",
+      "lineRange": [
+        112,
+        124
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/middleware/jwt/jwt.go:GetUsername",
+      "type": "function",
+      "name": "GetUsername",
+      "filePath": "internal/middleware/jwt/jwt.go",
+      "lineRange": [
+        126,
+        138
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/social/entity.go",
+      "type": "file",
+      "name": "entity.go",
+      "filePath": "internal/social/entity.go",
+      "summary": "社交关系实体、请求 DTO 与响应 DTO 定义，描述数据库模型和 API 数据结构。",
+      "tags": [
+        "data-model",
+        "gorm-model",
+        "请求响应"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/social/entity.go:Social",
+      "type": "class",
+      "name": "Social",
+      "filePath": "internal/social/entity.go",
+      "lineRange": [
+        8,
+        21
+      ],
+      "summary": "Social 是 社交关系中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/social/entity.go:FollowRequest",
+      "type": "class",
+      "name": "FollowRequest",
+      "filePath": "internal/social/entity.go",
+      "lineRange": [
+        23,
+        25
+      ],
+      "summary": "FollowRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/social/entity.go:UnfollowRequest",
+      "type": "class",
+      "name": "UnfollowRequest",
+      "filePath": "internal/social/entity.go",
+      "lineRange": [
+        27,
+        29
+      ],
+      "summary": "UnfollowRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/social/entity.go:GetAllFollowersRequest",
+      "type": "class",
+      "name": "GetAllFollowersRequest",
+      "filePath": "internal/social/entity.go",
+      "lineRange": [
+        31,
+        33
+      ],
+      "summary": "GetAllFollowersRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/social/entity.go:GetAllVloggersRequest",
+      "type": "class",
+      "name": "GetAllVloggersRequest",
+      "filePath": "internal/social/entity.go",
+      "lineRange": [
+        35,
+        37
+      ],
+      "summary": "GetAllVloggersRequest 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/social/entity.go:GetAllFollowersResponse",
+      "type": "class",
+      "name": "GetAllFollowersResponse",
+      "filePath": "internal/social/entity.go",
+      "lineRange": [
+        39,
+        42
+      ],
+      "summary": "GetAllFollowersResponse 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/social/entity.go:GetAllVloggersResponse",
+      "type": "class",
+      "name": "GetAllVloggersResponse",
+      "filePath": "internal/social/entity.go",
+      "lineRange": [
+        44,
+        47
+      ],
+      "summary": "GetAllVloggersResponse 定义 API 请求或响应数据结构。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:internal/social/entity.go:SocialCounts",
+      "type": "class",
+      "name": "SocialCounts",
+      "filePath": "internal/social/entity.go",
+      "lineRange": [
+        49,
+        52
+      ],
+      "summary": "SocialCounts 是 社交关系中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/social/handler.go",
+      "type": "file",
+      "name": "handler.go",
+      "filePath": "internal/social/handler.go",
+      "summary": "社交关系 HTTP handler，负责绑定请求、调用 service，并将业务结果转换为 Gin JSON 响应。",
+      "tags": [
+        "api-handler",
+        "gin",
+        "请求处理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/social/handler.go:SocialHandler",
+      "type": "class",
+      "name": "SocialHandler",
+      "filePath": "internal/social/handler.go",
+      "lineRange": [
+        11,
+        13
+      ],
+      "summary": "SocialHandler 聚合 HTTP handler 方法并持有 service 依赖。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/social/handler.go:NewSocialHandler",
+      "type": "function",
+      "name": "NewSocialHandler",
+      "filePath": "internal/social/handler.go",
+      "lineRange": [
+        15,
+        17
+      ],
+      "summary": "构造 SocialHandler 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/handler.go:Follow",
+      "type": "function",
+      "name": "Follow",
+      "filePath": "internal/social/handler.go",
+      "lineRange": [
+        19,
+        46
+      ],
+      "summary": "处理用户互动动作，并同步必要的计数、缓存或异步事件。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/handler.go:Unfollow",
+      "type": "function",
+      "name": "Unfollow",
+      "filePath": "internal/social/handler.go",
+      "lineRange": [
+        48,
+        75
+      ],
+      "summary": "处理删除、取消或撤销类业务动作。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/handler.go:GetAllFollowers",
+      "type": "function",
+      "name": "GetAllFollowers",
+      "filePath": "internal/social/handler.go",
+      "lineRange": [
+        77,
+        110
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/handler.go:GetAllVloggers",
+      "type": "function",
+      "name": "GetAllVloggers",
+      "filePath": "internal/social/handler.go",
+      "lineRange": [
+        112,
+        145
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/handler.go:GetCounts",
+      "type": "function",
+      "name": "GetCounts",
+      "filePath": "internal/social/handler.go",
+      "lineRange": [
+        147,
+        166
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "api-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/social/repo.go",
+      "type": "file",
+      "name": "repo.go",
+      "filePath": "internal/social/repo.go",
+      "summary": "社交关系 repository 层，使用 GORM 封装数据库查询、写入和聚合统计。",
+      "tags": [
+        "repository",
+        "gorm",
+        "数据访问"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/social/repo.go:SocialRepository",
+      "type": "class",
+      "name": "SocialRepository",
+      "filePath": "internal/social/repo.go",
+      "lineRange": [
+        10,
+        12
+      ],
+      "summary": "SocialRepository 封装 社交关系数据访问能力。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/social/repo.go:NewSocialRepository",
+      "type": "function",
+      "name": "NewSocialRepository",
+      "filePath": "internal/social/repo.go",
+      "lineRange": [
+        14,
+        16
+      ],
+      "summary": "构造 SocialRepository 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/repo.go:Follow",
+      "type": "function",
+      "name": "Follow",
+      "filePath": "internal/social/repo.go",
+      "lineRange": [
+        18,
+        20
+      ],
+      "summary": "处理用户互动动作，并同步必要的计数、缓存或异步事件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/repo.go:Unfollow",
+      "type": "function",
+      "name": "Unfollow",
+      "filePath": "internal/social/repo.go",
+      "lineRange": [
+        22,
+        26
+      ],
+      "summary": "处理删除、取消或撤销类业务动作。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/repo.go:IsFollowed",
+      "type": "function",
+      "name": "IsFollowed",
+      "filePath": "internal/social/repo.go",
+      "lineRange": [
+        28,
+        37
+      ],
+      "summary": "IsFollowed 实现 社交关系中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/repo.go:GetAllFollowers",
+      "type": "function",
+      "name": "GetAllFollowers",
+      "filePath": "internal/social/repo.go",
+      "lineRange": [
+        39,
+        65
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/repo.go:GetAllVloggers",
+      "type": "function",
+      "name": "GetAllVloggers",
+      "filePath": "internal/social/repo.go",
+      "lineRange": [
+        67,
+        93
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/repo.go:CountFollowers",
+      "type": "function",
+      "name": "CountFollowers",
+      "filePath": "internal/social/repo.go",
+      "lineRange": [
+        95,
+        104
+      ],
+      "summary": "CountFollowers 实现 社交关系中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/social/repo.go:CountVloggers",
+      "type": "function",
+      "name": "CountVloggers",
+      "filePath": "internal/social/repo.go",
+      "lineRange": [
+        106,
+        115
+      ],
+      "summary": "CountVloggers 实现 社交关系中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/video/comment_handler.go",
+      "type": "file",
+      "name": "comment_handler.go",
+      "filePath": "internal/video/comment_handler.go",
+      "summary": "视频模块文件，参与 feedsystem 的 Go 服务实现。",
+      "tags": [
+        "go",
+        "backend",
+        "module"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:internal/video/comment_handler.go:CommentHandler",
+      "type": "class",
+      "name": "CommentHandler",
+      "filePath": "internal/video/comment_handler.go",
+      "lineRange": [
+        11,
+        14
+      ],
+      "summary": "CommentHandler 聚合 HTTP handler 方法并持有 service 依赖。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/comment_handler.go:NewCommentHandler",
+      "type": "function",
+      "name": "NewCommentHandler",
+      "filePath": "internal/video/comment_handler.go",
+      "lineRange": [
+        16,
+        18
+      ],
+      "summary": "构造 CommentHandler 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/comment_handler.go:PublishComment",
+      "type": "function",
+      "name": "PublishComment",
+      "filePath": "internal/video/comment_handler.go",
+      "lineRange": [
+        20,
+        59
+      ],
+      "summary": "发布异步消息或任务，供后台 worker 消费。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/comment_handler.go:DeleteComment",
+      "type": "function",
+      "name": "DeleteComment",
+      "filePath": "internal/video/comment_handler.go",
+      "lineRange": [
+        61,
+        84
+      ],
+      "summary": "处理删除、取消或撤销类业务动作。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/video/comment_handler.go:GetAllComments",
+      "type": "function",
+      "name": "GetAllComments",
+      "filePath": "internal/video/comment_handler.go",
+      "lineRange": [
+        86,
+        107
+      ],
+      "summary": "读取并返回目标业务数据。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:internal/worker/ssehub.go",
+      "type": "file",
+      "name": "ssehub.go",
+      "filePath": "internal/worker/ssehub.go",
+      "summary": "异步 worker处理器，消费 RabbitMQ 或 Redis 中的异步任务并更新数据库、缓存或 SSE 推送。",
+      "tags": [
+        "worker",
+        "异步处理",
+        "消息消费"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:internal/worker/ssehub.go:SSEHub",
+      "type": "class",
+      "name": "SSEHub",
+      "filePath": "internal/worker/ssehub.go",
+      "lineRange": [
+        18,
+        26
+      ],
+      "summary": "SSEHub 是 异步 worker中的核心 Go 类型。",
+      "tags": [
+        "go-type",
+        "领域模型",
+        "结构体"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/worker/ssehub.go:NewSSEHub",
+      "type": "function",
+      "name": "NewSSEHub",
+      "filePath": "internal/worker/ssehub.go",
+      "lineRange": [
+        28,
+        30
+      ],
+      "summary": "构造 SSEHub 组件并注入其依赖。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/ssehub.go:Push",
+      "type": "function",
+      "name": "Push",
+      "filePath": "internal/worker/ssehub.go",
+      "lineRange": [
+        33,
+        51
+      ],
+      "summary": "Push 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/ssehub.go:Subscribe",
+      "type": "function",
+      "name": "Subscribe",
+      "filePath": "internal/worker/ssehub.go",
+      "lineRange": [
+        53,
+        61
+      ],
+      "summary": "Subscribe 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/ssehub.go:Unsubscribe",
+      "type": "function",
+      "name": "Unsubscribe",
+      "filePath": "internal/worker/ssehub.go",
+      "lineRange": [
+        63,
+        81
+      ],
+      "summary": "Unsubscribe 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/ssehub.go:SSERequireAuth",
+      "type": "function",
+      "name": "SSERequireAuth",
+      "filePath": "internal/worker/ssehub.go",
+      "lineRange": [
+        93,
+        117
+      ],
+      "summary": "SSERequireAuth 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/ssehub.go:SSEHandler",
+      "type": "function",
+      "name": "SSEHandler",
+      "filePath": "internal/worker/ssehub.go",
+      "lineRange": [
+        119,
+        168
+      ],
+      "summary": "SSEHandler 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:internal/worker/ssehub.go:ListHandler",
+      "type": "function",
+      "name": "ListHandler",
+      "filePath": "internal/worker/ssehub.go",
+      "lineRange": [
+        170,
+        192
+      ],
+      "summary": "查询列表型业务数据，并处理分页、游标或排序条件。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/ssehub.go:MarkReadHandler",
+      "type": "function",
+      "name": "MarkReadHandler",
+      "filePath": "internal/worker/ssehub.go",
+      "lineRange": [
+        194,
+        229
+      ],
+      "summary": "MarkReadHandler 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/ssehub.go:UnreadCountHandler",
+      "type": "function",
+      "name": "UnreadCountHandler",
+      "filePath": "internal/worker/ssehub.go",
+      "lineRange": [
+        231,
+        248
+      ],
+      "summary": "UnreadCountHandler 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:internal/worker/ssehub.go:RegisterRoutes",
+      "type": "function",
+      "name": "RegisterRoutes",
+      "filePath": "internal/worker/ssehub.go",
+      "lineRange": [
+        250,
+        259
+      ],
+      "summary": "RegisterRoutes 实现 异步 worker中的一段业务逻辑。",
+      "tags": [
+        "go-function",
+        "业务逻辑"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:internal/account/entity.go",
+      "target": "class:internal/account/entity.go:Account",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/entity.go",
+      "target": "class:internal/account/entity.go:CreateAccountRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/entity.go",
+      "target": "class:internal/account/entity.go:FindByIDRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/entity.go",
+      "target": "class:internal/account/entity.go:FindByIDResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/entity.go",
+      "target": "class:internal/account/entity.go:FindByUsernameRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/entity.go",
+      "target": "class:internal/account/entity.go:FindByUsernameResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/entity.go",
+      "target": "class:internal/account/entity.go:LoginRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/entity.go",
+      "target": "class:internal/account/entity.go:ChangePasswordRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/entity.go",
+      "target": "class:internal/account/entity.go:GetProfileRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/entity.go",
+      "target": "class:internal/account/entity.go:GetProfileResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/entity.go",
+      "target": "class:internal/account/entity.go:LoginResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/entity.go",
+      "target": "class:internal/account/entity.go:RenameRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/entity.go",
+      "target": "class:internal/account/entity.go:UpdateProfileRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/entity.go",
+      "target": "class:internal/account/entity.go:RefreshRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/handler.go",
+      "target": "class:internal/account/handler.go:AccountHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/handler.go",
+      "target": "function:internal/account/handler.go:NewAccountHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/handler.go",
+      "target": "function:internal/account/handler.go:CreateAccount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/handler.go",
+      "target": "function:internal/account/handler.go:Login",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/handler.go",
+      "target": "function:internal/account/handler.go:Logout",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/handler.go",
+      "target": "function:internal/account/handler.go:Rename",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/handler.go",
+      "target": "function:internal/account/handler.go:FindByID",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/handler.go",
+      "target": "function:internal/account/handler.go:FindByUsername",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/handler.go",
+      "target": "function:internal/account/handler.go:UpdateProfile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/handler.go",
+      "target": "function:internal/account/handler.go:UploadAvatar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/handler.go",
+      "target": "function:internal/account/handler.go:Refresh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/handler.go",
+      "target": "function:internal/account/handler.go:buildAbsoluteURL",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/handler.go",
+      "target": "function:internal/account/handler.go:ChangePassword",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/handler.go",
+      "target": "function:internal/account/handler.go:getAccountID",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/handler.go",
+      "target": "file:internal/apierror/apierror.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/account/repo.go",
+      "target": "class:internal/account/repo.go:AccountRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/repo.go",
+      "target": "function:internal/account/repo.go:NewAccountRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/repo.go",
+      "target": "function:internal/account/repo.go:CreateAccount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/repo.go",
+      "target": "function:internal/account/repo.go:FindByID",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/repo.go",
+      "target": "function:internal/account/repo.go:FindByUsername",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/repo.go",
+      "target": "function:internal/account/repo.go:Update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/repo.go",
+      "target": "function:internal/account/repo.go:Login",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/repo.go",
+      "target": "function:internal/account/repo.go:Logout",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/repo.go",
+      "target": "function:internal/account/repo.go:RenameWithToken",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/repo.go",
+      "target": "function:internal/account/repo.go:UpdateToken",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/repo.go",
+      "target": "function:internal/account/repo.go:UpdateAvatar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/repo.go",
+      "target": "function:internal/account/repo.go:UpdateFields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/repo.go",
+      "target": "function:internal/account/repo.go:FindAll",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/repo.go",
+      "target": "function:internal/account/repo.go:ChangePassword",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/service.go",
+      "target": "class:internal/account/service.go:AccountService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/service.go",
+      "target": "function:internal/account/service.go:NewAccountService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/service.go",
+      "target": "function:internal/account/service.go:CreateAccount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/service.go",
+      "target": "function:internal/account/service.go:FindByID",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/service.go",
+      "target": "function:internal/account/service.go:FindByUsername",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/service.go",
+      "target": "function:internal/account/service.go:Login",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/service.go",
+      "target": "function:internal/account/service.go:Logout",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/service.go",
+      "target": "function:internal/account/service.go:Rename",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/service.go",
+      "target": "function:internal/account/service.go:UpdateAvatar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/service.go",
+      "target": "function:internal/account/service.go:UpdateProfile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/service.go",
+      "target": "function:internal/account/service.go:RefreshAccessToken",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/service.go",
+      "target": "function:internal/account/service.go:ChangePassword",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/account/service.go",
+      "target": "file:internal/auth/jwt.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/account/service.go",
+      "target": "file:internal/middleware/redis/cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/account/service.go",
+      "target": "file:internal/middleware/redis/redis_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/account/service.go",
+      "target": "file:internal/middleware/redis/redis.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/account/service.go",
+      "target": "file:internal/middleware/redis/zset.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/apierror/apierror.go",
+      "target": "function:internal/apierror/apierror.go:ClassifyHTTPStatus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/auth/jwt.go",
+      "target": "class:internal/auth/jwt.go:Claims",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/auth/jwt.go",
+      "target": "function:internal/auth/jwt.go:jwtSecret",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/auth/jwt.go",
+      "target": "function:internal/auth/jwt.go:GenerateToken",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/auth/jwt.go",
+      "target": "function:internal/auth/jwt.go:GenerateRefreshToken",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/auth/jwt.go",
+      "target": "function:internal/auth/jwt.go:ParseToken",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "function:internal/db/db.go:NewDB",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "function:internal/db/db.go:AutoMigrate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "function:internal/db/db.go:CloseDB",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/account/entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/account/handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/account/repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/account/service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/config/loadConfig.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/message/entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/message/handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/social/entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/social/handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/social/repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/social/service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/video/chunk_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/video/chunk_handler_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/video/chunk_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/video/comment_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/video/comment_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/video/comment_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/video/comment_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/video/like_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/video/like_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/video/like_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/video/like_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/video/popularity_cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/video/tag_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/video/video_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/video/video_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/video/video_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/video/video_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/worker/commentworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/worker/likeworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/worker/notificationworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/worker/outboxworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/worker/popularityworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/worker/socialworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/db/db.go",
+      "target": "file:internal/worker/ssehub.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/entity.go",
+      "target": "class:internal/feed/entity.go:FeedAuthor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/entity.go",
+      "target": "class:internal/feed/entity.go:FeedVideoItem",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/entity.go",
+      "target": "class:internal/feed/entity.go:ListLatestRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/entity.go",
+      "target": "class:internal/feed/entity.go:ListLatestResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/entity.go",
+      "target": "class:internal/feed/entity.go:ListByFollowingRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/entity.go",
+      "target": "class:internal/feed/entity.go:ListByFollowingResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/entity.go",
+      "target": "class:internal/feed/entity.go:ListLikesCountRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/entity.go",
+      "target": "class:internal/feed/entity.go:LikesCountCursor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/entity.go",
+      "target": "class:internal/feed/entity.go:ListLikesCountResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/entity.go",
+      "target": "class:internal/feed/entity.go:ListByTagRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/entity.go",
+      "target": "class:internal/feed/entity.go:ListByTagResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/entity.go",
+      "target": "class:internal/feed/entity.go:PopularityCursor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/entity.go",
+      "target": "class:internal/feed/entity.go:ListByPopularityRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/entity.go",
+      "target": "class:internal/feed/entity.go:ListByPopularityResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/handler.go",
+      "target": "class:internal/feed/handler.go:FeedHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/handler.go",
+      "target": "function:internal/feed/handler.go:NewFeedHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/handler.go",
+      "target": "function:internal/feed/handler.go:ListLatest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/handler.go",
+      "target": "function:internal/feed/handler.go:ListByFollowing",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/handler.go",
+      "target": "function:internal/feed/handler.go:ListLikesCount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/handler.go",
+      "target": "function:internal/feed/handler.go:ListByTag",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/handler.go",
+      "target": "function:internal/feed/handler.go:ListByPopularity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/feed/handler.go",
+      "target": "file:internal/apierror/apierror.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/feed/handler.go",
+      "target": "file:internal/middleware/jwt/jwt.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "function:internal/http/router.go:SetupRouter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/account/entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/account/handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/account/repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/account/service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/feed/entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/feed/handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/feed/repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/feed/service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/message/entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/message/handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/middleware/jwt/jwt.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/middleware/rabbitmq/commentMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/middleware/rabbitmq/dlx.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/middleware/rabbitmq/likeMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/middleware/rabbitmq/popularityMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/middleware/rabbitmq/rabbitMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/middleware/rabbitmq/socialMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/middleware/rabbitmq/timelineMQ.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/middleware/ratelimit/ratelimit.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/middleware/redis/cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/middleware/redis/redis_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/middleware/redis/redis.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/middleware/redis/zset.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/social/entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/social/handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/social/repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/social/service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/video/chunk_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/video/chunk_handler_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/video/chunk_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/video/comment_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/video/comment_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/video/comment_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/video/comment_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/video/like_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/video/like_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/video/like_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/video/like_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/video/popularity_cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/video/tag_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/video/video_entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/video/video_handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/video/video_repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/video/video_service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/worker/commentworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/worker/likeworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/worker/notificationworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/worker/outboxworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/worker/popularityworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/worker/socialworker.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/http/router.go",
+      "target": "file:internal/worker/ssehub.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/message/entity.go",
+      "target": "class:internal/message/entity.go:Message",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/message/entity.go",
+      "target": "class:internal/message/entity.go:SendRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/message/entity.go",
+      "target": "class:internal/message/entity.go:ListRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/message/entity.go",
+      "target": "class:internal/message/entity.go:ListResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/message/handler.go",
+      "target": "class:internal/message/handler.go:Repository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/message/handler.go",
+      "target": "class:internal/message/handler.go:Service",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/message/handler.go",
+      "target": "class:internal/message/handler.go:Handler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/message/handler.go",
+      "target": "function:internal/message/handler.go:NewRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/message/handler.go",
+      "target": "function:internal/message/handler.go:NewService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/message/handler.go",
+      "target": "function:internal/message/handler.go:NewHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/message/handler.go",
+      "target": "function:internal/message/handler.go:AutoMigrate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/message/handler.go",
+      "target": "function:internal/message/handler.go:Send",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/message/handler.go",
+      "target": "function:internal/message/handler.go:List",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/message/handler.go",
+      "target": "file:internal/apierror/apierror.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/message/handler.go",
+      "target": "file:internal/middleware/jwt/jwt.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/middleware/jwt/jwt.go",
+      "target": "function:internal/middleware/jwt/jwt.go:JWTAuth",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/jwt/jwt.go",
+      "target": "function:internal/middleware/jwt/jwt.go:SoftJWTAuth",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/jwt/jwt.go",
+      "target": "function:internal/middleware/jwt/jwt.go:check",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/jwt/jwt.go",
+      "target": "function:internal/middleware/jwt/jwt.go:GetAccountID",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/jwt/jwt.go",
+      "target": "function:internal/middleware/jwt/jwt.go:GetUsername",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/middleware/jwt/jwt.go",
+      "target": "file:internal/account/entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/middleware/jwt/jwt.go",
+      "target": "file:internal/account/handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/middleware/jwt/jwt.go",
+      "target": "file:internal/account/repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/middleware/jwt/jwt.go",
+      "target": "file:internal/account/service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/middleware/jwt/jwt.go",
+      "target": "file:internal/auth/jwt.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/middleware/jwt/jwt.go",
+      "target": "file:internal/middleware/redis/cache.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/middleware/jwt/jwt.go",
+      "target": "file:internal/middleware/redis/redis_test.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/middleware/jwt/jwt.go",
+      "target": "file:internal/middleware/redis/redis.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/middleware/jwt/jwt.go",
+      "target": "file:internal/middleware/redis/zset.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/entity.go",
+      "target": "class:internal/social/entity.go:Social",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/entity.go",
+      "target": "class:internal/social/entity.go:FollowRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/entity.go",
+      "target": "class:internal/social/entity.go:UnfollowRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/entity.go",
+      "target": "class:internal/social/entity.go:GetAllFollowersRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/entity.go",
+      "target": "class:internal/social/entity.go:GetAllVloggersRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/entity.go",
+      "target": "class:internal/social/entity.go:GetAllFollowersResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/entity.go",
+      "target": "class:internal/social/entity.go:GetAllVloggersResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/entity.go",
+      "target": "class:internal/social/entity.go:SocialCounts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/entity.go",
+      "target": "file:internal/account/entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/entity.go",
+      "target": "file:internal/account/handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/entity.go",
+      "target": "file:internal/account/repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/entity.go",
+      "target": "file:internal/account/service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/handler.go",
+      "target": "class:internal/social/handler.go:SocialHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/handler.go",
+      "target": "function:internal/social/handler.go:NewSocialHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/handler.go",
+      "target": "function:internal/social/handler.go:Follow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/handler.go",
+      "target": "function:internal/social/handler.go:Unfollow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/handler.go",
+      "target": "function:internal/social/handler.go:GetAllFollowers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/handler.go",
+      "target": "function:internal/social/handler.go:GetAllVloggers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/handler.go",
+      "target": "function:internal/social/handler.go:GetCounts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/handler.go",
+      "target": "file:internal/account/entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/handler.go",
+      "target": "file:internal/account/handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/handler.go",
+      "target": "file:internal/account/repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/handler.go",
+      "target": "file:internal/account/service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/handler.go",
+      "target": "file:internal/apierror/apierror.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/handler.go",
+      "target": "file:internal/middleware/jwt/jwt.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/repo.go",
+      "target": "class:internal/social/repo.go:SocialRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/repo.go",
+      "target": "function:internal/social/repo.go:NewSocialRepository",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/repo.go",
+      "target": "function:internal/social/repo.go:Follow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/repo.go",
+      "target": "function:internal/social/repo.go:Unfollow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/repo.go",
+      "target": "function:internal/social/repo.go:IsFollowed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/repo.go",
+      "target": "function:internal/social/repo.go:GetAllFollowers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/repo.go",
+      "target": "function:internal/social/repo.go:GetAllVloggers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/repo.go",
+      "target": "function:internal/social/repo.go:CountFollowers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/repo.go",
+      "target": "function:internal/social/repo.go:CountVloggers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/social/repo.go",
+      "target": "file:internal/account/entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/repo.go",
+      "target": "file:internal/account/handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/repo.go",
+      "target": "file:internal/account/repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/social/repo.go",
+      "target": "file:internal/account/service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_handler.go",
+      "target": "class:internal/video/comment_handler.go:CommentHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_handler.go",
+      "target": "function:internal/video/comment_handler.go:NewCommentHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_handler.go",
+      "target": "function:internal/video/comment_handler.go:PublishComment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_handler.go",
+      "target": "function:internal/video/comment_handler.go:DeleteComment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_handler.go",
+      "target": "function:internal/video/comment_handler.go:GetAllComments",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/video/comment_handler.go",
+      "target": "file:internal/account/entity.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_handler.go",
+      "target": "file:internal/account/handler.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_handler.go",
+      "target": "file:internal/account/repo.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_handler.go",
+      "target": "file:internal/account/service.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_handler.go",
+      "target": "file:internal/apierror/apierror.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/video/comment_handler.go",
+      "target": "file:internal/middleware/jwt/jwt.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:internal/worker/ssehub.go",
+      "target": "class:internal/worker/ssehub.go:SSEHub",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/ssehub.go",
+      "target": "function:internal/worker/ssehub.go:NewSSEHub",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/ssehub.go",
+      "target": "function:internal/worker/ssehub.go:Push",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/ssehub.go",
+      "target": "function:internal/worker/ssehub.go:Subscribe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/ssehub.go",
+      "target": "function:internal/worker/ssehub.go:Unsubscribe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/ssehub.go",
+      "target": "function:internal/worker/ssehub.go:SSERequireAuth",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/ssehub.go",
+      "target": "function:internal/worker/ssehub.go:SSEHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/ssehub.go",
+      "target": "function:internal/worker/ssehub.go:ListHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/ssehub.go",
+      "target": "function:internal/worker/ssehub.go:MarkReadHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/ssehub.go",
+      "target": "function:internal/worker/ssehub.go:UnreadCountHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/ssehub.go",
+      "target": "function:internal/worker/ssehub.go:RegisterRoutes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:internal/worker/ssehub.go",
+      "target": "file:internal/auth/jwt.go",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

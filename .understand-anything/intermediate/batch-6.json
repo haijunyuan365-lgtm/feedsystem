@@ -1,0 +1,108 @@
+{
+  "nodes": [
+    {
+      "id": "config:configs/config.compose-local.yaml",
+      "type": "config",
+      "name": "config.compose-local.yaml",
+      "filePath": "configs/config.compose-local.yaml",
+      "summary": "运行环境 YAML 配置，定义服务器端口、数据库、Redis、RabbitMQ 与 pprof 等连接参数。",
+      "tags": [
+        "configuration",
+        "runtime-config",
+        "yaml"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/config.docker.yaml",
+      "type": "config",
+      "name": "config.docker.yaml",
+      "filePath": "configs/config.docker.yaml",
+      "summary": "运行环境 YAML 配置，定义服务器端口、数据库、Redis、RabbitMQ 与 pprof 等连接参数。",
+      "tags": [
+        "configuration",
+        "runtime-config",
+        "yaml"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:configs/config.yaml",
+      "type": "config",
+      "name": "config.yaml",
+      "filePath": "configs/config.yaml",
+      "summary": "运行环境 YAML 配置，定义服务器端口、数据库、Redis、RabbitMQ 与 pprof 等连接参数。",
+      "tags": [
+        "configuration",
+        "runtime-config",
+        "yaml"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "config:configs/config.compose-local.yaml",
+      "target": "file:cmd/main.go",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:configs/config.compose-local.yaml",
+      "target": "file:cmd/worker/main.go",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:configs/config.compose-local.yaml",
+      "target": "file:internal/config/loadConfig.go",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:configs/config.docker.yaml",
+      "target": "file:cmd/main.go",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:configs/config.docker.yaml",
+      "target": "file:cmd/worker/main.go",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:configs/config.docker.yaml",
+      "target": "file:internal/config/loadConfig.go",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:configs/config.yaml",
+      "target": "file:cmd/main.go",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:configs/config.yaml",
+      "target": "file:cmd/worker/main.go",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:configs/config.yaml",
+      "target": "file:internal/config/loadConfig.go",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,7921 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "3ea9471807514cbfc92667706da564728c78fe0b",
+  "generatedAt": "2026-06-30T11:04:57.390Z",
+  "files": {
+    ".dockerignore": {
+      "filePath": ".dockerignore",
+      "contentHash": "5ee662d185bb3fa8d7d2ad9c8aaceeaeda06669ec2bd1d37e403a7f462f92b9e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": false
+    },
+    "cmd/main.go": {
+      "filePath": "cmd/main.go",
+      "contentHash": "7277b3b5119565d0864a51a91d81686d6dbd9110936f4f01776017c302ef19d6",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "exported": false,
+          "lineCount": 79
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/config",
+          "specifiers": [
+            "config"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/db",
+          "specifiers": [
+            "db"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/http",
+          "specifiers": [
+            "apphttp"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/rabbitmq",
+          "specifiers": [
+            "rabbitmq"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/redis",
+          "specifiers": [
+            "rediscache"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/observability",
+          "specifiers": [
+            "observability"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "strconv",
+          "specifiers": [
+            "strconv"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/joho/godotenv",
+          "specifiers": [
+            "godotenv"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 98,
+      "hasStructuralAnalysis": true
+    },
+    "cmd/worker/main.go": {
+      "filePath": "cmd/worker/main.go",
+      "contentHash": "2bcddadc58f5255e982685fa90126694ebf8406802c89d51a9114185020e6749",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "exported": false,
+          "lineCount": 109
+        },
+        {
+          "name": "runWorkerWithRetry",
+          "params": [
+            "ctx",
+            "name",
+            "conn",
+            "fn"
+          ],
+          "exported": false,
+          "lineCount": 30
+        },
+        {
+          "name": "connectWithRetry",
+          "params": [
+            "name",
+            "maxRetries",
+            "fn"
+          ],
+          "exported": false,
+          "lineCount": 17
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/config",
+          "specifiers": [
+            "config"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/db",
+          "specifiers": [
+            "db"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/rabbitmq",
+          "specifiers": [
+            "rabbitmq"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/redis",
+          "specifiers": [
+            "rediscache"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/observability",
+          "specifiers": [
+            "observability"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/social",
+          "specifiers": [
+            "social"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/video",
+          "specifiers": [
+            "video"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/worker",
+          "specifiers": [
+            "worker"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "os/signal",
+          "specifiers": [
+            "signal"
+          ]
+        },
+        {
+          "source": "syscall",
+          "specifiers": [
+            "syscall"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/joho/godotenv",
+          "specifiers": [
+            "godotenv"
+          ]
+        },
+        {
+          "source": "github.com/rabbitmq/amqp091-go",
+          "specifiers": [
+            "amqp"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 199,
+      "hasStructuralAnalysis": true
+    },
+    "configs/config.compose-local.yaml": {
+      "filePath": "configs/config.compose-local.yaml",
+      "contentHash": "f787f83523d1d5d961c7fff392905865502d973fa411a8f64118c95b60b8660d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "configs/config.docker.yaml": {
+      "filePath": "configs/config.docker.yaml",
+      "contentHash": "5adec04ef2a5a3008e132aa9250b1fe67950d7b8f6c7e817f5845983acdd012d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "configs/config.yaml": {
+      "filePath": "configs/config.yaml",
+      "contentHash": "0657b4000ac1cc8fd8b16ce16a91e2934609d59c7c613ab8b439ab3fa546f368",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "docker-compose.yml": {
+      "filePath": "docker-compose.yml",
+      "contentHash": "9a36929461e5cc1eb8e362da28bf29261d8786afcf55c0a224682ce3011b0dea",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 103,
+      "hasStructuralAnalysis": true
+    },
+    "Dockerfile": {
+      "filePath": "Dockerfile",
+      "contentHash": "2da549e430696e3f121e15ef3e5f4c7a32ed133d14762893cf6dad295ffd67c6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 59,
+      "hasStructuralAnalysis": true
+    },
+    "go.mod": {
+      "filePath": "go.mod",
+      "contentHash": "86f52a92bb74e87b38dbc874697f4f1a95a873ab7115d129675c4395c4d6f665",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 57,
+      "hasStructuralAnalysis": false
+    },
+    "go.sum": {
+      "filePath": "go.sum",
+      "contentHash": "b45a4d11a9fb48206473cba6b39b3aefb7b9b14cbde2b06e19ceb13d4008afb7",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 138,
+      "hasStructuralAnalysis": false
+    },
+    "internal/account/entity.go": {
+      "filePath": "internal/account/entity.go",
+      "contentHash": "93e051ffa318d6e8314d3a007c625955f7ca4eef91f23372f27365fc0e71371a",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Account",
+          "methods": [],
+          "properties": [
+            "ID",
+            "Username",
+            "Password",
+            "Token",
+            "RefreshToken",
+            "AvatarURL",
+            "Bio"
+          ],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "CreateAccountRequest",
+          "methods": [],
+          "properties": [
+            "Username",
+            "Password"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "FindByIDRequest",
+          "methods": [],
+          "properties": [
+            "ID"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "FindByIDResponse",
+          "methods": [],
+          "properties": [
+            "ID",
+            "Username",
+            "AvatarURL",
+            "Bio"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "FindByUsernameRequest",
+          "methods": [],
+          "properties": [
+            "Username"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "FindByUsernameResponse",
+          "methods": [],
+          "properties": [
+            "ID",
+            "Username",
+            "AvatarURL",
+            "Bio"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "LoginRequest",
+          "methods": [],
+          "properties": [
+            "Username",
+            "Password"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "ChangePasswordRequest",
+          "methods": [],
+          "properties": [
+            "OldPassword",
+            "NewPassword"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "GetProfileRequest",
+          "methods": [],
+          "properties": [
+            "AccountID"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "GetProfileResponse",
+          "methods": [],
+          "properties": [
+            "Account",
+            "VideoCount",
+            "TotalLikes",
+            "FollowerCount",
+            "VloggerCount"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "LoginResponse",
+          "methods": [],
+          "properties": [
+            "Token",
+            "RefreshToken",
+            "AccountID",
+            "Username"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "RenameRequest",
+          "methods": [],
+          "properties": [
+            "NewUsername"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "UpdateProfileRequest",
+          "methods": [],
+          "properties": [
+            "AvatarURL",
+            "Bio"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "RefreshRequest",
+          "methods": [],
+          "properties": [
+            "RefreshToken"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "Account",
+        "CreateAccountRequest",
+        "FindByIDRequest",
+        "FindByIDResponse",
+        "FindByUsernameRequest",
+        "FindByUsernameResponse",
+        "LoginRequest",
+        "ChangePasswordRequest",
+        "GetProfileRequest",
+        "GetProfileResponse",
+        "LoginResponse",
+        "RenameRequest",
+        "UpdateProfileRequest",
+        "RefreshRequest"
+      ],
+      "totalLines": 81,
+      "hasStructuralAnalysis": true
+    },
+    "internal/account/handler.go": {
+      "filePath": "internal/account/handler.go",
+      "contentHash": "40b2649e1211ceef05691a6061b30280e7d925c1df9ff7ad951518d481989412",
+      "functions": [
+        {
+          "name": "NewAccountHandler",
+          "params": [
+            "accountService"
+          ],
+          "returnType": "*AccountHandler",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "CreateAccount",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 24
+        },
+        {
+          "name": "Login",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 26
+        },
+        {
+          "name": "Logout",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "Rename",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 30
+        },
+        {
+          "name": "FindByID",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 24
+        },
+        {
+          "name": "FindByUsername",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "UpdateProfile",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 20
+        },
+        {
+          "name": "UploadAvatar",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 56
+        },
+        {
+          "name": "Refresh",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 19
+        },
+        {
+          "name": "randHex",
+          "params": [
+            "n"
+          ],
+          "returnType": "(string, error)",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "buildAbsoluteURL",
+          "params": [
+            "c",
+            "p"
+          ],
+          "returnType": "string",
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "ChangePassword",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 20
+        },
+        {
+          "name": "getAccountID",
+          "params": [
+            "c"
+          ],
+          "returnType": "(uint, error)",
+          "exported": false,
+          "lineCount": 11
+        }
+      ],
+      "classes": [
+        {
+          "name": "AccountHandler",
+          "methods": [
+            "CreateAccount",
+            "Login",
+            "Logout",
+            "Rename",
+            "FindByID",
+            "FindByUsername",
+            "UpdateProfile",
+            "UploadAvatar",
+            "Refresh",
+            "ChangePassword"
+          ],
+          "properties": [
+            "accountService"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "crypto/rand",
+          "specifiers": [
+            "rand"
+          ]
+        },
+        {
+          "source": "encoding/hex",
+          "specifiers": [
+            "hex"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/apierror",
+          "specifiers": [
+            "apierror"
+          ]
+        },
+        {
+          "source": "fmt",
+          "specifiers": [
+            "fmt"
+          ]
+        },
+        {
+          "source": "net/http",
+          "specifiers": [
+            "http"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "path",
+          "specifiers": [
+            "path"
+          ]
+        },
+        {
+          "source": "path/filepath",
+          "specifiers": [
+            "filepath"
+          ]
+        },
+        {
+          "source": "strconv",
+          "specifiers": [
+            "strconv"
+          ]
+        },
+        {
+          "source": "strings",
+          "specifiers": [
+            "strings"
+          ]
+        },
+        {
+          "source": "github.com/gin-gonic/gin",
+          "specifiers": [
+            "gin"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [
+        "AccountHandler",
+        "NewAccountHandler",
+        "CreateAccount",
+        "Login",
+        "Logout",
+        "Rename",
+        "FindByID",
+        "FindByUsername",
+        "UpdateProfile",
+        "UploadAvatar",
+        "Refresh",
+        "ChangePassword"
+      ],
+      "totalLines": 330,
+      "hasStructuralAnalysis": true
+    },
+    "internal/account/repo.go": {
+      "filePath": "internal/account/repo.go",
+      "contentHash": "a7c5491a450ac89796f46890467bef5aee1943420b597a7418eb141f68ca8845",
+      "functions": [
+        {
+          "name": "NewAccountRepository",
+          "params": [
+            "db"
+          ],
+          "returnType": "*AccountRepository",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "CreateAccount",
+          "params": [
+            "ctx",
+            "account"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "FindByID",
+          "params": [
+            "ctx",
+            "id"
+          ],
+          "returnType": "(*Account, error)",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "FindByUsername",
+          "params": [
+            "ctx",
+            "username"
+          ],
+          "returnType": "(*Account, error)",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "Update",
+          "params": [
+            "ctx",
+            "account"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Login",
+          "params": [
+            "ctx",
+            "id",
+            "token",
+            "refreshToken"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "Logout",
+          "params": [
+            "ctx",
+            "id"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "RenameWithToken",
+          "params": [
+            "ctx",
+            "id",
+            "newUsername",
+            "token"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "UpdateToken",
+          "params": [
+            "ctx",
+            "id",
+            "token"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "UpdateAvatar",
+          "params": [
+            "ctx",
+            "accountID",
+            "avatarURL"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "UpdateFields",
+          "params": [
+            "ctx",
+            "id",
+            "updates"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "FindAll",
+          "params": [
+            "ctx"
+          ],
+          "returnType": "([]*Account, error)",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "ChangePassword",
+          "params": [
+            "ctx",
+            "id",
+            "newPassword"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "AccountRepository",
+          "methods": [
+            "CreateAccount",
+            "FindByID",
+            "FindByUsername",
+            "Update",
+            "Login",
+            "Logout",
+            "RenameWithToken",
+            "UpdateToken",
+            "UpdateAvatar",
+            "UpdateFields",
+            "FindAll",
+            "ChangePassword"
+          ],
+          "properties": [
+            "db"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [
+        "AccountRepository",
+        "NewAccountRepository",
+        "CreateAccount",
+        "FindByID",
+        "FindByUsername",
+        "Update",
+        "Login",
+        "Logout",
+        "RenameWithToken",
+        "UpdateToken",
+        "UpdateAvatar",
+        "UpdateFields",
+        "FindAll",
+        "ChangePassword"
+      ],
+      "totalLines": 96,
+      "hasStructuralAnalysis": true
+    },
+    "internal/account/service.go": {
+      "filePath": "internal/account/service.go",
+      "contentHash": "fbc5c3c24d27e27883820b5338327b0ef34aa68099406aa9a07d66d0bf6e948b",
+      "functions": [
+        {
+          "name": "NewAccountService",
+          "params": [
+            "accountRepository",
+            "cache"
+          ],
+          "returnType": "*AccountService",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "CreateAccount",
+          "params": [
+            "ctx",
+            "account"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 24
+        },
+        {
+          "name": "FindByID",
+          "params": [
+            "ctx",
+            "id"
+          ],
+          "returnType": "(*Account, error)",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "FindByUsername",
+          "params": [
+            "ctx",
+            "username"
+          ],
+          "returnType": "(*Account, error)",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "Login",
+          "params": [
+            "ctx",
+            "username",
+            "password"
+          ],
+          "returnType": "(string, string, error)",
+          "exported": true,
+          "lineCount": 53
+        },
+        {
+          "name": "Logout",
+          "params": [
+            "ctx",
+            "accountID"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 31
+        },
+        {
+          "name": "Rename",
+          "params": [
+            "ctx",
+            "accountID",
+            "newUsername"
+          ],
+          "returnType": "(string, error)",
+          "exported": true,
+          "lineCount": 30
+        },
+        {
+          "name": "UpdateAvatar",
+          "params": [
+            "ctx",
+            "accountID",
+            "avatarURL"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "UpdateProfile",
+          "params": [
+            "ctx",
+            "accountID",
+            "req"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 23
+        },
+        {
+          "name": "RefreshAccessToken",
+          "params": [
+            "ctx",
+            "refreshToken"
+          ],
+          "returnType": "(string, uint, string, error)",
+          "exported": true,
+          "lineCount": 66
+        },
+        {
+          "name": "ChangePassword",
+          "params": [
+            "ctx",
+            "accountID",
+            "oldPassword",
+            "newPassword"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 20
+        }
+      ],
+      "classes": [
+        {
+          "name": "AccountService",
+          "methods": [
+            "CreateAccount",
+            "FindByID",
+            "FindByUsername",
+            "Login",
+            "Logout",
+            "Rename",
+            "UpdateAvatar",
+            "UpdateProfile",
+            "RefreshAccessToken",
+            "ChangePassword"
+          ],
+          "properties": [
+            "accountRepository",
+            "cache"
+          ],
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/auth",
+          "specifiers": [
+            "auth"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/redis",
+          "specifiers": [
+            "rediscache"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "strconv",
+          "specifiers": [
+            "strconv"
+          ]
+        },
+        {
+          "source": "strings",
+          "specifiers": [
+            "strings"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/go-sql-driver/mysql",
+          "specifiers": [
+            "mysql"
+          ]
+        },
+        {
+          "source": "golang.org/x/crypto/bcrypt",
+          "specifiers": [
+            "bcrypt"
+          ]
+        }
+      ],
+      "exports": [
+        "AccountService",
+        "NewAccountService",
+        "CreateAccount",
+        "FindByID",
+        "FindByUsername",
+        "Login",
+        "Logout",
+        "Rename",
+        "UpdateAvatar",
+        "UpdateProfile",
+        "RefreshAccessToken",
+        "ChangePassword"
+      ],
+      "totalLines": 305,
+      "hasStructuralAnalysis": true
+    },
+    "internal/apierror/apierror.go": {
+      "filePath": "internal/apierror/apierror.go",
+      "contentHash": "7d14c25ba9909cdf82846b5342064e07ccf401dc4c0a16e756eef1012c1c6f00",
+      "functions": [
+        {
+          "name": "ClassifyHTTPStatus",
+          "params": [
+            "err"
+          ],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 14
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "net/http",
+          "specifiers": [
+            "http"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [
+        "ClassifyHTTPStatus"
+      ],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "internal/auth/jwt.go": {
+      "filePath": "internal/auth/jwt.go",
+      "contentHash": "a7501f1113f9afd49478c5cc3afbced4ff73e4fc9c77818c853a4dbf24fd02cf",
+      "functions": [
+        {
+          "name": "jwtSecret",
+          "params": [],
+          "returnType": "[]byte",
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "GenerateToken",
+          "params": [
+            "accountID",
+            "username"
+          ],
+          "returnType": "(string, error)",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "GenerateRefreshToken",
+          "params": [
+            "accountID"
+          ],
+          "returnType": "(string, error)",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "ParseToken",
+          "params": [
+            "tokenString"
+          ],
+          "returnType": "(*Claims, error)",
+          "exported": true,
+          "lineCount": 21
+        }
+      ],
+      "classes": [
+        {
+          "name": "Claims",
+          "methods": [],
+          "properties": [
+            "AccountID",
+            "Username"
+          ],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "imports": [
+        {
+          "source": "crypto/rand",
+          "specifiers": [
+            "rand"
+          ]
+        },
+        {
+          "source": "encoding/hex",
+          "specifiers": [
+            "hex"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/golang-jwt/jwt/v5",
+          "specifiers": [
+            "v5"
+          ]
+        }
+      ],
+      "exports": [
+        "Claims",
+        "GenerateToken",
+        "GenerateRefreshToken",
+        "ParseToken"
+      ],
+      "totalLines": 83,
+      "hasStructuralAnalysis": true
+    },
+    "internal/config/loadConfig.go": {
+      "filePath": "internal/config/loadConfig.go",
+      "contentHash": "1566bdde2a646a19aa1fdfb608dc50ecd6abc61469e01571eba140517dbdc719",
+      "functions": [
+        {
+          "name": "LoadLocalDev",
+          "params": [
+            "configPath"
+          ],
+          "returnType": "(Config, bool, error)",
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "Load",
+          "params": [
+            "configPath"
+          ],
+          "returnType": "(Config, error)",
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "DefaultLocalConfig",
+          "params": [],
+          "returnType": "Config",
+          "exported": true,
+          "lineCount": 36
+        },
+        {
+          "name": "ApplyEnvOverrides",
+          "params": [
+            "cfg"
+          ],
+          "exported": true,
+          "lineCount": 61
+        }
+      ],
+      "classes": [
+        {
+          "name": "Config",
+          "methods": [],
+          "properties": [
+            "Server",
+            "Database",
+            "Redis",
+            "RabbitMQ",
+            "ObservabilityConfig"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "ServerConfig",
+          "methods": [],
+          "properties": [
+            "Port"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "DatabaseConfig",
+          "methods": [],
+          "properties": [
+            "Host",
+            "Port",
+            "Username",
+            "Password",
+            "DBName"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "RedisConfig",
+          "methods": [],
+          "properties": [
+            "Host",
+            "Port",
+            "Password",
+            "DB"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "RabbitMQConfig",
+          "methods": [],
+          "properties": [
+            "Host",
+            "Port",
+            "Username",
+            "Password"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "ObservabilityConfig",
+          "methods": [],
+          "properties": [
+            "Pprof"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "PprofConfig",
+          "methods": [],
+          "properties": [
+            "Enabled",
+            "ApiAddr",
+            "WorkerAddr"
+          ],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "imports": [
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "fmt",
+          "specifiers": [
+            "fmt"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "strconv",
+          "specifiers": [
+            "strconv"
+          ]
+        },
+        {
+          "source": "gopkg.in/yaml.v3",
+          "specifiers": [
+            "yaml.v3"
+          ]
+        }
+      ],
+      "exports": [
+        "Config",
+        "ServerConfig",
+        "DatabaseConfig",
+        "RedisConfig",
+        "RabbitMQConfig",
+        "ObservabilityConfig",
+        "PprofConfig",
+        "LoadLocalDev",
+        "Load",
+        "DefaultLocalConfig",
+        "ApplyEnvOverrides"
+      ],
+      "totalLines": 184,
+      "hasStructuralAnalysis": true
+    },
+    "internal/db/db.go": {
+      "filePath": "internal/db/db.go",
+      "contentHash": "d1ed33569eb700b847e837c58e894679938449c6453749bf147314cfcd3444a5",
+      "functions": [
+        {
+          "name": "NewDB",
+          "params": [
+            "dbCfg"
+          ],
+          "returnType": "(*gorm.DB, error)",
+          "exported": true,
+          "lineCount": 31
+        },
+        {
+          "name": "AutoMigrate",
+          "params": [
+            "db"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "CloseDB",
+          "params": [
+            "db"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "feedsystem/internal/account",
+          "specifiers": [
+            "account"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/config",
+          "specifiers": [
+            "config"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/message",
+          "specifiers": [
+            "message"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/social",
+          "specifiers": [
+            "social"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/video",
+          "specifiers": [
+            "video2"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/worker",
+          "specifiers": [
+            "worker"
+          ]
+        },
+        {
+          "source": "fmt",
+          "specifiers": [
+            "fmt"
+          ]
+        },
+        {
+          "source": "gorm.io/driver/mysql",
+          "specifiers": [
+            "mysql"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [
+        "NewDB",
+        "AutoMigrate",
+        "CloseDB"
+      ],
+      "totalLines": 72,
+      "hasStructuralAnalysis": true
+    },
+    "internal/feed/entity.go": {
+      "filePath": "internal/feed/entity.go",
+      "contentHash": "5a4333fe49f040569a56120435b2dcdda16595cf60f0037c9f052c79110f7d47",
+      "functions": [],
+      "classes": [
+        {
+          "name": "FeedAuthor",
+          "methods": [],
+          "properties": [
+            "ID",
+            "Username"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "FeedVideoItem",
+          "methods": [],
+          "properties": [
+            "ID",
+            "Author",
+            "Title",
+            "Description",
+            "PlayURL",
+            "CoverURL",
+            "CreateTime",
+            "LikesCount",
+            "IsLiked"
+          ],
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "ListLatestRequest",
+          "methods": [],
+          "properties": [
+            "Limit",
+            "LatestTime"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "ListLatestResponse",
+          "methods": [],
+          "properties": [
+            "VideoList",
+            "NextTime",
+            "HasMore"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "ListByFollowingRequest",
+          "methods": [],
+          "properties": [
+            "Limit",
+            "LatestTime"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "ListByFollowingResponse",
+          "methods": [],
+          "properties": [
+            "VideoList",
+            "NextTime",
+            "HasMore"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "ListLikesCountRequest",
+          "methods": [],
+          "properties": [
+            "Limit",
+            "LikesCountBefore",
+            "IDBefore"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "LikesCountCursor",
+          "methods": [],
+          "properties": [
+            "LikesCount",
+            "ID"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "ListLikesCountResponse",
+          "methods": [],
+          "properties": [
+            "VideoList",
+            "NextLikesCountBefore",
+            "NextIDBefore",
+            "HasMore"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "ListByTagRequest",
+          "methods": [],
+          "properties": [
+            "TagName",
+            "Limit"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "ListByTagResponse",
+          "methods": [],
+          "properties": [
+            "VideoList"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "PopularityCursor",
+          "methods": [],
+          "properties": [
+            "Popularity",
+            "CreateTime",
+            "ID"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "ListByPopularityRequest",
+          "methods": [],
+          "properties": [
+            "Limit",
+            "AsOf",
+            "Offset",
+            "LatestIDBefore",
+            "LatestPopularity",
+            "LatestBefore"
+          ],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "ListByPopularityResponse",
+          "methods": [],
+          "properties": [
+            "VideoList",
+            "AsOf",
+            "NextOffset",
+            "HasMore",
+            "NextLatestPopularity",
+            "NextLatestBefore",
+            "NextLatestIDBefore"
+          ],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "imports": [
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        }
+      ],
+      "exports": [
+        "FeedAuthor",
+        "FeedVideoItem",
+        "ListLatestRequest",
+        "ListLatestResponse",
+        "ListByFollowingRequest",
+        "ListByFollowingResponse",
+        "ListLikesCountRequest",
+        "LikesCountCursor",
+        "ListLikesCountResponse",
+        "ListByTagRequest",
+        "ListByTagResponse",
+        "PopularityCursor",
+        "ListByPopularityRequest",
+        "ListByPopularityResponse"
+      ],
+      "totalLines": 100,
+      "hasStructuralAnalysis": true
+    },
+    "internal/feed/handler.go": {
+      "filePath": "internal/feed/handler.go",
+      "contentHash": "07b9a250a9a90a12084c47743f19a0799faf258390187a83be65677b1668491e",
+      "functions": [
+        {
+          "name": "NewFeedHandler",
+          "params": [
+            "service"
+          ],
+          "returnType": "*FeedHandler",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "ListLatest",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 32
+        },
+        {
+          "name": "ListByFollowing",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 32
+        },
+        {
+          "name": "nonNilFeedVideoItems",
+          "params": [
+            "items"
+          ],
+          "returnType": "[]FeedVideoItem",
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "ListLikesCount",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 54
+        },
+        {
+          "name": "ListByTag",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 31
+        },
+        {
+          "name": "ListByPopularity",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 56
+        }
+      ],
+      "classes": [
+        {
+          "name": "FeedHandler",
+          "methods": [
+            "ListLatest",
+            "ListByFollowing",
+            "ListLikesCount",
+            "ListByTag",
+            "ListByPopularity"
+          ],
+          "properties": [
+            "service"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "feedsystem/internal/apierror",
+          "specifiers": [
+            "apierror"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/jwt",
+          "specifiers": [
+            "jwt"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/gin-gonic/gin",
+          "specifiers": [
+            "gin"
+          ]
+        }
+      ],
+      "exports": [
+        "FeedHandler",
+        "NewFeedHandler",
+        "ListLatest",
+        "ListByFollowing",
+        "ListLikesCount",
+        "ListByTag",
+        "ListByPopularity"
+      ],
+      "totalLines": 237,
+      "hasStructuralAnalysis": true
+    },
+    "internal/feed/repo.go": {
+      "filePath": "internal/feed/repo.go",
+      "contentHash": "9ff582105dad71eb9daf620cc100a7f39feafc8a2ed315eed2dbed63c7268608",
+      "functions": [
+        {
+          "name": "NewFeedRepository",
+          "params": [
+            "db"
+          ],
+          "returnType": "*FeedRepository",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "ListLatest",
+          "params": [
+            "ctx",
+            "limit",
+            "latestBefore"
+          ],
+          "returnType": "([]*video.Video, error)",
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "ListByFollowing",
+          "params": [
+            "ctx",
+            "limit",
+            "viewerAccountID",
+            "latestBefore"
+          ],
+          "returnType": "([]*video.Video, error)",
+          "exported": true,
+          "lineCount": 25
+        },
+        {
+          "name": "ListLikesCountWithCursor",
+          "params": [
+            "ctx",
+            "limit",
+            "cursor"
+          ],
+          "returnType": "([]*video.Video, error)",
+          "exported": true,
+          "lineCount": 21
+        },
+        {
+          "name": "ListByTag",
+          "params": [
+            "ctx",
+            "tagName",
+            "limit"
+          ],
+          "returnType": "([]*video.Video, error)",
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "ListByPopularity",
+          "params": [
+            "ctx",
+            "limit",
+            "cursor"
+          ],
+          "returnType": "([]*video.Video, error)",
+          "exported": true,
+          "lineCount": 22
+        },
+        {
+          "name": "GetByIDs",
+          "params": [
+            "ctx",
+            "ids"
+          ],
+          "returnType": "([]*video.Video, error)",
+          "exported": true,
+          "lineCount": 12
+        }
+      ],
+      "classes": [
+        {
+          "name": "FeedRepository",
+          "methods": [
+            "ListLatest",
+            "ListByFollowing",
+            "ListLikesCountWithCursor",
+            "ListByTag",
+            "ListByPopularity",
+            "GetByIDs"
+          ],
+          "properties": [
+            "db"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/social",
+          "specifiers": [
+            "social"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/video",
+          "specifiers": [
+            "video"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [
+        "FeedRepository",
+        "NewFeedRepository",
+        "ListLatest",
+        "ListByFollowing",
+        "ListLikesCountWithCursor",
+        "ListByTag",
+        "ListByPopularity",
+        "GetByIDs"
+      ],
+      "totalLines": 135,
+      "hasStructuralAnalysis": true
+    },
+    "internal/feed/service.go": {
+      "filePath": "internal/feed/service.go",
+      "contentHash": "4b73f3b8060af6cdff1d9b042fe06e2a24719ab2785e34512838f85cbe0f06a5",
+      "functions": [
+        {
+          "name": "NewFeedService",
+          "params": [
+            "repo",
+            "likeRepo",
+            "cacheClient"
+          ],
+          "returnType": "*FeedService",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "GetVideoByIDs",
+          "params": [
+            "ctx",
+            "videoIDs"
+          ],
+          "returnType": "([]*video.Video, error)",
+          "exported": true,
+          "lineCount": 123
+        },
+        {
+          "name": "ListLatest",
+          "params": [
+            "ctx",
+            "limit",
+            "latestBefore",
+            "viewerAccountID"
+          ],
+          "returnType": "(ListLatestResponse, error)",
+          "exported": true,
+          "lineCount": 125
+        },
+        {
+          "name": "listLatestFromDB",
+          "params": [
+            "ctx",
+            "limit",
+            "latestBefore",
+            "viewerAccountID"
+          ],
+          "returnType": "(ListLatestResponse, error)",
+          "exported": false,
+          "lineCount": 22
+        },
+        {
+          "name": "ListByFollowing",
+          "params": [
+            "ctx",
+            "limit",
+            "latestBefore",
+            "viewerAccountID"
+          ],
+          "returnType": "(ListByFollowingResponse, error)",
+          "exported": true,
+          "lineCount": 22
+        },
+        {
+          "name": "ListLikesCount",
+          "params": [
+            "ctx",
+            "limit",
+            "cursor",
+            "viewerAccountID"
+          ],
+          "returnType": "(ListLikesCountResponse, error)",
+          "exported": true,
+          "lineCount": 24
+        },
+        {
+          "name": "ListByTag",
+          "params": [
+            "ctx",
+            "tagName",
+            "limit",
+            "viewerAccountID"
+          ],
+          "returnType": "(ListByTagResponse, error)",
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "ListByPopularity",
+          "params": [
+            "ctx",
+            "limit",
+            "reqAsOf",
+            "offset",
+            "viewerAccountID",
+            "latestPopularity",
+            "latestBefore",
+            "latestIDBefore"
+          ],
+          "returnType": "(ListByPopularityResponse, error)",
+          "exported": true,
+          "lineCount": 19
+        },
+        {
+          "name": "listPopularityFromRedis",
+          "params": [
+            "ctx",
+            "limit",
+            "reqAsOf",
+            "offset",
+            "viewerAccountID"
+          ],
+          "returnType": "(ListByPopularityResponse, bool, error)",
+          "exported": false,
+          "lineCount": 70
+        },
+        {
+          "name": "listPopularityFromDB",
+          "params": [
+            "ctx",
+            "limit",
+            "cursor",
+            "viewerAccountID"
+          ],
+          "returnType": "(ListByPopularityResponse, error)",
+          "exported": false,
+          "lineCount": 29
+        },
+        {
+          "name": "buildFeedVideos",
+          "params": [
+            "ctx",
+            "videos",
+            "viewerAccountID"
+          ],
+          "returnType": "([]FeedVideoItem, error)",
+          "exported": false,
+          "lineCount": 32
+        },
+        {
+          "name": "getLikedMap",
+          "params": [
+            "ctx",
+            "videoIDs",
+            "viewerAccountID"
+          ],
+          "returnType": "(map[uint]bool, error)",
+          "exported": false,
+          "lineCount": 54
+        },
+        {
+          "name": "setLikeCache",
+          "params": [
+            "ctx",
+            "videoID",
+            "accountID"
+          ],
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "likeCacheKey",
+          "params": [
+            "videoID",
+            "accountID"
+          ],
+          "returnType": "string",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "rebuildGlobalTimeline",
+          "params": [
+            "ctx"
+          ],
+          "returnType": "error",
+          "exported": false,
+          "lineCount": 26
+        },
+        {
+          "name": "parseVideoIDs",
+          "params": [
+            "idStrs"
+          ],
+          "returnType": "[]uint",
+          "exported": false,
+          "lineCount": 11
+        },
+        {
+          "name": "buildOrderedResult",
+          "params": [
+            "orderedIDs",
+            "dataMap"
+          ],
+          "returnType": "[]*video.Video",
+          "exported": false,
+          "lineCount": 9
+        },
+        {
+          "name": "buildOrderedVideoResult",
+          "params": [
+            "orderedIDs",
+            "videos"
+          ],
+          "returnType": "[]*video.Video",
+          "exported": false,
+          "lineCount": 7
+        }
+      ],
+      "classes": [
+        {
+          "name": "FeedService",
+          "methods": [
+            "GetVideoByIDs",
+            "ListLatest",
+            "listLatestFromDB",
+            "ListByFollowing",
+            "ListLikesCount",
+            "ListByTag",
+            "ListByPopularity",
+            "listPopularityFromRedis",
+            "listPopularityFromDB",
+            "buildFeedVideos",
+            "getLikedMap",
+            "setLikeCache",
+            "likeCacheKey",
+            "rebuildGlobalTimeline"
+          ],
+          "properties": [
+            "repo",
+            "likeRepo",
+            "cache",
+            "localcache",
+            "cacheTTL",
+            "requestGroup"
+          ],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "encoding/json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "fmt",
+          "specifiers": [
+            "fmt"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "strconv",
+          "specifiers": [
+            "strconv"
+          ]
+        },
+        {
+          "source": "sync",
+          "specifiers": [
+            "sync"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/redis",
+          "specifiers": [
+            "rediscache"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/video",
+          "specifiers": [
+            "video"
+          ]
+        },
+        {
+          "source": "github.com/patrickmn/go-cache",
+          "specifiers": [
+            "localcache"
+          ]
+        },
+        {
+          "source": "github.com/redis/go-redis/v9",
+          "specifiers": [
+            "v9"
+          ]
+        },
+        {
+          "source": "golang.org/x/sync/singleflight",
+          "specifiers": [
+            "singleflight"
+          ]
+        }
+      ],
+      "exports": [
+        "FeedService",
+        "NewFeedService",
+        "GetVideoByIDs",
+        "ListLatest",
+        "ListByFollowing",
+        "ListLikesCount",
+        "ListByTag",
+        "ListByPopularity"
+      ],
+      "totalLines": 657,
+      "hasStructuralAnalysis": true
+    },
+    "internal/http/router.go": {
+      "filePath": "internal/http/router.go",
+      "contentHash": "9a48478d4a753bd458b7cc00aaddaadbe6eeceaae08b6d96fbf009c8e9b058a5",
+      "functions": [
+        {
+          "name": "SetupRouter",
+          "params": [
+            "db",
+            "cache",
+            "rmq"
+          ],
+          "returnType": "*gin.Engine",
+          "exported": true,
+          "lineCount": 277
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/account",
+          "specifiers": [
+            "account"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/feed",
+          "specifiers": [
+            "feed"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/message",
+          "specifiers": [
+            "message"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/jwt",
+          "specifiers": [
+            "jwtmiddleware"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/rabbitmq",
+          "specifiers": [
+            "rabbitmq"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/ratelimit",
+          "specifiers": [
+            "ratelimit"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/redis",
+          "specifiers": [
+            "rediscache"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/social",
+          "specifiers": [
+            "social"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/video",
+          "specifiers": [
+            "video"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/worker",
+          "specifiers": [
+            "worker"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "net/http",
+          "specifiers": [
+            "http"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/gin-gonic/gin",
+          "specifiers": [
+            "gin"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [
+        "SetupRouter"
+      ],
+      "totalLines": 300,
+      "hasStructuralAnalysis": true
+    },
+    "internal/message/entity.go": {
+      "filePath": "internal/message/entity.go",
+      "contentHash": "c0eb7967839937c5b668052c46e541b29fe264375af60cd437d2e322c095d1fb",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Message",
+          "methods": [],
+          "properties": [
+            "ID",
+            "FromID",
+            "ToID",
+            "Content",
+            "IsRead",
+            "CreatedAt"
+          ],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "SendRequest",
+          "methods": [],
+          "properties": [
+            "ToID",
+            "Content"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "ListRequest",
+          "methods": [],
+          "properties": [
+            "PeerID"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "ListResponse",
+          "methods": [],
+          "properties": [
+            "Messages"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        }
+      ],
+      "exports": [
+        "Message",
+        "SendRequest",
+        "ListRequest",
+        "ListResponse"
+      ],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "internal/message/handler.go": {
+      "filePath": "internal/message/handler.go",
+      "contentHash": "7cfef3d8ec4c34cfde67712f010f055d9f47ecf0b9570d7ef1919454e5cdde1f",
+      "functions": [
+        {
+          "name": "NewRepository",
+          "params": [
+            "db"
+          ],
+          "returnType": "*Repository",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "NewService",
+          "params": [
+            "repo"
+          ],
+          "returnType": "*Service",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "NewHandler",
+          "params": [
+            "service"
+          ],
+          "returnType": "*Handler",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "AutoMigrate",
+          "params": [
+            "ctx"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Send",
+          "params": [
+            "ctx",
+            "m"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "List",
+          "params": [
+            "ctx",
+            "userID",
+            "peerID",
+            "limit"
+          ],
+          "returnType": "([]Message, error)",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "Send",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 22
+        },
+        {
+          "name": "List",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "classes": [
+        {
+          "name": "Repository",
+          "methods": [
+            "AutoMigrate",
+            "Send",
+            "List"
+          ],
+          "properties": [
+            "db"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Service",
+          "methods": [],
+          "properties": [
+            "repo"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Handler",
+          "methods": [
+            "Send",
+            "List"
+          ],
+          "properties": [
+            "service"
+          ],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/apierror",
+          "specifiers": [
+            "apierror"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/jwt",
+          "specifiers": [
+            "jwt"
+          ]
+        },
+        {
+          "source": "net/http",
+          "specifiers": [
+            "http"
+          ]
+        },
+        {
+          "source": "strings",
+          "specifiers": [
+            "strings"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/gin-gonic/gin",
+          "specifiers": [
+            "gin"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [
+        "Repository",
+        "Service",
+        "Handler",
+        "NewRepository",
+        "NewService",
+        "NewHandler",
+        "AutoMigrate",
+        "Send",
+        "List",
+        "Send",
+        "List"
+      ],
+      "totalLines": 95,
+      "hasStructuralAnalysis": true
+    },
+    "internal/middleware/jwt/jwt.go": {
+      "filePath": "internal/middleware/jwt/jwt.go",
+      "contentHash": "4826b03b1ac1c356babd42971bb1ec7015811f7abd3823c73ed5747249e88fa8",
+      "functions": [
+        {
+          "name": "JWTAuth",
+          "params": [
+            "accountRepo",
+            "cache"
+          ],
+          "returnType": "gin.HandlerFunc",
+          "exported": true,
+          "lineCount": 25
+        },
+        {
+          "name": "SoftJWTAuth",
+          "params": [
+            "accountRepo",
+            "cache"
+          ],
+          "returnType": "gin.HandlerFunc",
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "check",
+          "params": [
+            "c",
+            "claims",
+            "tokenString",
+            "accountRepo",
+            "cache"
+          ],
+          "exported": false,
+          "lineCount": 39
+        },
+        {
+          "name": "GetAccountID",
+          "params": [
+            "c"
+          ],
+          "returnType": "(uint, error)",
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "GetUsername",
+          "params": [
+            "c"
+          ],
+          "returnType": "(string, error)",
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/account",
+          "specifiers": [
+            "account"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/auth",
+          "specifiers": [
+            "auth"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/redis",
+          "specifiers": [
+            "rediscache"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "net/http",
+          "specifiers": [
+            "http"
+          ]
+        },
+        {
+          "source": "strings",
+          "specifiers": [
+            "strings"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/gin-gonic/gin",
+          "specifiers": [
+            "gin"
+          ]
+        }
+      ],
+      "exports": [
+        "JWTAuth",
+        "SoftJWTAuth",
+        "GetAccountID",
+        "GetUsername"
+      ],
+      "totalLines": 139,
+      "hasStructuralAnalysis": true
+    },
+    "internal/middleware/rabbitmq/commentMQ.go": {
+      "filePath": "internal/middleware/rabbitmq/commentMQ.go",
+      "contentHash": "21f850fb4016c0d80df24c5df7268716a920d7894afc4490cb5b096e98022276",
+      "functions": [
+        {
+          "name": "NewCommentMQ",
+          "params": [
+            "base"
+          ],
+          "returnType": "(*CommentMQ, error)",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "Publish",
+          "params": [
+            "ctx",
+            "username",
+            "videoID",
+            "authorID",
+            "content"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "Delete",
+          "params": [
+            "ctx",
+            "commentID"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "publish",
+          "params": [
+            "ctx",
+            "action",
+            "routingKey",
+            "event"
+          ],
+          "returnType": "error",
+          "exported": false,
+          "lineCount": 13
+        }
+      ],
+      "classes": [
+        {
+          "name": "CommentMQ",
+          "methods": [
+            "Publish",
+            "Delete",
+            "publish"
+          ],
+          "properties": [
+            "ch"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "CommentEvent",
+          "methods": [],
+          "properties": [
+            "EventID",
+            "Action",
+            "CommentID",
+            "Username",
+            "VideoID",
+            "AuthorID",
+            "Content",
+            "OccurredAt"
+          ],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/rabbitmq/amqp091-go",
+          "specifiers": [
+            "amqp"
+          ]
+        }
+      ],
+      "exports": [
+        "CommentMQ",
+        "CommentEvent",
+        "NewCommentMQ",
+        "Publish",
+        "Delete"
+      ],
+      "totalLines": 80,
+      "hasStructuralAnalysis": true
+    },
+    "internal/middleware/rabbitmq/dlx.go": {
+      "filePath": "internal/middleware/rabbitmq/dlx.go",
+      "contentHash": "393b9a9b4eaeefd38e533f8e9db04e89f92b61cb4f4c517747c0c085123f84d6",
+      "functions": [
+        {
+          "name": "DeclareDLX",
+          "params": [
+            "ch",
+            "queueName"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "github.com/rabbitmq/amqp091-go",
+          "specifiers": [
+            "amqp"
+          ]
+        }
+      ],
+      "exports": [
+        "DeclareDLX"
+      ],
+      "totalLines": 28,
+      "hasStructuralAnalysis": true
+    },
+    "internal/middleware/rabbitmq/likeMQ.go": {
+      "filePath": "internal/middleware/rabbitmq/likeMQ.go",
+      "contentHash": "9f760ef7a349fca5edb33a8483f99756587190a25a7c8ed9a867e8b6284ca275",
+      "functions": [
+        {
+          "name": "NewLikeMQ",
+          "params": [
+            "base"
+          ],
+          "returnType": "(*LikeMQ, error)",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "Like",
+          "params": [
+            "ctx",
+            "userID",
+            "videoID"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Unlike",
+          "params": [
+            "ctx",
+            "userID",
+            "videoID"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "publish",
+          "params": [
+            "ctx",
+            "action",
+            "routingKey",
+            "userID",
+            "videoID"
+          ],
+          "returnType": "error",
+          "exported": false,
+          "lineCount": 20
+        }
+      ],
+      "classes": [
+        {
+          "name": "LikeMQ",
+          "methods": [
+            "Like",
+            "Unlike",
+            "publish"
+          ],
+          "properties": [
+            "ch"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "LikeEvent",
+          "methods": [],
+          "properties": [
+            "EventID",
+            "Action",
+            "UserID",
+            "VideoID",
+            "OccurredAt"
+          ],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/rabbitmq/amqp091-go",
+          "specifiers": [
+            "amqp"
+          ]
+        }
+      ],
+      "exports": [
+        "LikeMQ",
+        "LikeEvent",
+        "NewLikeMQ",
+        "Like",
+        "Unlike"
+      ],
+      "totalLines": 75,
+      "hasStructuralAnalysis": true
+    },
+    "internal/middleware/rabbitmq/popularityMQ.go": {
+      "filePath": "internal/middleware/rabbitmq/popularityMQ.go",
+      "contentHash": "558bff0ac8081137c1ab9dc77f9e0605df8dddf6d3267340c9868d9b82b68fca",
+      "functions": [
+        {
+          "name": "NewPopularityMQ",
+          "params": [
+            "base"
+          ],
+          "returnType": "(*PopularityMQ, error)",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "Update",
+          "params": [
+            "ctx",
+            "videoID",
+            "change"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "classes": [
+        {
+          "name": "PopularityMQ",
+          "methods": [
+            "Update"
+          ],
+          "properties": [
+            "ch"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "PopularityEvent",
+          "methods": [],
+          "properties": [
+            "EventID",
+            "VideoID",
+            "Change",
+            "OccurredAt"
+          ],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/rabbitmq/amqp091-go",
+          "specifiers": [
+            "amqp"
+          ]
+        }
+      ],
+      "exports": [
+        "PopularityMQ",
+        "PopularityEvent",
+        "NewPopularityMQ",
+        "Update"
+      ],
+      "totalLines": 64,
+      "hasStructuralAnalysis": true
+    },
+    "internal/middleware/rabbitmq/rabbitMQ.go": {
+      "filePath": "internal/middleware/rabbitmq/rabbitMQ.go",
+      "contentHash": "c771148f3a5e47bed9746b88866883aa255bc57c8f8dd8392f168684be433c59",
+      "functions": [
+        {
+          "name": "NewRabbitMQ",
+          "params": [
+            "cfg"
+          ],
+          "returnType": "(*RabbitMQ, error)",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "Close",
+          "params": [],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "NewChannel",
+          "params": [],
+          "returnType": "(*amqp.Channel, error)",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "DeclareTopic",
+          "params": [
+            "ch",
+            "exchange",
+            "queue",
+            "bindingKey"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "PublishJSON",
+          "params": [
+            "ctx",
+            "ch",
+            "exchange",
+            "routingKey",
+            "payload"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 19
+        },
+        {
+          "name": "newEventID",
+          "params": [
+            "n"
+          ],
+          "returnType": "(string, error)",
+          "exported": false,
+          "lineCount": 7
+        }
+      ],
+      "classes": [
+        {
+          "name": "RabbitMQ",
+          "methods": [
+            "Close",
+            "NewChannel"
+          ],
+          "properties": [
+            "Conn"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "crypto/rand",
+          "specifiers": [
+            "rand"
+          ]
+        },
+        {
+          "source": "encoding/hex",
+          "specifiers": [
+            "hex"
+          ]
+        },
+        {
+          "source": "encoding/json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/config",
+          "specifiers": [
+            "config"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "strconv",
+          "specifiers": [
+            "strconv"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/rabbitmq/amqp091-go",
+          "specifiers": [
+            "amqp"
+          ]
+        }
+      ],
+      "exports": [
+        "RabbitMQ",
+        "NewRabbitMQ",
+        "Close",
+        "NewChannel",
+        "DeclareTopic",
+        "PublishJSON"
+      ],
+      "totalLines": 106,
+      "hasStructuralAnalysis": true
+    },
+    "internal/middleware/rabbitmq/socialMQ.go": {
+      "filePath": "internal/middleware/rabbitmq/socialMQ.go",
+      "contentHash": "7d83df94414a02ce765d64373e1362494b4cb2cb46393671b6c9401ce60434b2",
+      "functions": [
+        {
+          "name": "NewSocialMQ",
+          "params": [
+            "base"
+          ],
+          "returnType": "(*SocialMQ, error)",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "Follow",
+          "params": [
+            "ctx",
+            "followerID",
+            "vloggerID"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "UnFollow",
+          "params": [
+            "ctx",
+            "followerID",
+            "vloggerID"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "publish",
+          "params": [
+            "ctx",
+            "action",
+            "routingKey",
+            "followerID",
+            "vloggerID"
+          ],
+          "returnType": "error",
+          "exported": false,
+          "lineCount": 20
+        }
+      ],
+      "classes": [
+        {
+          "name": "SocialMQ",
+          "methods": [
+            "Follow",
+            "UnFollow",
+            "publish"
+          ],
+          "properties": [
+            "ch"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "SocialEvent",
+          "methods": [],
+          "properties": [
+            "EventID",
+            "Action",
+            "FollowerID",
+            "VloggerID",
+            "OccurredAt"
+          ],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/rabbitmq/amqp091-go",
+          "specifiers": [
+            "amqp"
+          ]
+        }
+      ],
+      "exports": [
+        "SocialMQ",
+        "SocialEvent",
+        "NewSocialMQ",
+        "Follow",
+        "UnFollow"
+      ],
+      "totalLines": 75,
+      "hasStructuralAnalysis": true
+    },
+    "internal/middleware/rabbitmq/timelineMQ.go": {
+      "filePath": "internal/middleware/rabbitmq/timelineMQ.go",
+      "contentHash": "6306f9606c19316a2892d1af3c2b72a10636410b846813e71ca391f62842597b",
+      "functions": [
+        {
+          "name": "NewTimelineMQ",
+          "params": [
+            "base"
+          ],
+          "returnType": "(*TimelineMQ, error)",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "PublishVideo",
+          "params": [
+            "ctx",
+            "videoID",
+            "createTime"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "classes": [
+        {
+          "name": "TimelineMQ",
+          "methods": [
+            "PublishVideo"
+          ],
+          "properties": [
+            "ch"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "TimelineEvent",
+          "methods": [],
+          "properties": [
+            "EventID",
+            "VideoID",
+            "CreateTime",
+            "OccurredAt"
+          ],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/rabbitmq/amqp091-go",
+          "specifiers": [
+            "amqp"
+          ]
+        }
+      ],
+      "exports": [
+        "TimelineMQ",
+        "TimelineEvent",
+        "NewTimelineMQ",
+        "PublishVideo"
+      ],
+      "totalLines": 63,
+      "hasStructuralAnalysis": true
+    },
+    "internal/middleware/ratelimit/ratelimit.go": {
+      "filePath": "internal/middleware/ratelimit/ratelimit.go",
+      "contentHash": "88d5befcf8611500a49eb0652eccc478319585ec9294ab5d975b2abc55f971c1",
+      "functions": [
+        {
+          "name": "Limit",
+          "params": [
+            "cache",
+            "keyPrefix",
+            "maxRequests",
+            "window",
+            "keyFunc"
+          ],
+          "returnType": "gin.HandlerFunc",
+          "exported": true,
+          "lineCount": 37
+        },
+        {
+          "name": "buildKey",
+          "params": [
+            "keyPrefix",
+            "subject"
+          ],
+          "returnType": "string",
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "KeyByIP",
+          "params": [
+            "c"
+          ],
+          "returnType": "(string, bool)",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "KeyByAccount",
+          "params": [
+            "c"
+          ],
+          "returnType": "(string, bool)",
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "feedsystem/internal/middleware/jwt",
+          "specifiers": [
+            "jwtmiddleware"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/redis",
+          "specifiers": [
+            "rediscache"
+          ]
+        },
+        {
+          "source": "fmt",
+          "specifiers": [
+            "fmt"
+          ]
+        },
+        {
+          "source": "net/http",
+          "specifiers": [
+            "http"
+          ]
+        },
+        {
+          "source": "strconv",
+          "specifiers": [
+            "strconv"
+          ]
+        },
+        {
+          "source": "strings",
+          "specifiers": [
+            "strings"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/gin-gonic/gin",
+          "specifiers": [
+            "gin"
+          ]
+        }
+      ],
+      "exports": [
+        "Limit",
+        "KeyByIP",
+        "KeyByAccount"
+      ],
+      "totalLines": 79,
+      "hasStructuralAnalysis": true
+    },
+    "internal/middleware/redis/cache.go": {
+      "filePath": "internal/middleware/redis/cache.go",
+      "contentHash": "07f1c65a80f49059b2453e2e9477e66f7d7b7a8d2c392462b8eaf1a4c7802435",
+      "functions": [
+        {
+          "name": "GetBytes",
+          "params": [
+            "ctx",
+            "key"
+          ],
+          "returnType": "([]byte, error)",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "SetBytes",
+          "params": [
+            "ctx",
+            "key",
+            "value",
+            "ttl"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "Del",
+          "params": [
+            "ctx",
+            "key"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "MGet",
+          "params": [
+            "ctx"
+          ],
+          "returnType": "([]interface{}, error)",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "DelByPattern",
+          "params": [
+            "ctx",
+            "pattern"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        }
+      ],
+      "exports": [
+        "GetBytes",
+        "SetBytes",
+        "Del",
+        "MGet",
+        "DelByPattern"
+      ],
+      "totalLines": 47,
+      "hasStructuralAnalysis": true
+    },
+    "internal/middleware/redis/redis_test.go": {
+      "filePath": "internal/middleware/redis/redis_test.go",
+      "contentHash": "cc79b2a981c4b48e5537f5eb00555bd990703c56ba37bc74b662097708609e69",
+      "functions": [
+        {
+          "name": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "params": [
+            "t"
+          ],
+          "exported": true,
+          "lineCount": 45
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "testing",
+          "specifiers": [
+            "testing"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/alicebob/miniredis/v2",
+          "specifiers": [
+            "miniredis"
+          ]
+        },
+        {
+          "source": "github.com/redis/go-redis/v9",
+          "specifiers": [
+            "goredis"
+          ]
+        }
+      ],
+      "exports": [
+        "TestIncrementWithExpireSetsTTLWithoutExtendingWindow"
+      ],
+      "totalLines": 57,
+      "hasStructuralAnalysis": true
+    },
+    "internal/middleware/redis/redis.go": {
+      "filePath": "internal/middleware/redis/redis.go",
+      "contentHash": "141b913ee6f9c1b20c0e5a92fb042ef40bd1149507a8222c8f67b3284a8bbf15",
+      "functions": [
+        {
+          "name": "NewClient",
+          "params": [
+            "rdb",
+            "keyPrefix"
+          ],
+          "returnType": "*Client",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "NewFromEnv",
+          "params": [
+            "cfg"
+          ],
+          "returnType": "(*Client, error)",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "Ping",
+          "params": [
+            "ctx"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "IsMiss",
+          "params": [
+            "err"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Close",
+          "params": [],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "Key",
+          "params": [
+            "format"
+          ],
+          "returnType": "string",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "IncrementWithExpire",
+          "params": [
+            "ctx",
+            "key",
+            "expire"
+          ],
+          "returnType": "(int64, error)",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "randToken",
+          "params": [
+            "n"
+          ],
+          "returnType": "(string, error)",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "Lock",
+          "params": [
+            "ctx",
+            "key",
+            "ttl"
+          ],
+          "returnType": "(token string, ok bool, err error)",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "Unlock",
+          "params": [
+            "ctx",
+            "key",
+            "token"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [
+        {
+          "name": "Client",
+          "methods": [
+            "Ping",
+            "Close",
+            "Key",
+            "IncrementWithExpire",
+            "Lock",
+            "Unlock"
+          ],
+          "properties": [
+            "rdb",
+            "keyPrefix"
+          ],
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "crypto/rand",
+          "specifiers": [
+            "rand"
+          ]
+        },
+        {
+          "source": "encoding/hex",
+          "specifiers": [
+            "hex"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/config",
+          "specifiers": [
+            "config"
+          ]
+        },
+        {
+          "source": "fmt",
+          "specifiers": [
+            "fmt"
+          ]
+        },
+        {
+          "source": "strconv",
+          "specifiers": [
+            "strconv"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/redis/go-redis/v9",
+          "specifiers": [
+            "redis"
+          ]
+        }
+      ],
+      "exports": [
+        "Client",
+        "NewClient",
+        "NewFromEnv",
+        "Ping",
+        "IsMiss",
+        "Close",
+        "Key",
+        "IncrementWithExpire",
+        "Lock",
+        "Unlock"
+      ],
+      "totalLines": 119,
+      "hasStructuralAnalysis": true
+    },
+    "internal/middleware/redis/zset.go": {
+      "filePath": "internal/middleware/redis/zset.go",
+      "contentHash": "040c698c8767e3de04aeba83962b32693d3a57acc017713789de47818be6ac33",
+      "functions": [
+        {
+          "name": "ZincrBy",
+          "params": [
+            "ctx",
+            "key",
+            "member",
+            "score"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "ZAdd",
+          "params": [
+            "ctx",
+            "key"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "ZRemRangeByRank",
+          "params": [
+            "ctx",
+            "key",
+            "start",
+            "stop"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "ZRangeWithScores",
+          "params": [
+            "ctx",
+            "key",
+            "start",
+            "stop"
+          ],
+          "returnType": "([]redis.Z, error)",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "ZRevRange",
+          "params": [
+            "ctx",
+            "key",
+            "start",
+            "stop"
+          ],
+          "returnType": "([]string, error)",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "ZRevRangeByScore",
+          "params": [
+            "ctx",
+            "key",
+            "max",
+            "min",
+            "offset",
+            "count"
+          ],
+          "returnType": "([]string, error)",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "Expire",
+          "params": [
+            "ctx",
+            "key",
+            "ttl"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "ZUnionStore",
+          "params": [
+            "ctx",
+            "dst",
+            "keys",
+            "aggregate"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "Exists",
+          "params": [
+            "ctx",
+            "key"
+          ],
+          "returnType": "(bool, error)",
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/redis/go-redis/v9",
+          "specifiers": [
+            "redis"
+          ]
+        }
+      ],
+      "exports": [
+        "ZincrBy",
+        "ZAdd",
+        "ZRemRangeByRank",
+        "ZRangeWithScores",
+        "ZRevRange",
+        "ZRevRangeByScore",
+        "Expire",
+        "ZUnionStore",
+        "Exists"
+      ],
+      "totalLines": 85,
+      "hasStructuralAnalysis": true
+    },
+    "internal/observability/pprof_test.go": {
+      "filePath": "internal/observability/pprof_test.go",
+      "contentHash": "800ec8b241feb034bbe0e70fabcaf06f572b6b2381d7486f8c267eaf9cab6bc4",
+      "functions": [
+        {
+          "name": "TestNewPprofMux",
+          "params": [
+            "t"
+          ],
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "TestNewPprofServerWithDisabled",
+          "params": [
+            "t"
+          ],
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "TestPprofServerCloseWithDisabledServer",
+          "params": [
+            "t"
+          ],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "net/http",
+          "specifiers": [
+            "http"
+          ]
+        },
+        {
+          "source": "net/http/httptest",
+          "specifiers": [
+            "httptest"
+          ]
+        },
+        {
+          "source": "testing",
+          "specifiers": [
+            "testing"
+          ]
+        }
+      ],
+      "exports": [
+        "TestNewPprofMux",
+        "TestNewPprofServerWithDisabled",
+        "TestPprofServerCloseWithDisabledServer"
+      ],
+      "totalLines": 47,
+      "hasStructuralAnalysis": true
+    },
+    "internal/observability/pprof.go": {
+      "filePath": "internal/observability/pprof.go",
+      "contentHash": "fd15010dca756d821f5e0590ef3771a8c20ba9c94d76724a127b3f1802546c4b",
+      "functions": [
+        {
+          "name": "NewPprofMux",
+          "params": [],
+          "returnType": "*http.ServeMux",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "NewPprofServer",
+          "params": [
+            "name",
+            "enabled",
+            "addr"
+          ],
+          "returnType": "(*PprofServer, error)",
+          "exported": true,
+          "lineCount": 25
+        },
+        {
+          "name": "Close",
+          "params": [],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "Shutdown",
+          "params": [
+            "ctx",
+            "srv"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "classes": [
+        {
+          "name": "PprofServer",
+          "methods": [
+            "Close"
+          ],
+          "properties": [
+            "name",
+            "server",
+            "shutdownTimeout"
+          ],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "fmt",
+          "specifiers": [
+            "fmt"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "net",
+          "specifiers": [
+            "net"
+          ]
+        },
+        {
+          "source": "net/http",
+          "specifiers": [
+            "http"
+          ]
+        },
+        {
+          "source": "net/http/pprof",
+          "specifiers": [
+            "pprof"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        }
+      ],
+      "exports": [
+        "PprofServer",
+        "NewPprofMux",
+        "NewPprofServer",
+        "Close",
+        "Shutdown"
+      ],
+      "totalLines": 85,
+      "hasStructuralAnalysis": true
+    },
+    "internal/social/entity.go": {
+      "filePath": "internal/social/entity.go",
+      "contentHash": "544d75d2a7e7c7a77baac27eeba31f88f01a0daffa1fd9fa78ab0d2745f295bf",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Social",
+          "methods": [],
+          "properties": [
+            "ID",
+            "FollowerID",
+            "VloggerID"
+          ],
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "FollowRequest",
+          "methods": [],
+          "properties": [
+            "VloggerID"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "UnfollowRequest",
+          "methods": [],
+          "properties": [
+            "VloggerID"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "GetAllFollowersRequest",
+          "methods": [],
+          "properties": [
+            "VloggerID"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "GetAllVloggersRequest",
+          "methods": [],
+          "properties": [
+            "FollowerID"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "GetAllFollowersResponse",
+          "methods": [],
+          "properties": [
+            "Followers",
+            "FollowerCount"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "GetAllVloggersResponse",
+          "methods": [],
+          "properties": [
+            "Vloggers",
+            "VloggerCount"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "SocialCounts",
+          "methods": [],
+          "properties": [
+            "FollowerCount",
+            "VloggerCount"
+          ],
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "imports": [
+        {
+          "source": "feedsystem/internal/account",
+          "specifiers": [
+            "account"
+          ]
+        }
+      ],
+      "exports": [
+        "Social",
+        "FollowRequest",
+        "UnfollowRequest",
+        "GetAllFollowersRequest",
+        "GetAllVloggersRequest",
+        "GetAllFollowersResponse",
+        "GetAllVloggersResponse",
+        "SocialCounts"
+      ],
+      "totalLines": 53,
+      "hasStructuralAnalysis": true
+    },
+    "internal/social/handler.go": {
+      "filePath": "internal/social/handler.go",
+      "contentHash": "bdc19708499a9b8378e1e593cdd6741e2007d1e97f79ec4a931bf8462beebc00",
+      "functions": [
+        {
+          "name": "NewSocialHandler",
+          "params": [
+            "service"
+          ],
+          "returnType": "*SocialHandler",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Follow",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "Unfollow",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "GetAllFollowers",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 34
+        },
+        {
+          "name": "GetAllVloggers",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 34
+        },
+        {
+          "name": "GetCounts",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 20
+        }
+      ],
+      "classes": [
+        {
+          "name": "SocialHandler",
+          "methods": [
+            "Follow",
+            "Unfollow",
+            "GetAllFollowers",
+            "GetAllVloggers",
+            "GetCounts"
+          ],
+          "properties": [
+            "service"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "feedsystem/internal/account",
+          "specifiers": [
+            "account"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/apierror",
+          "specifiers": [
+            "apierror"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/jwt",
+          "specifiers": [
+            "jwt"
+          ]
+        },
+        {
+          "source": "github.com/gin-gonic/gin",
+          "specifiers": [
+            "gin"
+          ]
+        }
+      ],
+      "exports": [
+        "SocialHandler",
+        "NewSocialHandler",
+        "Follow",
+        "Unfollow",
+        "GetAllFollowers",
+        "GetAllVloggers",
+        "GetCounts"
+      ],
+      "totalLines": 167,
+      "hasStructuralAnalysis": true
+    },
+    "internal/social/repo.go": {
+      "filePath": "internal/social/repo.go",
+      "contentHash": "1040d4088806af4adc75a0ad59c7df07ea2ae589e3f1a9cb668eb2bcda494472",
+      "functions": [
+        {
+          "name": "NewSocialRepository",
+          "params": [
+            "db"
+          ],
+          "returnType": "*SocialRepository",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Follow",
+          "params": [
+            "ctx",
+            "social"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Unfollow",
+          "params": [
+            "ctx",
+            "social"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "IsFollowed",
+          "params": [
+            "ctx",
+            "social"
+          ],
+          "returnType": "(bool, error)",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "GetAllFollowers",
+          "params": [
+            "ctx",
+            "vloggerID"
+          ],
+          "returnType": "([]*account.Account, error)",
+          "exported": true,
+          "lineCount": 27
+        },
+        {
+          "name": "GetAllVloggers",
+          "params": [
+            "ctx",
+            "followerID"
+          ],
+          "returnType": "([]*account.Account, error)",
+          "exported": true,
+          "lineCount": 27
+        },
+        {
+          "name": "CountFollowers",
+          "params": [
+            "ctx",
+            "vloggerID"
+          ],
+          "returnType": "(int64, error)",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "CountVloggers",
+          "params": [
+            "ctx",
+            "followerID"
+          ],
+          "returnType": "(int64, error)",
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "classes": [
+        {
+          "name": "SocialRepository",
+          "methods": [
+            "Follow",
+            "Unfollow",
+            "IsFollowed",
+            "GetAllFollowers",
+            "GetAllVloggers",
+            "CountFollowers",
+            "CountVloggers"
+          ],
+          "properties": [
+            "db"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/account",
+          "specifiers": [
+            "account"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [
+        "SocialRepository",
+        "NewSocialRepository",
+        "Follow",
+        "Unfollow",
+        "IsFollowed",
+        "GetAllFollowers",
+        "GetAllVloggers",
+        "CountFollowers",
+        "CountVloggers"
+      ],
+      "totalLines": 116,
+      "hasStructuralAnalysis": true
+    },
+    "internal/social/service.go": {
+      "filePath": "internal/social/service.go",
+      "contentHash": "e3e6a28f8154bda44bb90c45d51d9021c1fe2d8b5a4fc5378f6bdf15f3a05411",
+      "functions": [
+        {
+          "name": "NewSocialService",
+          "params": [
+            "repo",
+            "accountRepo",
+            "socialMQ",
+            "cache"
+          ],
+          "returnType": "*SocialService",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Follow",
+          "params": [
+            "ctx",
+            "social"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 39
+        },
+        {
+          "name": "Unfollow",
+          "params": [
+            "ctx",
+            "social"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 36
+        },
+        {
+          "name": "GetAllFollowers",
+          "params": [
+            "ctx",
+            "vloggerID"
+          ],
+          "returnType": "([]*account.Account, error)",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "GetAllVloggers",
+          "params": [
+            "ctx",
+            "followerID"
+          ],
+          "returnType": "([]*account.Account, error)",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "CountFollowers",
+          "params": [
+            "ctx",
+            "vloggerID"
+          ],
+          "returnType": "(int64, error)",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "CountVloggers",
+          "params": [
+            "ctx",
+            "followerID"
+          ],
+          "returnType": "(int64, error)",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "IsFollowed",
+          "params": [
+            "ctx",
+            "social"
+          ],
+          "returnType": "(bool, error)",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "invalidateFollowingFeedCache",
+          "params": [
+            "ctx",
+            "accountID"
+          ],
+          "exported": false,
+          "lineCount": 9
+        }
+      ],
+      "classes": [
+        {
+          "name": "SocialService",
+          "methods": [
+            "Follow",
+            "Unfollow",
+            "GetAllFollowers",
+            "GetAllVloggers",
+            "CountFollowers",
+            "CountVloggers",
+            "IsFollowed",
+            "invalidateFollowingFeedCache"
+          ],
+          "properties": [
+            "repo",
+            "accountRepo",
+            "socialMQ",
+            "cache"
+          ],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/account",
+          "specifiers": [
+            "account"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/rabbitmq",
+          "specifiers": [
+            "rabbitmq"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/redis",
+          "specifiers": [
+            "rediscache"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        }
+      ],
+      "exports": [
+        "SocialService",
+        "NewSocialService",
+        "Follow",
+        "Unfollow",
+        "GetAllFollowers",
+        "GetAllVloggers",
+        "CountFollowers",
+        "CountVloggers",
+        "IsFollowed"
+      ],
+      "totalLines": 148,
+      "hasStructuralAnalysis": true
+    },
+    "internal/video/chunk_entity.go": {
+      "filePath": "internal/video/chunk_entity.go",
+      "contentHash": "491aa7a31a9c3bdcbec963d3cff5439771bcf6aa56c20ae4aae889c37d103ecd",
+      "functions": [
+        {
+          "name": "UploadedChunks",
+          "params": [],
+          "returnType": "[]int",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "IsComplete",
+          "params": [],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "classes": [
+        {
+          "name": "ChunkUploadSession",
+          "methods": [
+            "UploadedChunks",
+            "IsComplete"
+          ],
+          "properties": [
+            "UploadID",
+            "AccountID",
+            "Filename",
+            "FileSize",
+            "ChunkSize",
+            "TotalChunks",
+            "FileHash",
+            "UploadedBits"
+          ],
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "InitChunkUploadRequest",
+          "methods": [],
+          "properties": [
+            "Filename",
+            "FileSize",
+            "ChunkSize",
+            "TotalChunks",
+            "FileHash"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "UploadChunkRequest",
+          "methods": [],
+          "properties": [
+            "UploadID",
+            "ChunkIndex",
+            "ChunkHash"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "ChunkStatusRequest",
+          "methods": [],
+          "properties": [
+            "UploadID"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "CompleteChunkUploadRequest",
+          "methods": [],
+          "properties": [
+            "UploadID"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "ChunkUploadSession",
+        "UploadedChunks",
+        "IsComplete",
+        "InitChunkUploadRequest",
+        "UploadChunkRequest",
+        "ChunkStatusRequest",
+        "CompleteChunkUploadRequest"
+      ],
+      "totalLines": 57,
+      "hasStructuralAnalysis": true
+    },
+    "internal/video/chunk_handler_test.go": {
+      "filePath": "internal/video/chunk_handler_test.go",
+      "contentHash": "eb7c2f04fb85d5b0a36e66f6da2e59b97f1aa313ac29a20ee4014e4f6e6426ef",
+      "functions": [
+        {
+          "name": "setupTestEnv",
+          "params": [
+            "t"
+          ],
+          "returnType": "(*ChunkUploadHandler, func())",
+          "exported": false,
+          "lineCount": 32
+        },
+        {
+          "name": "newJSONContext",
+          "params": [
+            "t",
+            "path",
+            "body"
+          ],
+          "returnType": "(*gin.Context, *httptest.ResponseRecorder)",
+          "exported": false,
+          "lineCount": 16
+        },
+        {
+          "name": "newMultipartContext",
+          "params": [
+            "t",
+            "path",
+            "fields",
+            "fileContent"
+          ],
+          "returnType": "(*gin.Context, *httptest.ResponseRecorder)",
+          "exported": false,
+          "lineCount": 29
+        },
+        {
+          "name": "computeMD5",
+          "params": [
+            "data"
+          ],
+          "returnType": "string",
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "parseJSON",
+          "params": [
+            "t",
+            "rec"
+          ],
+          "returnType": "map[string]interface{}",
+          "exported": false,
+          "lineCount": 8
+        },
+        {
+          "name": "makeTestChunks",
+          "params": [
+            "t",
+            "totalChunks",
+            "chunkSize"
+          ],
+          "returnType": "([][]byte, []string, string)",
+          "exported": false,
+          "lineCount": 16
+        },
+        {
+          "name": "initUpload",
+          "params": [
+            "t",
+            "h",
+            "filename",
+            "fileSize",
+            "chunkSize",
+            "totalChunks",
+            "fileHash"
+          ],
+          "returnType": "string",
+          "exported": false,
+          "lineCount": 16
+        },
+        {
+          "name": "uploadChunk",
+          "params": [
+            "t",
+            "h",
+            "uploadID",
+            "chunkIndex",
+            "chunkHash",
+            "chunkData"
+          ],
+          "exported": false,
+          "lineCount": 12
+        },
+        {
+          "name": "completeUpload",
+          "params": [
+            "t",
+            "h",
+            "uploadID"
+          ],
+          "returnType": "map[string]interface{}",
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "readMergedFile",
+          "params": [
+            "t",
+            "resp"
+          ],
+          "returnType": "[]byte",
+          "exported": false,
+          "lineCount": 11
+        },
+        {
+          "name": "TestFullChunkUploadFlow",
+          "params": [
+            "t"
+          ],
+          "exported": true,
+          "lineCount": 40
+        },
+        {
+          "name": "TestBreakpointResume",
+          "params": [
+            "t"
+          ],
+          "exported": true,
+          "lineCount": 54
+        },
+        {
+          "name": "TestIdempotentChunkUpload",
+          "params": [
+            "t"
+          ],
+          "exported": true,
+          "lineCount": 22
+        },
+        {
+          "name": "TestHashMismatch",
+          "params": [
+            "t"
+          ],
+          "exported": true,
+          "lineCount": 35
+        },
+        {
+          "name": "TestIncompleteMerge",
+          "params": [
+            "t"
+          ],
+          "exported": true,
+          "lineCount": 44
+        },
+        {
+          "name": "TestChunkStatus",
+          "params": [
+            "t"
+          ],
+          "exported": true,
+          "lineCount": 36
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "bytes",
+          "specifiers": [
+            "bytes"
+          ]
+        },
+        {
+          "source": "crypto/md5",
+          "specifiers": [
+            "md5"
+          ]
+        },
+        {
+          "source": "crypto/rand",
+          "specifiers": [
+            "rand"
+          ]
+        },
+        {
+          "source": "encoding/hex",
+          "specifiers": [
+            "hex"
+          ]
+        },
+        {
+          "source": "encoding/json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "fmt",
+          "specifiers": [
+            "fmt"
+          ]
+        },
+        {
+          "source": "mime/multipart",
+          "specifiers": [
+            "multipart"
+          ]
+        },
+        {
+          "source": "net/http",
+          "specifiers": [
+            "http"
+          ]
+        },
+        {
+          "source": "net/http/httptest",
+          "specifiers": [
+            "httptest"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "path/filepath",
+          "specifiers": [
+            "filepath"
+          ]
+        },
+        {
+          "source": "testing",
+          "specifiers": [
+            "testing"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/redis",
+          "specifiers": [
+            "rediscache"
+          ]
+        },
+        {
+          "source": "github.com/alicebob/miniredis/v2",
+          "specifiers": [
+            "v2"
+          ]
+        },
+        {
+          "source": "github.com/gin-gonic/gin",
+          "specifiers": [
+            "gin"
+          ]
+        },
+        {
+          "source": "github.com/redis/go-redis/v9",
+          "specifiers": [
+            "goredis"
+          ]
+        }
+      ],
+      "exports": [
+        "TestFullChunkUploadFlow",
+        "TestBreakpointResume",
+        "TestIdempotentChunkUpload",
+        "TestHashMismatch",
+        "TestIncompleteMerge",
+        "TestChunkStatus"
+      ],
+      "totalLines": 428,
+      "hasStructuralAnalysis": true
+    },
+    "internal/video/chunk_handler.go": {
+      "filePath": "internal/video/chunk_handler.go",
+      "contentHash": "968b701aa506f563234fbc82f120083800c434411ca9d84820313dd14f4b00c1",
+      "functions": [
+        {
+          "name": "NewChunkUploadHandler",
+          "params": [
+            "cache"
+          ],
+          "returnType": "*ChunkUploadHandler",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "sessionKey",
+          "params": [
+            "uploadID"
+          ],
+          "returnType": "string",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "hashKey",
+          "params": [
+            "accountID",
+            "fileHash"
+          ],
+          "returnType": "string",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "getSession",
+          "params": [
+            "ctx",
+            "uploadID"
+          ],
+          "returnType": "(*ChunkUploadSession, error)",
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "saveSession",
+          "params": [
+            "ctx",
+            "s"
+          ],
+          "returnType": "error",
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "InitChunkUpload",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 69
+        },
+        {
+          "name": "UploadChunk",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 98
+        },
+        {
+          "name": "ChunkStatus",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 34
+        },
+        {
+          "name": "CompleteChunkUpload",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 106
+        }
+      ],
+      "classes": [
+        {
+          "name": "ChunkUploadHandler",
+          "methods": [
+            "sessionKey",
+            "hashKey",
+            "getSession",
+            "saveSession",
+            "InitChunkUpload",
+            "UploadChunk",
+            "ChunkStatus",
+            "CompleteChunkUpload"
+          ],
+          "properties": [
+            "cache"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "crypto/md5",
+          "specifiers": [
+            "md5"
+          ]
+        },
+        {
+          "source": "encoding/json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "fmt",
+          "specifiers": [
+            "fmt"
+          ]
+        },
+        {
+          "source": "io",
+          "specifiers": [
+            "io"
+          ]
+        },
+        {
+          "source": "net/http",
+          "specifiers": [
+            "http"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "path/filepath",
+          "specifiers": [
+            "filepath"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/jwt",
+          "specifiers": [
+            "jwt"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/redis",
+          "specifiers": [
+            "rediscache"
+          ]
+        },
+        {
+          "source": "github.com/gin-gonic/gin",
+          "specifiers": [
+            "gin"
+          ]
+        }
+      ],
+      "exports": [
+        "ChunkUploadHandler",
+        "NewChunkUploadHandler",
+        "InitChunkUpload",
+        "UploadChunk",
+        "ChunkStatus",
+        "CompleteChunkUpload"
+      ],
+      "totalLines": 376,
+      "hasStructuralAnalysis": true
+    },
+    "internal/video/comment_entity.go": {
+      "filePath": "internal/video/comment_entity.go",
+      "contentHash": "8f735ff167159e0aed55f2a81c26ebfde2aab61939c2ebe438f628412bfb82e2",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Comment",
+          "methods": [],
+          "properties": [
+            "ID",
+            "Username",
+            "VideoID",
+            "AuthorID",
+            "Content",
+            "CreatedAt"
+          ],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "PublishCommentRequest",
+          "methods": [],
+          "properties": [
+            "VideoID",
+            "Content"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "DeleteCommentRequest",
+          "methods": [],
+          "properties": [
+            "CommentID"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "GetAllCommentsRequest",
+          "methods": [],
+          "properties": [
+            "VideoID"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        }
+      ],
+      "exports": [
+        "Comment",
+        "PublishCommentRequest",
+        "DeleteCommentRequest",
+        "GetAllCommentsRequest"
+      ],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "internal/video/comment_handler.go": {
+      "filePath": "internal/video/comment_handler.go",
+      "contentHash": "c40cea6a6b91adb67d503f7dcac3377e24c67bc584c1d16010a2f7b4c9c4711f",
+      "functions": [
+        {
+          "name": "NewCommentHandler",
+          "params": [
+            "service",
+            "accountService"
+          ],
+          "returnType": "*CommentHandler",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "PublishComment",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 40
+        },
+        {
+          "name": "DeleteComment",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 24
+        },
+        {
+          "name": "GetAllComments",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 22
+        }
+      ],
+      "classes": [
+        {
+          "name": "CommentHandler",
+          "methods": [
+            "PublishComment",
+            "DeleteComment",
+            "GetAllComments"
+          ],
+          "properties": [
+            "service",
+            "accountService"
+          ],
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "imports": [
+        {
+          "source": "feedsystem/internal/account",
+          "specifiers": [
+            "account"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/apierror",
+          "specifiers": [
+            "apierror"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/jwt",
+          "specifiers": [
+            "jwt"
+          ]
+        },
+        {
+          "source": "github.com/gin-gonic/gin",
+          "specifiers": [
+            "gin"
+          ]
+        }
+      ],
+      "exports": [
+        "CommentHandler",
+        "NewCommentHandler",
+        "PublishComment",
+        "DeleteComment",
+        "GetAllComments"
+      ],
+      "totalLines": 108,
+      "hasStructuralAnalysis": true
+    },
+    "internal/video/comment_repo.go": {
+      "filePath": "internal/video/comment_repo.go",
+      "contentHash": "4ec8ca5929503dc439852e24432572c6fe70fd3f359d2fa36f4a0013447e4159",
+      "functions": [
+        {
+          "name": "NewCommentRepository",
+          "params": [
+            "db"
+          ],
+          "returnType": "*CommentRepository",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "CreateComment",
+          "params": [
+            "ctx",
+            "comment"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "DeleteComment",
+          "params": [
+            "ctx",
+            "comment"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "GetAllComments",
+          "params": [
+            "ctx",
+            "videoID"
+          ],
+          "returnType": "([]Comment, error)",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "IsExist",
+          "params": [
+            "ctx",
+            "id"
+          ],
+          "returnType": "(bool, error)",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "GetByID",
+          "params": [
+            "ctx",
+            "id"
+          ],
+          "returnType": "(*Comment, error)",
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "classes": [
+        {
+          "name": "CommentRepository",
+          "methods": [
+            "CreateComment",
+            "DeleteComment",
+            "GetAllComments",
+            "IsExist",
+            "GetByID"
+          ],
+          "properties": [
+            "db"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [
+        "CommentRepository",
+        "NewCommentRepository",
+        "CreateComment",
+        "DeleteComment",
+        "GetAllComments",
+        "IsExist",
+        "GetByID"
+      ],
+      "totalLines": 58,
+      "hasStructuralAnalysis": true
+    },
+    "internal/video/comment_service.go": {
+      "filePath": "internal/video/comment_service.go",
+      "contentHash": "4f729849029ac1797e50b8245debcfe41f7a03f641a6cb2243372dbe108fa5dd",
+      "functions": [
+        {
+          "name": "NewCommentService",
+          "params": [
+            "repo",
+            "videoRepo",
+            "cache",
+            "commentMQ",
+            "popularityMQ"
+          ],
+          "returnType": "*CommentService",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Publish",
+          "params": [
+            "ctx",
+            "comment"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 63
+        },
+        {
+          "name": "Delete",
+          "params": [
+            "ctx",
+            "commentID",
+            "accountID"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 20
+        },
+        {
+          "name": "GetAll",
+          "params": [
+            "ctx",
+            "videoID"
+          ],
+          "returnType": "([]Comment, error)",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "notifyMentions",
+          "params": [
+            "ctx",
+            "comment"
+          ],
+          "exported": false,
+          "lineCount": 46
+        }
+      ],
+      "classes": [
+        {
+          "name": "CommentService",
+          "methods": [
+            "Publish",
+            "Delete",
+            "GetAll",
+            "notifyMentions"
+          ],
+          "properties": [
+            "repo",
+            "VideoRepository",
+            "cache",
+            "commentMQ",
+            "popularityMQ"
+          ],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/apierror",
+          "specifiers": [
+            "apierror"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/rabbitmq",
+          "specifiers": [
+            "rabbitmq"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/redis",
+          "specifiers": [
+            "rediscache"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "regexp",
+          "specifiers": [
+            "regexp"
+          ]
+        },
+        {
+          "source": "strings",
+          "specifiers": [
+            "strings"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [
+        "CommentService",
+        "NewCommentService",
+        "Publish",
+        "Delete",
+        "GetAll"
+      ],
+      "totalLines": 173,
+      "hasStructuralAnalysis": true
+    },
+    "internal/video/like_entity.go": {
+      "filePath": "internal/video/like_entity.go",
+      "contentHash": "2adefbb73802d4e01ed3a13cd4a3d2e15614e6ef9a118379dc53293373f7cd9b",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Like",
+          "methods": [],
+          "properties": [
+            "ID",
+            "VideoID",
+            "AccountID",
+            "CreatedAt"
+          ],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "LikeRequest",
+          "methods": [],
+          "properties": [
+            "VideoID"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        }
+      ],
+      "exports": [
+        "Like",
+        "LikeRequest"
+      ],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "internal/video/like_handler.go": {
+      "filePath": "internal/video/like_handler.go",
+      "contentHash": "14aa9cffc9235bd5fdeb5e9c94a3df0e261aa10e012263f21fc5636a09c07d83",
+      "functions": [
+        {
+          "name": "NewLikeHandler",
+          "params": [
+            "service"
+          ],
+          "returnType": "*LikeHandler",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Like",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 27
+        },
+        {
+          "name": "Unlike",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 27
+        },
+        {
+          "name": "IsLiked",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 24
+        },
+        {
+          "name": "ListMyLikedVideos",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "classes": [
+        {
+          "name": "LikeHandler",
+          "methods": [
+            "Like",
+            "Unlike",
+            "IsLiked",
+            "ListMyLikedVideos"
+          ],
+          "properties": [
+            "service"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "feedsystem/internal/apierror",
+          "specifiers": [
+            "apierror"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/jwt",
+          "specifiers": [
+            "jwt"
+          ]
+        },
+        {
+          "source": "github.com/gin-gonic/gin",
+          "specifiers": [
+            "gin"
+          ]
+        }
+      ],
+      "exports": [
+        "LikeHandler",
+        "NewLikeHandler",
+        "Like",
+        "Unlike",
+        "IsLiked",
+        "ListMyLikedVideos"
+      ],
+      "totalLines": 116,
+      "hasStructuralAnalysis": true
+    },
+    "internal/video/like_repo.go": {
+      "filePath": "internal/video/like_repo.go",
+      "contentHash": "e9c71853d4fcbcda103d1dbda16504f4ed0fca2f20ad0d986a077ce97be948fb",
+      "functions": [
+        {
+          "name": "NewLikeRepository",
+          "params": [
+            "db"
+          ],
+          "returnType": "*LikeRepository",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Like",
+          "params": [
+            "ctx",
+            "like"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Unlike",
+          "params": [
+            "ctx",
+            "like"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "IsLiked",
+          "params": [
+            "ctx",
+            "videoID",
+            "accountID"
+          ],
+          "returnType": "(bool, error)",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "ListLikedVideos",
+          "params": [
+            "ctx",
+            "accountID"
+          ],
+          "returnType": "([]Video, error)",
+          "exported": true,
+          "lineCount": 17
+        },
+        {
+          "name": "BatchGetLiked",
+          "params": [
+            "ctx",
+            "videoIDs",
+            "accountID"
+          ],
+          "returnType": "(map[uint]bool, error)",
+          "exported": true,
+          "lineCount": 25
+        },
+        {
+          "name": "LikeIgnoreDuplicate",
+          "params": [
+            "ctx",
+            "like"
+          ],
+          "returnType": "(created bool, err error)",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "DeleteByVideoAndAccount",
+          "params": [
+            "ctx",
+            "videoID",
+            "accountID"
+          ],
+          "returnType": "(deleted bool, err error)",
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "classes": [
+        {
+          "name": "LikeRepository",
+          "methods": [
+            "Like",
+            "Unlike",
+            "IsLiked",
+            "ListLikedVideos",
+            "BatchGetLiked",
+            "LikeIgnoreDuplicate",
+            "DeleteByVideoAndAccount"
+          ],
+          "properties": [
+            "db"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "github.com/go-sql-driver/mysql",
+          "specifiers": [
+            "mysql"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [
+        "LikeRepository",
+        "NewLikeRepository",
+        "Like",
+        "Unlike",
+        "IsLiked",
+        "ListLikedVideos",
+        "BatchGetLiked",
+        "LikeIgnoreDuplicate",
+        "DeleteByVideoAndAccount"
+      ],
+      "totalLines": 108,
+      "hasStructuralAnalysis": true
+    },
+    "internal/video/like_service.go": {
+      "filePath": "internal/video/like_service.go",
+      "contentHash": "637c381fe13aa6735cc500630a712aa67a5931a1578df6f5ce17829baf989556",
+      "functions": [
+        {
+          "name": "NewLikeService",
+          "params": [
+            "repo",
+            "videoRepo",
+            "cache",
+            "likeMQ",
+            "popularityMQ"
+          ],
+          "returnType": "*LikeService",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "isDupKey",
+          "params": [
+            "err"
+          ],
+          "returnType": "bool",
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "Like",
+          "params": [
+            "ctx",
+            "like"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 75
+        },
+        {
+          "name": "Unlike",
+          "params": [
+            "ctx",
+            "like"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 69
+        },
+        {
+          "name": "IsLiked",
+          "params": [
+            "ctx",
+            "videoID",
+            "accountID"
+          ],
+          "returnType": "(bool, error)",
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "ListLikedVideos",
+          "params": [
+            "ctx",
+            "accountID"
+          ],
+          "returnType": "([]Video, error)",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "setLikeCache",
+          "params": [
+            "ctx",
+            "videoID",
+            "accountID"
+          ],
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "deleteLikeCache",
+          "params": [
+            "ctx",
+            "videoID",
+            "accountID"
+          ],
+          "exported": false,
+          "lineCount": 13
+        },
+        {
+          "name": "likeCacheKey",
+          "params": [
+            "videoID",
+            "accountID"
+          ],
+          "returnType": "string",
+          "exported": false,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "LikeService",
+          "methods": [
+            "Like",
+            "Unlike",
+            "IsLiked",
+            "ListLikedVideos",
+            "setLikeCache",
+            "deleteLikeCache",
+            "likeCacheKey"
+          ],
+          "properties": [
+            "repo",
+            "VideoRepo",
+            "cache",
+            "likeMQ",
+            "popularityMQ"
+          ],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/rabbitmq",
+          "specifiers": [
+            "rabbitmq"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/redis",
+          "specifiers": [
+            "rediscache"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/go-sql-driver/mysql",
+          "specifiers": [
+            "mysql"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [
+        "LikeService",
+        "NewLikeService",
+        "Like",
+        "Unlike",
+        "IsLiked",
+        "ListLikedVideos"
+      ],
+      "totalLines": 242,
+      "hasStructuralAnalysis": true
+    },
+    "internal/video/popularity_cache.go": {
+      "filePath": "internal/video/popularity_cache.go",
+      "contentHash": "38addbd94f303e26fe570dc03ea074eec814a591f027e517a8907977ae0391f7",
+      "functions": [
+        {
+          "name": "UpdatePopularityCache",
+          "params": [
+            "ctx",
+            "cache",
+            "id",
+            "change"
+          ],
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "strconv",
+          "specifiers": [
+            "strconv"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/redis",
+          "specifiers": [
+            "rediscache"
+          ]
+        }
+      ],
+      "exports": [
+        "UpdatePopularityCache"
+      ],
+      "totalLines": 30,
+      "hasStructuralAnalysis": true
+    },
+    "internal/video/tag_entity.go": {
+      "filePath": "internal/video/tag_entity.go",
+      "contentHash": "adc4e63e44a37c24cb6663412c8c4f6853e2e77efbadd4582189ef05b0b0eca2",
+      "functions": [
+        {
+          "name": "ExtractTags",
+          "params": [
+            "text"
+          ],
+          "returnType": "[]string",
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "classes": [
+        {
+          "name": "Tag",
+          "methods": [],
+          "properties": [
+            "ID",
+            "Name"
+          ],
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "VideoTag",
+          "methods": [],
+          "properties": [
+            "ID",
+            "VideoID",
+            "TagID"
+          ],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "imports": [
+        {
+          "source": "regexp",
+          "specifiers": [
+            "regexp"
+          ]
+        }
+      ],
+      "exports": [
+        "Tag",
+        "VideoTag",
+        "ExtractTags"
+      ],
+      "totalLines": 46,
+      "hasStructuralAnalysis": true
+    },
+    "internal/video/video_entity.go": {
+      "filePath": "internal/video/video_entity.go",
+      "contentHash": "d1485450c18e0de929fb19289ff8db47f787fecb6d4cdc9fefaac8a8a978eff5",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Video",
+          "methods": [],
+          "properties": [
+            "ID",
+            "AuthorID",
+            "Username",
+            "Title",
+            "Description",
+            "PlayURL",
+            "CoverURL",
+            "CreateTime",
+            "LikesCount",
+            "Popularity"
+          ],
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "PublishVideoRequest",
+          "methods": [],
+          "properties": [
+            "Title",
+            "Description",
+            "PlayURL",
+            "CoverURL"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "OutboxMsg",
+          "methods": [],
+          "properties": [
+            "ID",
+            "VideoID",
+            "EventType",
+            "CreateTime",
+            "Status"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "GetDetailRequest",
+          "methods": [],
+          "properties": [
+            "ID"
+          ],
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "ListByAuthorIDRequest",
+          "methods": [],
+          "properties": [
+            "AuthorID"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        }
+      ],
+      "exports": [
+        "Video",
+        "PublishVideoRequest",
+        "OutboxMsg",
+        "GetDetailRequest",
+        "ListByAuthorIDRequest"
+      ],
+      "totalLines": 44,
+      "hasStructuralAnalysis": true
+    },
+    "internal/video/video_handler.go": {
+      "filePath": "internal/video/video_handler.go",
+      "contentHash": "0a13334176936a5d219c242c4cef63a8816b7226b2b86af71c9dacb847e6540f",
+      "functions": [
+        {
+          "name": "NewVideoHandler",
+          "params": [
+            "service"
+          ],
+          "returnType": "*VideoHandler",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "UploadVideo",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 60
+        },
+        {
+          "name": "UploadCover",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 56
+        },
+        {
+          "name": "PublishVideo",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 34
+        },
+        {
+          "name": "GetDetail",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "ListByAuthorID",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "randHex",
+          "params": [
+            "n"
+          ],
+          "returnType": "(string, error)",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "buildAbsoluteURL",
+          "params": [
+            "c",
+            "p"
+          ],
+          "returnType": "string",
+          "exported": false,
+          "lineCount": 10
+        }
+      ],
+      "classes": [
+        {
+          "name": "VideoHandler",
+          "methods": [
+            "UploadVideo",
+            "UploadCover",
+            "PublishVideo",
+            "GetDetail",
+            "ListByAuthorID"
+          ],
+          "properties": [
+            "service"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "crypto/rand",
+          "specifiers": [
+            "rand"
+          ]
+        },
+        {
+          "source": "encoding/hex",
+          "specifiers": [
+            "hex"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/apierror",
+          "specifiers": [
+            "apierror"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/jwt",
+          "specifiers": [
+            "jwt"
+          ]
+        },
+        {
+          "source": "fmt",
+          "specifiers": [
+            "fmt"
+          ]
+        },
+        {
+          "source": "net/http",
+          "specifiers": [
+            "http"
+          ]
+        },
+        {
+          "source": "os",
+          "specifiers": [
+            "os"
+          ]
+        },
+        {
+          "source": "path",
+          "specifiers": [
+            "path"
+          ]
+        },
+        {
+          "source": "path/filepath",
+          "specifiers": [
+            "filepath"
+          ]
+        },
+        {
+          "source": "strings",
+          "specifiers": [
+            "strings"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/gin-gonic/gin",
+          "specifiers": [
+            "gin"
+          ]
+        }
+      ],
+      "exports": [
+        "VideoHandler",
+        "NewVideoHandler",
+        "UploadVideo",
+        "UploadCover",
+        "PublishVideo",
+        "GetDetail",
+        "ListByAuthorID"
+      ],
+      "totalLines": 234,
+      "hasStructuralAnalysis": true
+    },
+    "internal/video/video_repo.go": {
+      "filePath": "internal/video/video_repo.go",
+      "contentHash": "70dea2887d404936494cd243be661956b7e5c9ca39ad3d0b71dd89c2aa3003e6",
+      "functions": [
+        {
+          "name": "NewVideoRepository",
+          "params": [
+            "db"
+          ],
+          "returnType": "*VideoRepository",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "CreateVideo",
+          "params": [
+            "ctx",
+            "video"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "GetByID",
+          "params": [
+            "ctx",
+            "id"
+          ],
+          "returnType": "(*Video, error)",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "ListByAuthorID",
+          "params": [
+            "ctx",
+            "authorID"
+          ],
+          "returnType": "([]Video, error)",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "DeleteVideo",
+          "params": [
+            "ctx",
+            "id"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "IsExist",
+          "params": [
+            "ctx",
+            "id"
+          ],
+          "returnType": "(bool, error)",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "ChangePopularity",
+          "params": [
+            "ctx",
+            "id",
+            "change"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "ChangeLikesCount",
+          "params": [
+            "ctx",
+            "id",
+            "change"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "CountByAuthor",
+          "params": [
+            "ctx",
+            "authorID"
+          ],
+          "returnType": "(int64, error)",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "TotalLikesByAuthor",
+          "params": [
+            "ctx",
+            "authorID"
+          ],
+          "returnType": "(int64, error)",
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "classes": [
+        {
+          "name": "VideoRepository",
+          "methods": [
+            "CreateVideo",
+            "GetByID",
+            "ListByAuthorID",
+            "DeleteVideo",
+            "IsExist",
+            "ChangePopularity",
+            "ChangeLikesCount",
+            "CountByAuthor",
+            "TotalLikesByAuthor"
+          ],
+          "properties": [
+            "db"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [
+        "VideoRepository",
+        "NewVideoRepository",
+        "CreateVideo",
+        "GetByID",
+        "ListByAuthorID",
+        "DeleteVideo",
+        "IsExist",
+        "ChangePopularity",
+        "ChangeLikesCount",
+        "CountByAuthor",
+        "TotalLikesByAuthor"
+      ],
+      "totalLines": 92,
+      "hasStructuralAnalysis": true
+    },
+    "internal/video/video_service.go": {
+      "filePath": "internal/video/video_service.go",
+      "contentHash": "47c67048d1e49f62eca2b8dded5e1ed46034ba4c55443892d6bf9882675d2eb5",
+      "functions": [
+        {
+          "name": "NewVideoService",
+          "params": [
+            "repo",
+            "cache"
+          ],
+          "returnType": "*VideoService",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "Publish",
+          "params": [
+            "ctx",
+            "video"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 49
+        },
+        {
+          "name": "GetDetail",
+          "params": [
+            "ctx",
+            "id"
+          ],
+          "returnType": "(*Video, error)",
+          "exported": true,
+          "lineCount": 22
+        },
+        {
+          "name": "ListByAuthorID",
+          "params": [
+            "ctx",
+            "authorID"
+          ],
+          "returnType": "([]Video, error)",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "getVideoDetailFromCache",
+          "params": [
+            "ctx",
+            "id"
+          ],
+          "returnType": "(*Video, bool)",
+          "exported": false,
+          "lineCount": 23
+        },
+        {
+          "name": "setVideoDetailCache",
+          "params": [
+            "ctx",
+            "video"
+          ],
+          "exported": false,
+          "lineCount": 19
+        },
+        {
+          "name": "videoDetailCacheKey",
+          "params": [
+            "id"
+          ],
+          "returnType": "string",
+          "exported": false,
+          "lineCount": 3
+        }
+      ],
+      "classes": [
+        {
+          "name": "VideoService",
+          "methods": [
+            "Publish",
+            "GetDetail",
+            "ListByAuthorID",
+            "getVideoDetailFromCache",
+            "setVideoDetailCache",
+            "videoDetailCacheKey"
+          ],
+          "properties": [
+            "repo",
+            "cache",
+            "cacheTTL"
+          ],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "encoding/json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/redis",
+          "specifiers": [
+            "redis"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "strings",
+          "specifiers": [
+            "strings"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [
+        "VideoService",
+        "NewVideoService",
+        "Publish",
+        "GetDetail",
+        "ListByAuthorID"
+      ],
+      "totalLines": 153,
+      "hasStructuralAnalysis": true
+    },
+    "internal/worker/commentworker.go": {
+      "filePath": "internal/worker/commentworker.go",
+      "contentHash": "90e8847a3c832d096e99ee3ced3f01e34e5706a2f6b20a09940fec377aeb4235",
+      "functions": [
+        {
+          "name": "NewCommentWorker",
+          "params": [
+            "ch",
+            "comments",
+            "videos",
+            "queue"
+          ],
+          "returnType": "*CommentWorker",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Run",
+          "params": [
+            "ctx"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 25
+        },
+        {
+          "name": "handleDelivery",
+          "params": [
+            "ctx",
+            "d"
+          ],
+          "exported": false,
+          "lineCount": 26
+        },
+        {
+          "name": "process",
+          "params": [
+            "ctx",
+            "body"
+          ],
+          "returnType": "error",
+          "exported": false,
+          "lineCount": 15
+        },
+        {
+          "name": "applyPublish",
+          "params": [
+            "ctx",
+            "event"
+          ],
+          "returnType": "error",
+          "exported": false,
+          "lineCount": 24
+        },
+        {
+          "name": "applyDelete",
+          "params": [
+            "ctx",
+            "event"
+          ],
+          "returnType": "error",
+          "exported": false,
+          "lineCount": 13
+        }
+      ],
+      "classes": [
+        {
+          "name": "CommentWorker",
+          "methods": [
+            "Run",
+            "handleDelivery",
+            "process",
+            "applyPublish",
+            "applyDelete"
+          ],
+          "properties": [
+            "ch",
+            "comments",
+            "videos",
+            "queue"
+          ],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "encoding/json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/rabbitmq",
+          "specifiers": [
+            "rabbitmq"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/video",
+          "specifiers": [
+            "video"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "strings",
+          "specifiers": [
+            "strings"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/rabbitmq/amqp091-go",
+          "specifiers": [
+            "amqp"
+          ]
+        }
+      ],
+      "exports": [
+        "CommentWorker",
+        "NewCommentWorker",
+        "Run"
+      ],
+      "totalLines": 134,
+      "hasStructuralAnalysis": true
+    },
+    "internal/worker/likeworker.go": {
+      "filePath": "internal/worker/likeworker.go",
+      "contentHash": "9ebc84b6921061a0600db95ee8ab623d49a796cd97cb5cba731f286d6eb6ade7",
+      "functions": [
+        {
+          "name": "NewLikeWorker",
+          "params": [
+            "ch",
+            "likes",
+            "videos",
+            "queue"
+          ],
+          "returnType": "*LikeWorker",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Run",
+          "params": [
+            "ctx"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 25
+        },
+        {
+          "name": "handleDelivery",
+          "params": [
+            "ctx",
+            "d"
+          ],
+          "exported": false,
+          "lineCount": 24
+        },
+        {
+          "name": "process",
+          "params": [
+            "ctx",
+            "body"
+          ],
+          "returnType": "error",
+          "exported": false,
+          "lineCount": 18
+        },
+        {
+          "name": "applyLike",
+          "params": [
+            "ctx",
+            "userID",
+            "videoID"
+          ],
+          "returnType": "error",
+          "exported": false,
+          "lineCount": 26
+        },
+        {
+          "name": "applyUnlike",
+          "params": [
+            "ctx",
+            "userID",
+            "videoID"
+          ],
+          "returnType": "error",
+          "exported": false,
+          "lineCount": 22
+        }
+      ],
+      "classes": [
+        {
+          "name": "LikeWorker",
+          "methods": [
+            "Run",
+            "handleDelivery",
+            "process",
+            "applyLike",
+            "applyUnlike"
+          ],
+          "properties": [
+            "ch",
+            "likes",
+            "videos",
+            "queue"
+          ],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "encoding/json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/rabbitmq",
+          "specifiers": [
+            "rabbitmq"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/video",
+          "specifiers": [
+            "video"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/rabbitmq/amqp091-go",
+          "specifiers": [
+            "amqp"
+          ]
+        }
+      ],
+      "exports": [
+        "LikeWorker",
+        "NewLikeWorker",
+        "Run"
+      ],
+      "totalLines": 145,
+      "hasStructuralAnalysis": true
+    },
+    "internal/worker/notificationworker.go": {
+      "filePath": "internal/worker/notificationworker.go",
+      "contentHash": "d98462887db2b9b0f3f3b9aefaedc5516df0afe8e9ddb67d39914ba66ec84357",
+      "functions": [
+        {
+          "name": "NewNotificationWorker",
+          "params": [
+            "ch",
+            "db",
+            "queue",
+            "hub"
+          ],
+          "returnType": "*NotificationWorker",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Run",
+          "params": [
+            "ctx"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "handleDelivery",
+          "params": [
+            "ctx",
+            "d"
+          ],
+          "exported": false,
+          "lineCount": 28
+        },
+        {
+          "name": "process",
+          "params": [
+            "ctx",
+            "d"
+          ],
+          "returnType": "error",
+          "exported": false,
+          "lineCount": 100
+        }
+      ],
+      "classes": [
+        {
+          "name": "Notification",
+          "methods": [],
+          "properties": [
+            "ID",
+            "RecipientID",
+            "SenderID",
+            "Type",
+            "TargetID",
+            "Content",
+            "IsRead",
+            "CreatedAt"
+          ],
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "NotificationWorker",
+          "methods": [
+            "Run",
+            "handleDelivery",
+            "process"
+          ],
+          "properties": [
+            "ch",
+            "db",
+            "queue",
+            "hub"
+          ],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "NotificationHub",
+          "methods": [
+            "Push"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "encoding/json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/rabbitmq",
+          "specifiers": [
+            "rabbitmq"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/rabbitmq/amqp091-go",
+          "specifiers": [
+            "amqp"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [
+        "Notification",
+        "NotificationWorker",
+        "NotificationHub",
+        "NewNotificationWorker",
+        "Run"
+      ],
+      "totalLines": 204,
+      "hasStructuralAnalysis": true
+    },
+    "internal/worker/outboxworker.go": {
+      "filePath": "internal/worker/outboxworker.go",
+      "contentHash": "510d5113303b73d1b7d6803e3f158074794c776f56e3e1cbec0ed5c73d77b433",
+      "functions": [
+        {
+          "name": "StartOutboxPoller",
+          "params": [
+            "db",
+            "tmq"
+          ],
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "StartConsumer",
+          "params": [
+            "tmq",
+            "queueName",
+            "redisClient",
+            "rmq"
+          ],
+          "exported": true,
+          "lineCount": 69
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "encoding/json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/rabbitmq",
+          "specifiers": [
+            "rabbitmq"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/redis",
+          "specifiers": [
+            "rediscache"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/video",
+          "specifiers": [
+            "video"
+          ]
+        },
+        {
+          "source": "fmt",
+          "specifiers": [
+            "fmt"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/redis/go-redis/v9",
+          "specifiers": [
+            "oredis"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [
+        "StartOutboxPoller",
+        "StartConsumer"
+      ],
+      "totalLines": 115,
+      "hasStructuralAnalysis": true
+    },
+    "internal/worker/popularityworker.go": {
+      "filePath": "internal/worker/popularityworker.go",
+      "contentHash": "1ac02574575ec9789f09229487bab5411f739d78593ab82ce5d10539865a81c3",
+      "functions": [
+        {
+          "name": "NewPopularityWorker",
+          "params": [
+            "ch",
+            "cache",
+            "queue"
+          ],
+          "returnType": "*PopularityWorker",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Run",
+          "params": [
+            "ctx"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 25
+        },
+        {
+          "name": "handleDelivery",
+          "params": [
+            "ctx",
+            "d"
+          ],
+          "exported": false,
+          "lineCount": 24
+        },
+        {
+          "name": "process",
+          "params": [
+            "ctx",
+            "body"
+          ],
+          "returnType": "error",
+          "exported": false,
+          "lineCount": 11
+        }
+      ],
+      "classes": [
+        {
+          "name": "PopularityWorker",
+          "methods": [
+            "Run",
+            "handleDelivery",
+            "process"
+          ],
+          "properties": [
+            "ch",
+            "cache",
+            "queue"
+          ],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "encoding/json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/rabbitmq",
+          "specifiers": [
+            "rabbitmq"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/redis",
+          "specifiers": [
+            "rediscache"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/video",
+          "specifiers": [
+            "video"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/rabbitmq/amqp091-go",
+          "specifiers": [
+            "amqp"
+          ]
+        }
+      ],
+      "exports": [
+        "PopularityWorker",
+        "NewPopularityWorker",
+        "Run"
+      ],
+      "totalLines": 88,
+      "hasStructuralAnalysis": true
+    },
+    "internal/worker/socialworker.go": {
+      "filePath": "internal/worker/socialworker.go",
+      "contentHash": "382d5caa234d5cc832e272518535a75c0387d78a0305c06eb79cca8a0874f238",
+      "functions": [
+        {
+          "name": "NewSocialWorker",
+          "params": [
+            "ch",
+            "repo",
+            "queue"
+          ],
+          "returnType": "*SocialWorker",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Run",
+          "params": [
+            "ctx"
+          ],
+          "returnType": "error",
+          "exported": true,
+          "lineCount": 25
+        },
+        {
+          "name": "handleDelivery",
+          "params": [
+            "ctx",
+            "d"
+          ],
+          "exported": false,
+          "lineCount": 25
+        },
+        {
+          "name": "process",
+          "params": [
+            "ctx",
+            "body"
+          ],
+          "returnType": "error",
+          "exported": false,
+          "lineCount": 32
+        }
+      ],
+      "classes": [
+        {
+          "name": "SocialWorker",
+          "methods": [
+            "Run",
+            "handleDelivery",
+            "process"
+          ],
+          "properties": [
+            "ch",
+            "repo",
+            "queue"
+          ],
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "imports": [
+        {
+          "source": "context",
+          "specifiers": [
+            "context"
+          ]
+        },
+        {
+          "source": "encoding/json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/middleware/rabbitmq",
+          "specifiers": [
+            "rabbitmq"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/social",
+          "specifiers": [
+            "social"
+          ]
+        },
+        {
+          "source": "log",
+          "specifiers": [
+            "log"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "github.com/go-sql-driver/mysql",
+          "specifiers": [
+            "mysql"
+          ]
+        },
+        {
+          "source": "github.com/rabbitmq/amqp091-go",
+          "specifiers": [
+            "amqp"
+          ]
+        }
+      ],
+      "exports": [
+        "SocialWorker",
+        "NewSocialWorker",
+        "Run"
+      ],
+      "totalLines": 110,
+      "hasStructuralAnalysis": true
+    },
+    "internal/worker/ssehub.go": {
+      "filePath": "internal/worker/ssehub.go",
+      "contentHash": "55e46a535cf626bd352af11dc38486ac2f9d2dfa9134c24cf79a769c8ef60a23",
+      "functions": [
+        {
+          "name": "NewSSEHub",
+          "params": [
+            "db"
+          ],
+          "returnType": "*SSEHub",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "Push",
+          "params": [
+            "userID",
+            "n"
+          ],
+          "exported": true,
+          "lineCount": 19
+        },
+        {
+          "name": "Subscribe",
+          "params": [
+            "userID"
+          ],
+          "returnType": "chan *Notification",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "Unsubscribe",
+          "params": [
+            "userID",
+            "ch"
+          ],
+          "exported": true,
+          "lineCount": 19
+        },
+        {
+          "name": "sseAccountID",
+          "params": [
+            "c"
+          ],
+          "returnType": "(uint, bool)",
+          "exported": false,
+          "lineCount": 9
+        },
+        {
+          "name": "SSERequireAuth",
+          "params": [],
+          "returnType": "gin.HandlerFunc",
+          "exported": true,
+          "lineCount": 25
+        },
+        {
+          "name": "SSEHandler",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 50
+        },
+        {
+          "name": "ListHandler",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 23
+        },
+        {
+          "name": "MarkReadHandler",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 36
+        },
+        {
+          "name": "UnreadCountHandler",
+          "params": [
+            "c"
+          ],
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "RegisterRoutes",
+          "params": [
+            "r",
+            "group"
+          ],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "classes": [
+        {
+          "name": "SSEHub",
+          "methods": [
+            "Push",
+            "Subscribe",
+            "Unsubscribe",
+            "SSERequireAuth",
+            "SSEHandler",
+            "ListHandler",
+            "MarkReadHandler",
+            "UnreadCountHandler",
+            "RegisterRoutes"
+          ],
+          "properties": [
+            "mu",
+            "clients",
+            "db"
+          ],
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "imports": [
+        {
+          "source": "encoding/json",
+          "specifiers": [
+            "json"
+          ]
+        },
+        {
+          "source": "errors",
+          "specifiers": [
+            "errors"
+          ]
+        },
+        {
+          "source": "fmt",
+          "specifiers": [
+            "fmt"
+          ]
+        },
+        {
+          "source": "io",
+          "specifiers": [
+            "io"
+          ]
+        },
+        {
+          "source": "net/http",
+          "specifiers": [
+            "http"
+          ]
+        },
+        {
+          "source": "sync",
+          "specifiers": [
+            "sync"
+          ]
+        },
+        {
+          "source": "time",
+          "specifiers": [
+            "time"
+          ]
+        },
+        {
+          "source": "feedsystem/internal/auth",
+          "specifiers": [
+            "auth"
+          ]
+        },
+        {
+          "source": "github.com/gin-gonic/gin",
+          "specifiers": [
+            "gin"
+          ]
+        },
+        {
+          "source": "gorm.io/gorm",
+          "specifiers": [
+            "gorm"
+          ]
+        }
+      ],
+      "exports": [
+        "SSEHub",
+        "NewSSEHub",
+        "Push",
+        "Subscribe",
+        "Unsubscribe",
+        "SSERequireAuth",
+        "SSEHandler",
+        "ListHandler",
+        "MarkReadHandler",
+        "UnreadCountHandler",
+        "RegisterRoutes"
+      ],
+      "totalLines": 262,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

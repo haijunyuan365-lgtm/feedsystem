@@ -1,0 +1,29 @@
+{
+  "issues": [],
+  "warnings": [
+    "orphan node: resource:.dockerignore",
+    "orphan node: config:go.sum"
+  ],
+  "stats": {
+    "totalNodes": 471,
+    "totalEdges": 837,
+    "totalLayers": 7,
+    "tourSteps": 6,
+    "nodeTypes": {
+      "file": 60,
+      "class": 109,
+      "function": 289,
+      "resource": 1,
+      "service": 7,
+      "config": 5
+    },
+    "edgeTypes": {
+      "contains": 403,
+      "imports": 415,
+      "deploys": 3,
+      "configures": 12,
+      "depends_on": 1,
+      "tested_by": 3
+    }
+  }
+}

@@ -1,0 +1,3709 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 10,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "internal/middleware/ratelimit/ratelimit.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 78,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "Limit",
+          "startLine": 17,
+          "endLine": 53,
+          "params": [
+            "cache",
+            "keyPrefix",
+            "maxRequests",
+            "window",
+            "keyFunc"
+          ]
+        },
+        {
+          "name": "buildKey",
+          "startLine": 55,
+          "endLine": 62,
+          "params": [
+            "keyPrefix",
+            "subject"
+          ]
+        },
+        {
+          "name": "KeyByIP",
+          "startLine": 64,
+          "endLine": 70,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "KeyByAccount",
+          "startLine": 72,
+          "endLine": 78,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Limit",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "KeyByIP",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "KeyByAccount",
+          "line": 72,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Limit",
+          "callee": "c.Next",
+          "lineNumber": 26
+        },
+        {
+          "caller": "Limit",
+          "callee": "keyFunc",
+          "lineNumber": 30
+        },
+        {
+          "caller": "Limit",
+          "callee": "c.Next",
+          "lineNumber": 32
+        },
+        {
+          "caller": "Limit",
+          "callee": "buildKey",
+          "lineNumber": 36
+        },
+        {
+          "caller": "Limit",
+          "callee": "cache.IncrementWithExpire",
+          "lineNumber": 38
+        },
+        {
+          "caller": "Limit",
+          "callee": "c.Request.Context",
+          "lineNumber": 38
+        },
+        {
+          "caller": "Limit",
+          "callee": "c.Next",
+          "lineNumber": 40
+        },
+        {
+          "caller": "Limit",
+          "callee": "c.AbortWithStatusJSON",
+          "lineNumber": 45
+        },
+        {
+          "caller": "Limit",
+          "callee": "c.Next",
+          "lineNumber": 51
+        },
+        {
+          "caller": "buildKey",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 56
+        },
+        {
+          "caller": "buildKey",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 61
+        },
+        {
+          "caller": "buildKey",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 61
+        },
+        {
+          "caller": "KeyByIP",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 65
+        },
+        {
+          "caller": "KeyByIP",
+          "callee": "c.ClientIP",
+          "lineNumber": 65
+        },
+        {
+          "caller": "KeyByAccount",
+          "callee": "jwtmiddleware.GetAccountID",
+          "lineNumber": 73
+        },
+        {
+          "caller": "KeyByAccount",
+          "callee": "strconv.FormatUint",
+          "lineNumber": 77
+        },
+        {
+          "caller": "KeyByAccount",
+          "callee": "uint64",
+          "lineNumber": 77
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "internal/middleware/redis/cache.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 41,
+      "functions": [
+        {
+          "name": "GetBytes",
+          "startLine": 9,
+          "endLine": 14,
+          "params": [
+            "ctx",
+            "key"
+          ]
+        },
+        {
+          "name": "SetBytes",
+          "startLine": 16,
+          "endLine": 21,
+          "params": [
+            "ctx",
+            "key",
+            "value",
+            "ttl"
+          ]
+        },
+        {
+          "name": "Del",
+          "startLine": 23,
+          "endLine": 28,
+          "params": [
+            "ctx",
+            "key"
+          ]
+        },
+        {
+          "name": "MGet",
+          "startLine": 30,
+          "endLine": 35,
+          "params": [
+            "ctx"
+          ]
+        },
+        {
+          "name": "DelByPattern",
+          "startLine": 36,
+          "endLine": 46,
+          "params": [
+            "ctx",
+            "pattern"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "GetBytes",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "SetBytes",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "Del",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "MGet",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "DelByPattern",
+          "line": 36,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "GetBytes",
+          "callee": "errors.New",
+          "lineNumber": 11
+        },
+        {
+          "caller": "GetBytes",
+          "callee": "c.rdb.Get(ctx, key).Bytes",
+          "lineNumber": 13
+        },
+        {
+          "caller": "GetBytes",
+          "callee": "c.rdb.Get",
+          "lineNumber": 13
+        },
+        {
+          "caller": "SetBytes",
+          "callee": "errors.New",
+          "lineNumber": 18
+        },
+        {
+          "caller": "SetBytes",
+          "callee": "c.rdb.Set(ctx, key, value, ttl).Err",
+          "lineNumber": 20
+        },
+        {
+          "caller": "SetBytes",
+          "callee": "c.rdb.Set",
+          "lineNumber": 20
+        },
+        {
+          "caller": "Del",
+          "callee": "errors.New",
+          "lineNumber": 25
+        },
+        {
+          "caller": "Del",
+          "callee": "c.rdb.Del(ctx, key).Err",
+          "lineNumber": 27
+        },
+        {
+          "caller": "Del",
+          "callee": "c.rdb.Del",
+          "lineNumber": 27
+        },
+        {
+          "caller": "MGet",
+          "callee": "errors.New",
+          "lineNumber": 32
+        },
+        {
+          "caller": "MGet",
+          "callee": "c.rdb.MGet(ctx, keys...).Result",
+          "lineNumber": 34
+        },
+        {
+          "caller": "MGet",
+          "callee": "c.rdb.MGet",
+          "lineNumber": 34
+        },
+        {
+          "caller": "DelByPattern",
+          "callee": "c.rdb.Scan(ctx, 0, pattern, 0).Iterator",
+          "lineNumber": 41
+        },
+        {
+          "caller": "DelByPattern",
+          "callee": "c.rdb.Scan",
+          "lineNumber": 41
+        },
+        {
+          "caller": "DelByPattern",
+          "callee": "iter.Next",
+          "lineNumber": 42
+        },
+        {
+          "caller": "DelByPattern",
+          "callee": "c.rdb.Del",
+          "lineNumber": 43
+        },
+        {
+          "caller": "DelByPattern",
+          "callee": "iter.Val",
+          "lineNumber": 43
+        },
+        {
+          "caller": "DelByPattern",
+          "callee": "iter.Err",
+          "lineNumber": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "internal/middleware/redis/redis.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 118,
+      "nonEmptyLines": 102,
+      "functions": [
+        {
+          "name": "NewClient",
+          "startLine": 23,
+          "endLine": 25,
+          "params": [
+            "rdb",
+            "keyPrefix"
+          ]
+        },
+        {
+          "name": "NewFromEnv",
+          "startLine": 27,
+          "endLine": 34,
+          "params": [
+            "cfg"
+          ]
+        },
+        {
+          "name": "Ping",
+          "startLine": 36,
+          "endLine": 41,
+          "params": [
+            "ctx"
+          ]
+        },
+        {
+          "name": "IsMiss",
+          "startLine": 43,
+          "endLine": 45,
+          "params": [
+            "err"
+          ]
+        },
+        {
+          "name": "Close",
+          "startLine": 47,
+          "endLine": 52,
+          "params": []
+        },
+        {
+          "name": "Key",
+          "startLine": 54,
+          "endLine": 60,
+          "params": [
+            "format"
+          ]
+        },
+        {
+          "name": "IncrementWithExpire",
+          "startLine": 72,
+          "endLine": 82,
+          "params": [
+            "ctx",
+            "key",
+            "expire"
+          ]
+        },
+        {
+          "name": "randToken",
+          "startLine": 84,
+          "endLine": 90,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "Lock",
+          "startLine": 92,
+          "endLine": 102,
+          "params": [
+            "ctx",
+            "key",
+            "ttl"
+          ]
+        },
+        {
+          "name": "Unlock",
+          "startLine": 112,
+          "endLine": 118,
+          "params": [
+            "ctx",
+            "key",
+            "token"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Client",
+          "startLine": 16,
+          "endLine": 19,
+          "methods": [
+            "Ping",
+            "Close",
+            "Key",
+            "IncrementWithExpire",
+            "Lock",
+            "Unlock"
+          ],
+          "properties": [
+            "rdb",
+            "keyPrefix"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Client",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "NewClient",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "NewFromEnv",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "Ping",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "IsMiss",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "Close",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "Key",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "IncrementWithExpire",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "Lock",
+          "line": 92,
+          "isDefault": false
+        },
+        {
+          "name": "Unlock",
+          "line": 112,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "NewFromEnv",
+          "callee": "redis.NewClient",
+          "lineNumber": 28
+        },
+        {
+          "caller": "NewFromEnv",
+          "callee": "strconv.Itoa",
+          "lineNumber": 29
+        },
+        {
+          "caller": "Ping",
+          "callee": "errors.New",
+          "lineNumber": 38
+        },
+        {
+          "caller": "Ping",
+          "callee": "c.rdb.Ping(ctx).Err",
+          "lineNumber": 40
+        },
+        {
+          "caller": "Ping",
+          "callee": "c.rdb.Ping",
+          "lineNumber": 40
+        },
+        {
+          "caller": "Close",
+          "callee": "c.rdb.Close",
+          "lineNumber": 51
+        },
+        {
+          "caller": "Key",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 59
+        },
+        {
+          "caller": "IncrementWithExpire",
+          "callee": "incrementWithExpireScript.Run(\n\t\tctx,\n\t\tc.rdb,\n\t\t[]string{key},\n\t\texpire.Milliseconds(),\n\t).Int64",
+          "lineNumber": 76
+        },
+        {
+          "caller": "IncrementWithExpire",
+          "callee": "incrementWithExpireScript.Run",
+          "lineNumber": 76
+        },
+        {
+          "caller": "IncrementWithExpire",
+          "callee": "expire.Milliseconds",
+          "lineNumber": 80
+        },
+        {
+          "caller": "randToken",
+          "callee": "make",
+          "lineNumber": 85
+        },
+        {
+          "caller": "randToken",
+          "callee": "rand.Read",
+          "lineNumber": 86
+        },
+        {
+          "caller": "randToken",
+          "callee": "hex.EncodeToString",
+          "lineNumber": 89
+        },
+        {
+          "caller": "Lock",
+          "callee": "randToken",
+          "lineNumber": 96
+        },
+        {
+          "caller": "Lock",
+          "callee": "c.rdb.SetNX(ctx, key, token, ttl).Result",
+          "lineNumber": 100
+        },
+        {
+          "caller": "Lock",
+          "callee": "c.rdb.SetNX",
+          "lineNumber": 100
+        },
+        {
+          "caller": "Unlock",
+          "callee": "unlockScript.Run(ctx, c.rdb, []string{key}, token).Result",
+          "lineNumber": 116
+        },
+        {
+          "caller": "Unlock",
+          "callee": "unlockScript.Run",
+          "lineNumber": 116
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 10,
+        "functionCount": 10,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/middleware/redis/redis_test.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "startLine": 12,
+          "endLine": 56,
+          "params": [
+            "t"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "miniredis.Run",
+          "lineNumber": 13
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "t.Fatalf",
+          "lineNumber": 15
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "mr.Close",
+          "lineNumber": 17
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "goredis.NewClient",
+          "lineNumber": 20
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "mr.Addr",
+          "lineNumber": 20
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "client.Close",
+          "lineNumber": 22
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "context.Background",
+          "lineNumber": 24
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "client.IncrementWithExpire",
+          "lineNumber": 28
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "t.Fatalf",
+          "lineNumber": 30
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "t.Fatalf",
+          "lineNumber": 33
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "mr.TTL",
+          "lineNumber": 36
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "t.Fatalf",
+          "lineNumber": 38
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "mr.FastForward",
+          "lineNumber": 41
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "mr.TTL",
+          "lineNumber": 42
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "client.IncrementWithExpire",
+          "lineNumber": 44
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "t.Fatalf",
+          "lineNumber": 46
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "t.Fatalf",
+          "lineNumber": 49
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "mr.TTL",
+          "lineNumber": 52
+        },
+        {
+          "caller": "TestIncrementWithExpireSetsTTLWithoutExtendingWindow",
+          "callee": "t.Fatalf",
+          "lineNumber": 54
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "internal/middleware/redis/zset.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 84,
+      "nonEmptyLines": 73,
+      "functions": [
+        {
+          "name": "ZincrBy",
+          "startLine": 11,
+          "endLine": 16,
+          "params": [
+            "ctx",
+            "key",
+            "member",
+            "score"
+          ]
+        },
+        {
+          "name": "ZAdd",
+          "startLine": 18,
+          "endLine": 23,
+          "params": [
+            "ctx",
+            "key"
+          ]
+        },
+        {
+          "name": "ZRemRangeByRank",
+          "startLine": 26,
+          "endLine": 31,
+          "params": [
+            "ctx",
+            "key",
+            "start",
+            "stop"
+          ]
+        },
+        {
+          "name": "ZRangeWithScores",
+          "startLine": 33,
+          "endLine": 38,
+          "params": [
+            "ctx",
+            "key",
+            "start",
+            "stop"
+          ]
+        },
+        {
+          "name": "ZRevRange",
+          "startLine": 41,
+          "endLine": 46,
+          "params": [
+            "ctx",
+            "key",
+            "start",
+            "stop"
+          ]
+        },
+        {
+          "name": "ZRevRangeByScore",
+          "startLine": 49,
+          "endLine": 59,
+          "params": [
+            "ctx",
+            "key",
+            "max",
+            "min",
+            "offset",
+            "count"
+          ]
+        },
+        {
+          "name": "Expire",
+          "startLine": 61,
+          "endLine": 66,
+          "params": [
+            "ctx",
+            "key",
+            "ttl"
+          ]
+        },
+        {
+          "name": "ZUnionStore",
+          "startLine": 68,
+          "endLine": 76,
+          "params": [
+            "ctx",
+            "dst",
+            "keys",
+            "aggregate"
+          ]
+        },
+        {
+          "name": "Exists",
+          "startLine": 78,
+          "endLine": 84,
+          "params": [
+            "ctx",
+            "key"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ZincrBy",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "ZAdd",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "ZRemRangeByRank",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "ZRangeWithScores",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "ZRevRange",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "ZRevRangeByScore",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "Expire",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "ZUnionStore",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "Exists",
+          "line": 78,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ZincrBy",
+          "callee": "c.rdb.ZIncrBy(ctx, key, score, member).Err",
+          "lineNumber": 15
+        },
+        {
+          "caller": "ZincrBy",
+          "callee": "c.rdb.ZIncrBy",
+          "lineNumber": 15
+        },
+        {
+          "caller": "ZAdd",
+          "callee": "c.rdb.ZAdd(ctx, key, members...).Err",
+          "lineNumber": 22
+        },
+        {
+          "caller": "ZAdd",
+          "callee": "c.rdb.ZAdd",
+          "lineNumber": 22
+        },
+        {
+          "caller": "ZRemRangeByRank",
+          "callee": "c.rdb.ZRemRangeByRank(ctx, key, start, stop).Err",
+          "lineNumber": 30
+        },
+        {
+          "caller": "ZRemRangeByRank",
+          "callee": "c.rdb.ZRemRangeByRank",
+          "lineNumber": 30
+        },
+        {
+          "caller": "ZRangeWithScores",
+          "callee": "errors.New",
+          "lineNumber": 35
+        },
+        {
+          "caller": "ZRangeWithScores",
+          "callee": "c.rdb.ZRangeWithScores(ctx, key, start, stop).Result",
+          "lineNumber": 37
+        },
+        {
+          "caller": "ZRangeWithScores",
+          "callee": "c.rdb.ZRangeWithScores",
+          "lineNumber": 37
+        },
+        {
+          "caller": "ZRevRange",
+          "callee": "c.rdb.ZRevRange(ctx, key, start, stop).Result",
+          "lineNumber": 45
+        },
+        {
+          "caller": "ZRevRange",
+          "callee": "c.rdb.ZRevRange",
+          "lineNumber": 45
+        },
+        {
+          "caller": "ZRevRangeByScore",
+          "callee": "c.rdb.ZRevRangeByScore(ctx, key, &redis.ZRangeBy{\n\t\tMax:    max,\n\t\tMin:    min,\n\t\tOffset: offset,\n\t\tCount:  count,\n\t}).Result",
+          "lineNumber": 53
+        },
+        {
+          "caller": "ZRevRangeByScore",
+          "callee": "c.rdb.ZRevRangeByScore",
+          "lineNumber": 53
+        },
+        {
+          "caller": "Expire",
+          "callee": "c.rdb.Expire(ctx, key, ttl).Err",
+          "lineNumber": 65
+        },
+        {
+          "caller": "Expire",
+          "callee": "c.rdb.Expire",
+          "lineNumber": 65
+        },
+        {
+          "caller": "ZUnionStore",
+          "callee": "c.rdb.ZUnionStore(ctx, dst, &redis.ZStore{\n\t\tKeys:      keys,\n\t\tAggregate: aggregate,\n\t}).Err",
+          "lineNumber": 72
+        },
+        {
+          "caller": "ZUnionStore",
+          "callee": "c.rdb.ZUnionStore",
+          "lineNumber": 72
+        },
+        {
+          "caller": "Exists",
+          "callee": "c.rdb.Exists(ctx, key).Result",
+          "lineNumber": 82
+        },
+        {
+          "caller": "Exists",
+          "callee": "c.rdb.Exists",
+          "lineNumber": 82
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 9,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "internal/video/chunk_handler.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 375,
+      "nonEmptyLines": 324,
+      "functions": [
+        {
+          "name": "NewChunkUploadHandler",
+          "startLine": 28,
+          "endLine": 30,
+          "params": [
+            "cache"
+          ]
+        },
+        {
+          "name": "sessionKey",
+          "startLine": 32,
+          "endLine": 34,
+          "params": [
+            "uploadID"
+          ]
+        },
+        {
+          "name": "hashKey",
+          "startLine": 36,
+          "endLine": 38,
+          "params": [
+            "accountID",
+            "fileHash"
+          ]
+        },
+        {
+          "name": "getSession",
+          "startLine": 40,
+          "endLine": 53,
+          "params": [
+            "ctx",
+            "uploadID"
+          ]
+        },
+        {
+          "name": "saveSession",
+          "startLine": 55,
+          "endLine": 64,
+          "params": [
+            "ctx",
+            "s"
+          ]
+        },
+        {
+          "name": "InitChunkUpload",
+          "startLine": 66,
+          "endLine": 134,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "UploadChunk",
+          "startLine": 136,
+          "endLine": 233,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "ChunkStatus",
+          "startLine": 235,
+          "endLine": 268,
+          "params": [
+            "c"
+          ]
+        },
+        {
+          "name": "CompleteChunkUpload",
+          "startLine": 270,
+          "endLine": 375,
+          "params": [
+            "c"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ChunkUploadHandler",
+          "startLine": 24,
+          "endLine": 26,
+          "methods": [
+            "sessionKey",
+            "hashKey",
+            "getSession",
+            "saveSession",
+            "InitChunkUpload",
+            "UploadChunk",
+            "ChunkStatus",
+            "CompleteChunkUpload"
+          ],
+          "properties": [
+            "cache"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ChunkUploadHandler",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "NewChunkUploadHandler",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "InitChunkUpload",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "UploadChunk",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "ChunkStatus",
+          "line": 235,
+          "isDefault": false
+        },
+        {
+          "name": "CompleteChunkUpload",
+          "line": 270,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "sessionKey",
+          "callee": "h.cache.Key",
+          "lineNumber": 33
+        },
+        {
+          "caller": "hashKey",
+          "callee": "h.cache.Key",
+          "lineNumber": 37
+        },
+        {
+          "caller": "getSession",
+          "callee": "h.cache.GetBytes",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getSession",
+          "callee": "ctx.Request.Context",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getSession",
+          "callee": "h.sessionKey",
+          "lineNumber": 44
+        },
+        {
+          "caller": "getSession",
+          "callee": "fmt.Errorf",
+          "lineNumber": 46
+        },
+        {
+          "caller": "getSession",
+          "callee": "json.Unmarshal",
+          "lineNumber": 49
+        },
+        {
+          "caller": "getSession",
+          "callee": "fmt.Errorf",
+          "lineNumber": 50
+        },
+        {
+          "caller": "saveSession",
+          "callee": "json.Marshal",
+          "lineNumber": 59
+        },
+        {
+          "caller": "saveSession",
+          "callee": "h.cache.SetBytes",
+          "lineNumber": 63
+        },
+        {
+          "caller": "saveSession",
+          "callee": "ctx.Request.Context",
+          "lineNumber": 63
+        },
+        {
+          "caller": "saveSession",
+          "callee": "h.sessionKey",
+          "lineNumber": 63
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 68
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "errChunkCacheUnavailable.Error",
+          "lineNumber": 68
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 73
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 74
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "err.Error",
+          "lineNumber": 74
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 78
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 80
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "err.Error",
+          "lineNumber": 80
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 86
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "h.hashKey",
+          "lineNumber": 90
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "h.cache.GetBytes",
+          "lineNumber": 91
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "c.Request.Context",
+          "lineNumber": 91
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "len",
+          "lineNumber": 93
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "h.getSession",
+          "lineNumber": 94
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "string",
+          "lineNumber": 94
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "h.cache.SetBytes",
+          "lineNumber": 97
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "c.Request.Context",
+          "lineNumber": 97
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "h.saveSession",
+          "lineNumber": 98
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 99
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "session.UploadedChunks",
+          "lineNumber": 101
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "randHex",
+          "lineNumber": 107
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 108
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "time.Now().UnixNano",
+          "lineNumber": 108
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "time.Now",
+          "lineNumber": 108
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "make",
+          "lineNumber": 117
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "h.saveSession",
+          "lineNumber": 120
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 121
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "h.cache.SetBytes",
+          "lineNumber": 125
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "c.Request.Context",
+          "lineNumber": 125
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 126
+        },
+        {
+          "caller": "InitChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 130
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.JSON",
+          "lineNumber": 138
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "errChunkCacheUnavailable.Error",
+          "lineNumber": 138
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.ShouldBind",
+          "lineNumber": 143
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.JSON",
+          "lineNumber": 144
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "err.Error",
+          "lineNumber": 144
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "h.getSession",
+          "lineNumber": 148
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.JSON",
+          "lineNumber": 150
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "err.Error",
+          "lineNumber": 150
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 154
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.JSON",
+          "lineNumber": 156
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "err.Error",
+          "lineNumber": 156
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.JSON",
+          "lineNumber": 160
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.JSON",
+          "lineNumber": 165
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.JSON",
+          "lineNumber": 170
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.FormFile",
+          "lineNumber": 174
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.JSON",
+          "lineNumber": 176
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "f.Open",
+          "lineNumber": 180
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.JSON",
+          "lineNumber": 182
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "chunkFile.Close",
+          "lineNumber": 185
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "md5.New",
+          "lineNumber": 187
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "io.Copy",
+          "lineNumber": 189
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.JSON",
+          "lineNumber": 190
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 194
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "hash.Sum",
+          "lineNumber": 194
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.JSON",
+          "lineNumber": 197
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "filepath.Join",
+          "lineNumber": 201
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "os.MkdirAll",
+          "lineNumber": 202
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.JSON",
+          "lineNumber": 203
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "filepath.Join",
+          "lineNumber": 207
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 207
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "chunkFile.Seek",
+          "lineNumber": 209
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.JSON",
+          "lineNumber": 210
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "os.Create",
+          "lineNumber": 214
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.JSON",
+          "lineNumber": 216
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "dst.Close",
+          "lineNumber": 219
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "io.Copy",
+          "lineNumber": 221
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.JSON",
+          "lineNumber": 222
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "h.saveSession",
+          "lineNumber": 227
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.JSON",
+          "lineNumber": 228
+        },
+        {
+          "caller": "UploadChunk",
+          "callee": "c.JSON",
+          "lineNumber": 232
+        },
+        {
+          "caller": "ChunkStatus",
+          "callee": "c.JSON",
+          "lineNumber": 237
+        },
+        {
+          "caller": "ChunkStatus",
+          "callee": "errChunkCacheUnavailable.Error",
+          "lineNumber": 237
+        },
+        {
+          "caller": "ChunkStatus",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 242
+        },
+        {
+          "caller": "ChunkStatus",
+          "callee": "c.JSON",
+          "lineNumber": 243
+        },
+        {
+          "caller": "ChunkStatus",
+          "callee": "err.Error",
+          "lineNumber": 243
+        },
+        {
+          "caller": "ChunkStatus",
+          "callee": "h.getSession",
+          "lineNumber": 247
+        },
+        {
+          "caller": "ChunkStatus",
+          "callee": "c.JSON",
+          "lineNumber": 249
+        },
+        {
+          "caller": "ChunkStatus",
+          "callee": "err.Error",
+          "lineNumber": 249
+        },
+        {
+          "caller": "ChunkStatus",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 253
+        },
+        {
+          "caller": "ChunkStatus",
+          "callee": "c.JSON",
+          "lineNumber": 255
+        },
+        {
+          "caller": "ChunkStatus",
+          "callee": "err.Error",
+          "lineNumber": 255
+        },
+        {
+          "caller": "ChunkStatus",
+          "callee": "c.JSON",
+          "lineNumber": 259
+        },
+        {
+          "caller": "ChunkStatus",
+          "callee": "c.JSON",
+          "lineNumber": 263
+        },
+        {
+          "caller": "ChunkStatus",
+          "callee": "session.UploadedChunks",
+          "lineNumber": 265
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 272
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "errChunkCacheUnavailable.Error",
+          "lineNumber": 272
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "c.ShouldBindJSON",
+          "lineNumber": 277
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 278
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "err.Error",
+          "lineNumber": 278
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "h.getSession",
+          "lineNumber": 282
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 284
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "err.Error",
+          "lineNumber": 284
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "jwt.GetAccountID",
+          "lineNumber": 288
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 290
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "err.Error",
+          "lineNumber": 290
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 294
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "session.IsComplete",
+          "lineNumber": 298
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 309
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "len",
+          "lineNumber": 312
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "session.UploadedChunks",
+          "lineNumber": 312
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "time.Now().Format",
+          "lineNumber": 318
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "time.Now",
+          "lineNumber": 318
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "filepath.Join",
+          "lineNumber": 319
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 319
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "filepath.Join",
+          "lineNumber": 320
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "filepath.Join",
+          "lineNumber": 321
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "os.MkdirAll",
+          "lineNumber": 322
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 323
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "randHex",
+          "lineNumber": 327
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 329
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "filepath.Join",
+          "lineNumber": 332
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "os.Create",
+          "lineNumber": 334
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 336
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "finalFile.Close",
+          "lineNumber": 339
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "filepath.Join",
+          "lineNumber": 341
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "filepath.Join",
+          "lineNumber": 343
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 343
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "os.Open",
+          "lineNumber": 344
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "finalFile.Close",
+          "lineNumber": 347
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "os.Remove",
+          "lineNumber": 348
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 349
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 349
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "io.Copy",
+          "lineNumber": 352
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "cf.Close",
+          "lineNumber": 353
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "finalFile.Close",
+          "lineNumber": 355
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "os.Remove",
+          "lineNumber": 356
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 357
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "finalFile.Close",
+          "lineNumber": 361
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "os.RemoveAll",
+          "lineNumber": 363
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "h.cache.Del",
+          "lineNumber": 365
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "c.Request.Context",
+          "lineNumber": 365
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "h.sessionKey",
+          "lineNumber": 365
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "h.cache.Del",
+          "lineNumber": 366
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "c.Request.Context",
+          "lineNumber": 366
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "h.hashKey",
+          "lineNumber": 366
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 368
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "buildAbsoluteURL",
+          "lineNumber": 369
+        },
+        {
+          "caller": "CompleteChunkUpload",
+          "callee": "c.JSON",
+          "lineNumber": 371
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 6,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/video/chunk_handler_test.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 427,
+      "nonEmptyLines": 363,
+      "functions": [
+        {
+          "name": "setupTestEnv",
+          "startLine": 28,
+          "endLine": 59,
+          "params": [
+            "t"
+          ]
+        },
+        {
+          "name": "newJSONContext",
+          "startLine": 61,
+          "endLine": 76,
+          "params": [
+            "t",
+            "path",
+            "body"
+          ]
+        },
+        {
+          "name": "newMultipartContext",
+          "startLine": 78,
+          "endLine": 106,
+          "params": [
+            "t",
+            "path",
+            "fields",
+            "fileContent"
+          ]
+        },
+        {
+          "name": "computeMD5",
+          "startLine": 108,
+          "endLine": 111,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "parseJSON",
+          "startLine": 113,
+          "endLine": 120,
+          "params": [
+            "t",
+            "rec"
+          ]
+        },
+        {
+          "name": "makeTestChunks",
+          "startLine": 122,
+          "endLine": 137,
+          "params": [
+            "t",
+            "totalChunks",
+            "chunkSize"
+          ]
+        },
+        {
+          "name": "initUpload",
+          "startLine": 139,
+          "endLine": 154,
+          "params": [
+            "t",
+            "h",
+            "filename",
+            "fileSize",
+            "chunkSize",
+            "totalChunks",
+            "fileHash"
+          ]
+        },
+        {
+          "name": "uploadChunk",
+          "startLine": 156,
+          "endLine": 167,
+          "params": [
+            "t",
+            "h",
+            "uploadID",
+            "chunkIndex",
+            "chunkHash",
+            "chunkData"
+          ]
+        },
+        {
+          "name": "completeUpload",
+          "startLine": 169,
+          "endLine": 174,
+          "params": [
+            "t",
+            "h",
+            "uploadID"
+          ]
+        },
+        {
+          "name": "readMergedFile",
+          "startLine": 178,
+          "endLine": 188,
+          "params": [
+            "t",
+            "resp"
+          ]
+        },
+        {
+          "name": "TestFullChunkUploadFlow",
+          "startLine": 192,
+          "endLine": 231,
+          "params": [
+            "t"
+          ]
+        },
+        {
+          "name": "TestBreakpointResume",
+          "startLine": 233,
+          "endLine": 286,
+          "params": [
+            "t"
+          ]
+        },
+        {
+          "name": "TestIdempotentChunkUpload",
+          "startLine": 288,
+          "endLine": 309,
+          "params": [
+            "t"
+          ]
+        },
+        {
+          "name": "TestHashMismatch",
+          "startLine": 311,
+          "endLine": 345,
+          "params": [
+            "t"
+          ]
+        },
+        {
+          "name": "TestIncompleteMerge",
+          "startLine": 347,
+          "endLine": 390,
+          "params": [
+            "t"
+          ]
+        },
+        {
+          "name": "TestChunkStatus",
+          "startLine": 392,
+          "endLine": 427,
+          "params": [
+            "t"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TestFullChunkUploadFlow",
+          "line": 192,
+          "isDefault": false
+        },
+        {
+          "name": "TestBreakpointResume",
+          "line": 233,
+          "isDefault": false
+        },
+        {
+          "name": "TestIdempotentChunkUpload",
+          "line": 288,
+          "isDefault": false
+        },
+        {
+          "name": "TestHashMismatch",
+          "line": 311,
+          "isDefault": false
+        },
+        {
+          "name": "TestIncompleteMerge",
+          "line": 347,
+          "isDefault": false
+        },
+        {
+          "name": "TestChunkStatus",
+          "line": 392,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "setupTestEnv",
+          "callee": "t.Helper",
+          "lineNumber": 29
+        },
+        {
+          "caller": "setupTestEnv",
+          "callee": "gin.SetMode",
+          "lineNumber": 30
+        },
+        {
+          "caller": "setupTestEnv",
+          "callee": "miniredis.Run",
+          "lineNumber": 32
+        },
+        {
+          "caller": "setupTestEnv",
+          "callee": "t.Fatalf",
+          "lineNumber": 34
+        },
+        {
+          "caller": "setupTestEnv",
+          "callee": "rediscache.NewClient",
+          "lineNumber": 37
+        },
+        {
+          "caller": "setupTestEnv",
+          "callee": "goredis.NewClient",
+          "lineNumber": 38
+        },
+        {
+          "caller": "setupTestEnv",
+          "callee": "mr.Addr",
+          "lineNumber": 38
+        },
+        {
+          "caller": "setupTestEnv",
+          "callee": "NewChunkUploadHandler",
+          "lineNumber": 41
+        },
+        {
+          "caller": "setupTestEnv",
+          "callee": "os.Getwd",
+          "lineNumber": 43
+        },
+        {
+          "caller": "setupTestEnv",
+          "callee": "os.MkdirTemp",
+          "lineNumber": 44
+        },
+        {
+          "caller": "setupTestEnv",
+          "callee": "t.Fatalf",
+          "lineNumber": 46
+        },
+        {
+          "caller": "setupTestEnv",
+          "callee": "os.Chdir",
+          "lineNumber": 48
+        },
+        {
+          "caller": "setupTestEnv",
+          "callee": "t.Fatalf",
+          "lineNumber": 49
+        },
+        {
+          "caller": "setupTestEnv",
+          "callee": "os.Chdir",
+          "lineNumber": 53
+        },
+        {
+          "caller": "setupTestEnv",
+          "callee": "os.RemoveAll",
+          "lineNumber": 54
+        },
+        {
+          "caller": "setupTestEnv",
+          "callee": "client.Close",
+          "lineNumber": 55
+        },
+        {
+          "caller": "setupTestEnv",
+          "callee": "mr.Close",
+          "lineNumber": 56
+        },
+        {
+          "caller": "newJSONContext",
+          "callee": "t.Helper",
+          "lineNumber": 62
+        },
+        {
+          "caller": "newJSONContext",
+          "callee": "json.Marshal",
+          "lineNumber": 63
+        },
+        {
+          "caller": "newJSONContext",
+          "callee": "t.Fatalf",
+          "lineNumber": 65
+        },
+        {
+          "caller": "newJSONContext",
+          "callee": "httptest.NewRequest",
+          "lineNumber": 67
+        },
+        {
+          "caller": "newJSONContext",
+          "callee": "bytes.NewReader",
+          "lineNumber": 67
+        },
+        {
+          "caller": "newJSONContext",
+          "callee": "req.Header.Set",
+          "lineNumber": 68
+        },
+        {
+          "caller": "newJSONContext",
+          "callee": "httptest.NewRecorder",
+          "lineNumber": 71
+        },
+        {
+          "caller": "newJSONContext",
+          "callee": "gin.CreateTestContext",
+          "lineNumber": 72
+        },
+        {
+          "caller": "newJSONContext",
+          "callee": "c.Set",
+          "lineNumber": 74
+        },
+        {
+          "caller": "newMultipartContext",
+          "callee": "t.Helper",
+          "lineNumber": 79
+        },
+        {
+          "caller": "newMultipartContext",
+          "callee": "multipart.NewWriter",
+          "lineNumber": 81
+        },
+        {
+          "caller": "newMultipartContext",
+          "callee": "writer.WriteField",
+          "lineNumber": 84
+        },
+        {
+          "caller": "newMultipartContext",
+          "callee": "t.Fatalf",
+          "lineNumber": 85
+        },
+        {
+          "caller": "newMultipartContext",
+          "callee": "writer.CreateFormFile",
+          "lineNumber": 88
+        },
+        {
+          "caller": "newMultipartContext",
+          "callee": "t.Fatalf",
+          "lineNumber": 90
+        },
+        {
+          "caller": "newMultipartContext",
+          "callee": "part.Write",
+          "lineNumber": 92
+        },
+        {
+          "caller": "newMultipartContext",
+          "callee": "t.Fatalf",
+          "lineNumber": 93
+        },
+        {
+          "caller": "newMultipartContext",
+          "callee": "writer.Close",
+          "lineNumber": 95
+        },
+        {
+          "caller": "newMultipartContext",
+          "callee": "httptest.NewRequest",
+          "lineNumber": 97
+        },
+        {
+          "caller": "newMultipartContext",
+          "callee": "req.Header.Set",
+          "lineNumber": 98
+        },
+        {
+          "caller": "newMultipartContext",
+          "callee": "writer.FormDataContentType",
+          "lineNumber": 98
+        },
+        {
+          "caller": "newMultipartContext",
+          "callee": "httptest.NewRecorder",
+          "lineNumber": 101
+        },
+        {
+          "caller": "newMultipartContext",
+          "callee": "gin.CreateTestContext",
+          "lineNumber": 102
+        },
+        {
+          "caller": "newMultipartContext",
+          "callee": "c.Set",
+          "lineNumber": 104
+        },
+        {
+          "caller": "computeMD5",
+          "callee": "md5.Sum",
+          "lineNumber": 109
+        },
+        {
+          "caller": "computeMD5",
+          "callee": "hex.EncodeToString",
+          "lineNumber": 110
+        },
+        {
+          "caller": "parseJSON",
+          "callee": "t.Helper",
+          "lineNumber": 114
+        },
+        {
+          "caller": "parseJSON",
+          "callee": "json.Unmarshal",
+          "lineNumber": 116
+        },
+        {
+          "caller": "parseJSON",
+          "callee": "rec.Body.Bytes",
+          "lineNumber": 116
+        },
+        {
+          "caller": "parseJSON",
+          "callee": "t.Fatalf",
+          "lineNumber": 117
+        },
+        {
+          "caller": "parseJSON",
+          "callee": "rec.Body.String",
+          "lineNumber": 117
+        },
+        {
+          "caller": "makeTestChunks",
+          "callee": "t.Helper",
+          "lineNumber": 123
+        },
+        {
+          "caller": "makeTestChunks",
+          "callee": "make",
+          "lineNumber": 124
+        },
+        {
+          "caller": "makeTestChunks",
+          "callee": "make",
+          "lineNumber": 125
+        },
+        {
+          "caller": "makeTestChunks",
+          "callee": "make",
+          "lineNumber": 128
+        },
+        {
+          "caller": "makeTestChunks",
+          "callee": "rand.Read",
+          "lineNumber": 129
+        },
+        {
+          "caller": "makeTestChunks",
+          "callee": "t.Fatalf",
+          "lineNumber": 130
+        },
+        {
+          "caller": "makeTestChunks",
+          "callee": "computeMD5",
+          "lineNumber": 133
+        },
+        {
+          "caller": "makeTestChunks",
+          "callee": "full.Write",
+          "lineNumber": 134
+        },
+        {
+          "caller": "makeTestChunks",
+          "callee": "computeMD5",
+          "lineNumber": 136
+        },
+        {
+          "caller": "makeTestChunks",
+          "callee": "full.Bytes",
+          "lineNumber": 136
+        },
+        {
+          "caller": "initUpload",
+          "callee": "t.Helper",
+          "lineNumber": 140
+        },
+        {
+          "caller": "initUpload",
+          "callee": "newJSONContext",
+          "lineNumber": 141
+        },
+        {
+          "caller": "initUpload",
+          "callee": "h.InitChunkUpload",
+          "lineNumber": 148
+        },
+        {
+          "caller": "initUpload",
+          "callee": "t.Fatalf",
+          "lineNumber": 150
+        },
+        {
+          "caller": "initUpload",
+          "callee": "rec.Body.String",
+          "lineNumber": 150
+        },
+        {
+          "caller": "initUpload",
+          "callee": "parseJSON",
+          "lineNumber": 152
+        },
+        {
+          "caller": "uploadChunk",
+          "callee": "t.Helper",
+          "lineNumber": 157
+        },
+        {
+          "caller": "uploadChunk",
+          "callee": "newMultipartContext",
+          "lineNumber": 158
+        },
+        {
+          "caller": "uploadChunk",
+          "callee": "fmt.Sprintf",
+          "lineNumber": 160
+        },
+        {
+          "caller": "uploadChunk",
+          "callee": "h.UploadChunk",
+          "lineNumber": 163
+        },
+        {
+          "caller": "uploadChunk",
+          "callee": "t.Fatalf",
+          "lineNumber": 165
+        },
+        {
+          "caller": "uploadChunk",
+          "callee": "rec.Body.String",
+          "lineNumber": 165
+        },
+        {
+          "caller": "completeUpload",
+          "callee": "t.Helper",
+          "lineNumber": 170
+        },
+        {
+          "caller": "completeUpload",
+          "callee": "newJSONContext",
+          "lineNumber": 171
+        },
+        {
+          "caller": "completeUpload",
+          "callee": "h.CompleteChunkUpload",
+          "lineNumber": 172
+        },
+        {
+          "caller": "completeUpload",
+          "callee": "parseJSON",
+          "lineNumber": 173
+        },
+        {
+          "caller": "readMergedFile",
+          "callee": "t.Helper",
+          "lineNumber": 179
+        },
+        {
+          "caller": "readMergedFile",
+          "callee": "len",
+          "lineNumber": 181
+        },
+        {
+          "caller": "readMergedFile",
+          "callee": "filepath.Join",
+          "lineNumber": 182
+        },
+        {
+          "caller": "readMergedFile",
+          "callee": "os.ReadFile",
+          "lineNumber": 183
+        },
+        {
+          "caller": "readMergedFile",
+          "callee": "t.Fatalf",
+          "lineNumber": 185
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "setupTestEnv",
+          "lineNumber": 193
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "cleanup",
+          "lineNumber": 194
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "makeTestChunks",
+          "lineNumber": 198
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "initUpload",
+          "lineNumber": 200
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "int64",
+          "lineNumber": 200
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "int64",
+          "lineNumber": 200
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "uploadChunk",
+          "lineNumber": 203
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "newJSONContext",
+          "lineNumber": 206
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "h.CompleteChunkUpload",
+          "lineNumber": 207
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "t.Fatalf",
+          "lineNumber": 209
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "rec.Body.String",
+          "lineNumber": 209
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "parseJSON",
+          "lineNumber": 211
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "t.Fatal",
+          "lineNumber": 213
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "readMergedFile",
+          "lineNumber": 217
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "expected.Write",
+          "lineNumber": 220
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "bytes.Equal",
+          "lineNumber": 222
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "expected.Bytes",
+          "lineNumber": 222
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "t.Fatalf",
+          "lineNumber": 223
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "len",
+          "lineNumber": 223
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "expected.Len",
+          "lineNumber": 223
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "filepath.Join",
+          "lineNumber": 227
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "os.Stat",
+          "lineNumber": 228
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "os.IsNotExist",
+          "lineNumber": 228
+        },
+        {
+          "caller": "TestFullChunkUploadFlow",
+          "callee": "t.Fatalf",
+          "lineNumber": 229
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "setupTestEnv",
+          "lineNumber": 234
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "cleanup",
+          "lineNumber": 235
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "makeTestChunks",
+          "lineNumber": 239
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "initUpload",
+          "lineNumber": 241
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "int64",
+          "lineNumber": 241
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "int64",
+          "lineNumber": 241
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "uploadChunk",
+          "lineNumber": 245
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "newJSONContext",
+          "lineNumber": 249
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "int64",
+          "lineNumber": 251
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "int64",
+          "lineNumber": 252
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "h.InitChunkUpload",
+          "lineNumber": 256
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "t.Fatalf",
+          "lineNumber": 258
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "rec.Body.String",
+          "lineNumber": 258
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "parseJSON",
+          "lineNumber": 260
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "t.Fatalf",
+          "lineNumber": 264
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "len",
+          "lineNumber": 268
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "t.Fatalf",
+          "lineNumber": 269
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "len",
+          "lineNumber": 269
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "uploadChunk",
+          "lineNumber": 274
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "completeUpload",
+          "lineNumber": 277
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "readMergedFile",
+          "lineNumber": 278
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "expected.Write",
+          "lineNumber": 281
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "bytes.Equal",
+          "lineNumber": 283
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "expected.Bytes",
+          "lineNumber": 283
+        },
+        {
+          "caller": "TestBreakpointResume",
+          "callee": "t.Fatalf",
+          "lineNumber": 284
+        },
+        {
+          "caller": "TestIdempotentChunkUpload",
+          "callee": "setupTestEnv",
+          "lineNumber": 289
+        },
+        {
+          "caller": "TestIdempotentChunkUpload",
+          "callee": "cleanup",
+          "lineNumber": 290
+        },
+        {
+          "caller": "TestIdempotentChunkUpload",
+          "callee": "makeTestChunks",
+          "lineNumber": 294
+        },
+        {
+          "caller": "TestIdempotentChunkUpload",
+          "callee": "initUpload",
+          "lineNumber": 296
+        },
+        {
+          "caller": "TestIdempotentChunkUpload",
+          "callee": "int64",
+          "lineNumber": 296
+        },
+        {
+          "caller": "TestIdempotentChunkUpload",
+          "callee": "int64",
+          "lineNumber": 296
+        },
+        {
+          "caller": "TestIdempotentChunkUpload",
+          "callee": "uploadChunk",
+          "lineNumber": 299
+        },
+        {
+          "caller": "TestIdempotentChunkUpload",
+          "callee": "uploadChunk",
+          "lineNumber": 300
+        },
+        {
+          "caller": "TestIdempotentChunkUpload",
+          "callee": "uploadChunk",
+          "lineNumber": 302
+        },
+        {
+          "caller": "TestIdempotentChunkUpload",
+          "callee": "newJSONContext",
+          "lineNumber": 304
+        },
+        {
+          "caller": "TestIdempotentChunkUpload",
+          "callee": "h.CompleteChunkUpload",
+          "lineNumber": 305
+        },
+        {
+          "caller": "TestIdempotentChunkUpload",
+          "callee": "t.Fatalf",
+          "lineNumber": 307
+        },
+        {
+          "caller": "TestIdempotentChunkUpload",
+          "callee": "rec.Body.String",
+          "lineNumber": 307
+        },
+        {
+          "caller": "TestHashMismatch",
+          "callee": "setupTestEnv",
+          "lineNumber": 312
+        },
+        {
+          "caller": "TestHashMismatch",
+          "callee": "cleanup",
+          "lineNumber": 313
+        },
+        {
+          "caller": "TestHashMismatch",
+          "callee": "makeTestChunks",
+          "lineNumber": 317
+        },
+        {
+          "caller": "TestHashMismatch",
+          "callee": "initUpload",
+          "lineNumber": 319
+        },
+        {
+          "caller": "TestHashMismatch",
+          "callee": "int64",
+          "lineNumber": 319
+        },
+        {
+          "caller": "TestHashMismatch",
+          "callee": "int64",
+          "lineNumber": 319
+        },
+        {
+          "caller": "TestHashMismatch",
+          "callee": "newMultipartContext",
+          "lineNumber": 322
+        },
+        {
+          "caller": "TestHashMismatch",
+          "callee": "h.UploadChunk",
+          "lineNumber": 327
+        },
+        {
+          "caller": "TestHashMismatch",
+          "callee": "t.Fatalf",
+          "lineNumber": 329
+        },
+        {
+          "caller": "TestHashMismatch",
+          "callee": "parseJSON",
+          "lineNumber": 331
+        },
+        {
+          "caller": "TestHashMismatch",
+          "callee": "t.Fatalf",
+          "lineNumber": 333
+        },
+        {
+          "caller": "TestHashMismatch",
+          "callee": "t.Fatal",
+          "lineNumber": 336
+        },
+        {
+          "caller": "TestHashMismatch",
+          "callee": "computeMD5",
+          "lineNumber": 338
+        },
+        {
+          "caller": "TestHashMismatch",
+          "callee": "t.Fatalf",
+          "lineNumber": 340
+        },
+        {
+          "caller": "TestHashMismatch",
+          "callee": "uploadChunk",
+          "lineNumber": 344
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "setupTestEnv",
+          "lineNumber": 348
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "cleanup",
+          "lineNumber": 349
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "makeTestChunks",
+          "lineNumber": 353
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "initUpload",
+          "lineNumber": 355
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "int64",
+          "lineNumber": 355
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "int64",
+          "lineNumber": 355
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "uploadChunk",
+          "lineNumber": 359
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "newJSONContext",
+          "lineNumber": 362
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "h.CompleteChunkUpload",
+          "lineNumber": 363
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "t.Fatalf",
+          "lineNumber": 365
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "parseJSON",
+          "lineNumber": 367
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "t.Fatalf",
+          "lineNumber": 369
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "int",
+          "lineNumber": 371
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "t.Fatalf",
+          "lineNumber": 372
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "int",
+          "lineNumber": 374
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "t.Fatalf",
+          "lineNumber": 375
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "int",
+          "lineNumber": 377
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "t.Fatalf",
+          "lineNumber": 378
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "uploadChunk",
+          "lineNumber": 383
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "newJSONContext",
+          "lineNumber": 385
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "h.CompleteChunkUpload",
+          "lineNumber": 386
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "t.Fatalf",
+          "lineNumber": 388
+        },
+        {
+          "caller": "TestIncompleteMerge",
+          "callee": "rec.Body.String",
+          "lineNumber": 388
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "setupTestEnv",
+          "lineNumber": 393
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "cleanup",
+          "lineNumber": 394
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "makeTestChunks",
+          "lineNumber": 398
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "initUpload",
+          "lineNumber": 400
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "int64",
+          "lineNumber": 400
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "int64",
+          "lineNumber": 400
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "t.Helper",
+          "lineNumber": 403
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "newJSONContext",
+          "lineNumber": 404
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "h.ChunkStatus",
+          "lineNumber": 405
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "t.Fatalf",
+          "lineNumber": 407
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "parseJSON",
+          "lineNumber": 409
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "len",
+          "lineNumber": 411
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "t.Fatalf",
+          "lineNumber": 412
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "len",
+          "lineNumber": 412
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "int",
+          "lineNumber": 414
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "t.Fatalf",
+          "lineNumber": 415
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "assertStatus",
+          "lineNumber": 419
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "uploadChunk",
+          "lineNumber": 421
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "assertStatus",
+          "lineNumber": 422
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "uploadChunk",
+          "lineNumber": 424
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "uploadChunk",
+          "lineNumber": 425
+        },
+        {
+          "caller": "TestChunkStatus",
+          "callee": "assertStatus",
+          "lineNumber": 426
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 6,
+        "functionCount": 16,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "internal/video/popularity_cache.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 22,
+      "functions": [
+        {
+          "name": "UpdatePopularityCache",
+          "startLine": 11,
+          "endLine": 29,
+          "params": [
+            "ctx",
+            "cache",
+            "id",
+            "change"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "UpdatePopularityCache",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "cache.Del",
+          "lineNumber": 16
+        },
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "context.Background",
+          "lineNumber": 16
+        },
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "cache.Key",
+          "lineNumber": 16
+        },
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "cache.Del",
+          "lineNumber": 17
+        },
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "context.Background",
+          "lineNumber": 17
+        },
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "cache.Key",
+          "lineNumber": 17
+        },
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "time.Now().UTC().Truncate",
+          "lineNumber": 20
+        },
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "time.Now().UTC",
+          "lineNumber": 20
+        },
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "time.Now",
+          "lineNumber": 20
+        },
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "cache.Key",
+          "lineNumber": 21
+        },
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "now.Format",
+          "lineNumber": 21
+        },
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "strconv.FormatUint",
+          "lineNumber": 22
+        },
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "uint64",
+          "lineNumber": 22
+        },
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "context.WithTimeout",
+          "lineNumber": 24
+        },
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "cancel",
+          "lineNumber": 25
+        },
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "cache.ZincrBy",
+          "lineNumber": 27
+        },
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "float64",
+          "lineNumber": 27
+        },
+        {
+          "caller": "UpdatePopularityCache",
+          "callee": "cache.Expire",
+          "lineNumber": 28
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "internal/video/video_service.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 152,
+      "nonEmptyLines": 128,
+      "functions": [
+        {
+          "name": "NewVideoService",
+          "startLine": 22,
+          "endLine": 27,
+          "params": [
+            "repo",
+            "cache"
+          ]
+        },
+        {
+          "name": "Publish",
+          "startLine": 29,
+          "endLine": 77,
+          "params": [
+            "ctx",
+            "video"
+          ]
+        },
+        {
+          "name": "GetDetail",
+          "startLine": 79,
+          "endLine": 100,
+          "params": [
+            "ctx",
+            "id"
+          ]
+        },
+        {
+          "name": "ListByAuthorID",
+          "startLine": 102,
+          "endLine": 104,
+          "params": [
+            "ctx",
+            "authorID"
+          ]
+        },
+        {
+          "name": "getVideoDetailFromCache",
+          "startLine": 106,
+          "endLine": 128,
+          "params": [
+            "ctx",
+            "id"
+          ]
+        },
+        {
+          "name": "setVideoDetailCache",
+          "startLine": 130,
+          "endLine": 148,
+          "params": [
+            "ctx",
+            "video"
+          ]
+        },
+        {
+          "name": "videoDetailCacheKey",
+          "startLine": 150,
+          "endLine": 152,
+          "params": [
+            "id"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "VideoService",
+          "startLine": 15,
+          "endLine": 20,
+          "methods": [
+            "Publish",
+            "GetDetail",
+            "ListByAuthorID",
+            "getVideoDetailFromCache",
+            "setVideoDetailCache",
+            "videoDetailCacheKey"
+          ],
+          "properties": [
+            "repo",
+            "cache",
+            "cacheTTL"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "VideoService",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "NewVideoService",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Publish",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "GetDetail",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "ListByAuthorID",
+          "line": 102,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Publish",
+          "callee": "errors.New",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Publish",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 34
+        },
+        {
+          "caller": "Publish",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 35
+        },
+        {
+          "caller": "Publish",
+          "callee": "strings.TrimSpace",
+          "lineNumber": 36
+        },
+        {
+          "caller": "Publish",
+          "callee": "errors.New",
+          "lineNumber": 39
+        },
+        {
+          "caller": "Publish",
+          "callee": "errors.New",
+          "lineNumber": 42
+        },
+        {
+          "caller": "Publish",
+          "callee": "errors.New",
+          "lineNumber": 45
+        },
+        {
+          "caller": "Publish",
+          "callee": "vs.repo.db.WithContext(ctx).Transaction",
+          "lineNumber": 49
+        },
+        {
+          "caller": "Publish",
+          "callee": "vs.repo.db.WithContext",
+          "lineNumber": 49
+        },
+        {
+          "caller": "Publish",
+          "callee": "tx.Create",
+          "lineNumber": 50
+        },
+        {
+          "caller": "Publish",
+          "callee": "tx.Create",
+          "lineNumber": 60
+        },
+        {
+          "caller": "Publish",
+          "callee": "ExtractTags",
+          "lineNumber": 64
+        },
+        {
+          "caller": "Publish",
+          "callee": "tx.Where(\"name = ?\", tagName).FirstOrCreate",
+          "lineNumber": 67
+        },
+        {
+          "caller": "Publish",
+          "callee": "tx.Where",
+          "lineNumber": 67
+        },
+        {
+          "caller": "Publish",
+          "callee": "tx.Create",
+          "lineNumber": 70
+        },
+        {
+          "caller": "GetDetail",
+          "callee": "errors.New",
+          "lineNumber": 81
+        },
+        {
+          "caller": "GetDetail",
+          "callee": "vs.getVideoDetailFromCache",
+          "lineNumber": 85
+        },
+        {
+          "caller": "GetDetail",
+          "callee": "vs.repo.GetByID",
+          "lineNumber": 90
+        },
+        {
+          "caller": "GetDetail",
+          "callee": "vs.setVideoDetailCache",
+          "lineNumber": 96
+        },
+        {
+          "caller": "ListByAuthorID",
+          "callee": "vs.repo.ListByAuthorID",
+          "lineNumber": 103
+        },
+        {
+          "caller": "ListByAuthorID",
+          "callee": "int64",
+          "lineNumber": 103
+        },
+        {
+          "caller": "getVideoDetailFromCache",
+          "callee": "vs.videoDetailCacheKey",
+          "lineNumber": 107
+        },
+        {
+          "caller": "getVideoDetailFromCache",
+          "callee": "context.WithTimeout",
+          "lineNumber": 109
+        },
+        {
+          "caller": "getVideoDetailFromCache",
+          "callee": "cancel",
+          "lineNumber": 110
+        },
+        {
+          "caller": "getVideoDetailFromCache",
+          "callee": "vs.cache.GetBytes",
+          "lineNumber": 112
+        },
+        {
+          "caller": "getVideoDetailFromCache",
+          "callee": "redis.IsMiss",
+          "lineNumber": 115
+        },
+        {
+          "caller": "getVideoDetailFromCache",
+          "callee": "log.Printf",
+          "lineNumber": 116
+        },
+        {
+          "caller": "getVideoDetailFromCache",
+          "callee": "json.Unmarshal",
+          "lineNumber": 122
+        },
+        {
+          "caller": "getVideoDetailFromCache",
+          "callee": "log.Printf",
+          "lineNumber": 123
+        },
+        {
+          "caller": "setVideoDetailCache",
+          "callee": "json.Marshal",
+          "lineNumber": 135
+        },
+        {
+          "caller": "setVideoDetailCache",
+          "callee": "log.Printf",
+          "lineNumber": 137
+        },
+        {
+          "caller": "setVideoDetailCache",
+          "callee": "context.WithTimeout",
+          "lineNumber": 141
+        },
+        {
+          "caller": "setVideoDetailCache",
+          "callee": "cancel",
+          "lineNumber": 142
+        },
+        {
+          "caller": "setVideoDetailCache",
+          "callee": "vs.videoDetailCacheKey",
+          "lineNumber": 144
+        },
+        {
+          "caller": "setVideoDetailCache",
+          "callee": "vs.cache.SetBytes",
+          "lineNumber": 145
+        },
+        {
+          "caller": "setVideoDetailCache",
+          "callee": "log.Printf",
+          "lineNumber": 146
+        },
+        {
+          "caller": "videoDetailCacheKey",
+          "callee": "vs.cache.Key",
+          "lineNumber": 151
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 5,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "internal/worker/popularityworker.go",
+      "language": "go",
+      "fileCategory": "code",
+      "totalLines": 87,
+      "nonEmptyLines": 78,
+      "functions": [
+        {
+          "name": "NewPopularityWorker",
+          "startLine": 22,
+          "endLine": 24,
+          "params": [
+            "ch",
+            "cache",
+            "queue"
+          ]
+        },
+        {
+          "name": "Run",
+          "startLine": 26,
+          "endLine": 50,
+          "params": [
+            "ctx"
+          ]
+        },
+        {
+          "name": "handleDelivery",
+          "startLine": 52,
+          "endLine": 75,
+          "params": [
+            "ctx",
+            "d"
+          ]
+        },
+        {
+          "name": "process",
+          "startLine": 77,
+          "endLine": 87,
+          "params": [
+            "ctx",
+            "body"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "PopularityWorker",
+          "startLine": 16,
+          "endLine": 20,
+          "methods": [
+            "Run",
+            "handleDelivery",
+            "process"
+          ],
+          "properties": [
+            "ch",
+            "cache",
+            "queue"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PopularityWorker",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "NewPopularityWorker",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "Run",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Run",
+          "callee": "errors.New",
+          "lineNumber": 28
+        },
+        {
+          "caller": "Run",
+          "callee": "errors.New",
+          "lineNumber": 31
+        },
+        {
+          "caller": "Run",
+          "callee": "w.ch.Consume",
+          "lineNumber": 34
+        },
+        {
+          "caller": "Run",
+          "callee": "ctx.Done",
+          "lineNumber": 41
+        },
+        {
+          "caller": "Run",
+          "callee": "ctx.Err",
+          "lineNumber": 42
+        },
+        {
+          "caller": "Run",
+          "callee": "errors.New",
+          "lineNumber": 45
+        },
+        {
+          "caller": "Run",
+          "callee": "w.handleDelivery",
+          "lineNumber": 47
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "ctx.Done",
+          "lineNumber": 56
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "d.Nack",
+          "lineNumber": 57
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "w.process",
+          "lineNumber": 61
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "log.Printf",
+          "lineNumber": 63
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "d.Ack",
+          "lineNumber": 64
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "time.Duration",
+          "lineNumber": 67
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "uint",
+          "lineNumber": 67
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "log.Printf",
+          "lineNumber": 68
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "time.Sleep",
+          "lineNumber": 69
+        },
+        {
+          "caller": "handleDelivery",
+          "callee": "d.Ack",
+          "lineNumber": 72
+        },
+        {
+          "caller": "process",
+          "callee": "json.Unmarshal",
+          "lineNumber": 79
+        },
+        {
+          "caller": "process",
+          "callee": "video.UpdatePopularityCache",
+          "lineNumber": 85
+        }
+      ],
+      "metrics": {
+        "importCount": 28,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    }
+  ]
+}

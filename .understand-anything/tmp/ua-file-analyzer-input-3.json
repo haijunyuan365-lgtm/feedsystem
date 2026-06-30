@@ -1,0 +1,257 @@
+{
+    "projectRoot":  "D:\\Projects\\GolandProjects\\feedsystem",
+    "batchFiles":  [
+                       {
+                           "path":  "internal/feed/repo.go",
+                           "language":  "go",
+                           "sizeLines":  134,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/feed/service.go",
+                           "language":  "go",
+                           "sizeLines":  656,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/video/chunk_entity.go",
+                           "language":  "go",
+                           "sizeLines":  56,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/video/comment_entity.go",
+                           "language":  "go",
+                           "sizeLines":  26,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/video/comment_repo.go",
+                           "language":  "go",
+                           "sizeLines":  57,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/video/like_entity.go",
+                           "language":  "go",
+                           "sizeLines":  17,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/video/like_handler.go",
+                           "language":  "go",
+                           "sizeLines":  115,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/video/like_repo.go",
+                           "language":  "go",
+                           "sizeLines":  107,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/video/tag_entity.go",
+                           "language":  "go",
+                           "sizeLines":  45,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/video/video_entity.go",
+                           "language":  "go",
+                           "sizeLines":  43,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/video/video_handler.go",
+                           "language":  "go",
+                           "sizeLines":  233,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/video/video_repo.go",
+                           "language":  "go",
+                           "sizeLines":  91,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/worker/commentworker.go",
+                           "language":  "go",
+                           "sizeLines":  133,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/worker/likeworker.go",
+                           "language":  "go",
+                           "sizeLines":  144,
+                           "fileCategory":  "code"
+                       },
+                       {
+                           "path":  "internal/worker/outboxworker.go",
+                           "language":  "go",
+                           "sizeLines":  114,
+                           "fileCategory":  "code"
+                       }
+                   ],
+    "batchImportData":  {
+                            "internal/feed/repo.go":  [
+                                                          "internal/social/entity.go",
+                                                          "internal/social/handler.go",
+                                                          "internal/social/repo.go",
+                                                          "internal/social/service.go",
+                                                          "internal/video/chunk_entity.go",
+                                                          "internal/video/chunk_handler_test.go",
+                                                          "internal/video/chunk_handler.go",
+                                                          "internal/video/comment_entity.go",
+                                                          "internal/video/comment_handler.go",
+                                                          "internal/video/comment_repo.go",
+                                                          "internal/video/comment_service.go",
+                                                          "internal/video/like_entity.go",
+                                                          "internal/video/like_handler.go",
+                                                          "internal/video/like_repo.go",
+                                                          "internal/video/like_service.go",
+                                                          "internal/video/popularity_cache.go",
+                                                          "internal/video/tag_entity.go",
+                                                          "internal/video/video_entity.go",
+                                                          "internal/video/video_handler.go",
+                                                          "internal/video/video_repo.go",
+                                                          "internal/video/video_service.go"
+                                                      ],
+                            "internal/feed/service.go":  [
+                                                             "internal/middleware/redis/cache.go",
+                                                             "internal/middleware/redis/redis_test.go",
+                                                             "internal/middleware/redis/redis.go",
+                                                             "internal/middleware/redis/zset.go",
+                                                             "internal/video/chunk_entity.go",
+                                                             "internal/video/chunk_handler_test.go",
+                                                             "internal/video/chunk_handler.go",
+                                                             "internal/video/comment_entity.go",
+                                                             "internal/video/comment_handler.go",
+                                                             "internal/video/comment_repo.go",
+                                                             "internal/video/comment_service.go",
+                                                             "internal/video/like_entity.go",
+                                                             "internal/video/like_handler.go",
+                                                             "internal/video/like_repo.go",
+                                                             "internal/video/like_service.go",
+                                                             "internal/video/popularity_cache.go",
+                                                             "internal/video/tag_entity.go",
+                                                             "internal/video/video_entity.go",
+                                                             "internal/video/video_handler.go",
+                                                             "internal/video/video_repo.go",
+                                                             "internal/video/video_service.go"
+                                                         ],
+                            "internal/video/chunk_entity.go":  [
+
+                                                               ],
+                            "internal/video/comment_entity.go":  [
+
+                                                                 ],
+                            "internal/video/comment_repo.go":  [
+
+                                                               ],
+                            "internal/video/like_entity.go":  [
+
+                                                              ],
+                            "internal/video/like_handler.go":  [
+                                                                   "internal/apierror/apierror.go",
+                                                                   "internal/middleware/jwt/jwt.go"
+                                                               ],
+                            "internal/video/like_repo.go":  [
+
+                                                            ],
+                            "internal/video/tag_entity.go":  [
+
+                                                             ],
+                            "internal/video/video_entity.go":  [
+
+                                                               ],
+                            "internal/video/video_handler.go":  [
+                                                                    "internal/apierror/apierror.go",
+                                                                    "internal/middleware/jwt/jwt.go"
+                                                                ],
+                            "internal/video/video_repo.go":  [
+
+                                                             ],
+                            "internal/worker/commentworker.go":  [
+                                                                     "internal/middleware/rabbitmq/commentMQ.go",
+                                                                     "internal/middleware/rabbitmq/dlx.go",
+                                                                     "internal/middleware/rabbitmq/likeMQ.go",
+                                                                     "internal/middleware/rabbitmq/popularityMQ.go",
+                                                                     "internal/middleware/rabbitmq/rabbitMQ.go",
+                                                                     "internal/middleware/rabbitmq/socialMQ.go",
+                                                                     "internal/middleware/rabbitmq/timelineMQ.go",
+                                                                     "internal/video/chunk_entity.go",
+                                                                     "internal/video/chunk_handler_test.go",
+                                                                     "internal/video/chunk_handler.go",
+                                                                     "internal/video/comment_entity.go",
+                                                                     "internal/video/comment_handler.go",
+                                                                     "internal/video/comment_repo.go",
+                                                                     "internal/video/comment_service.go",
+                                                                     "internal/video/like_entity.go",
+                                                                     "internal/video/like_handler.go",
+                                                                     "internal/video/like_repo.go",
+                                                                     "internal/video/like_service.go",
+                                                                     "internal/video/popularity_cache.go",
+                                                                     "internal/video/tag_entity.go",
+                                                                     "internal/video/video_entity.go",
+                                                                     "internal/video/video_handler.go",
+                                                                     "internal/video/video_repo.go",
+                                                                     "internal/video/video_service.go"
+                                                                 ],
+                            "internal/worker/likeworker.go":  [
+                                                                  "internal/middleware/rabbitmq/commentMQ.go",
+                                                                  "internal/middleware/rabbitmq/dlx.go",
+                                                                  "internal/middleware/rabbitmq/likeMQ.go",
+                                                                  "internal/middleware/rabbitmq/popularityMQ.go",
+                                                                  "internal/middleware/rabbitmq/rabbitMQ.go",
+                                                                  "internal/middleware/rabbitmq/socialMQ.go",
+                                                                  "internal/middleware/rabbitmq/timelineMQ.go",
+                                                                  "internal/video/chunk_entity.go",
+                                                                  "internal/video/chunk_handler_test.go",
+                                                                  "internal/video/chunk_handler.go",
+                                                                  "internal/video/comment_entity.go",
+                                                                  "internal/video/comment_handler.go",
+                                                                  "internal/video/comment_repo.go",
+                                                                  "internal/video/comment_service.go",
+                                                                  "internal/video/like_entity.go",
+                                                                  "internal/video/like_handler.go",
+                                                                  "internal/video/like_repo.go",
+                                                                  "internal/video/like_service.go",
+                                                                  "internal/video/popularity_cache.go",
+                                                                  "internal/video/tag_entity.go",
+                                                                  "internal/video/video_entity.go",
+                                                                  "internal/video/video_handler.go",
+                                                                  "internal/video/video_repo.go",
+                                                                  "internal/video/video_service.go"
+                                                              ],
+                            "internal/worker/outboxworker.go":  [
+                                                                    "internal/middleware/rabbitmq/commentMQ.go",
+                                                                    "internal/middleware/rabbitmq/dlx.go",
+                                                                    "internal/middleware/rabbitmq/likeMQ.go",
+                                                                    "internal/middleware/rabbitmq/popularityMQ.go",
+                                                                    "internal/middleware/rabbitmq/rabbitMQ.go",
+                                                                    "internal/middleware/rabbitmq/socialMQ.go",
+                                                                    "internal/middleware/rabbitmq/timelineMQ.go",
+                                                                    "internal/middleware/redis/cache.go",
+                                                                    "internal/middleware/redis/redis_test.go",
+                                                                    "internal/middleware/redis/redis.go",
+                                                                    "internal/middleware/redis/zset.go",
+                                                                    "internal/video/chunk_entity.go",
+                                                                    "internal/video/chunk_handler_test.go",
+                                                                    "internal/video/chunk_handler.go",
+                                                                    "internal/video/comment_entity.go",
+                                                                    "internal/video/comment_handler.go",
+                                                                    "internal/video/comment_repo.go",
+                                                                    "internal/video/comment_service.go",
+                                                                    "internal/video/like_entity.go",
+                                                                    "internal/video/like_handler.go",
+                                                                    "internal/video/like_repo.go",
+                                                                    "internal/video/like_service.go",
+                                                                    "internal/video/popularity_cache.go",
+                                                                    "internal/video/tag_entity.go",
+                                                                    "internal/video/video_entity.go",
+                                                                    "internal/video/video_handler.go",
+                                                                    "internal/video/video_repo.go",
+                                                                    "internal/video/video_service.go"
+                                                                ]
+                        }
+}

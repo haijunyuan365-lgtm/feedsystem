@@ -1,0 +1,34 @@
+{
+    "projectRoot":  "D:\\Projects\\GolandProjects\\feedsystem",
+    "batchFiles":  [
+                       {
+                           "path":  ".dockerignore",
+                           "language":  "unknown",
+                           "sizeLines":  17,
+                           "fileCategory":  "infra"
+                       },
+                       {
+                           "path":  "docker-compose.yml",
+                           "language":  "yaml",
+                           "sizeLines":  102,
+                           "fileCategory":  "infra"
+                       },
+                       {
+                           "path":  "Dockerfile",
+                           "language":  "dockerfile",
+                           "sizeLines":  58,
+                           "fileCategory":  "infra"
+                       }
+                   ],
+    "batchImportData":  {
+                            ".dockerignore":  [
+
+                                              ],
+                            "docker-compose.yml":  [
+
+                                                   ],
+                            "Dockerfile":  [
+
+                                           ]
+                        }
+}

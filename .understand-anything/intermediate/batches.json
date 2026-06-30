@@ -1,0 +1,6046 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "louvain",
+  "totalFiles": 68,
+  "totalBatches": 7,
+  "exportsByPath": {
+    "cmd/main.go": [],
+    "cmd/worker/main.go": [],
+    "internal/account/entity.go": [
+      "Account",
+      "CreateAccountRequest",
+      "FindByIDRequest",
+      "FindByIDResponse",
+      "FindByUsernameRequest",
+      "FindByUsernameResponse",
+      "LoginRequest",
+      "ChangePasswordRequest",
+      "GetProfileRequest",
+      "GetProfileResponse",
+      "LoginResponse",
+      "RenameRequest",
+      "UpdateProfileRequest",
+      "RefreshRequest"
+    ],
+    "internal/account/handler.go": [
+      "AccountHandler",
+      "NewAccountHandler",
+      "CreateAccount",
+      "Login",
+      "Logout",
+      "Rename",
+      "FindByID",
+      "FindByUsername",
+      "UpdateProfile",
+      "UploadAvatar",
+      "Refresh",
+      "ChangePassword"
+    ],
+    "internal/account/repo.go": [
+      "AccountRepository",
+      "NewAccountRepository",
+      "CreateAccount",
+      "FindByID",
+      "FindByUsername",
+      "Update",
+      "Login",
+      "Logout",
+      "RenameWithToken",
+      "UpdateToken",
+      "UpdateAvatar",
+      "UpdateFields",
+      "FindAll",
+      "ChangePassword"
+    ],
+    "internal/account/service.go": [
+      "AccountService",
+      "NewAccountService",
+      "CreateAccount",
+      "FindByID",
+      "FindByUsername",
+      "Login",
+      "Logout",
+      "Rename",
+      "UpdateAvatar",
+      "UpdateProfile",
+      "RefreshAccessToken",
+      "ChangePassword"
+    ],
+    "internal/apierror/apierror.go": [
+      "ClassifyHTTPStatus"
+    ],
+    "internal/auth/jwt.go": [
+      "Claims",
+      "GenerateToken",
+      "GenerateRefreshToken",
+      "ParseToken"
+    ],
+    "internal/config/loadConfig.go": [
+      "Config",
+      "ServerConfig",
+      "DatabaseConfig",
+      "RedisConfig",
+      "RabbitMQConfig",
+      "ObservabilityConfig",
+      "PprofConfig",
+      "LoadLocalDev",
+      "Load",
+      "DefaultLocalConfig",
+      "ApplyEnvOverrides"
+    ],
+    "internal/db/db.go": [
+      "NewDB",
+      "AutoMigrate",
+      "CloseDB"
+    ],
+    "internal/feed/entity.go": [
+      "FeedAuthor",
+      "FeedVideoItem",
+      "ListLatestRequest",
+      "ListLatestResponse",
+      "ListByFollowingRequest",
+      "ListByFollowingResponse",
+      "ListLikesCountRequest",
+      "LikesCountCursor",
+      "ListLikesCountResponse",
+      "ListByTagRequest",
+      "ListByTagResponse",
+      "PopularityCursor",
+      "ListByPopularityRequest",
+      "ListByPopularityResponse"
+    ],
+    "internal/feed/handler.go": [
+      "FeedHandler",
+      "NewFeedHandler",
+      "ListLatest",
+      "ListByFollowing",
+      "ListLikesCount",
+      "ListByTag",
+      "ListByPopularity"
+    ],
+    "internal/feed/repo.go": [
+      "FeedRepository",
+      "NewFeedRepository",
+      "ListLatest",
+      "ListByFollowing",
+      "ListLikesCountWithCursor",
+      "ListByTag",
+      "ListByPopularity",
+      "GetByIDs"
+    ],
+    "internal/feed/service.go": [
+      "FeedService",
+      "NewFeedService",
+      "GetVideoByIDs",
+      "ListLatest",
+      "ListByFollowing",
+      "ListLikesCount",
+      "ListByTag",
+      "ListByPopularity"
+    ],
+    "internal/http/router.go": [
+      "SetupRouter"
+    ],
+    "internal/message/entity.go": [
+      "Message",
+      "SendRequest",
+      "ListRequest",
+      "ListResponse"
+    ],
+    "internal/message/handler.go": [
+      "Repository",
+      "Service",
+      "Handler",
+      "NewRepository",
+      "NewService",
+      "NewHandler",
+      "AutoMigrate",
+      "Send",
+      "List",
+      "Send",
+      "List"
+    ],
+    "internal/middleware/jwt/jwt.go": [
+      "JWTAuth",
+      "SoftJWTAuth",
+      "GetAccountID",
+      "GetUsername"
+    ],
+    "internal/middleware/rabbitmq/commentMQ.go": [
+      "CommentMQ",
+      "CommentEvent",
+      "NewCommentMQ",
+      "Publish",
+      "Delete"
+    ],
+    "internal/middleware/rabbitmq/dlx.go": [
+      "DeclareDLX"
+    ],
+    "internal/middleware/rabbitmq/likeMQ.go": [
+      "LikeMQ",
+      "LikeEvent",
+      "NewLikeMQ",
+      "Like",
+      "Unlike"
+    ],
+    "internal/middleware/rabbitmq/popularityMQ.go": [
+      "PopularityMQ",
+      "PopularityEvent",
+      "NewPopularityMQ",
+      "Update"
+    ],
+    "internal/middleware/rabbitmq/rabbitMQ.go": [
+      "RabbitMQ",
+      "NewRabbitMQ",
+      "Close",
+      "NewChannel",
+      "DeclareTopic",
+      "PublishJSON"
+    ],
+    "internal/middleware/rabbitmq/socialMQ.go": [
+      "SocialMQ",
+      "SocialEvent",
+      "NewSocialMQ",
+      "Follow",
+      "UnFollow"
+    ],
+    "internal/middleware/rabbitmq/timelineMQ.go": [
+      "TimelineMQ",
+      "TimelineEvent",
+      "NewTimelineMQ",
+      "PublishVideo"
+    ],
+    "internal/middleware/ratelimit/ratelimit.go": [
+      "Limit",
+      "KeyByIP",
+      "KeyByAccount"
+    ],
+    "internal/middleware/redis/cache.go": [
+      "GetBytes",
+      "SetBytes",
+      "Del",
+      "MGet",
+      "DelByPattern"
+    ],
+    "internal/middleware/redis/redis_test.go": [
+      "TestIncrementWithExpireSetsTTLWithoutExtendingWindow"
+    ],
+    "internal/middleware/redis/redis.go": [
+      "Client",
+      "NewClient",
+      "NewFromEnv",
+      "Ping",
+      "IsMiss",
+      "Close",
+      "Key",
+      "IncrementWithExpire",
+      "Lock",
+      "Unlock"
+    ],
+    "internal/middleware/redis/zset.go": [
+      "ZincrBy",
+      "ZAdd",
+      "ZRemRangeByRank",
+      "ZRangeWithScores",
+      "ZRevRange",
+      "ZRevRangeByScore",
+      "Expire",
+      "ZUnionStore",
+      "Exists"
+    ],
+    "internal/observability/pprof_test.go": [
+      "TestNewPprofMux",
+      "TestNewPprofServerWithDisabled",
+      "TestPprofServerCloseWithDisabledServer"
+    ],
+    "internal/observability/pprof.go": [
+      "PprofServer",
+      "NewPprofMux",
+      "NewPprofServer",
+      "Close",
+      "Shutdown"
+    ],
+    "internal/social/entity.go": [
+      "Social",
+      "FollowRequest",
+      "UnfollowRequest",
+      "GetAllFollowersRequest",
+      "GetAllVloggersRequest",
+      "GetAllFollowersResponse",
+      "GetAllVloggersResponse",
+      "SocialCounts"
+    ],
+    "internal/social/handler.go": [
+      "SocialHandler",
+      "NewSocialHandler",
+      "Follow",
+      "Unfollow",
+      "GetAllFollowers",
+      "GetAllVloggers",
+      "GetCounts"
+    ],
+    "internal/social/repo.go": [
+      "SocialRepository",
+      "NewSocialRepository",
+      "Follow",
+      "Unfollow",
+      "IsFollowed",
+      "GetAllFollowers",
+      "GetAllVloggers",
+      "CountFollowers",
+      "CountVloggers"
+    ],
+    "internal/social/service.go": [
+      "SocialService",
+      "NewSocialService",
+      "Follow",
+      "Unfollow",
+      "GetAllFollowers",
+      "GetAllVloggers",
+      "CountFollowers",
+      "CountVloggers",
+      "IsFollowed"
+    ],
+    "internal/video/chunk_entity.go": [
+      "ChunkUploadSession",
+      "UploadedChunks",
+      "IsComplete",
+      "InitChunkUploadRequest",
+      "UploadChunkRequest",
+      "ChunkStatusRequest",
+      "CompleteChunkUploadRequest"
+    ],
+    "internal/video/chunk_handler_test.go": [
+      "TestFullChunkUploadFlow",
+      "TestBreakpointResume",
+      "TestIdempotentChunkUpload",
+      "TestHashMismatch",
+      "TestIncompleteMerge",
+      "TestChunkStatus"
+    ],
+    "internal/video/chunk_handler.go": [
+      "ChunkUploadHandler",
+      "NewChunkUploadHandler",
+      "InitChunkUpload",
+      "UploadChunk",
+      "ChunkStatus",
+      "CompleteChunkUpload"
+    ],
+    "internal/video/comment_entity.go": [
+      "Comment",
+      "PublishCommentRequest",
+      "DeleteCommentRequest",
+      "GetAllCommentsRequest"
+    ],
+    "internal/video/comment_handler.go": [
+      "CommentHandler",
+      "NewCommentHandler",
+      "PublishComment",
+      "DeleteComment",
+      "GetAllComments"
+    ],
+    "internal/video/comment_repo.go": [
+      "CommentRepository",
+      "NewCommentRepository",
+      "CreateComment",
+      "DeleteComment",
+      "GetAllComments",
+      "IsExist",
+      "GetByID"
+    ],
+    "internal/video/comment_service.go": [
+      "CommentService",
+      "NewCommentService",
+      "Publish",
+      "Delete",
+      "GetAll"
+    ],
+    "internal/video/like_entity.go": [
+      "Like",
+      "LikeRequest"
+    ],
+    "internal/video/like_handler.go": [
+      "LikeHandler",
+      "NewLikeHandler",
+      "Like",
+      "Unlike",
+      "IsLiked",
+      "ListMyLikedVideos"
+    ],
+    "internal/video/like_repo.go": [
+      "LikeRepository",
+      "NewLikeRepository",
+      "Like",
+      "Unlike",
+      "IsLiked",
+      "ListLikedVideos",
+      "BatchGetLiked",
+      "LikeIgnoreDuplicate",
+      "DeleteByVideoAndAccount"
+    ],
+    "internal/video/like_service.go": [
+      "LikeService",
+      "NewLikeService",
+      "Like",
+      "Unlike",
+      "IsLiked",
+      "ListLikedVideos"
+    ],
+    "internal/video/popularity_cache.go": [
+      "UpdatePopularityCache"
+    ],
+    "internal/video/tag_entity.go": [
+      "Tag",
+      "VideoTag",
+      "ExtractTags"
+    ],
+    "internal/video/video_entity.go": [
+      "Video",
+      "PublishVideoRequest",
+      "OutboxMsg",
+      "GetDetailRequest",
+      "ListByAuthorIDRequest"
+    ],
+    "internal/video/video_handler.go": [
+      "VideoHandler",
+      "NewVideoHandler",
+      "UploadVideo",
+      "UploadCover",
+      "PublishVideo",
+      "GetDetail",
+      "ListByAuthorID"
+    ],
+    "internal/video/video_repo.go": [
+      "VideoRepository",
+      "NewVideoRepository",
+      "CreateVideo",
+      "GetByID",
+      "ListByAuthorID",
+      "DeleteVideo",
+      "IsExist",
+      "ChangePopularity",
+      "ChangeLikesCount",
+      "CountByAuthor",
+      "TotalLikesByAuthor"
+    ],
+    "internal/video/video_service.go": [
+      "VideoService",
+      "NewVideoService",
+      "Publish",
+      "GetDetail",
+      "ListByAuthorID"
+    ],
+    "internal/worker/commentworker.go": [
+      "CommentWorker",
+      "NewCommentWorker",
+      "Run"
+    ],
+    "internal/worker/likeworker.go": [
+      "LikeWorker",
+      "NewLikeWorker",
+      "Run"
+    ],
+    "internal/worker/notificationworker.go": [
+      "Notification",
+      "NotificationWorker",
+      "NotificationHub",
+      "NewNotificationWorker",
+      "Run"
+    ],
+    "internal/worker/outboxworker.go": [
+      "StartOutboxPoller",
+      "StartConsumer"
+    ],
+    "internal/worker/popularityworker.go": [
+      "PopularityWorker",
+      "NewPopularityWorker",
+      "Run"
+    ],
+    "internal/worker/socialworker.go": [
+      "SocialWorker",
+      "NewSocialWorker",
+      "Run"
+    ],
+    "internal/worker/ssehub.go": [
+      "SSEHub",
+      "NewSSEHub",
+      "Push",
+      "Subscribe",
+      "Unsubscribe",
+      "SSERequireAuth",
+      "SSEHandler",
+      "ListHandler",
+      "MarkReadHandler",
+      "UnreadCountHandler",
+      "RegisterRoutes"
+    ]
+  },
+  "batches": [
+    {
+      "batchIndex": 1,
+      "files": [
+        {
+          "path": "internal/account/entity.go",
+          "language": "go",
+          "sizeLines": 80,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/account/handler.go",
+          "language": "go",
+          "sizeLines": 329,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/account/repo.go",
+          "language": "go",
+          "sizeLines": 95,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/account/service.go",
+          "language": "go",
+          "sizeLines": 304,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/apierror/apierror.go",
+          "language": "go",
+          "sizeLines": 30,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/auth/jwt.go",
+          "language": "go",
+          "sizeLines": 82,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/db/db.go",
+          "language": "go",
+          "sizeLines": 71,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/feed/entity.go",
+          "language": "go",
+          "sizeLines": 99,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/feed/handler.go",
+          "language": "go",
+          "sizeLines": 236,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/http/router.go",
+          "language": "go",
+          "sizeLines": 299,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/message/entity.go",
+          "language": "go",
+          "sizeLines": 26,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/message/handler.go",
+          "language": "go",
+          "sizeLines": 94,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/middleware/jwt/jwt.go",
+          "language": "go",
+          "sizeLines": 138,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/social/entity.go",
+          "language": "go",
+          "sizeLines": 52,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/social/handler.go",
+          "language": "go",
+          "sizeLines": 166,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/social/repo.go",
+          "language": "go",
+          "sizeLines": 115,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/video/comment_handler.go",
+          "language": "go",
+          "sizeLines": 107,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/worker/ssehub.go",
+          "language": "go",
+          "sizeLines": 261,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "internal/account/entity.go": [],
+        "internal/account/handler.go": [
+          "internal/apierror/apierror.go"
+        ],
+        "internal/account/repo.go": [],
+        "internal/account/service.go": [
+          "internal/auth/jwt.go",
+          "internal/middleware/redis/cache.go",
+          "internal/middleware/redis/redis_test.go",
+          "internal/middleware/redis/redis.go",
+          "internal/middleware/redis/zset.go"
+        ],
+        "internal/apierror/apierror.go": [],
+        "internal/auth/jwt.go": [],
+        "internal/db/db.go": [
+          "internal/account/entity.go",
+          "internal/account/handler.go",
+          "internal/account/repo.go",
+          "internal/account/service.go",
+          "internal/config/loadConfig.go",
+          "internal/message/entity.go",
+          "internal/message/handler.go",
+          "internal/social/entity.go",
+          "internal/social/handler.go",
+          "internal/social/repo.go",
+          "internal/social/service.go",
+          "internal/video/chunk_entity.go",
+          "internal/video/chunk_handler_test.go",
+          "internal/video/chunk_handler.go",
+          "internal/video/comment_entity.go",
+          "internal/video/comment_handler.go",
+          "internal/video/comment_repo.go",
+          "internal/video/comment_service.go",
+          "internal/video/like_entity.go",
+          "internal/video/like_handler.go",
+          "internal/video/like_repo.go",
+          "internal/video/like_service.go",
+          "internal/video/popularity_cache.go",
+          "internal/video/tag_entity.go",
+          "internal/video/video_entity.go",
+          "internal/video/video_handler.go",
+          "internal/video/video_repo.go",
+          "internal/video/video_service.go",
+          "internal/worker/commentworker.go",
+          "internal/worker/likeworker.go",
+          "internal/worker/notificationworker.go",
+          "internal/worker/outboxworker.go",
+          "internal/worker/popularityworker.go",
+          "internal/worker/socialworker.go",
+          "internal/worker/ssehub.go"
+        ],
+        "internal/feed/entity.go": [],
+        "internal/feed/handler.go": [
+          "internal/apierror/apierror.go",
+          "internal/middleware/jwt/jwt.go"
+        ],
+        "internal/http/router.go": [
+          "internal/account/entity.go",
+          "internal/account/handler.go",
+          "internal/account/repo.go",
+          "internal/account/service.go",
+          "internal/feed/entity.go",
+          "internal/feed/handler.go",
+          "internal/feed/repo.go",
+          "internal/feed/service.go",
+          "internal/message/entity.go",
+          "internal/message/handler.go",
+          "internal/middleware/jwt/jwt.go",
+          "internal/middleware/rabbitmq/commentMQ.go",
+          "internal/middleware/rabbitmq/dlx.go",
+          "internal/middleware/rabbitmq/likeMQ.go",
+          "internal/middleware/rabbitmq/popularityMQ.go",
+          "internal/middleware/rabbitmq/rabbitMQ.go",
+          "internal/middleware/rabbitmq/socialMQ.go",
+          "internal/middleware/rabbitmq/timelineMQ.go",
+          "internal/middleware/ratelimit/ratelimit.go",
+          "internal/middleware/redis/cache.go",
+          "internal/middleware/redis/redis_test.go",
+          "internal/middleware/redis/redis.go",
+          "internal/middleware/redis/zset.go",
+          "internal/social/entity.go",
+          "internal/social/handler.go",
+          "internal/social/repo.go",
+          "internal/social/service.go",
+          "internal/video/chunk_entity.go",
+          "internal/video/chunk_handler_test.go",
+          "internal/video/chunk_handler.go",
+          "internal/video/comment_entity.go",
+          "internal/video/comment_handler.go",
+          "internal/video/comment_repo.go",
+          "internal/video/comment_service.go",
+          "internal/video/like_entity.go",
+          "internal/video/like_handler.go",
+          "internal/video/like_repo.go",
+          "internal/video/like_service.go",
+          "internal/video/popularity_cache.go",
+          "internal/video/tag_entity.go",
+          "internal/video/video_entity.go",
+          "internal/video/video_handler.go",
+          "internal/video/video_repo.go",
+          "internal/video/video_service.go",
+          "internal/worker/commentworker.go",
+          "internal/worker/likeworker.go",
+          "internal/worker/notificationworker.go",
+          "internal/worker/outboxworker.go",
+          "internal/worker/popularityworker.go",
+          "internal/worker/socialworker.go",
+          "internal/worker/ssehub.go"
+        ],
+        "internal/message/entity.go": [],
+        "internal/message/handler.go": [
+          "internal/apierror/apierror.go",
+          "internal/middleware/jwt/jwt.go"
+        ],
+        "internal/middleware/jwt/jwt.go": [
+          "internal/account/entity.go",
+          "internal/account/handler.go",
+          "internal/account/repo.go",
+          "internal/account/service.go",
+          "internal/auth/jwt.go",
+          "internal/middleware/redis/cache.go",
+          "internal/middleware/redis/redis_test.go",
+          "internal/middleware/redis/redis.go",
+          "internal/middleware/redis/zset.go"
+        ],
+        "internal/social/entity.go": [
+          "internal/account/entity.go",
+          "internal/account/handler.go",
+          "internal/account/repo.go",
+          "internal/account/service.go"
+        ],
+        "internal/social/handler.go": [
+          "internal/account/entity.go",
+          "internal/account/handler.go",
+          "internal/account/repo.go",
+          "internal/account/service.go",
+          "internal/apierror/apierror.go",
+          "internal/middleware/jwt/jwt.go"
+        ],
+        "internal/social/repo.go": [
+          "internal/account/entity.go",
+          "internal/account/handler.go",
+          "internal/account/repo.go",
+          "internal/account/service.go"
+        ],
+        "internal/video/comment_handler.go": [
+          "internal/account/entity.go",
+          "internal/account/handler.go",
+          "internal/account/repo.go",
+          "internal/account/service.go",
+          "internal/apierror/apierror.go",
+          "internal/middleware/jwt/jwt.go"
+        ],
+        "internal/worker/ssehub.go": [
+          "internal/auth/jwt.go"
+        ]
+      },
+      "neighborMap": {
+        "internal/account/entity.go": [
+          {
+            "path": "internal/social/service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialService",
+              "NewSocialService",
+              "Follow",
+              "Unfollow",
+              "GetAllFollowers",
+              "GetAllVloggers",
+              "CountFollowers",
+              "CountVloggers",
+              "IsFollowed"
+            ]
+          }
+        ],
+        "internal/account/handler.go": [
+          {
+            "path": "internal/social/service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialService",
+              "NewSocialService",
+              "Follow",
+              "Unfollow",
+              "GetAllFollowers",
+              "GetAllVloggers",
+              "CountFollowers",
+              "CountVloggers",
+              "IsFollowed"
+            ]
+          }
+        ],
+        "internal/account/repo.go": [
+          {
+            "path": "internal/social/service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialService",
+              "NewSocialService",
+              "Follow",
+              "Unfollow",
+              "GetAllFollowers",
+              "GetAllVloggers",
+              "CountFollowers",
+              "CountVloggers",
+              "IsFollowed"
+            ]
+          }
+        ],
+        "internal/account/service.go": [
+          {
+            "path": "internal/middleware/redis/cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "GetBytes",
+              "SetBytes",
+              "Del",
+              "MGet",
+              "DelByPattern"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestIncrementWithExpireSetsTTLWithoutExtendingWindow"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis.go",
+            "batchIndex": 4,
+            "symbols": [
+              "Client",
+              "NewClient",
+              "NewFromEnv",
+              "Ping",
+              "IsMiss",
+              "Close",
+              "Key",
+              "IncrementWithExpire",
+              "Lock",
+              "Unlock"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/zset.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ZincrBy",
+              "ZAdd",
+              "ZRemRangeByRank",
+              "ZRangeWithScores",
+              "ZRevRange",
+              "ZRevRangeByScore",
+              "Expire",
+              "ZUnionStore",
+              "Exists"
+            ]
+          },
+          {
+            "path": "internal/social/service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialService",
+              "NewSocialService",
+              "Follow",
+              "Unfollow",
+              "GetAllFollowers",
+              "GetAllVloggers",
+              "CountFollowers",
+              "CountVloggers",
+              "IsFollowed"
+            ]
+          }
+        ],
+        "internal/apierror/apierror.go": [
+          {
+            "path": "internal/video/comment_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentService",
+              "NewCommentService",
+              "Publish",
+              "Delete",
+              "GetAll"
+            ]
+          },
+          {
+            "path": "internal/video/like_handler.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeHandler",
+              "NewLikeHandler",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListMyLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/video/video_handler.go",
+            "batchIndex": 3,
+            "symbols": [
+              "VideoHandler",
+              "NewVideoHandler",
+              "UploadVideo",
+              "UploadCover",
+              "PublishVideo",
+              "GetDetail",
+              "ListByAuthorID"
+            ]
+          }
+        ],
+        "internal/db/db.go": [
+          {
+            "path": "internal/config/loadConfig.go",
+            "batchIndex": 2,
+            "symbols": [
+              "Config",
+              "ServerConfig",
+              "DatabaseConfig",
+              "RedisConfig",
+              "RabbitMQConfig",
+              "ObservabilityConfig",
+              "PprofConfig",
+              "LoadLocalDev",
+              "Load",
+              "DefaultLocalConfig",
+              "ApplyEnvOverrides"
+            ]
+          },
+          {
+            "path": "internal/social/service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialService",
+              "NewSocialService",
+              "Follow",
+              "Unfollow",
+              "GetAllFollowers",
+              "GetAllVloggers",
+              "CountFollowers",
+              "CountVloggers",
+              "IsFollowed"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "ChunkUploadSession",
+              "UploadedChunks",
+              "IsComplete",
+              "InitChunkUploadRequest",
+              "UploadChunkRequest",
+              "ChunkStatusRequest",
+              "CompleteChunkUploadRequest"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_handler_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestFullChunkUploadFlow",
+              "TestBreakpointResume",
+              "TestIdempotentChunkUpload",
+              "TestHashMismatch",
+              "TestIncompleteMerge",
+              "TestChunkStatus"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_handler.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ChunkUploadHandler",
+              "NewChunkUploadHandler",
+              "InitChunkUpload",
+              "UploadChunk",
+              "ChunkStatus",
+              "CompleteChunkUpload"
+            ]
+          },
+          {
+            "path": "internal/video/comment_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "Comment",
+              "PublishCommentRequest",
+              "DeleteCommentRequest",
+              "GetAllCommentsRequest"
+            ]
+          },
+          {
+            "path": "internal/video/comment_repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentRepository",
+              "NewCommentRepository",
+              "CreateComment",
+              "DeleteComment",
+              "GetAllComments",
+              "IsExist",
+              "GetByID"
+            ]
+          },
+          {
+            "path": "internal/video/comment_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentService",
+              "NewCommentService",
+              "Publish",
+              "Delete",
+              "GetAll"
+            ]
+          },
+          {
+            "path": "internal/video/like_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "Like",
+              "LikeRequest"
+            ]
+          },
+          {
+            "path": "internal/video/like_handler.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeHandler",
+              "NewLikeHandler",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListMyLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/video/like_repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeRepository",
+              "NewLikeRepository",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListLikedVideos",
+              "BatchGetLiked",
+              "LikeIgnoreDuplicate",
+              "DeleteByVideoAndAccount"
+            ]
+          },
+          {
+            "path": "internal/video/like_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "LikeService",
+              "NewLikeService",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/video/popularity_cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "UpdatePopularityCache"
+            ]
+          },
+          {
+            "path": "internal/video/tag_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "Tag",
+              "VideoTag",
+              "ExtractTags"
+            ]
+          },
+          {
+            "path": "internal/video/video_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "Video",
+              "PublishVideoRequest",
+              "OutboxMsg",
+              "GetDetailRequest",
+              "ListByAuthorIDRequest"
+            ]
+          },
+          {
+            "path": "internal/video/video_handler.go",
+            "batchIndex": 3,
+            "symbols": [
+              "VideoHandler",
+              "NewVideoHandler",
+              "UploadVideo",
+              "UploadCover",
+              "PublishVideo",
+              "GetDetail",
+              "ListByAuthorID"
+            ]
+          },
+          {
+            "path": "internal/video/video_repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "VideoRepository",
+              "NewVideoRepository",
+              "CreateVideo",
+              "GetByID",
+              "ListByAuthorID",
+              "DeleteVideo",
+              "IsExist",
+              "ChangePopularity",
+              "ChangeLikesCount",
+              "CountByAuthor",
+              "TotalLikesByAuthor"
+            ]
+          },
+          {
+            "path": "internal/video/video_service.go",
+            "batchIndex": 4,
+            "symbols": [
+              "VideoService",
+              "NewVideoService",
+              "Publish",
+              "GetDetail",
+              "ListByAuthorID"
+            ]
+          },
+          {
+            "path": "internal/worker/commentworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentWorker",
+              "NewCommentWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/likeworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeWorker",
+              "NewLikeWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/notificationworker.go",
+            "batchIndex": 2,
+            "symbols": [
+              "Notification",
+              "NotificationWorker",
+              "NotificationHub",
+              "NewNotificationWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/socialworker.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialWorker",
+              "NewSocialWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "cmd/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          }
+        ],
+        "internal/http/router.go": [
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/commentworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentWorker",
+              "NewCommentWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/likeworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeWorker",
+              "NewLikeWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/feed/repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedRepository",
+              "NewFeedRepository",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCountWithCursor",
+              "ListByTag",
+              "ListByPopularity",
+              "GetByIDs"
+            ]
+          },
+          {
+            "path": "internal/feed/service.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedService",
+              "NewFeedService",
+              "GetVideoByIDs",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCount",
+              "ListByTag",
+              "ListByPopularity"
+            ]
+          },
+          {
+            "path": "internal/video/comment_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentService",
+              "NewCommentService",
+              "Publish",
+              "Delete",
+              "GetAll"
+            ]
+          },
+          {
+            "path": "internal/social/service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialService",
+              "NewSocialService",
+              "Follow",
+              "Unfollow",
+              "GetAllFollowers",
+              "GetAllVloggers",
+              "CountFollowers",
+              "CountVloggers",
+              "IsFollowed"
+            ]
+          },
+          {
+            "path": "internal/video/like_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "LikeService",
+              "NewLikeService",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis.go",
+            "batchIndex": 4,
+            "symbols": [
+              "Client",
+              "NewClient",
+              "NewFromEnv",
+              "Ping",
+              "IsMiss",
+              "Close",
+              "Key",
+              "IncrementWithExpire",
+              "Lock",
+              "Unlock"
+            ]
+          },
+          {
+            "path": "cmd/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/middleware/redis/cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "GetBytes",
+              "SetBytes",
+              "Del",
+              "MGet",
+              "DelByPattern"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestIncrementWithExpireSetsTTLWithoutExtendingWindow"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/zset.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ZincrBy",
+              "ZAdd",
+              "ZRemRangeByRank",
+              "ZRangeWithScores",
+              "ZRevRange",
+              "ZRevRangeByScore",
+              "Expire",
+              "ZUnionStore",
+              "Exists"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_handler.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ChunkUploadHandler",
+              "NewChunkUploadHandler",
+              "InitChunkUpload",
+              "UploadChunk",
+              "ChunkStatus",
+              "CompleteChunkUpload"
+            ]
+          },
+          {
+            "path": "internal/worker/socialworker.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialWorker",
+              "NewSocialWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/rabbitMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "RabbitMQ",
+              "NewRabbitMQ",
+              "Close",
+              "NewChannel",
+              "DeclareTopic",
+              "PublishJSON"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_handler_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestFullChunkUploadFlow",
+              "TestBreakpointResume",
+              "TestIdempotentChunkUpload",
+              "TestHashMismatch",
+              "TestIncompleteMerge",
+              "TestChunkStatus"
+            ]
+          },
+          {
+            "path": "internal/video/popularity_cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "UpdatePopularityCache"
+            ]
+          },
+          {
+            "path": "internal/video/video_service.go",
+            "batchIndex": 4,
+            "symbols": [
+              "VideoService",
+              "NewVideoService",
+              "Publish",
+              "GetDetail",
+              "ListByAuthorID"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/commentMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentMQ",
+              "CommentEvent",
+              "NewCommentMQ",
+              "Publish",
+              "Delete"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/dlx.go",
+            "batchIndex": 2,
+            "symbols": [
+              "DeclareDLX"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/likeMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "LikeMQ",
+              "LikeEvent",
+              "NewLikeMQ",
+              "Like",
+              "Unlike"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/popularityMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "PopularityMQ",
+              "PopularityEvent",
+              "NewPopularityMQ",
+              "Update"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/socialMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialMQ",
+              "SocialEvent",
+              "NewSocialMQ",
+              "Follow",
+              "UnFollow"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/timelineMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "TimelineMQ",
+              "TimelineEvent",
+              "NewTimelineMQ",
+              "PublishVideo"
+            ]
+          },
+          {
+            "path": "internal/video/like_handler.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeHandler",
+              "NewLikeHandler",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListMyLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/video/video_handler.go",
+            "batchIndex": 3,
+            "symbols": [
+              "VideoHandler",
+              "NewVideoHandler",
+              "UploadVideo",
+              "UploadCover",
+              "PublishVideo",
+              "GetDetail",
+              "ListByAuthorID"
+            ]
+          },
+          {
+            "path": "internal/worker/notificationworker.go",
+            "batchIndex": 2,
+            "symbols": [
+              "Notification",
+              "NotificationWorker",
+              "NotificationHub",
+              "NewNotificationWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "ChunkUploadSession",
+              "UploadedChunks",
+              "IsComplete",
+              "InitChunkUploadRequest",
+              "UploadChunkRequest",
+              "ChunkStatusRequest",
+              "CompleteChunkUploadRequest"
+            ]
+          },
+          {
+            "path": "internal/video/comment_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "Comment",
+              "PublishCommentRequest",
+              "DeleteCommentRequest",
+              "GetAllCommentsRequest"
+            ]
+          },
+          {
+            "path": "internal/video/comment_repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentRepository",
+              "NewCommentRepository",
+              "CreateComment",
+              "DeleteComment",
+              "GetAllComments",
+              "IsExist",
+              "GetByID"
+            ]
+          },
+          {
+            "path": "internal/video/like_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "Like",
+              "LikeRequest"
+            ]
+          },
+          {
+            "path": "internal/video/like_repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeRepository",
+              "NewLikeRepository",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListLikedVideos",
+              "BatchGetLiked",
+              "LikeIgnoreDuplicate",
+              "DeleteByVideoAndAccount"
+            ]
+          },
+          {
+            "path": "internal/video/tag_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "Tag",
+              "VideoTag",
+              "ExtractTags"
+            ]
+          },
+          {
+            "path": "internal/video/video_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "Video",
+              "PublishVideoRequest",
+              "OutboxMsg",
+              "GetDetailRequest",
+              "ListByAuthorIDRequest"
+            ]
+          },
+          {
+            "path": "internal/video/video_repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "VideoRepository",
+              "NewVideoRepository",
+              "CreateVideo",
+              "GetByID",
+              "ListByAuthorID",
+              "DeleteVideo",
+              "IsExist",
+              "ChangePopularity",
+              "ChangeLikesCount",
+              "CountByAuthor",
+              "TotalLikesByAuthor"
+            ]
+          },
+          {
+            "path": "internal/middleware/ratelimit/ratelimit.go",
+            "batchIndex": 4,
+            "symbols": [
+              "Limit",
+              "KeyByIP",
+              "KeyByAccount"
+            ]
+          }
+        ],
+        "internal/middleware/jwt/jwt.go": [
+          {
+            "path": "internal/middleware/redis/cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "GetBytes",
+              "SetBytes",
+              "Del",
+              "MGet",
+              "DelByPattern"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestIncrementWithExpireSetsTTLWithoutExtendingWindow"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis.go",
+            "batchIndex": 4,
+            "symbols": [
+              "Client",
+              "NewClient",
+              "NewFromEnv",
+              "Ping",
+              "IsMiss",
+              "Close",
+              "Key",
+              "IncrementWithExpire",
+              "Lock",
+              "Unlock"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/zset.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ZincrBy",
+              "ZAdd",
+              "ZRemRangeByRank",
+              "ZRangeWithScores",
+              "ZRevRange",
+              "ZRevRangeByScore",
+              "Expire",
+              "ZUnionStore",
+              "Exists"
+            ]
+          },
+          {
+            "path": "internal/middleware/ratelimit/ratelimit.go",
+            "batchIndex": 4,
+            "symbols": [
+              "Limit",
+              "KeyByIP",
+              "KeyByAccount"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_handler.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ChunkUploadHandler",
+              "NewChunkUploadHandler",
+              "InitChunkUpload",
+              "UploadChunk",
+              "ChunkStatus",
+              "CompleteChunkUpload"
+            ]
+          },
+          {
+            "path": "internal/video/like_handler.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeHandler",
+              "NewLikeHandler",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListMyLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/video/video_handler.go",
+            "batchIndex": 3,
+            "symbols": [
+              "VideoHandler",
+              "NewVideoHandler",
+              "UploadVideo",
+              "UploadCover",
+              "PublishVideo",
+              "GetDetail",
+              "ListByAuthorID"
+            ]
+          }
+        ],
+        "internal/social/entity.go": [
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/feed/repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedRepository",
+              "NewFeedRepository",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCountWithCursor",
+              "ListByTag",
+              "ListByPopularity",
+              "GetByIDs"
+            ]
+          },
+          {
+            "path": "internal/worker/socialworker.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialWorker",
+              "NewSocialWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/social/handler.go": [
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/feed/repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedRepository",
+              "NewFeedRepository",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCountWithCursor",
+              "ListByTag",
+              "ListByPopularity",
+              "GetByIDs"
+            ]
+          },
+          {
+            "path": "internal/worker/socialworker.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialWorker",
+              "NewSocialWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/social/repo.go": [
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/feed/repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedRepository",
+              "NewFeedRepository",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCountWithCursor",
+              "ListByTag",
+              "ListByPopularity",
+              "GetByIDs"
+            ]
+          },
+          {
+            "path": "internal/worker/socialworker.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialWorker",
+              "NewSocialWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/video/comment_handler.go": [
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/feed/repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedRepository",
+              "NewFeedRepository",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCountWithCursor",
+              "ListByTag",
+              "ListByPopularity",
+              "GetByIDs"
+            ]
+          },
+          {
+            "path": "internal/feed/service.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedService",
+              "NewFeedService",
+              "GetVideoByIDs",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCount",
+              "ListByTag",
+              "ListByPopularity"
+            ]
+          },
+          {
+            "path": "internal/worker/commentworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentWorker",
+              "NewCommentWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/likeworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeWorker",
+              "NewLikeWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/worker/ssehub.go": [
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 2,
+      "files": [
+        {
+          "path": "cmd/main.go",
+          "language": "go",
+          "sizeLines": 97,
+          "fileCategory": "code"
+        },
+        {
+          "path": "cmd/worker/main.go",
+          "language": "go",
+          "sizeLines": 198,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/config/loadConfig.go",
+          "language": "go",
+          "sizeLines": 183,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/middleware/rabbitmq/commentMQ.go",
+          "language": "go",
+          "sizeLines": 79,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/middleware/rabbitmq/dlx.go",
+          "language": "go",
+          "sizeLines": 27,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/middleware/rabbitmq/likeMQ.go",
+          "language": "go",
+          "sizeLines": 74,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/middleware/rabbitmq/popularityMQ.go",
+          "language": "go",
+          "sizeLines": 63,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/middleware/rabbitmq/rabbitMQ.go",
+          "language": "go",
+          "sizeLines": 105,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/middleware/rabbitmq/socialMQ.go",
+          "language": "go",
+          "sizeLines": 74,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/middleware/rabbitmq/timelineMQ.go",
+          "language": "go",
+          "sizeLines": 62,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/observability/pprof.go",
+          "language": "go",
+          "sizeLines": 84,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/observability/pprof_test.go",
+          "language": "go",
+          "sizeLines": 46,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/social/service.go",
+          "language": "go",
+          "sizeLines": 147,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/video/comment_service.go",
+          "language": "go",
+          "sizeLines": 172,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/video/like_service.go",
+          "language": "go",
+          "sizeLines": 241,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/worker/notificationworker.go",
+          "language": "go",
+          "sizeLines": 203,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/worker/socialworker.go",
+          "language": "go",
+          "sizeLines": 109,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "cmd/main.go": [
+          "internal/config/loadConfig.go",
+          "internal/db/db.go",
+          "internal/http/router.go",
+          "internal/middleware/rabbitmq/commentMQ.go",
+          "internal/middleware/rabbitmq/dlx.go",
+          "internal/middleware/rabbitmq/likeMQ.go",
+          "internal/middleware/rabbitmq/popularityMQ.go",
+          "internal/middleware/rabbitmq/rabbitMQ.go",
+          "internal/middleware/rabbitmq/socialMQ.go",
+          "internal/middleware/rabbitmq/timelineMQ.go",
+          "internal/middleware/redis/cache.go",
+          "internal/middleware/redis/redis_test.go",
+          "internal/middleware/redis/redis.go",
+          "internal/middleware/redis/zset.go",
+          "internal/observability/pprof_test.go",
+          "internal/observability/pprof.go"
+        ],
+        "cmd/worker/main.go": [
+          "internal/config/loadConfig.go",
+          "internal/db/db.go",
+          "internal/middleware/rabbitmq/commentMQ.go",
+          "internal/middleware/rabbitmq/dlx.go",
+          "internal/middleware/rabbitmq/likeMQ.go",
+          "internal/middleware/rabbitmq/popularityMQ.go",
+          "internal/middleware/rabbitmq/rabbitMQ.go",
+          "internal/middleware/rabbitmq/socialMQ.go",
+          "internal/middleware/rabbitmq/timelineMQ.go",
+          "internal/middleware/redis/cache.go",
+          "internal/middleware/redis/redis_test.go",
+          "internal/middleware/redis/redis.go",
+          "internal/middleware/redis/zset.go",
+          "internal/observability/pprof_test.go",
+          "internal/observability/pprof.go",
+          "internal/social/entity.go",
+          "internal/social/handler.go",
+          "internal/social/repo.go",
+          "internal/social/service.go",
+          "internal/video/chunk_entity.go",
+          "internal/video/chunk_handler_test.go",
+          "internal/video/chunk_handler.go",
+          "internal/video/comment_entity.go",
+          "internal/video/comment_handler.go",
+          "internal/video/comment_repo.go",
+          "internal/video/comment_service.go",
+          "internal/video/like_entity.go",
+          "internal/video/like_handler.go",
+          "internal/video/like_repo.go",
+          "internal/video/like_service.go",
+          "internal/video/popularity_cache.go",
+          "internal/video/tag_entity.go",
+          "internal/video/video_entity.go",
+          "internal/video/video_handler.go",
+          "internal/video/video_repo.go",
+          "internal/video/video_service.go",
+          "internal/worker/commentworker.go",
+          "internal/worker/likeworker.go",
+          "internal/worker/notificationworker.go",
+          "internal/worker/outboxworker.go",
+          "internal/worker/popularityworker.go",
+          "internal/worker/socialworker.go",
+          "internal/worker/ssehub.go"
+        ],
+        "internal/config/loadConfig.go": [],
+        "internal/middleware/rabbitmq/commentMQ.go": [],
+        "internal/middleware/rabbitmq/dlx.go": [],
+        "internal/middleware/rabbitmq/likeMQ.go": [],
+        "internal/middleware/rabbitmq/popularityMQ.go": [],
+        "internal/middleware/rabbitmq/rabbitMQ.go": [
+          "internal/config/loadConfig.go"
+        ],
+        "internal/middleware/rabbitmq/socialMQ.go": [],
+        "internal/middleware/rabbitmq/timelineMQ.go": [],
+        "internal/observability/pprof.go": [],
+        "internal/observability/pprof_test.go": [],
+        "internal/social/service.go": [
+          "internal/account/entity.go",
+          "internal/account/handler.go",
+          "internal/account/repo.go",
+          "internal/account/service.go",
+          "internal/middleware/rabbitmq/commentMQ.go",
+          "internal/middleware/rabbitmq/dlx.go",
+          "internal/middleware/rabbitmq/likeMQ.go",
+          "internal/middleware/rabbitmq/popularityMQ.go",
+          "internal/middleware/rabbitmq/rabbitMQ.go",
+          "internal/middleware/rabbitmq/socialMQ.go",
+          "internal/middleware/rabbitmq/timelineMQ.go",
+          "internal/middleware/redis/cache.go",
+          "internal/middleware/redis/redis_test.go",
+          "internal/middleware/redis/redis.go",
+          "internal/middleware/redis/zset.go"
+        ],
+        "internal/video/comment_service.go": [
+          "internal/apierror/apierror.go",
+          "internal/middleware/rabbitmq/commentMQ.go",
+          "internal/middleware/rabbitmq/dlx.go",
+          "internal/middleware/rabbitmq/likeMQ.go",
+          "internal/middleware/rabbitmq/popularityMQ.go",
+          "internal/middleware/rabbitmq/rabbitMQ.go",
+          "internal/middleware/rabbitmq/socialMQ.go",
+          "internal/middleware/rabbitmq/timelineMQ.go",
+          "internal/middleware/redis/cache.go",
+          "internal/middleware/redis/redis_test.go",
+          "internal/middleware/redis/redis.go",
+          "internal/middleware/redis/zset.go"
+        ],
+        "internal/video/like_service.go": [
+          "internal/middleware/rabbitmq/commentMQ.go",
+          "internal/middleware/rabbitmq/dlx.go",
+          "internal/middleware/rabbitmq/likeMQ.go",
+          "internal/middleware/rabbitmq/popularityMQ.go",
+          "internal/middleware/rabbitmq/rabbitMQ.go",
+          "internal/middleware/rabbitmq/socialMQ.go",
+          "internal/middleware/rabbitmq/timelineMQ.go",
+          "internal/middleware/redis/cache.go",
+          "internal/middleware/redis/redis_test.go",
+          "internal/middleware/redis/redis.go",
+          "internal/middleware/redis/zset.go"
+        ],
+        "internal/worker/notificationworker.go": [
+          "internal/middleware/rabbitmq/commentMQ.go",
+          "internal/middleware/rabbitmq/dlx.go",
+          "internal/middleware/rabbitmq/likeMQ.go",
+          "internal/middleware/rabbitmq/popularityMQ.go",
+          "internal/middleware/rabbitmq/rabbitMQ.go",
+          "internal/middleware/rabbitmq/socialMQ.go",
+          "internal/middleware/rabbitmq/timelineMQ.go"
+        ],
+        "internal/worker/socialworker.go": [
+          "internal/middleware/rabbitmq/commentMQ.go",
+          "internal/middleware/rabbitmq/dlx.go",
+          "internal/middleware/rabbitmq/likeMQ.go",
+          "internal/middleware/rabbitmq/popularityMQ.go",
+          "internal/middleware/rabbitmq/rabbitMQ.go",
+          "internal/middleware/rabbitmq/socialMQ.go",
+          "internal/middleware/rabbitmq/timelineMQ.go",
+          "internal/social/entity.go",
+          "internal/social/handler.go",
+          "internal/social/repo.go",
+          "internal/social/service.go"
+        ]
+      },
+      "neighborMap": {
+        "cmd/main.go": [
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "GetBytes",
+              "SetBytes",
+              "Del",
+              "MGet",
+              "DelByPattern"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestIncrementWithExpireSetsTTLWithoutExtendingWindow"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis.go",
+            "batchIndex": 4,
+            "symbols": [
+              "Client",
+              "NewClient",
+              "NewFromEnv",
+              "Ping",
+              "IsMiss",
+              "Close",
+              "Key",
+              "IncrementWithExpire",
+              "Lock",
+              "Unlock"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/zset.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ZincrBy",
+              "ZAdd",
+              "ZRemRangeByRank",
+              "ZRangeWithScores",
+              "ZRevRange",
+              "ZRevRangeByScore",
+              "Expire",
+              "ZUnionStore",
+              "Exists"
+            ]
+          }
+        ],
+        "cmd/worker/main.go": [
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "GetBytes",
+              "SetBytes",
+              "Del",
+              "MGet",
+              "DelByPattern"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestIncrementWithExpireSetsTTLWithoutExtendingWindow"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis.go",
+            "batchIndex": 4,
+            "symbols": [
+              "Client",
+              "NewClient",
+              "NewFromEnv",
+              "Ping",
+              "IsMiss",
+              "Close",
+              "Key",
+              "IncrementWithExpire",
+              "Lock",
+              "Unlock"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/zset.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ZincrBy",
+              "ZAdd",
+              "ZRemRangeByRank",
+              "ZRangeWithScores",
+              "ZRevRange",
+              "ZRevRangeByScore",
+              "Expire",
+              "ZUnionStore",
+              "Exists"
+            ]
+          },
+          {
+            "path": "internal/social/entity.go",
+            "batchIndex": 1,
+            "symbols": [
+              "Social",
+              "FollowRequest",
+              "UnfollowRequest",
+              "GetAllFollowersRequest",
+              "GetAllVloggersRequest",
+              "GetAllFollowersResponse",
+              "GetAllVloggersResponse",
+              "SocialCounts"
+            ]
+          },
+          {
+            "path": "internal/social/handler.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SocialHandler",
+              "NewSocialHandler",
+              "Follow",
+              "Unfollow",
+              "GetAllFollowers",
+              "GetAllVloggers",
+              "GetCounts"
+            ]
+          },
+          {
+            "path": "internal/social/repo.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SocialRepository",
+              "NewSocialRepository",
+              "Follow",
+              "Unfollow",
+              "IsFollowed",
+              "GetAllFollowers",
+              "GetAllVloggers",
+              "CountFollowers",
+              "CountVloggers"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "ChunkUploadSession",
+              "UploadedChunks",
+              "IsComplete",
+              "InitChunkUploadRequest",
+              "UploadChunkRequest",
+              "ChunkStatusRequest",
+              "CompleteChunkUploadRequest"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_handler_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestFullChunkUploadFlow",
+              "TestBreakpointResume",
+              "TestIdempotentChunkUpload",
+              "TestHashMismatch",
+              "TestIncompleteMerge",
+              "TestChunkStatus"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_handler.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ChunkUploadHandler",
+              "NewChunkUploadHandler",
+              "InitChunkUpload",
+              "UploadChunk",
+              "ChunkStatus",
+              "CompleteChunkUpload"
+            ]
+          },
+          {
+            "path": "internal/video/comment_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "Comment",
+              "PublishCommentRequest",
+              "DeleteCommentRequest",
+              "GetAllCommentsRequest"
+            ]
+          },
+          {
+            "path": "internal/video/comment_handler.go",
+            "batchIndex": 1,
+            "symbols": [
+              "CommentHandler",
+              "NewCommentHandler",
+              "PublishComment",
+              "DeleteComment",
+              "GetAllComments"
+            ]
+          },
+          {
+            "path": "internal/video/comment_repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentRepository",
+              "NewCommentRepository",
+              "CreateComment",
+              "DeleteComment",
+              "GetAllComments",
+              "IsExist",
+              "GetByID"
+            ]
+          },
+          {
+            "path": "internal/video/like_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "Like",
+              "LikeRequest"
+            ]
+          },
+          {
+            "path": "internal/video/like_handler.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeHandler",
+              "NewLikeHandler",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListMyLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/video/like_repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeRepository",
+              "NewLikeRepository",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListLikedVideos",
+              "BatchGetLiked",
+              "LikeIgnoreDuplicate",
+              "DeleteByVideoAndAccount"
+            ]
+          },
+          {
+            "path": "internal/video/popularity_cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "UpdatePopularityCache"
+            ]
+          },
+          {
+            "path": "internal/video/tag_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "Tag",
+              "VideoTag",
+              "ExtractTags"
+            ]
+          },
+          {
+            "path": "internal/video/video_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "Video",
+              "PublishVideoRequest",
+              "OutboxMsg",
+              "GetDetailRequest",
+              "ListByAuthorIDRequest"
+            ]
+          },
+          {
+            "path": "internal/video/video_handler.go",
+            "batchIndex": 3,
+            "symbols": [
+              "VideoHandler",
+              "NewVideoHandler",
+              "UploadVideo",
+              "UploadCover",
+              "PublishVideo",
+              "GetDetail",
+              "ListByAuthorID"
+            ]
+          },
+          {
+            "path": "internal/video/video_repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "VideoRepository",
+              "NewVideoRepository",
+              "CreateVideo",
+              "GetByID",
+              "ListByAuthorID",
+              "DeleteVideo",
+              "IsExist",
+              "ChangePopularity",
+              "ChangeLikesCount",
+              "CountByAuthor",
+              "TotalLikesByAuthor"
+            ]
+          },
+          {
+            "path": "internal/video/video_service.go",
+            "batchIndex": 4,
+            "symbols": [
+              "VideoService",
+              "NewVideoService",
+              "Publish",
+              "GetDetail",
+              "ListByAuthorID"
+            ]
+          },
+          {
+            "path": "internal/worker/commentworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentWorker",
+              "NewCommentWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/likeworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeWorker",
+              "NewLikeWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/ssehub.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SSEHub",
+              "NewSSEHub",
+              "Push",
+              "Subscribe",
+              "Unsubscribe",
+              "SSERequireAuth",
+              "SSEHandler",
+              "ListHandler",
+              "MarkReadHandler",
+              "UnreadCountHandler",
+              "RegisterRoutes"
+            ]
+          }
+        ],
+        "internal/config/loadConfig.go": [
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis.go",
+            "batchIndex": 4,
+            "symbols": [
+              "Client",
+              "NewClient",
+              "NewFromEnv",
+              "Ping",
+              "IsMiss",
+              "Close",
+              "Key",
+              "IncrementWithExpire",
+              "Lock",
+              "Unlock"
+            ]
+          }
+        ],
+        "internal/middleware/rabbitmq/commentMQ.go": [
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/commentworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentWorker",
+              "NewCommentWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/likeworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeWorker",
+              "NewLikeWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/middleware/rabbitmq/dlx.go": [
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/commentworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentWorker",
+              "NewCommentWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/likeworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeWorker",
+              "NewLikeWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/middleware/rabbitmq/likeMQ.go": [
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/commentworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentWorker",
+              "NewCommentWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/likeworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeWorker",
+              "NewLikeWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/middleware/rabbitmq/popularityMQ.go": [
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/commentworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentWorker",
+              "NewCommentWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/likeworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeWorker",
+              "NewLikeWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/middleware/rabbitmq/rabbitMQ.go": [
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/commentworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentWorker",
+              "NewCommentWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/likeworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeWorker",
+              "NewLikeWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/middleware/rabbitmq/socialMQ.go": [
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/commentworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentWorker",
+              "NewCommentWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/likeworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeWorker",
+              "NewLikeWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/middleware/rabbitmq/timelineMQ.go": [
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/commentworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentWorker",
+              "NewCommentWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/likeworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeWorker",
+              "NewLikeWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/social/service.go": [
+          {
+            "path": "internal/account/entity.go",
+            "batchIndex": 1,
+            "symbols": [
+              "Account",
+              "CreateAccountRequest",
+              "FindByIDRequest",
+              "FindByIDResponse",
+              "FindByUsernameRequest",
+              "FindByUsernameResponse",
+              "LoginRequest",
+              "ChangePasswordRequest",
+              "GetProfileRequest",
+              "GetProfileResponse",
+              "LoginResponse",
+              "RenameRequest",
+              "UpdateProfileRequest",
+              "RefreshRequest"
+            ]
+          },
+          {
+            "path": "internal/account/handler.go",
+            "batchIndex": 1,
+            "symbols": [
+              "AccountHandler",
+              "NewAccountHandler",
+              "CreateAccount",
+              "Login",
+              "Logout",
+              "Rename",
+              "FindByID",
+              "FindByUsername",
+              "UpdateProfile",
+              "UploadAvatar",
+              "Refresh",
+              "ChangePassword"
+            ]
+          },
+          {
+            "path": "internal/account/repo.go",
+            "batchIndex": 1,
+            "symbols": [
+              "AccountRepository",
+              "NewAccountRepository",
+              "CreateAccount",
+              "FindByID",
+              "FindByUsername",
+              "Update",
+              "Login",
+              "Logout",
+              "RenameWithToken",
+              "UpdateToken",
+              "UpdateAvatar",
+              "UpdateFields",
+              "FindAll",
+              "ChangePassword"
+            ]
+          },
+          {
+            "path": "internal/account/service.go",
+            "batchIndex": 1,
+            "symbols": [
+              "AccountService",
+              "NewAccountService",
+              "CreateAccount",
+              "FindByID",
+              "FindByUsername",
+              "Login",
+              "Logout",
+              "Rename",
+              "UpdateAvatar",
+              "UpdateProfile",
+              "RefreshAccessToken",
+              "ChangePassword"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "GetBytes",
+              "SetBytes",
+              "Del",
+              "MGet",
+              "DelByPattern"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestIncrementWithExpireSetsTTLWithoutExtendingWindow"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis.go",
+            "batchIndex": 4,
+            "symbols": [
+              "Client",
+              "NewClient",
+              "NewFromEnv",
+              "Ping",
+              "IsMiss",
+              "Close",
+              "Key",
+              "IncrementWithExpire",
+              "Lock",
+              "Unlock"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/zset.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ZincrBy",
+              "ZAdd",
+              "ZRemRangeByRank",
+              "ZRangeWithScores",
+              "ZRevRange",
+              "ZRevRangeByScore",
+              "Expire",
+              "ZUnionStore",
+              "Exists"
+            ]
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/feed/repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedRepository",
+              "NewFeedRepository",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCountWithCursor",
+              "ListByTag",
+              "ListByPopularity",
+              "GetByIDs"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          }
+        ],
+        "internal/video/comment_service.go": [
+          {
+            "path": "internal/apierror/apierror.go",
+            "batchIndex": 1,
+            "symbols": [
+              "ClassifyHTTPStatus"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "GetBytes",
+              "SetBytes",
+              "Del",
+              "MGet",
+              "DelByPattern"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestIncrementWithExpireSetsTTLWithoutExtendingWindow"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis.go",
+            "batchIndex": 4,
+            "symbols": [
+              "Client",
+              "NewClient",
+              "NewFromEnv",
+              "Ping",
+              "IsMiss",
+              "Close",
+              "Key",
+              "IncrementWithExpire",
+              "Lock",
+              "Unlock"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/zset.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ZincrBy",
+              "ZAdd",
+              "ZRemRangeByRank",
+              "ZRangeWithScores",
+              "ZRevRange",
+              "ZRevRangeByScore",
+              "Expire",
+              "ZUnionStore",
+              "Exists"
+            ]
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/feed/repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedRepository",
+              "NewFeedRepository",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCountWithCursor",
+              "ListByTag",
+              "ListByPopularity",
+              "GetByIDs"
+            ]
+          },
+          {
+            "path": "internal/feed/service.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedService",
+              "NewFeedService",
+              "GetVideoByIDs",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCount",
+              "ListByTag",
+              "ListByPopularity"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/commentworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentWorker",
+              "NewCommentWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/likeworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeWorker",
+              "NewLikeWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/video/like_service.go": [
+          {
+            "path": "internal/middleware/redis/cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "GetBytes",
+              "SetBytes",
+              "Del",
+              "MGet",
+              "DelByPattern"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestIncrementWithExpireSetsTTLWithoutExtendingWindow"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis.go",
+            "batchIndex": 4,
+            "symbols": [
+              "Client",
+              "NewClient",
+              "NewFromEnv",
+              "Ping",
+              "IsMiss",
+              "Close",
+              "Key",
+              "IncrementWithExpire",
+              "Lock",
+              "Unlock"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/zset.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ZincrBy",
+              "ZAdd",
+              "ZRemRangeByRank",
+              "ZRangeWithScores",
+              "ZRevRange",
+              "ZRevRangeByScore",
+              "Expire",
+              "ZUnionStore",
+              "Exists"
+            ]
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/feed/repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedRepository",
+              "NewFeedRepository",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCountWithCursor",
+              "ListByTag",
+              "ListByPopularity",
+              "GetByIDs"
+            ]
+          },
+          {
+            "path": "internal/feed/service.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedService",
+              "NewFeedService",
+              "GetVideoByIDs",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCount",
+              "ListByTag",
+              "ListByPopularity"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/commentworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentWorker",
+              "NewCommentWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/likeworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeWorker",
+              "NewLikeWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/worker/notificationworker.go": [
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          }
+        ],
+        "internal/worker/socialworker.go": [
+          {
+            "path": "internal/social/entity.go",
+            "batchIndex": 1,
+            "symbols": [
+              "Social",
+              "FollowRequest",
+              "UnfollowRequest",
+              "GetAllFollowersRequest",
+              "GetAllVloggersRequest",
+              "GetAllFollowersResponse",
+              "GetAllVloggersResponse",
+              "SocialCounts"
+            ]
+          },
+          {
+            "path": "internal/social/handler.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SocialHandler",
+              "NewSocialHandler",
+              "Follow",
+              "Unfollow",
+              "GetAllFollowers",
+              "GetAllVloggers",
+              "GetCounts"
+            ]
+          },
+          {
+            "path": "internal/social/repo.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SocialRepository",
+              "NewSocialRepository",
+              "Follow",
+              "Unfollow",
+              "IsFollowed",
+              "GetAllFollowers",
+              "GetAllVloggers",
+              "CountFollowers",
+              "CountVloggers"
+            ]
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 3,
+      "files": [
+        {
+          "path": "internal/feed/repo.go",
+          "language": "go",
+          "sizeLines": 134,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/feed/service.go",
+          "language": "go",
+          "sizeLines": 656,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/video/chunk_entity.go",
+          "language": "go",
+          "sizeLines": 56,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/video/comment_entity.go",
+          "language": "go",
+          "sizeLines": 26,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/video/comment_repo.go",
+          "language": "go",
+          "sizeLines": 57,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/video/like_entity.go",
+          "language": "go",
+          "sizeLines": 17,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/video/like_handler.go",
+          "language": "go",
+          "sizeLines": 115,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/video/like_repo.go",
+          "language": "go",
+          "sizeLines": 107,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/video/tag_entity.go",
+          "language": "go",
+          "sizeLines": 45,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/video/video_entity.go",
+          "language": "go",
+          "sizeLines": 43,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/video/video_handler.go",
+          "language": "go",
+          "sizeLines": 233,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/video/video_repo.go",
+          "language": "go",
+          "sizeLines": 91,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/worker/commentworker.go",
+          "language": "go",
+          "sizeLines": 133,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/worker/likeworker.go",
+          "language": "go",
+          "sizeLines": 144,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/worker/outboxworker.go",
+          "language": "go",
+          "sizeLines": 114,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "internal/feed/repo.go": [
+          "internal/social/entity.go",
+          "internal/social/handler.go",
+          "internal/social/repo.go",
+          "internal/social/service.go",
+          "internal/video/chunk_entity.go",
+          "internal/video/chunk_handler_test.go",
+          "internal/video/chunk_handler.go",
+          "internal/video/comment_entity.go",
+          "internal/video/comment_handler.go",
+          "internal/video/comment_repo.go",
+          "internal/video/comment_service.go",
+          "internal/video/like_entity.go",
+          "internal/video/like_handler.go",
+          "internal/video/like_repo.go",
+          "internal/video/like_service.go",
+          "internal/video/popularity_cache.go",
+          "internal/video/tag_entity.go",
+          "internal/video/video_entity.go",
+          "internal/video/video_handler.go",
+          "internal/video/video_repo.go",
+          "internal/video/video_service.go"
+        ],
+        "internal/feed/service.go": [
+          "internal/middleware/redis/cache.go",
+          "internal/middleware/redis/redis_test.go",
+          "internal/middleware/redis/redis.go",
+          "internal/middleware/redis/zset.go",
+          "internal/video/chunk_entity.go",
+          "internal/video/chunk_handler_test.go",
+          "internal/video/chunk_handler.go",
+          "internal/video/comment_entity.go",
+          "internal/video/comment_handler.go",
+          "internal/video/comment_repo.go",
+          "internal/video/comment_service.go",
+          "internal/video/like_entity.go",
+          "internal/video/like_handler.go",
+          "internal/video/like_repo.go",
+          "internal/video/like_service.go",
+          "internal/video/popularity_cache.go",
+          "internal/video/tag_entity.go",
+          "internal/video/video_entity.go",
+          "internal/video/video_handler.go",
+          "internal/video/video_repo.go",
+          "internal/video/video_service.go"
+        ],
+        "internal/video/chunk_entity.go": [],
+        "internal/video/comment_entity.go": [],
+        "internal/video/comment_repo.go": [],
+        "internal/video/like_entity.go": [],
+        "internal/video/like_handler.go": [
+          "internal/apierror/apierror.go",
+          "internal/middleware/jwt/jwt.go"
+        ],
+        "internal/video/like_repo.go": [],
+        "internal/video/tag_entity.go": [],
+        "internal/video/video_entity.go": [],
+        "internal/video/video_handler.go": [
+          "internal/apierror/apierror.go",
+          "internal/middleware/jwt/jwt.go"
+        ],
+        "internal/video/video_repo.go": [],
+        "internal/worker/commentworker.go": [
+          "internal/middleware/rabbitmq/commentMQ.go",
+          "internal/middleware/rabbitmq/dlx.go",
+          "internal/middleware/rabbitmq/likeMQ.go",
+          "internal/middleware/rabbitmq/popularityMQ.go",
+          "internal/middleware/rabbitmq/rabbitMQ.go",
+          "internal/middleware/rabbitmq/socialMQ.go",
+          "internal/middleware/rabbitmq/timelineMQ.go",
+          "internal/video/chunk_entity.go",
+          "internal/video/chunk_handler_test.go",
+          "internal/video/chunk_handler.go",
+          "internal/video/comment_entity.go",
+          "internal/video/comment_handler.go",
+          "internal/video/comment_repo.go",
+          "internal/video/comment_service.go",
+          "internal/video/like_entity.go",
+          "internal/video/like_handler.go",
+          "internal/video/like_repo.go",
+          "internal/video/like_service.go",
+          "internal/video/popularity_cache.go",
+          "internal/video/tag_entity.go",
+          "internal/video/video_entity.go",
+          "internal/video/video_handler.go",
+          "internal/video/video_repo.go",
+          "internal/video/video_service.go"
+        ],
+        "internal/worker/likeworker.go": [
+          "internal/middleware/rabbitmq/commentMQ.go",
+          "internal/middleware/rabbitmq/dlx.go",
+          "internal/middleware/rabbitmq/likeMQ.go",
+          "internal/middleware/rabbitmq/popularityMQ.go",
+          "internal/middleware/rabbitmq/rabbitMQ.go",
+          "internal/middleware/rabbitmq/socialMQ.go",
+          "internal/middleware/rabbitmq/timelineMQ.go",
+          "internal/video/chunk_entity.go",
+          "internal/video/chunk_handler_test.go",
+          "internal/video/chunk_handler.go",
+          "internal/video/comment_entity.go",
+          "internal/video/comment_handler.go",
+          "internal/video/comment_repo.go",
+          "internal/video/comment_service.go",
+          "internal/video/like_entity.go",
+          "internal/video/like_handler.go",
+          "internal/video/like_repo.go",
+          "internal/video/like_service.go",
+          "internal/video/popularity_cache.go",
+          "internal/video/tag_entity.go",
+          "internal/video/video_entity.go",
+          "internal/video/video_handler.go",
+          "internal/video/video_repo.go",
+          "internal/video/video_service.go"
+        ],
+        "internal/worker/outboxworker.go": [
+          "internal/middleware/rabbitmq/commentMQ.go",
+          "internal/middleware/rabbitmq/dlx.go",
+          "internal/middleware/rabbitmq/likeMQ.go",
+          "internal/middleware/rabbitmq/popularityMQ.go",
+          "internal/middleware/rabbitmq/rabbitMQ.go",
+          "internal/middleware/rabbitmq/socialMQ.go",
+          "internal/middleware/rabbitmq/timelineMQ.go",
+          "internal/middleware/redis/cache.go",
+          "internal/middleware/redis/redis_test.go",
+          "internal/middleware/redis/redis.go",
+          "internal/middleware/redis/zset.go",
+          "internal/video/chunk_entity.go",
+          "internal/video/chunk_handler_test.go",
+          "internal/video/chunk_handler.go",
+          "internal/video/comment_entity.go",
+          "internal/video/comment_handler.go",
+          "internal/video/comment_repo.go",
+          "internal/video/comment_service.go",
+          "internal/video/like_entity.go",
+          "internal/video/like_handler.go",
+          "internal/video/like_repo.go",
+          "internal/video/like_service.go",
+          "internal/video/popularity_cache.go",
+          "internal/video/tag_entity.go",
+          "internal/video/video_entity.go",
+          "internal/video/video_handler.go",
+          "internal/video/video_repo.go",
+          "internal/video/video_service.go"
+        ]
+      },
+      "neighborMap": {
+        "internal/feed/repo.go": [
+          {
+            "path": "internal/social/entity.go",
+            "batchIndex": 1,
+            "symbols": [
+              "Social",
+              "FollowRequest",
+              "UnfollowRequest",
+              "GetAllFollowersRequest",
+              "GetAllVloggersRequest",
+              "GetAllFollowersResponse",
+              "GetAllVloggersResponse",
+              "SocialCounts"
+            ]
+          },
+          {
+            "path": "internal/social/handler.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SocialHandler",
+              "NewSocialHandler",
+              "Follow",
+              "Unfollow",
+              "GetAllFollowers",
+              "GetAllVloggers",
+              "GetCounts"
+            ]
+          },
+          {
+            "path": "internal/social/repo.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SocialRepository",
+              "NewSocialRepository",
+              "Follow",
+              "Unfollow",
+              "IsFollowed",
+              "GetAllFollowers",
+              "GetAllVloggers",
+              "CountFollowers",
+              "CountVloggers"
+            ]
+          },
+          {
+            "path": "internal/social/service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialService",
+              "NewSocialService",
+              "Follow",
+              "Unfollow",
+              "GetAllFollowers",
+              "GetAllVloggers",
+              "CountFollowers",
+              "CountVloggers",
+              "IsFollowed"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_handler_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestFullChunkUploadFlow",
+              "TestBreakpointResume",
+              "TestIdempotentChunkUpload",
+              "TestHashMismatch",
+              "TestIncompleteMerge",
+              "TestChunkStatus"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_handler.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ChunkUploadHandler",
+              "NewChunkUploadHandler",
+              "InitChunkUpload",
+              "UploadChunk",
+              "ChunkStatus",
+              "CompleteChunkUpload"
+            ]
+          },
+          {
+            "path": "internal/video/comment_handler.go",
+            "batchIndex": 1,
+            "symbols": [
+              "CommentHandler",
+              "NewCommentHandler",
+              "PublishComment",
+              "DeleteComment",
+              "GetAllComments"
+            ]
+          },
+          {
+            "path": "internal/video/comment_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentService",
+              "NewCommentService",
+              "Publish",
+              "Delete",
+              "GetAll"
+            ]
+          },
+          {
+            "path": "internal/video/like_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "LikeService",
+              "NewLikeService",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/video/popularity_cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "UpdatePopularityCache"
+            ]
+          },
+          {
+            "path": "internal/video/video_service.go",
+            "batchIndex": 4,
+            "symbols": [
+              "VideoService",
+              "NewVideoService",
+              "Publish",
+              "GetDetail",
+              "ListByAuthorID"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          }
+        ],
+        "internal/feed/service.go": [
+          {
+            "path": "internal/middleware/redis/cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "GetBytes",
+              "SetBytes",
+              "Del",
+              "MGet",
+              "DelByPattern"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestIncrementWithExpireSetsTTLWithoutExtendingWindow"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis.go",
+            "batchIndex": 4,
+            "symbols": [
+              "Client",
+              "NewClient",
+              "NewFromEnv",
+              "Ping",
+              "IsMiss",
+              "Close",
+              "Key",
+              "IncrementWithExpire",
+              "Lock",
+              "Unlock"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/zset.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ZincrBy",
+              "ZAdd",
+              "ZRemRangeByRank",
+              "ZRangeWithScores",
+              "ZRevRange",
+              "ZRevRangeByScore",
+              "Expire",
+              "ZUnionStore",
+              "Exists"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_handler_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestFullChunkUploadFlow",
+              "TestBreakpointResume",
+              "TestIdempotentChunkUpload",
+              "TestHashMismatch",
+              "TestIncompleteMerge",
+              "TestChunkStatus"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_handler.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ChunkUploadHandler",
+              "NewChunkUploadHandler",
+              "InitChunkUpload",
+              "UploadChunk",
+              "ChunkStatus",
+              "CompleteChunkUpload"
+            ]
+          },
+          {
+            "path": "internal/video/comment_handler.go",
+            "batchIndex": 1,
+            "symbols": [
+              "CommentHandler",
+              "NewCommentHandler",
+              "PublishComment",
+              "DeleteComment",
+              "GetAllComments"
+            ]
+          },
+          {
+            "path": "internal/video/comment_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentService",
+              "NewCommentService",
+              "Publish",
+              "Delete",
+              "GetAll"
+            ]
+          },
+          {
+            "path": "internal/video/like_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "LikeService",
+              "NewLikeService",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/video/popularity_cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "UpdatePopularityCache"
+            ]
+          },
+          {
+            "path": "internal/video/video_service.go",
+            "batchIndex": 4,
+            "symbols": [
+              "VideoService",
+              "NewVideoService",
+              "Publish",
+              "GetDetail",
+              "ListByAuthorID"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          }
+        ],
+        "internal/video/chunk_entity.go": [
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/video/comment_entity.go": [
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/video/comment_repo.go": [
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/video/like_entity.go": [
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/video/like_handler.go": [
+          {
+            "path": "internal/apierror/apierror.go",
+            "batchIndex": 1,
+            "symbols": [
+              "ClassifyHTTPStatus"
+            ]
+          },
+          {
+            "path": "internal/middleware/jwt/jwt.go",
+            "batchIndex": 1,
+            "symbols": [
+              "JWTAuth",
+              "SoftJWTAuth",
+              "GetAccountID",
+              "GetUsername"
+            ]
+          },
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/video/like_repo.go": [
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/video/tag_entity.go": [
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/video/video_entity.go": [
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/video/video_handler.go": [
+          {
+            "path": "internal/apierror/apierror.go",
+            "batchIndex": 1,
+            "symbols": [
+              "ClassifyHTTPStatus"
+            ]
+          },
+          {
+            "path": "internal/middleware/jwt/jwt.go",
+            "batchIndex": 1,
+            "symbols": [
+              "JWTAuth",
+              "SoftJWTAuth",
+              "GetAccountID",
+              "GetUsername"
+            ]
+          },
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/video/video_repo.go": [
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/popularityworker.go",
+            "batchIndex": 4,
+            "symbols": [
+              "PopularityWorker",
+              "NewPopularityWorker",
+              "Run"
+            ]
+          }
+        ],
+        "internal/worker/commentworker.go": [
+          {
+            "path": "internal/middleware/rabbitmq/commentMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentMQ",
+              "CommentEvent",
+              "NewCommentMQ",
+              "Publish",
+              "Delete"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/dlx.go",
+            "batchIndex": 2,
+            "symbols": [
+              "DeclareDLX"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/likeMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "LikeMQ",
+              "LikeEvent",
+              "NewLikeMQ",
+              "Like",
+              "Unlike"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/popularityMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "PopularityMQ",
+              "PopularityEvent",
+              "NewPopularityMQ",
+              "Update"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/rabbitMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "RabbitMQ",
+              "NewRabbitMQ",
+              "Close",
+              "NewChannel",
+              "DeclareTopic",
+              "PublishJSON"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/socialMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialMQ",
+              "SocialEvent",
+              "NewSocialMQ",
+              "Follow",
+              "UnFollow"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/timelineMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "TimelineMQ",
+              "TimelineEvent",
+              "NewTimelineMQ",
+              "PublishVideo"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_handler_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestFullChunkUploadFlow",
+              "TestBreakpointResume",
+              "TestIdempotentChunkUpload",
+              "TestHashMismatch",
+              "TestIncompleteMerge",
+              "TestChunkStatus"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_handler.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ChunkUploadHandler",
+              "NewChunkUploadHandler",
+              "InitChunkUpload",
+              "UploadChunk",
+              "ChunkStatus",
+              "CompleteChunkUpload"
+            ]
+          },
+          {
+            "path": "internal/video/comment_handler.go",
+            "batchIndex": 1,
+            "symbols": [
+              "CommentHandler",
+              "NewCommentHandler",
+              "PublishComment",
+              "DeleteComment",
+              "GetAllComments"
+            ]
+          },
+          {
+            "path": "internal/video/comment_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentService",
+              "NewCommentService",
+              "Publish",
+              "Delete",
+              "GetAll"
+            ]
+          },
+          {
+            "path": "internal/video/like_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "LikeService",
+              "NewLikeService",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/video/popularity_cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "UpdatePopularityCache"
+            ]
+          },
+          {
+            "path": "internal/video/video_service.go",
+            "batchIndex": 4,
+            "symbols": [
+              "VideoService",
+              "NewVideoService",
+              "Publish",
+              "GetDetail",
+              "ListByAuthorID"
+            ]
+          },
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          }
+        ],
+        "internal/worker/likeworker.go": [
+          {
+            "path": "internal/middleware/rabbitmq/commentMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentMQ",
+              "CommentEvent",
+              "NewCommentMQ",
+              "Publish",
+              "Delete"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/dlx.go",
+            "batchIndex": 2,
+            "symbols": [
+              "DeclareDLX"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/likeMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "LikeMQ",
+              "LikeEvent",
+              "NewLikeMQ",
+              "Like",
+              "Unlike"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/popularityMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "PopularityMQ",
+              "PopularityEvent",
+              "NewPopularityMQ",
+              "Update"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/rabbitMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "RabbitMQ",
+              "NewRabbitMQ",
+              "Close",
+              "NewChannel",
+              "DeclareTopic",
+              "PublishJSON"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/socialMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialMQ",
+              "SocialEvent",
+              "NewSocialMQ",
+              "Follow",
+              "UnFollow"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/timelineMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "TimelineMQ",
+              "TimelineEvent",
+              "NewTimelineMQ",
+              "PublishVideo"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_handler_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestFullChunkUploadFlow",
+              "TestBreakpointResume",
+              "TestIdempotentChunkUpload",
+              "TestHashMismatch",
+              "TestIncompleteMerge",
+              "TestChunkStatus"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_handler.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ChunkUploadHandler",
+              "NewChunkUploadHandler",
+              "InitChunkUpload",
+              "UploadChunk",
+              "ChunkStatus",
+              "CompleteChunkUpload"
+            ]
+          },
+          {
+            "path": "internal/video/comment_handler.go",
+            "batchIndex": 1,
+            "symbols": [
+              "CommentHandler",
+              "NewCommentHandler",
+              "PublishComment",
+              "DeleteComment",
+              "GetAllComments"
+            ]
+          },
+          {
+            "path": "internal/video/comment_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentService",
+              "NewCommentService",
+              "Publish",
+              "Delete",
+              "GetAll"
+            ]
+          },
+          {
+            "path": "internal/video/like_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "LikeService",
+              "NewLikeService",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/video/popularity_cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "UpdatePopularityCache"
+            ]
+          },
+          {
+            "path": "internal/video/video_service.go",
+            "batchIndex": 4,
+            "symbols": [
+              "VideoService",
+              "NewVideoService",
+              "Publish",
+              "GetDetail",
+              "ListByAuthorID"
+            ]
+          },
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          }
+        ],
+        "internal/worker/outboxworker.go": [
+          {
+            "path": "internal/middleware/rabbitmq/commentMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentMQ",
+              "CommentEvent",
+              "NewCommentMQ",
+              "Publish",
+              "Delete"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/dlx.go",
+            "batchIndex": 2,
+            "symbols": [
+              "DeclareDLX"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/likeMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "LikeMQ",
+              "LikeEvent",
+              "NewLikeMQ",
+              "Like",
+              "Unlike"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/popularityMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "PopularityMQ",
+              "PopularityEvent",
+              "NewPopularityMQ",
+              "Update"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/rabbitMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "RabbitMQ",
+              "NewRabbitMQ",
+              "Close",
+              "NewChannel",
+              "DeclareTopic",
+              "PublishJSON"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/socialMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialMQ",
+              "SocialEvent",
+              "NewSocialMQ",
+              "Follow",
+              "UnFollow"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/timelineMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "TimelineMQ",
+              "TimelineEvent",
+              "NewTimelineMQ",
+              "PublishVideo"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "GetBytes",
+              "SetBytes",
+              "Del",
+              "MGet",
+              "DelByPattern"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestIncrementWithExpireSetsTTLWithoutExtendingWindow"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/redis.go",
+            "batchIndex": 4,
+            "symbols": [
+              "Client",
+              "NewClient",
+              "NewFromEnv",
+              "Ping",
+              "IsMiss",
+              "Close",
+              "Key",
+              "IncrementWithExpire",
+              "Lock",
+              "Unlock"
+            ]
+          },
+          {
+            "path": "internal/middleware/redis/zset.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ZincrBy",
+              "ZAdd",
+              "ZRemRangeByRank",
+              "ZRangeWithScores",
+              "ZRevRange",
+              "ZRevRangeByScore",
+              "Expire",
+              "ZUnionStore",
+              "Exists"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_handler_test.go",
+            "batchIndex": 4,
+            "symbols": [
+              "TestFullChunkUploadFlow",
+              "TestBreakpointResume",
+              "TestIdempotentChunkUpload",
+              "TestHashMismatch",
+              "TestIncompleteMerge",
+              "TestChunkStatus"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_handler.go",
+            "batchIndex": 4,
+            "symbols": [
+              "ChunkUploadHandler",
+              "NewChunkUploadHandler",
+              "InitChunkUpload",
+              "UploadChunk",
+              "ChunkStatus",
+              "CompleteChunkUpload"
+            ]
+          },
+          {
+            "path": "internal/video/comment_handler.go",
+            "batchIndex": 1,
+            "symbols": [
+              "CommentHandler",
+              "NewCommentHandler",
+              "PublishComment",
+              "DeleteComment",
+              "GetAllComments"
+            ]
+          },
+          {
+            "path": "internal/video/comment_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentService",
+              "NewCommentService",
+              "Publish",
+              "Delete",
+              "GetAll"
+            ]
+          },
+          {
+            "path": "internal/video/like_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "LikeService",
+              "NewLikeService",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/video/popularity_cache.go",
+            "batchIndex": 4,
+            "symbols": [
+              "UpdatePopularityCache"
+            ]
+          },
+          {
+            "path": "internal/video/video_service.go",
+            "batchIndex": 4,
+            "symbols": [
+              "VideoService",
+              "NewVideoService",
+              "Publish",
+              "GetDetail",
+              "ListByAuthorID"
+            ]
+          },
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 4,
+      "files": [
+        {
+          "path": "internal/middleware/ratelimit/ratelimit.go",
+          "language": "go",
+          "sizeLines": 78,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/middleware/redis/cache.go",
+          "language": "go",
+          "sizeLines": 46,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/middleware/redis/redis.go",
+          "language": "go",
+          "sizeLines": 118,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/middleware/redis/redis_test.go",
+          "language": "go",
+          "sizeLines": 56,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/middleware/redis/zset.go",
+          "language": "go",
+          "sizeLines": 84,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/video/chunk_handler.go",
+          "language": "go",
+          "sizeLines": 375,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/video/chunk_handler_test.go",
+          "language": "go",
+          "sizeLines": 427,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/video/popularity_cache.go",
+          "language": "go",
+          "sizeLines": 29,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/video/video_service.go",
+          "language": "go",
+          "sizeLines": 152,
+          "fileCategory": "code"
+        },
+        {
+          "path": "internal/worker/popularityworker.go",
+          "language": "go",
+          "sizeLines": 87,
+          "fileCategory": "code"
+        }
+      ],
+      "batchImportData": {
+        "internal/middleware/ratelimit/ratelimit.go": [
+          "internal/middleware/jwt/jwt.go",
+          "internal/middleware/redis/cache.go",
+          "internal/middleware/redis/redis_test.go",
+          "internal/middleware/redis/redis.go",
+          "internal/middleware/redis/zset.go"
+        ],
+        "internal/middleware/redis/cache.go": [],
+        "internal/middleware/redis/redis.go": [
+          "internal/config/loadConfig.go"
+        ],
+        "internal/middleware/redis/redis_test.go": [],
+        "internal/middleware/redis/zset.go": [],
+        "internal/video/chunk_handler.go": [
+          "internal/middleware/jwt/jwt.go",
+          "internal/middleware/redis/cache.go",
+          "internal/middleware/redis/redis_test.go",
+          "internal/middleware/redis/redis.go",
+          "internal/middleware/redis/zset.go"
+        ],
+        "internal/video/chunk_handler_test.go": [
+          "internal/middleware/redis/cache.go",
+          "internal/middleware/redis/redis_test.go",
+          "internal/middleware/redis/redis.go",
+          "internal/middleware/redis/zset.go"
+        ],
+        "internal/video/popularity_cache.go": [
+          "internal/middleware/redis/cache.go",
+          "internal/middleware/redis/redis_test.go",
+          "internal/middleware/redis/redis.go",
+          "internal/middleware/redis/zset.go"
+        ],
+        "internal/video/video_service.go": [
+          "internal/middleware/redis/cache.go",
+          "internal/middleware/redis/redis_test.go",
+          "internal/middleware/redis/redis.go",
+          "internal/middleware/redis/zset.go"
+        ],
+        "internal/worker/popularityworker.go": [
+          "internal/middleware/rabbitmq/commentMQ.go",
+          "internal/middleware/rabbitmq/dlx.go",
+          "internal/middleware/rabbitmq/likeMQ.go",
+          "internal/middleware/rabbitmq/popularityMQ.go",
+          "internal/middleware/rabbitmq/rabbitMQ.go",
+          "internal/middleware/rabbitmq/socialMQ.go",
+          "internal/middleware/rabbitmq/timelineMQ.go",
+          "internal/middleware/redis/cache.go",
+          "internal/middleware/redis/redis_test.go",
+          "internal/middleware/redis/redis.go",
+          "internal/middleware/redis/zset.go",
+          "internal/video/chunk_entity.go",
+          "internal/video/chunk_handler_test.go",
+          "internal/video/chunk_handler.go",
+          "internal/video/comment_entity.go",
+          "internal/video/comment_handler.go",
+          "internal/video/comment_repo.go",
+          "internal/video/comment_service.go",
+          "internal/video/like_entity.go",
+          "internal/video/like_handler.go",
+          "internal/video/like_repo.go",
+          "internal/video/like_service.go",
+          "internal/video/popularity_cache.go",
+          "internal/video/tag_entity.go",
+          "internal/video/video_entity.go",
+          "internal/video/video_handler.go",
+          "internal/video/video_repo.go",
+          "internal/video/video_service.go"
+        ]
+      },
+      "neighborMap": {
+        "internal/middleware/ratelimit/ratelimit.go": [
+          {
+            "path": "internal/middleware/jwt/jwt.go",
+            "batchIndex": 1,
+            "symbols": [
+              "JWTAuth",
+              "SoftJWTAuth",
+              "GetAccountID",
+              "GetUsername"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          }
+        ],
+        "internal/middleware/redis/cache.go": [
+          {
+            "path": "cmd/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/account/service.go",
+            "batchIndex": 1,
+            "symbols": [
+              "AccountService",
+              "NewAccountService",
+              "CreateAccount",
+              "FindByID",
+              "FindByUsername",
+              "Login",
+              "Logout",
+              "Rename",
+              "UpdateAvatar",
+              "UpdateProfile",
+              "RefreshAccessToken",
+              "ChangePassword"
+            ]
+          },
+          {
+            "path": "internal/feed/service.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedService",
+              "NewFeedService",
+              "GetVideoByIDs",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCount",
+              "ListByTag",
+              "ListByPopularity"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/middleware/jwt/jwt.go",
+            "batchIndex": 1,
+            "symbols": [
+              "JWTAuth",
+              "SoftJWTAuth",
+              "GetAccountID",
+              "GetUsername"
+            ]
+          },
+          {
+            "path": "internal/social/service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialService",
+              "NewSocialService",
+              "Follow",
+              "Unfollow",
+              "GetAllFollowers",
+              "GetAllVloggers",
+              "CountFollowers",
+              "CountVloggers",
+              "IsFollowed"
+            ]
+          },
+          {
+            "path": "internal/video/comment_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentService",
+              "NewCommentService",
+              "Publish",
+              "Delete",
+              "GetAll"
+            ]
+          },
+          {
+            "path": "internal/video/like_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "LikeService",
+              "NewLikeService",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          }
+        ],
+        "internal/middleware/redis/redis.go": [
+          {
+            "path": "internal/config/loadConfig.go",
+            "batchIndex": 2,
+            "symbols": [
+              "Config",
+              "ServerConfig",
+              "DatabaseConfig",
+              "RedisConfig",
+              "RabbitMQConfig",
+              "ObservabilityConfig",
+              "PprofConfig",
+              "LoadLocalDev",
+              "Load",
+              "DefaultLocalConfig",
+              "ApplyEnvOverrides"
+            ]
+          },
+          {
+            "path": "cmd/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/account/service.go",
+            "batchIndex": 1,
+            "symbols": [
+              "AccountService",
+              "NewAccountService",
+              "CreateAccount",
+              "FindByID",
+              "FindByUsername",
+              "Login",
+              "Logout",
+              "Rename",
+              "UpdateAvatar",
+              "UpdateProfile",
+              "RefreshAccessToken",
+              "ChangePassword"
+            ]
+          },
+          {
+            "path": "internal/feed/service.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedService",
+              "NewFeedService",
+              "GetVideoByIDs",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCount",
+              "ListByTag",
+              "ListByPopularity"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/middleware/jwt/jwt.go",
+            "batchIndex": 1,
+            "symbols": [
+              "JWTAuth",
+              "SoftJWTAuth",
+              "GetAccountID",
+              "GetUsername"
+            ]
+          },
+          {
+            "path": "internal/social/service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialService",
+              "NewSocialService",
+              "Follow",
+              "Unfollow",
+              "GetAllFollowers",
+              "GetAllVloggers",
+              "CountFollowers",
+              "CountVloggers",
+              "IsFollowed"
+            ]
+          },
+          {
+            "path": "internal/video/comment_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentService",
+              "NewCommentService",
+              "Publish",
+              "Delete",
+              "GetAll"
+            ]
+          },
+          {
+            "path": "internal/video/like_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "LikeService",
+              "NewLikeService",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          }
+        ],
+        "internal/middleware/redis/redis_test.go": [
+          {
+            "path": "cmd/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/account/service.go",
+            "batchIndex": 1,
+            "symbols": [
+              "AccountService",
+              "NewAccountService",
+              "CreateAccount",
+              "FindByID",
+              "FindByUsername",
+              "Login",
+              "Logout",
+              "Rename",
+              "UpdateAvatar",
+              "UpdateProfile",
+              "RefreshAccessToken",
+              "ChangePassword"
+            ]
+          },
+          {
+            "path": "internal/feed/service.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedService",
+              "NewFeedService",
+              "GetVideoByIDs",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCount",
+              "ListByTag",
+              "ListByPopularity"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/middleware/jwt/jwt.go",
+            "batchIndex": 1,
+            "symbols": [
+              "JWTAuth",
+              "SoftJWTAuth",
+              "GetAccountID",
+              "GetUsername"
+            ]
+          },
+          {
+            "path": "internal/social/service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialService",
+              "NewSocialService",
+              "Follow",
+              "Unfollow",
+              "GetAllFollowers",
+              "GetAllVloggers",
+              "CountFollowers",
+              "CountVloggers",
+              "IsFollowed"
+            ]
+          },
+          {
+            "path": "internal/video/comment_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentService",
+              "NewCommentService",
+              "Publish",
+              "Delete",
+              "GetAll"
+            ]
+          },
+          {
+            "path": "internal/video/like_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "LikeService",
+              "NewLikeService",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          }
+        ],
+        "internal/middleware/redis/zset.go": [
+          {
+            "path": "cmd/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/account/service.go",
+            "batchIndex": 1,
+            "symbols": [
+              "AccountService",
+              "NewAccountService",
+              "CreateAccount",
+              "FindByID",
+              "FindByUsername",
+              "Login",
+              "Logout",
+              "Rename",
+              "UpdateAvatar",
+              "UpdateProfile",
+              "RefreshAccessToken",
+              "ChangePassword"
+            ]
+          },
+          {
+            "path": "internal/feed/service.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedService",
+              "NewFeedService",
+              "GetVideoByIDs",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCount",
+              "ListByTag",
+              "ListByPopularity"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/middleware/jwt/jwt.go",
+            "batchIndex": 1,
+            "symbols": [
+              "JWTAuth",
+              "SoftJWTAuth",
+              "GetAccountID",
+              "GetUsername"
+            ]
+          },
+          {
+            "path": "internal/social/service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialService",
+              "NewSocialService",
+              "Follow",
+              "Unfollow",
+              "GetAllFollowers",
+              "GetAllVloggers",
+              "CountFollowers",
+              "CountVloggers",
+              "IsFollowed"
+            ]
+          },
+          {
+            "path": "internal/video/comment_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentService",
+              "NewCommentService",
+              "Publish",
+              "Delete",
+              "GetAll"
+            ]
+          },
+          {
+            "path": "internal/video/like_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "LikeService",
+              "NewLikeService",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          }
+        ],
+        "internal/video/chunk_handler.go": [
+          {
+            "path": "internal/middleware/jwt/jwt.go",
+            "batchIndex": 1,
+            "symbols": [
+              "JWTAuth",
+              "SoftJWTAuth",
+              "GetAccountID",
+              "GetUsername"
+            ]
+          },
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/feed/repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedRepository",
+              "NewFeedRepository",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCountWithCursor",
+              "ListByTag",
+              "ListByPopularity",
+              "GetByIDs"
+            ]
+          },
+          {
+            "path": "internal/feed/service.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedService",
+              "NewFeedService",
+              "GetVideoByIDs",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCount",
+              "ListByTag",
+              "ListByPopularity"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/commentworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentWorker",
+              "NewCommentWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/likeworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeWorker",
+              "NewLikeWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          }
+        ],
+        "internal/video/chunk_handler_test.go": [
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/feed/repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedRepository",
+              "NewFeedRepository",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCountWithCursor",
+              "ListByTag",
+              "ListByPopularity",
+              "GetByIDs"
+            ]
+          },
+          {
+            "path": "internal/feed/service.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedService",
+              "NewFeedService",
+              "GetVideoByIDs",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCount",
+              "ListByTag",
+              "ListByPopularity"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/commentworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentWorker",
+              "NewCommentWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/likeworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeWorker",
+              "NewLikeWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          }
+        ],
+        "internal/video/popularity_cache.go": [
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/feed/repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedRepository",
+              "NewFeedRepository",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCountWithCursor",
+              "ListByTag",
+              "ListByPopularity",
+              "GetByIDs"
+            ]
+          },
+          {
+            "path": "internal/feed/service.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedService",
+              "NewFeedService",
+              "GetVideoByIDs",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCount",
+              "ListByTag",
+              "ListByPopularity"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/commentworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentWorker",
+              "NewCommentWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/likeworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeWorker",
+              "NewLikeWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          }
+        ],
+        "internal/video/video_service.go": [
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/feed/repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedRepository",
+              "NewFeedRepository",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCountWithCursor",
+              "ListByTag",
+              "ListByPopularity",
+              "GetByIDs"
+            ]
+          },
+          {
+            "path": "internal/feed/service.go",
+            "batchIndex": 3,
+            "symbols": [
+              "FeedService",
+              "NewFeedService",
+              "GetVideoByIDs",
+              "ListLatest",
+              "ListByFollowing",
+              "ListLikesCount",
+              "ListByTag",
+              "ListByPopularity"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          },
+          {
+            "path": "internal/worker/commentworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentWorker",
+              "NewCommentWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/likeworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeWorker",
+              "NewLikeWorker",
+              "Run"
+            ]
+          },
+          {
+            "path": "internal/worker/outboxworker.go",
+            "batchIndex": 3,
+            "symbols": [
+              "StartOutboxPoller",
+              "StartConsumer"
+            ]
+          }
+        ],
+        "internal/worker/popularityworker.go": [
+          {
+            "path": "internal/middleware/rabbitmq/commentMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentMQ",
+              "CommentEvent",
+              "NewCommentMQ",
+              "Publish",
+              "Delete"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/dlx.go",
+            "batchIndex": 2,
+            "symbols": [
+              "DeclareDLX"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/likeMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "LikeMQ",
+              "LikeEvent",
+              "NewLikeMQ",
+              "Like",
+              "Unlike"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/popularityMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "PopularityMQ",
+              "PopularityEvent",
+              "NewPopularityMQ",
+              "Update"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/rabbitMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "RabbitMQ",
+              "NewRabbitMQ",
+              "Close",
+              "NewChannel",
+              "DeclareTopic",
+              "PublishJSON"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/socialMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "SocialMQ",
+              "SocialEvent",
+              "NewSocialMQ",
+              "Follow",
+              "UnFollow"
+            ]
+          },
+          {
+            "path": "internal/middleware/rabbitmq/timelineMQ.go",
+            "batchIndex": 2,
+            "symbols": [
+              "TimelineMQ",
+              "TimelineEvent",
+              "NewTimelineMQ",
+              "PublishVideo"
+            ]
+          },
+          {
+            "path": "internal/video/chunk_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "ChunkUploadSession",
+              "UploadedChunks",
+              "IsComplete",
+              "InitChunkUploadRequest",
+              "UploadChunkRequest",
+              "ChunkStatusRequest",
+              "CompleteChunkUploadRequest"
+            ]
+          },
+          {
+            "path": "internal/video/comment_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "Comment",
+              "PublishCommentRequest",
+              "DeleteCommentRequest",
+              "GetAllCommentsRequest"
+            ]
+          },
+          {
+            "path": "internal/video/comment_handler.go",
+            "batchIndex": 1,
+            "symbols": [
+              "CommentHandler",
+              "NewCommentHandler",
+              "PublishComment",
+              "DeleteComment",
+              "GetAllComments"
+            ]
+          },
+          {
+            "path": "internal/video/comment_repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "CommentRepository",
+              "NewCommentRepository",
+              "CreateComment",
+              "DeleteComment",
+              "GetAllComments",
+              "IsExist",
+              "GetByID"
+            ]
+          },
+          {
+            "path": "internal/video/comment_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "CommentService",
+              "NewCommentService",
+              "Publish",
+              "Delete",
+              "GetAll"
+            ]
+          },
+          {
+            "path": "internal/video/like_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "Like",
+              "LikeRequest"
+            ]
+          },
+          {
+            "path": "internal/video/like_handler.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeHandler",
+              "NewLikeHandler",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListMyLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/video/like_repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "LikeRepository",
+              "NewLikeRepository",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListLikedVideos",
+              "BatchGetLiked",
+              "LikeIgnoreDuplicate",
+              "DeleteByVideoAndAccount"
+            ]
+          },
+          {
+            "path": "internal/video/like_service.go",
+            "batchIndex": 2,
+            "symbols": [
+              "LikeService",
+              "NewLikeService",
+              "Like",
+              "Unlike",
+              "IsLiked",
+              "ListLikedVideos"
+            ]
+          },
+          {
+            "path": "internal/video/tag_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "Tag",
+              "VideoTag",
+              "ExtractTags"
+            ]
+          },
+          {
+            "path": "internal/video/video_entity.go",
+            "batchIndex": 3,
+            "symbols": [
+              "Video",
+              "PublishVideoRequest",
+              "OutboxMsg",
+              "GetDetailRequest",
+              "ListByAuthorIDRequest"
+            ]
+          },
+          {
+            "path": "internal/video/video_handler.go",
+            "batchIndex": 3,
+            "symbols": [
+              "VideoHandler",
+              "NewVideoHandler",
+              "UploadVideo",
+              "UploadCover",
+              "PublishVideo",
+              "GetDetail",
+              "ListByAuthorID"
+            ]
+          },
+          {
+            "path": "internal/video/video_repo.go",
+            "batchIndex": 3,
+            "symbols": [
+              "VideoRepository",
+              "NewVideoRepository",
+              "CreateVideo",
+              "GetByID",
+              "ListByAuthorID",
+              "DeleteVideo",
+              "IsExist",
+              "ChangePopularity",
+              "ChangeLikesCount",
+              "CountByAuthor",
+              "TotalLikesByAuthor"
+            ]
+          },
+          {
+            "path": "cmd/worker/main.go",
+            "batchIndex": 2,
+            "symbols": []
+          },
+          {
+            "path": "internal/db/db.go",
+            "batchIndex": 1,
+            "symbols": [
+              "NewDB",
+              "AutoMigrate",
+              "CloseDB"
+            ]
+          },
+          {
+            "path": "internal/http/router.go",
+            "batchIndex": 1,
+            "symbols": [
+              "SetupRouter"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "batchIndex": 5,
+      "files": [
+        {
+          "path": ".dockerignore",
+          "language": "unknown",
+          "sizeLines": 17,
+          "fileCategory": "infra"
+        },
+        {
+          "path": "docker-compose.yml",
+          "language": "yaml",
+          "sizeLines": 102,
+          "fileCategory": "infra"
+        },
+        {
+          "path": "Dockerfile",
+          "language": "dockerfile",
+          "sizeLines": 58,
+          "fileCategory": "infra"
+        }
+      ],
+      "batchImportData": {
+        ".dockerignore": [],
+        "docker-compose.yml": [],
+        "Dockerfile": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 6,
+      "files": [
+        {
+          "path": "configs/config.compose-local.yaml",
+          "language": "yaml",
+          "sizeLines": 26,
+          "fileCategory": "config"
+        },
+        {
+          "path": "configs/config.docker.yaml",
+          "language": "yaml",
+          "sizeLines": 26,
+          "fileCategory": "config"
+        },
+        {
+          "path": "configs/config.yaml",
+          "language": "yaml",
+          "sizeLines": 26,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "configs/config.compose-local.yaml": [],
+        "configs/config.docker.yaml": [],
+        "configs/config.yaml": []
+      },
+      "neighborMap": {}
+    },
+    {
+      "batchIndex": 7,
+      "files": [
+        {
+          "path": "go.mod",
+          "language": "mod",
+          "sizeLines": 56,
+          "fileCategory": "config"
+        },
+        {
+          "path": "go.sum",
+          "language": "sum",
+          "sizeLines": 137,
+          "fileCategory": "config"
+        }
+      ],
+      "batchImportData": {
+        "go.mod": [],
+        "go.sum": []
+      },
+      "neighborMap": {}
+    }
+  ]
+}

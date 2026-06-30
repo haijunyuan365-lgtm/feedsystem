@@ -1,0 +1,23 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 2,
+  "filesSkipped": [],
+  "results": [
+    {
+      "path": "go.mod",
+      "language": "mod",
+      "fileCategory": "config",
+      "totalLines": 56,
+      "nonEmptyLines": 53,
+      "metrics": {}
+    },
+    {
+      "path": "go.sum",
+      "language": "sum",
+      "fileCategory": "config",
+      "totalLines": 137,
+      "nonEmptyLines": 137,
+      "metrics": {}
+    }
+  ]
+}

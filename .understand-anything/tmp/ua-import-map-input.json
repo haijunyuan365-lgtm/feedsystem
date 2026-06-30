@@ -1,0 +1,413 @@
+{
+    "projectRoot":  "D:\\Projects\\GolandProjects\\feedsystem",
+    "files":  [
+                  {
+                      "path":  ".dockerignore",
+                      "language":  "unknown",
+                      "sizeLines":  17,
+                      "fileCategory":  "infra"
+                  },
+                  {
+                      "path":  "cmd/main.go",
+                      "language":  "go",
+                      "sizeLines":  97,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "cmd/worker/main.go",
+                      "language":  "go",
+                      "sizeLines":  198,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "configs/config.compose-local.yaml",
+                      "language":  "yaml",
+                      "sizeLines":  26,
+                      "fileCategory":  "config"
+                  },
+                  {
+                      "path":  "configs/config.docker.yaml",
+                      "language":  "yaml",
+                      "sizeLines":  26,
+                      "fileCategory":  "config"
+                  },
+                  {
+                      "path":  "configs/config.yaml",
+                      "language":  "yaml",
+                      "sizeLines":  26,
+                      "fileCategory":  "config"
+                  },
+                  {
+                      "path":  "docker-compose.yml",
+                      "language":  "yaml",
+                      "sizeLines":  102,
+                      "fileCategory":  "infra"
+                  },
+                  {
+                      "path":  "Dockerfile",
+                      "language":  "dockerfile",
+                      "sizeLines":  58,
+                      "fileCategory":  "infra"
+                  },
+                  {
+                      "path":  "go.mod",
+                      "language":  "mod",
+                      "sizeLines":  56,
+                      "fileCategory":  "config"
+                  },
+                  {
+                      "path":  "go.sum",
+                      "language":  "sum",
+                      "sizeLines":  137,
+                      "fileCategory":  "config"
+                  },
+                  {
+                      "path":  "internal/account/entity.go",
+                      "language":  "go",
+                      "sizeLines":  80,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/account/handler.go",
+                      "language":  "go",
+                      "sizeLines":  329,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/account/repo.go",
+                      "language":  "go",
+                      "sizeLines":  95,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/account/service.go",
+                      "language":  "go",
+                      "sizeLines":  304,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/apierror/apierror.go",
+                      "language":  "go",
+                      "sizeLines":  30,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/auth/jwt.go",
+                      "language":  "go",
+                      "sizeLines":  82,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/config/loadConfig.go",
+                      "language":  "go",
+                      "sizeLines":  183,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/db/db.go",
+                      "language":  "go",
+                      "sizeLines":  71,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/feed/entity.go",
+                      "language":  "go",
+                      "sizeLines":  99,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/feed/handler.go",
+                      "language":  "go",
+                      "sizeLines":  236,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/feed/repo.go",
+                      "language":  "go",
+                      "sizeLines":  134,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/feed/service.go",
+                      "language":  "go",
+                      "sizeLines":  656,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/http/router.go",
+                      "language":  "go",
+                      "sizeLines":  299,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/message/entity.go",
+                      "language":  "go",
+                      "sizeLines":  26,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/message/handler.go",
+                      "language":  "go",
+                      "sizeLines":  94,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/middleware/jwt/jwt.go",
+                      "language":  "go",
+                      "sizeLines":  138,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/middleware/rabbitmq/commentMQ.go",
+                      "language":  "go",
+                      "sizeLines":  79,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/middleware/rabbitmq/dlx.go",
+                      "language":  "go",
+                      "sizeLines":  27,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/middleware/rabbitmq/likeMQ.go",
+                      "language":  "go",
+                      "sizeLines":  74,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/middleware/rabbitmq/popularityMQ.go",
+                      "language":  "go",
+                      "sizeLines":  63,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/middleware/rabbitmq/rabbitMQ.go",
+                      "language":  "go",
+                      "sizeLines":  105,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/middleware/rabbitmq/socialMQ.go",
+                      "language":  "go",
+                      "sizeLines":  74,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/middleware/rabbitmq/timelineMQ.go",
+                      "language":  "go",
+                      "sizeLines":  62,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/middleware/ratelimit/ratelimit.go",
+                      "language":  "go",
+                      "sizeLines":  78,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/middleware/redis/cache.go",
+                      "language":  "go",
+                      "sizeLines":  46,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/middleware/redis/redis_test.go",
+                      "language":  "go",
+                      "sizeLines":  56,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/middleware/redis/redis.go",
+                      "language":  "go",
+                      "sizeLines":  118,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/middleware/redis/zset.go",
+                      "language":  "go",
+                      "sizeLines":  84,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/observability/pprof_test.go",
+                      "language":  "go",
+                      "sizeLines":  46,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/observability/pprof.go",
+                      "language":  "go",
+                      "sizeLines":  84,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/social/entity.go",
+                      "language":  "go",
+                      "sizeLines":  52,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/social/handler.go",
+                      "language":  "go",
+                      "sizeLines":  166,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/social/repo.go",
+                      "language":  "go",
+                      "sizeLines":  115,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/social/service.go",
+                      "language":  "go",
+                      "sizeLines":  147,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/video/chunk_entity.go",
+                      "language":  "go",
+                      "sizeLines":  56,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/video/chunk_handler_test.go",
+                      "language":  "go",
+                      "sizeLines":  427,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/video/chunk_handler.go",
+                      "language":  "go",
+                      "sizeLines":  375,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/video/comment_entity.go",
+                      "language":  "go",
+                      "sizeLines":  26,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/video/comment_handler.go",
+                      "language":  "go",
+                      "sizeLines":  107,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/video/comment_repo.go",
+                      "language":  "go",
+                      "sizeLines":  57,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/video/comment_service.go",
+                      "language":  "go",
+                      "sizeLines":  172,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/video/like_entity.go",
+                      "language":  "go",
+                      "sizeLines":  17,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/video/like_handler.go",
+                      "language":  "go",
+                      "sizeLines":  115,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/video/like_repo.go",
+                      "language":  "go",
+                      "sizeLines":  107,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/video/like_service.go",
+                      "language":  "go",
+                      "sizeLines":  241,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/video/popularity_cache.go",
+                      "language":  "go",
+                      "sizeLines":  29,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/video/tag_entity.go",
+                      "language":  "go",
+                      "sizeLines":  45,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/video/video_entity.go",
+                      "language":  "go",
+                      "sizeLines":  43,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/video/video_handler.go",
+                      "language":  "go",
+                      "sizeLines":  233,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/video/video_repo.go",
+                      "language":  "go",
+                      "sizeLines":  91,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/video/video_service.go",
+                      "language":  "go",
+                      "sizeLines":  152,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/worker/commentworker.go",
+                      "language":  "go",
+                      "sizeLines":  133,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/worker/likeworker.go",
+                      "language":  "go",
+                      "sizeLines":  144,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/worker/notificationworker.go",
+                      "language":  "go",
+                      "sizeLines":  203,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/worker/outboxworker.go",
+                      "language":  "go",
+                      "sizeLines":  114,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/worker/popularityworker.go",
+                      "language":  "go",
+                      "sizeLines":  87,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/worker/socialworker.go",
+                      "language":  "go",
+                      "sizeLines":  109,
+                      "fileCategory":  "code"
+                  },
+                  {
+                      "path":  "internal/worker/ssehub.go",
+                      "language":  "go",
+                      "sizeLines":  261,
+                      "fileCategory":  "code"
+                  }
+              ]
+}
